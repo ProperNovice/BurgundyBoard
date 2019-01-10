@@ -6,6 +6,7 @@ public class StartGame extends GameState {
 	public void handleGameStateChange() {
 		
 		System.out.println("a");
+		System.out.println("b");
 
 	}
 
