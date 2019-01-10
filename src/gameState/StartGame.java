@@ -8,6 +8,7 @@ public class StartGame extends GameState {
 	public void handleGameStateChange() {
 		
 		ImageView ship = new ImageView("ship.png");
+		
 
 	}
 
