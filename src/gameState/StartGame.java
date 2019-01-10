@@ -1,13 +1,13 @@
 package gameState;
 
+import utils.ImageView;
+
 public class StartGame extends GameState {
 
 	@Override
 	public void handleGameStateChange() {
 		
-		System.out.println("a");
-		System.out.println("b");
-		System.out.println("c");
+		ImageView ship = new ImageView("ship.png");
 
 	}
 
