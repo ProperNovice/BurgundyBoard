@@ -112,7 +112,7 @@ public class ImageView implements Node {
 		PlatformFX.runLater(() -> this.imageView.setRotate(value));
 	}
 
-	public void setEventHandler(EventHandlerAble eventHandlerAble) {
+	private void setEventHandler(EventHandlerAble eventHandlerAble) {
 
 		PlatformFX.runLater(() -> {
 
