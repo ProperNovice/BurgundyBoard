@@ -21,6 +21,14 @@ public class ImageView implements Node {
 
 	}
 
+	public ImageView(String path, EventHandlerAble eventHandlerAble) {
+
+		this.imageTrue = new Image(path);
+		createAndAddNode();
+		this.setEventHandler(eventHandlerAble);
+
+	}
+
 	public ImageView(Image image) {
 
 		this.imageTrue = image;
@@ -30,8 +38,7 @@ public class ImageView implements Node {
 
 	private void createAndAddNode() {
 
-		this.imageView = new javafx.scene.image.ImageView(
-				this.imageTrue.getImage());
+		this.imageView = new javafx.scene.image.ImageView(this.imageTrue.getImage());
 
 		PanelGame panelGame = Instances.getPanelGameInstance();
 		PlatformFX.runLater(() -> panelGame.addNode(this.imageView));
@@ -47,8 +54,7 @@ public class ImageView implements Node {
 		else if (!value)
 			this.imageActive = this.imageFalse;
 
-		PlatformFX.runLater(() -> this.imageView.setImage(imageActive
-				.getImage()));
+		PlatformFX.runLater(() -> this.imageView.setImage(imageActive.getImage()));
 
 	}
 
@@ -80,13 +86,11 @@ public class ImageView implements Node {
 		PlatformFX.runLater(() -> this.imageView.relocate(x, y));
 	}
 
-	public final void setViewport(double topLeftX, double topLeftY,
-			double width, double height) {
+	public final void setViewport(double topLeftX, double topLeftY, double width, double height) {
 
 		PlatformFX.runLater(() -> {
 
-			Rectangle2D rectangle2d = new Rectangle2D(topLeftX, topLeftY,
-					width, height);
+			Rectangle2D rectangle2d = new Rectangle2D(topLeftX, topLeftY, width, height);
 			this.imageView.setViewport(rectangle2d);
 
 		});
