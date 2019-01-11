@@ -39,12 +39,10 @@ public class EventHandler implements javafx.event.EventHandler<MouseEvent> {
 		if (event.getEventType().equals(MouseEvent.MOUSE_PRESSED)) {
 
 			if (event.getButton().equals(MouseButton.PRIMARY))
-				Executor.runLater(() -> this.eventHandlerAble
-						.handleMouseButtonPressedPrimary());
+				Executor.runLater(() -> this.eventHandlerAble.handleMouseButtonPressedPrimary());
 
 			else if (event.getButton().equals(MouseButton.SECONDARY))
-				Executor.runLater(() -> this.eventHandlerAble
-						.handleMouseButtonPressedSecondary());
+				Executor.runLater(() -> this.eventHandlerAble.handleMouseButtonPressedSecondary());
 
 		} else if (event.getEventType().equals(MouseEvent.MOUSE_ENTERED))
 			Executor.runLater(() -> this.eventHandlerAble.handleMouseEntered());
@@ -54,12 +52,8 @@ public class EventHandler implements javafx.event.EventHandler<MouseEvent> {
 
 	}
 
-	public double getEventX() {
-		return this.mouseEvent.getX();
-	}
-
-	public double getEventY() {
-		return this.mouseEvent.getY();
+	public MouseEvent getMouseEvent() {
+		return this.mouseEvent;
 	}
 
 }

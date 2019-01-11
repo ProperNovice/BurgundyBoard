@@ -13,6 +13,7 @@ public class ImageView implements Node {
 	private Image imageFalse = new Image("misc/imageVisibilityFalse.png");
 	private Image imageActive = null;
 	private double scale = 1;
+	private EventHandler eventHandler = null;
 
 	public ImageView(String path) {
 
@@ -116,7 +117,7 @@ public class ImageView implements Node {
 
 		PlatformFX.runLater(() -> {
 
-			EventHandler eventHandler = new EventHandler(eventHandlerAble);
+			eventHandler = new EventHandler(eventHandlerAble);
 
 			this.imageView.setOnMouseEntered(eventHandler);
 			this.imageView.setOnMouseExited(eventHandler);
@@ -189,6 +190,14 @@ public class ImageView implements Node {
 
 	public double getScale() {
 		return this.scale;
+	}
+
+	public double getEventX() {
+		return this.eventHandler.getMouseEvent().getX() * this.scale;
+	}
+
+	public double getEventY() {
+		return this.eventHandler.getMouseEvent().getY() * this.scale;
 	}
 
 }
