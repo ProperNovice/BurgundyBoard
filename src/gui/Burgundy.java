@@ -15,7 +15,7 @@ import utils.Logger;
 import utils.ShutDown;
 import enums.Dimensions;
 
-public class FX extends Application {
+public class Burgundy extends Application {
 
 	private Panel panel = null;
 
