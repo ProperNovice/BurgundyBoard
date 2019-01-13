@@ -1,6 +1,6 @@
 package gameState;
 
-import enums.AnimalTypeEnum;
+import enums.BuildingTypeEnum;
 import tiles.*;
 
 public class StartGame extends GameState {
@@ -8,7 +8,7 @@ public class StartGame extends GameState {
 	@Override
 	public void handleGameStateChange() {
 
-		Tile tile = new AnimalBlack(AnimalTypeEnum.HEN, 4);
+		Tile tile = new BuildingBlack(BuildingTypeEnum.WATCHTOWER);
 		tile.createImageView();
 
 	}
