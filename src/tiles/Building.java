@@ -1,6 +1,7 @@
 package tiles;
 
 import enums.BuildingTypeEnum;
+import enums.TileTypeEnum;
 
 public class Building extends Tile {
 
@@ -9,6 +10,7 @@ public class Building extends Tile {
 	public Building(BuildingTypeEnum buildingTypeEnum) {
 
 		this.buildingTypeEnum = buildingTypeEnum;
+		super.tileTypeEnum = TileTypeEnum.BUILDING;
 
 		super.path += "buildings/";
 		super.path += this.buildingTypeEnum.getText();

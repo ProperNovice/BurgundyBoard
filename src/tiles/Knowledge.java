@@ -1,5 +1,7 @@
 package tiles;
 
+import enums.TileTypeEnum;
+
 public class Knowledge extends Tile {
 
 	private int tileNumber = -1;
@@ -7,6 +9,7 @@ public class Knowledge extends Tile {
 	public Knowledge(int tileNumber) {
 
 		this.tileNumber = tileNumber;
+		super.tileTypeEnum = TileTypeEnum.KNOWLEDGE;
 
 		super.path += "knowledge/";
 		super.path += this.tileNumber;

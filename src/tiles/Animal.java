@@ -1,6 +1,7 @@
 package tiles;
 
 import enums.AnimalTypeEnum;
+import enums.TileTypeEnum;
 
 public class Animal extends Tile {
 
@@ -11,6 +12,7 @@ public class Animal extends Tile {
 
 		this.animalTypeEnum = animalTypeEnum;
 		this.numberOfAnimals = numberOfAnimals;
+		super.tileTypeEnum = TileTypeEnum.ANIMAL;
 
 		super.path += "animals/";
 		super.path += this.animalTypeEnum.getText();
