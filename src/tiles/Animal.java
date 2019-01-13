@@ -1,14 +1,25 @@
 package tiles;
 
-public abstract class Animal extends Tile {
+import enums.AnimalTypeEnum;
 
-	protected int numberOfAnimals = -1;
+public class Animal extends Tile {
 
-	public Animal(int numberOfAnimals) {
+	private AnimalTypeEnum animalTypeEnum = null;
+	private int numberOfAnimals = -1;
 
+	public Animal(AnimalTypeEnum animalTypeEnum, int numberOfAnimals) {
+
+		this.animalTypeEnum = animalTypeEnum;
 		this.numberOfAnimals = numberOfAnimals;
-		super.path += "animals/";
 
+		super.path += "animals/";
+		super.path += this.animalTypeEnum.getText();
+		super.path += this.numberOfAnimals;
+
+	}
+
+	public AnimalTypeEnum getAnimalTypeEnum() {
+		return this.animalTypeEnum;
 	}
 
 	public int getNumberOfAnimals() {
