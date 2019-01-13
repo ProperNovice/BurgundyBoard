@@ -1,14 +1,13 @@
 package gameState;
 
-import tiles.Sheep;
-import tiles.Tile;
+import tiles.*;
 
 public class StartGame extends GameState {
 
 	@Override
 	public void handleGameStateChange() {
 
-		Tile tile = new Sheep(4);
+		Tile tile = new SheepBlack(3);
 		tile.createImageView();
 
 	}
