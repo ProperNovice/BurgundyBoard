@@ -1,5 +1,6 @@
 package gameState;
 
+import enums.Dimensions;
 import utils.EventHandler.EventHandlerAble;
 import utils.ImageView;
 import utils.Logger;
@@ -10,11 +11,14 @@ public class StartGame extends GameState implements EventHandlerAble {
 
 	@Override
 	public void handleGameStateChange() {
+		
+		double scale = (Dimensions.FRAME.y() - 2 * Dimensions.GAP_BETWEEN_BORDERS.y()) / 855;
+		Logger.log(scale);
 
 		log();
-//		a.relocate(100, 100);
-//		a.setScale(0.8);
-		a.setHeight(500);
+//		a.setHeight(Dimensions.FRAME.y() - 2 * Dimensions.GAP_BETWEEN_BORDERS.y());
+		a.setScale(scale);
+		a.relocate(Dimensions.GAP_BETWEEN_BORDERS.x(), Dimensions.GAP_BETWEEN_BORDERS.y());
 		log();
 
 	}
