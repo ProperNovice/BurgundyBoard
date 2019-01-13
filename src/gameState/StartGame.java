@@ -1,7 +1,6 @@
 package gameState;
 
-import tiles.Ship;
-import tiles.ShipBlack;
+import tiles.Sheep;
 import tiles.Tile;
 
 public class StartGame extends GameState {
@@ -9,12 +8,8 @@ public class StartGame extends GameState {
 	@Override
 	public void handleGameStateChange() {
 
-		Tile tileA = new Ship();
-		tileA.createImageView();
-
-		System.out.println(tileA instanceof Tile);
-		System.out.println(tileA instanceof Ship);
-		System.out.println(tileA instanceof ShipBlack);
+		Tile tile = new Sheep(4);
+		tile.createImageView();
 
 	}
 
