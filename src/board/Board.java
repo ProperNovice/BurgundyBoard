@@ -16,8 +16,7 @@ public class Board implements EventHandlerAble {
 
 	private void createBoard() {
 
-//		this.imageView = new ImageView("boards/aT.png", this);
-		this.imageView = new ImageView("boards/aTnew.png", this);
+		this.imageView = new ImageView("boards/aTrans.png", this);
 		this.imageView.relocate(Dimensions.GAP_BETWEEN_BORDERS.x(), Dimensions.GAP_BETWEEN_BORDERS.y());
 
 	}
