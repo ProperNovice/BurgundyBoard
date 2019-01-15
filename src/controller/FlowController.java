@@ -8,6 +8,7 @@ public class FlowController {
 
 	private ArrayList<GameStateEnum> gameStateNormalTurn = new ArrayList<>();
 	private ArrayList<GameStateEnum> gameStateResolving = new ArrayList<>();
+	private Controller controller = Instances.getControllerInstance();
 
 	public FlowController() {
 
@@ -20,10 +21,8 @@ public class FlowController {
 		if (this.gameStateResolving.isEmpty())
 			this.gameStateResolving.addAll(this.gameStateNormalTurn);
 
-		Controller controller = Instances.getControllerInstance();
-
 		GameStateEnum gameStateEnum = this.gameStateResolving.removeFirst();
-		controller.gameStateController().setGameState(gameStateEnum);
+		this.controller.gameStateController().setGameState(gameStateEnum);
 
 	}
 

@@ -7,6 +7,7 @@ public class Controller {
 	private GameStateController gameStateController = null;
 	private TextController textController = null;
 	private FlowController flowController = null;
+	private TileController tileController = null;
 
 	public Controller() {
 		createInstances();
@@ -19,6 +20,7 @@ public class Controller {
 		this.gameStateController = new GameStateController();
 		this.textController = new TextController();
 		this.flowController = new FlowController();
+		this.tileController = new TileController();
 
 	}
 
