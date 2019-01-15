@@ -1,5 +1,6 @@
 package gui;
 
+import enums.Dimensions;
 import instances.Instances;
 import javafx.application.Application;
 import javafx.event.EventHandler;
@@ -13,7 +14,6 @@ import utils.Animation;
 import utils.Executor;
 import utils.Logger;
 import utils.ShutDown;
-import enums.Dimensions;
 
 public class Burgundy extends Application {
 
@@ -46,8 +46,8 @@ public class Burgundy extends Application {
 					if (Animation.isAnimating())
 						return;
 
-					Instances.getControllerInstance().gameStateController()
-							.getCurrentGameState().handleKeyPressed(keyCode);
+					Instances.getControllerInstance().gameStateController().getCurrentGameState()
+							.handleKeyPressed(keyCode);
 
 				});
 
@@ -61,10 +61,8 @@ public class Burgundy extends Application {
 
 		primaryStage.setTitle("The Castles of Burgundy");
 
-		primaryStage
-				.setX(((Screen.getPrimary().getBounds().getWidth() - width) / 2) - 130);
-		primaryStage
-				.setY((Screen.getPrimary().getBounds().getHeight() - height) / 2);
+		primaryStage.setX(((Screen.getPrimary().getBounds().getWidth() - width) / 2) - 130);
+		primaryStage.setY((Screen.getPrimary().getBounds().getHeight() - height) / 2);
 
 		primaryStage.setOnCloseRequest(new EventHandler<WindowEvent>() {
 
