@@ -6,6 +6,9 @@ public enum Dimensions {
 	FRAME(1920, 1080),
 	INSETS(7, 29),
 	GAP_BETWEEN_BORDERS(20, 20),
+	BOARD(1121, 781),
+	TILE(70, 80),
+	DICE_AREA_IN_SPACE(46, 46),
 
 	;
 

@@ -1,9 +1,9 @@
 package gameState;
 
-import instances.Instances;
-import javafx.scene.input.KeyCode;
 import controller.Controller;
 import enums.TextEnum;
+import instances.Instances;
+import javafx.scene.input.KeyCode;
 
 public abstract class GameState {
 

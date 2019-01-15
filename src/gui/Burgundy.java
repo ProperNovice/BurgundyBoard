@@ -58,7 +58,7 @@ public class Burgundy extends Application {
 		primaryStage.setWidth(width);
 		primaryStage.setHeight(height);
 		primaryStage.setResizable(false);
-		primaryStage.setFullScreen(true);
+//		primaryStage.setFullScreen(true);
 
 		primaryStage.setTitle("The Castles of Burgundy");
 
