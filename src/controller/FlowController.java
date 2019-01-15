@@ -1,14 +1,14 @@
 package controller;
 
+import enums.GameStateEnum;
 import instances.Instances;
 import utils.ArrayList;
-import enums.GameStateEnum;
 
 public class FlowController {
 
+	private Controller controller = Instances.getControllerInstance();
 	private ArrayList<GameStateEnum> gameStateNormalTurn = new ArrayList<>();
 	private ArrayList<GameStateEnum> gameStateResolving = new ArrayList<>();
-	private Controller controller = Instances.getControllerInstance();
 
 	public FlowController() {
 

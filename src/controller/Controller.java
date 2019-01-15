@@ -36,4 +36,8 @@ public class Controller {
 		return this.flowController;
 	}
 
+	public TileController tileController() {
+		return this.tileController;
+	}
+
 }
