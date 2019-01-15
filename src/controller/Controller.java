@@ -1,5 +1,6 @@
 package controller;
 
+import board.Board;
 import instances.Instances;
 
 public class Controller {
@@ -8,6 +9,7 @@ public class Controller {
 	private TextController textController = null;
 	private FlowController flowController = null;
 	private TileController tileController = null;
+	private Board board = null;
 
 	public Controller() {
 		createInstances();
@@ -21,6 +23,7 @@ public class Controller {
 		this.textController = new TextController();
 		this.flowController = new FlowController();
 		this.tileController = new TileController();
+		this.board = new Board();
 
 	}
 
@@ -38,6 +41,10 @@ public class Controller {
 
 	public TileController tileController() {
 		return this.tileController;
+	}
+
+	public Board board() {
+		return this.board;
 	}
 
 }

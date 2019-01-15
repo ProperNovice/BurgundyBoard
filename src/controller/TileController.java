@@ -137,4 +137,26 @@ public class TileController {
 
 	}
 
+	public ArrayList<Tile> getRandomTileNormal(TileTypeEnum tileTypeEnum, int amount) {
+
+		ArrayList<Tile> tiles = new ArrayList<>();
+
+		for (int counter = 1; counter <= amount; counter++)
+			tiles.addLast(this.tilesNormal.get(tileTypeEnum).removeRandom());
+
+		return tiles;
+
+	}
+
+	public ArrayList<Tile> getRandomTileBlack(int amount) {
+
+		ArrayList<Tile> tiles = new ArrayList<>();
+
+		for (int counter = 1; counter <= amount; counter++)
+			tiles.addLast(this.tilesBlack.removeRandom());
+
+		return tiles;
+
+	}
+
 }
