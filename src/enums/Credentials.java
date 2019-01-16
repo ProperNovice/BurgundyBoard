@@ -3,16 +3,17 @@ package enums;
 public enum Credentials {
 
 	TEXT_HEIGHT(50),
+	BOARD_SCALE(1),
 
 	;
 
-	private int credential;
+	private double credential;
 
-	private Credentials(int credential) {
+	private Credentials(double credential) {
 		this.credential = credential;
 	}
 
-	public int credential() {
+	public double credential() {
 		return this.credential;
 	}
 
