@@ -11,8 +11,8 @@ public class Knowledge extends Tile {
 		this.tileNumber = tileNumber;
 		super.tileTypeEnum = TileTypeEnum.KNOWLEDGE;
 
-		super.path += "knowledge/";
-		super.path += this.tileNumber;
+		super.filePath += "knowledge/";
+		super.filePath += this.tileNumber;
 
 	}
 

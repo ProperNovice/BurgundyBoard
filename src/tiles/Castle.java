@@ -7,7 +7,7 @@ public class Castle extends Tile {
 	public Castle() {
 		
 		super.tileTypeEnum = TileTypeEnum.CASTLE;
-		super.path += "castle";
+		super.filePath += "castle";
 		
 	}
 

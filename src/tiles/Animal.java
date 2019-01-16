@@ -14,9 +14,9 @@ public class Animal extends Tile {
 		this.numberOfAnimals = numberOfAnimals;
 		super.tileTypeEnum = TileTypeEnum.ANIMAL;
 
-		super.path += "animals/";
-		super.path += this.animalTypeEnum.getText();
-		super.path += this.numberOfAnimals;
+		super.filePath += "animals/";
+		super.filePath += this.animalTypeEnum.getText();
+		super.filePath += this.numberOfAnimals;
 
 	}
 

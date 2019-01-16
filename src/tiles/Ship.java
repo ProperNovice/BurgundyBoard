@@ -7,7 +7,7 @@ public class Ship extends Tile {
 	public Ship() {
 
 		super.tileTypeEnum = TileTypeEnum.SHIP;
-		super.path += "ship";
+		super.filePath += "ship";
 
 	}
 

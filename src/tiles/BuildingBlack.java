@@ -7,7 +7,7 @@ public class BuildingBlack extends Building {
 	public BuildingBlack(BuildingTypeEnum buildingTypeEnum) {
 
 		super(buildingTypeEnum);
-		super.path += "B";
+		super.filePath += "B";
 
 	}
 

@@ -12,8 +12,8 @@ public class Building extends Tile {
 		this.buildingTypeEnum = buildingTypeEnum;
 		super.tileTypeEnum = TileTypeEnum.BUILDING;
 
-		super.path += "buildings/";
-		super.path += this.buildingTypeEnum.getText();
+		super.filePath += "buildings/";
+		super.filePath += this.buildingTypeEnum.getText();
 
 	}
 
