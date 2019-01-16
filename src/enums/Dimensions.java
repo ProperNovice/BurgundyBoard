@@ -9,6 +9,7 @@ public enum Dimensions {
 	BOARD(1121, 781),
 	TILE(70, 80),
 	DICE_AREA_IN_SPACE(46, 46),
+	GOODS(60, 60),
 
 	;
 

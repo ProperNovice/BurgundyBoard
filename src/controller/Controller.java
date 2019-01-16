@@ -10,6 +10,7 @@ public class Controller {
 	private FlowController flowController = null;
 	private Board board = null;
 	private TileController tileController = null;
+	private GoodsController goodsController = null;
 
 	public Controller() {
 		createInstances();
@@ -24,6 +25,7 @@ public class Controller {
 		this.flowController = new FlowController();
 		this.board = new Board();
 		this.tileController = new TileController();
+		this.goodsController = new GoodsController();
 
 	}
 
@@ -45,6 +47,10 @@ public class Controller {
 
 	public TileController tileController() {
 		return this.tileController;
+	}
+
+	public GoodsController goodsController() {
+		return this.goodsController;
 	}
 
 }
