@@ -25,6 +25,8 @@ public class Board implements EventHandlerAble {
 		this.imageView = new ImageView("boards/aTrans.png", this);
 		this.imageView.setScale(Credentials.BOARD_SCALE.credential());
 		this.imageView.relocate(Dimensions.GAP_BETWEEN_BORDERS.x(), Dimensions.GAP_BETWEEN_BORDERS.y());
+		
+		System.out.println(this.imageView.getHeight());
 
 	}
 
