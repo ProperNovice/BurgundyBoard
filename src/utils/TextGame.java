@@ -1,9 +1,8 @@
 package utils;
 
+import enums.TextEnum;
 import instances.Instances;
 import utils.EventHandler.EventHandlerAble;
-import enums.Credentiaals;
-import enums.TextEnum;
 
 public class TextGame implements EventHandlerAble {
 
@@ -34,9 +33,9 @@ public class TextGame implements EventHandlerAble {
 		}
 
 		if (this.textEnum.string().contains("\n"))
-			this.text.setHeight(2 * Credentiaals.TEXT_HEIGHT.credential());
+			this.text.setHeight(2 * Credentials.textHeight);
 		else
-			this.text.setHeight(Credentiaals.TEXT_HEIGHT.credential());
+			this.text.setHeight(Credentials.textHeight);
 
 		this.text.setVisible(false);
 
@@ -47,8 +46,8 @@ public class TextGame implements EventHandlerAble {
 
 		Instances.getControllerInstance().textController().concealText();
 
-		Instances.getControllerInstance().gameStateController()
-				.getCurrentGameState().handleTextOptionPressed(this.textEnum);
+		Instances.getControllerInstance().gameStateController().getCurrentGameState()
+				.handleTextOptionPressed(this.textEnum);
 
 	}
 

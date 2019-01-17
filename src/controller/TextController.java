@@ -1,6 +1,5 @@
 package controller;
 
-import enums.Credentiaals;
 import enums.TextEnum;
 import utils.ArrayList;
 import utils.Credentials;
@@ -48,10 +47,10 @@ public class TextController {
 			textGame.setVisible(true);
 			textGame.relocate(this.coordinatesX, this.coordinatesY);
 
-			this.coordinatesY += Credentiaals.TEXT_HEIGHT.credential();
+			this.coordinatesY += Credentials.textHeight;
 
 			if (textGame.getTextEnum().string().contains("\n"))
-				this.coordinatesY += Credentiaals.TEXT_HEIGHT.credential();
+				this.coordinatesY += Credentials.textHeight;
 
 		}
 

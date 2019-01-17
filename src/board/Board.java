@@ -1,6 +1,5 @@
 package board;
 
-import enums.Credentiaals;
 import enums.TileTypeEnum;
 import utils.ArrayList;
 import utils.Credentials;
@@ -23,7 +22,7 @@ public class Board implements EventHandlerAble {
 	private void createBoard() {
 
 		this.imageView = new ImageView("boards/aTrans.png", this);
-		this.imageView.setScale(Credentiaals.BOARD_SCALE.credential());
+		this.imageView.setScale(Credentials.boardScale);
 		this.imageView.relocate(Credentials.CoordinatesBoard.x, Credentials.CoordinatesBoard.y);
 
 	}
@@ -145,10 +144,10 @@ public class Board implements EventHandlerAble {
 
 	private void createSpace(TileTypeEnum tileTypeEnum, int diceValue, double topLeftX, double topLeftY) {
 
-		topLeftX *= Credentiaals.BOARD_SCALE.credential();
-		topLeftY *= Credentiaals.BOARD_SCALE.credential();
-		double centerX = topLeftX + Credentials.DimensionsDiceAreaInSpace.x * Credentiaals.BOARD_SCALE.credential() / 2;
-		double centerY = topLeftY + Credentials.DimensionsDiceAreaInSpace.y * Credentiaals.BOARD_SCALE.credential() / 2;
+		topLeftX *= Credentials.boardScale;
+		topLeftY *= Credentials.boardScale;
+		double centerX = topLeftX + Credentials.DimensionsDiceAreaInSpace.x * Credentials.boardScale / 2;
+		double centerY = topLeftY + Credentials.DimensionsDiceAreaInSpace.y * Credentials.boardScale / 2;
 
 		this.spaces.addLast(new Space(tileTypeEnum, diceValue, centerX, centerY));
 

@@ -1,6 +1,5 @@
 package board;
 
-import enums.Credentiaals;
 import enums.TileTypeEnum;
 import utils.ArrayList;
 import utils.Credentials;
@@ -24,19 +23,19 @@ public class Space {
 
 	public boolean contains(double x, double y) {
 
-		double topX = centerX - Credentials.DimensionsDiceAreaInSpace.x * Credentiaals.BOARD_SCALE.credential() / 4;
-		double topY = centerY - Credentials.DimensionsDiceAreaInSpace.y * Credentiaals.BOARD_SCALE.credential() / 4;
+		double topX = centerX - Credentials.DimensionsDiceAreaInSpace.x * Credentials.boardScale / 4;
+		double topY = centerY - Credentials.DimensionsDiceAreaInSpace.y * Credentials.boardScale / 4;
 
 		if (x < topX)
 			return false;
 
-		if (x > topX + Credentials.DimensionsDiceAreaInSpace.x * Credentiaals.BOARD_SCALE.credential())
+		if (x > topX + Credentials.DimensionsDiceAreaInSpace.x * Credentials.boardScale)
 			return false;
 
 		if (y < topY)
 			return false;
 
-		if (y > topY + Credentials.DimensionsDiceAreaInSpace.y * Credentiaals.BOARD_SCALE.credential())
+		if (y > topY + Credentials.DimensionsDiceAreaInSpace.y * Credentials.boardScale)
 			return false;
 
 		return true;
