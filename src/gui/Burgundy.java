@@ -1,6 +1,5 @@
 package gui;
 
-import enums.Dimensions;
 import instances.Instances;
 import javafx.application.Application;
 import javafx.event.EventHandler;
@@ -11,6 +10,7 @@ import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import utils.Animation;
+import utils.Credentials;
 import utils.Executor;
 import utils.Logger;
 import utils.ShutDown;
@@ -24,11 +24,14 @@ public class Burgundy extends Application {
 
 		Animation.startAnimation();
 		Logger.startLogging();
+		Credentials.calculateCredentials();
 
 		this.panel = new Panel();
 
-		double width = Dimensions.FRAME.x() + Dimensions.INSETS.x();
-		double height = Dimensions.FRAME.y() + Dimensions.INSETS.y();
+		double width = Credentials.DimensionsFrame.x + Credentials.DimensionsInsets.x;
+		double height = Credentials.DimensionsFrame.y + Credentials.DimensionsInsets.y;
+		System.out.println(width);
+		System.out.println(height);
 
 		Scene scene = new Scene(this.panel);
 

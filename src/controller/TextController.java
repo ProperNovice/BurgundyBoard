@@ -1,16 +1,16 @@
 package controller;
 
-import enums.Coordinates;
-import enums.Credentials;
+import enums.Credentiaals;
 import enums.TextEnum;
 import utils.ArrayList;
+import utils.Credentials;
 import utils.TextGame;
 
 public class TextController {
 
 	private ArrayList<TextGame> textGame = new ArrayList<>();
 	private ArrayList<TextGame> textGameShowing = new ArrayList<>();
-	private Coordinates coordinates = Coordinates.TEXT_PANEL;
+	private double coordinatesX = Credentials.CoordinatesTextPanel.x, coordinatesY = Credentials.CoordinatesTextPanel.y;
 
 	public TextController() {
 		createTexts();
@@ -41,20 +41,17 @@ public class TextController {
 
 	private void showText() {
 
-		double x = this.coordinates.x();
-		double y = this.coordinates.y();
-
 		for (TextGame textGame : this.textGameShowing) {
 
 			textGame.toFront();
 
 			textGame.setVisible(true);
-			textGame.relocate(x, y);
+			textGame.relocate(this.coordinatesX, this.coordinatesY);
 
-			y += Credentials.TEXT_HEIGHT.credential();
+			this.coordinatesY += Credentiaals.TEXT_HEIGHT.credential();
 
 			if (textGame.getTextEnum().string().contains("\n"))
-				y += Credentials.TEXT_HEIGHT.credential();
+				this.coordinatesY += Credentiaals.TEXT_HEIGHT.credential();
 
 		}
 
@@ -69,8 +66,9 @@ public class TextController {
 
 	}
 
-	public void setCoordinates(Coordinates coordinates) {
-		this.coordinates = coordinates;
+	public void setCoordinates(double coordinatesX, double coordinatesY) {
+		this.coordinatesX = coordinatesX;
+		this.coordinatesY = coordinatesY;
 	}
 
 }

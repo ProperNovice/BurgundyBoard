@@ -2,7 +2,7 @@ package utils;
 
 import instances.Instances;
 import utils.EventHandler.EventHandlerAble;
-import enums.Credentials;
+import enums.Credentiaals;
 import enums.TextEnum;
 
 public class TextGame implements EventHandlerAble {
@@ -34,9 +34,9 @@ public class TextGame implements EventHandlerAble {
 		}
 
 		if (this.textEnum.string().contains("\n"))
-			this.text.setHeight(2 * Credentials.TEXT_HEIGHT.credential());
+			this.text.setHeight(2 * Credentiaals.TEXT_HEIGHT.credential());
 		else
-			this.text.setHeight(Credentials.TEXT_HEIGHT.credential());
+			this.text.setHeight(Credentiaals.TEXT_HEIGHT.credential());
 
 		this.text.setVisible(false);
 

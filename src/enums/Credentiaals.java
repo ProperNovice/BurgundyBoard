@@ -1,6 +1,6 @@
 package enums;
 
-public enum Credentials {
+public enum Credentiaals {
 
 	TEXT_HEIGHT(50),
 	BOARD_SCALE(0.8),
@@ -9,7 +9,7 @@ public enum Credentials {
 
 	private double credential;
 
-	private Credentials(double credential) {
+	private Credentiaals(double credential) {
 		this.credential = credential;
 	}
 
