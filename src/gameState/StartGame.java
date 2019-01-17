@@ -1,13 +1,14 @@
 package gameState;
 
-import controller.Credentials;
+import enums.PhaseEnum;
+import phases.Phase;
 
 public class StartGame extends GameState {
 
 	@Override
 	public void handleGameStateChange() {
-		
-		System.out.println(Credentials.DimensionsFrame.y);
+
+		Phase phase = new Phase(PhaseEnum.A);
 
 	}
 
