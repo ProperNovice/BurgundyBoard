@@ -3,7 +3,7 @@ package utils;
 import enums.Credentiaals;
 
 public class Credentials {
-	
+
 	// Frame (1366, 788)
 
 	public static Pair DimensionsInsets, DimensionsGapBetweenBorders, DimensionsBoard, DimensionsTile,

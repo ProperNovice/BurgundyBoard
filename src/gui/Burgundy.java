@@ -30,8 +30,6 @@ public class Burgundy extends Application {
 
 		double width = Credentials.DimensionsFrame.x + Credentials.DimensionsInsets.x;
 		double height = Credentials.DimensionsFrame.y + Credentials.DimensionsInsets.y;
-		System.out.println(width);
-		System.out.println(height);
 
 		Scene scene = new Scene(this.panel);
 
