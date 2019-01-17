@@ -1,8 +1,8 @@
 package board;
 
+import controller.Credentials;
 import enums.TileTypeEnum;
 import utils.ArrayList;
-import utils.Credentials;
 import utils.EventHandler.EventHandlerAble;
 import utils.ImageView;
 

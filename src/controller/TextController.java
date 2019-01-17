@@ -2,7 +2,6 @@ package controller;
 
 import enums.TextEnum;
 import utils.ArrayList;
-import utils.Credentials;
 import utils.TextGame;
 
 public class TextController {

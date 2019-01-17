@@ -1,5 +1,6 @@
 package gui;
 
+import controller.Credentials;
 import instances.Instances;
 import javafx.application.Application;
 import javafx.event.EventHandler;
@@ -10,7 +11,6 @@ import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import utils.Animation;
-import utils.Credentials;
 import utils.Executor;
 import utils.Logger;
 import utils.ShutDown;

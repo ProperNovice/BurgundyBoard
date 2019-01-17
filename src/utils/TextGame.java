@@ -1,5 +1,6 @@
 package utils;
 
+import controller.Credentials;
 import enums.TextEnum;
 import instances.Instances;
 import utils.EventHandler.EventHandlerAble;

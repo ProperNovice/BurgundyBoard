@@ -1,6 +1,6 @@
 package gameState;
 
-import utils.Credentials;
+import controller.Credentials;
 
 public class StartGame extends GameState {
 
