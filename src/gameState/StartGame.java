@@ -8,7 +8,7 @@ public class StartGame extends GameState {
 	@Override
 	public void handleGameStateChange() {
 
-		Phase phase = new Phase(PhaseEnum.A);
+		Phase phase = new Phase(PhaseEnum.D);
 
 	}
 

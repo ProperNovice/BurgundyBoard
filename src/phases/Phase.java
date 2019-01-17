@@ -12,7 +12,6 @@ public class Phase {
 
 		this.phasesEnum = phasesEnum;
 		createImageView();
-		System.out.println(phasesEnum.toString().toLowerCase());
 
 	}
 
