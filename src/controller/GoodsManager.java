@@ -3,11 +3,11 @@ package controller;
 import goods.Goods;
 import utils.ArrayList;
 
-public class GoodsController {
+public class GoodsManager {
 
 	private ArrayList<Goods> goods = new ArrayList<>();
 
-	public GoodsController() {
+	public GoodsManager() {
 		createGoods();
 	}
 
@@ -19,7 +19,7 @@ public class GoodsController {
 
 	}
 
-	public Goods getRandom() {
+	public Goods removeRandom() {
 		return this.goods.removeRandom();
 	}
 

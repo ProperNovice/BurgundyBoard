@@ -47,7 +47,7 @@ public class Burgundy extends Application {
 					if (Animation.isAnimating())
 						return;
 
-					Instances.getControllerInstance().gameStateController().getCurrentGameState()
+					Instances.getControllerInstance().gameStateManager().getCurrentGameState()
 							.handleKeyPressed(keyCode);
 
 				});

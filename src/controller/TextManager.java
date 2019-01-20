@@ -4,13 +4,13 @@ import enums.TextEnum;
 import utils.ArrayList;
 import utils.TextGame;
 
-public class TextController {
+public class TextManager {
 
 	private ArrayList<TextGame> textGame = new ArrayList<>();
 	private ArrayList<TextGame> textGameShowing = new ArrayList<>();
 	private double coordinatesX = Credentials.CoordinatesTextPanel.x, coordinatesY = Credentials.CoordinatesTextPanel.y;
 
-	public TextController() {
+	public TextManager() {
 		createTexts();
 	}
 

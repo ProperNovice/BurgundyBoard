@@ -5,12 +5,12 @@ import instances.Instances;
 
 public class Controller {
 
-	private GameStateController gameStateController = null;
-	private TextController textController = null;
-	private FlowController flowController = null;
+	private GameStateManager gameStateManager = null;
+	private TextManager textManager = null;
+	private FlowManager flowManager = null;
 	private Board board = null;
-	private TileController tileController = null;
-	private GoodsController goodsController = null;
+	private TileManager tileManager = null;
+	private GoodsManager goodsManager = null;
 
 	public Controller() {
 		createInstances();
@@ -20,37 +20,37 @@ public class Controller {
 
 		Instances.setControllerInstance(this);
 
-		this.gameStateController = new GameStateController();
-		this.textController = new TextController();
-		this.flowController = new FlowController();
+		this.gameStateManager = new GameStateManager();
+		this.textManager = new TextManager();
+		this.flowManager = new FlowManager();
 		this.board = new Board();
-		this.tileController = new TileController();
-		this.goodsController = new GoodsController();
+		this.tileManager = new TileManager();
+		this.goodsManager = new GoodsManager();
 
 	}
 
-	public GameStateController gameStateController() {
-		return this.gameStateController;
+	public GameStateManager gameStateManager() {
+		return this.gameStateManager;
 	}
 
-	public TextController textController() {
-		return this.textController;
+	public TextManager textManager() {
+		return this.textManager;
 	}
 
-	public FlowController flowController() {
-		return this.flowController;
+	public FlowManager flowManager() {
+		return this.flowManager;
 	}
 
 	public Board board() {
 		return this.board;
 	}
 
-	public TileController tileController() {
-		return this.tileController;
+	public TileManager tileManager() {
+		return this.tileManager;
 	}
 
-	public GoodsController goodsController() {
-		return this.goodsController;
+	public GoodsManager goodsManager() {
+		return this.goodsManager;
 	}
 
 }

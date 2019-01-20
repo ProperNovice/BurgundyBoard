@@ -45,9 +45,9 @@ public class TextGame implements EventHandlerAble {
 	@Override
 	public void handleMouseButtonPressedPrimary() {
 
-		Instances.getControllerInstance().textController().concealText();
+		Instances.getControllerInstance().textManager().concealText();
 
-		Instances.getControllerInstance().gameStateController().getCurrentGameState()
+		Instances.getControllerInstance().gameStateManager().getCurrentGameState()
 				.handleTextOptionPressed(this.textEnum);
 
 	}

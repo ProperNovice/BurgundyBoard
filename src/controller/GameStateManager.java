@@ -4,11 +4,11 @@ import enums.GameStateEnum;
 import gameState.GameState;
 import utils.Logger;
 
-public class GameStateController {
+public class GameStateManager {
 
 	private GameState currentGameState = null;
 
-	public GameStateController() {
+	public GameStateManager() {
 
 	}
 

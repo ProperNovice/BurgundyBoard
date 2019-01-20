@@ -4,13 +4,13 @@ import enums.GameStateEnum;
 import instances.Instances;
 import utils.ArrayList;
 
-public class FlowController {
+public class FlowManager {
 
 	private Controller controller = Instances.getControllerInstance();
 	private ArrayList<GameStateEnum> gameStateNormalTurn = new ArrayList<>();
 	private ArrayList<GameStateEnum> gameStateResolving = new ArrayList<>();
 
-	public FlowController() {
+	public FlowManager() {
 
 		createGameStateNormalTurn();
 
@@ -22,7 +22,7 @@ public class FlowController {
 			this.gameStateResolving.addAll(this.gameStateNormalTurn);
 
 		GameStateEnum gameStateEnum = this.gameStateResolving.removeFirst();
-		this.controller.gameStateController().setGameState(gameStateEnum);
+		this.controller.gameStateManager().setGameState(gameStateEnum);
 
 	}
 

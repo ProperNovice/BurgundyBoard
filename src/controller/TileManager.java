@@ -19,12 +19,12 @@ import tiles.Tile;
 import utils.ArrayList;
 import utils.HashMap;
 
-public class TileController {
+public class TileManager {
 
 	private HashMap<TileTypeEnum, ArrayList<Tile>> tilesNormal = new HashMap<>();
 	private ArrayList<Tile> tilesBlack = new ArrayList<>();
 
-	public TileController() {
+	public TileManager() {
 
 		createTiles();
 		createImageViews();
