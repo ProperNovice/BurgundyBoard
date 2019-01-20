@@ -5,10 +5,7 @@ import enums.BuildingTypeEnum;
 public class BuildingBlack extends Building {
 
 	public BuildingBlack(BuildingTypeEnum buildingTypeEnum) {
-
-		super(buildingTypeEnum);
-		super.filePath += "B";
-
+		super(buildingTypeEnum, "B");
 	}
 
 }

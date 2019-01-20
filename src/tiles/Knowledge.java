@@ -8,11 +8,21 @@ public class Knowledge extends Tile {
 
 	public Knowledge(int tileNumber) {
 
+		super("knowledge/" + tileNumber);
+		setCredentials(tileNumber);
+	}
+
+	protected Knowledge(int tileNumber, String filePath) {
+
+		super("knowledge/" + tileNumber + filePath);
+		setCredentials(tileNumber);
+
+	}
+
+	private void setCredentials(int tileNumber) {
+
 		this.tileNumber = tileNumber;
 		super.tileTypeEnum = TileTypeEnum.KNOWLEDGE;
-
-		super.filePath += "knowledge/";
-		super.filePath += this.tileNumber;
 
 	}
 

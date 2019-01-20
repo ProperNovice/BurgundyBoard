@@ -27,7 +27,7 @@ public class TileManager {
 	public TileManager() {
 
 		createTiles();
-		createImageViews();
+//		createImageViews();
 
 	}
 
@@ -129,13 +129,13 @@ public class TileManager {
 
 	}
 
-	private void createImageViews() {
-
-		for (TileTypeEnum tileTypeEnum : this.tilesNormal)
-			for (Tile tile : this.tilesNormal.get(tileTypeEnum))
-				tile.createImageView();
-
-	}
+//	private void createImageViews() {
+//
+//		for (TileTypeEnum tileTypeEnum : this.tilesNormal)
+//			for (Tile tile : this.tilesNormal.get(tileTypeEnum))
+//				tile.createImageView();
+//
+//	}
 
 	public ArrayList<Tile> getRandomTileNormal(TileTypeEnum tileTypeEnum, int amount) {
 

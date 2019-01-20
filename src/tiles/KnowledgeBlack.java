@@ -3,10 +3,7 @@ package tiles;
 public class KnowledgeBlack extends Knowledge {
 
 	public KnowledgeBlack(int tileNumber) {
-
-		super(tileNumber);
-		super.filePath += "B";
-
+		super(tileNumber, "B");
 	}
 
 }

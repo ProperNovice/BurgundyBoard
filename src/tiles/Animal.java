@@ -10,13 +10,23 @@ public class Animal extends Tile {
 
 	public Animal(AnimalTypeEnum animalTypeEnum, int numberOfAnimals) {
 
+		super("animals/" + animalTypeEnum.getText() + numberOfAnimals);
+		setCredentials(animalTypeEnum, numberOfAnimals);
+
+	}
+
+	protected Animal(AnimalTypeEnum animalTypeEnum, int numberOfAnimals, String filePath) {
+
+		super("animals/" + animalTypeEnum.getText() + numberOfAnimals + filePath);
+		setCredentials(animalTypeEnum, numberOfAnimals);
+
+	}
+
+	private void setCredentials(AnimalTypeEnum animalTypeEnum, int numberOfAnimals) {
+
 		this.animalTypeEnum = animalTypeEnum;
 		this.numberOfAnimals = numberOfAnimals;
 		super.tileTypeEnum = TileTypeEnum.ANIMAL;
-
-		super.filePath += "animals/";
-		super.filePath += this.animalTypeEnum.getText();
-		super.filePath += this.numberOfAnimals;
 
 	}
 

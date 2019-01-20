@@ -6,9 +6,20 @@ public class Ship extends Tile {
 
 	public Ship() {
 
-		super.tileTypeEnum = TileTypeEnum.SHIP;
-		super.filePath += "ship";
+		super("ship");
+		setCredenetials();
 
+	}
+
+	protected Ship(String filePath) {
+
+		super("ship" + filePath);
+		setCredenetials();
+
+	}
+
+	private void setCredenetials() {
+		super.tileTypeEnum = TileTypeEnum.SHIP;
 	}
 
 }

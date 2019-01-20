@@ -1,15 +1,17 @@
 package gameState;
 
-import enums.PhaseEnum;
-import phases.Phase;
+import enums.AnimalTypeEnum;
+import tiles.Animal;
+import tiles.Tile;
 
 public class StartGame extends GameState {
 
 	@Override
 	public void handleGameStateChange() {
 
-		Phase phase = new Phase(PhaseEnum.D);
-		phase.relocate(1000, 20);
+		Tile tile = new Animal(AnimalTypeEnum.HEN, 2);
+		tile.setVisible(true);
+		tile.relocate(1000, 100);
 
 	}
 

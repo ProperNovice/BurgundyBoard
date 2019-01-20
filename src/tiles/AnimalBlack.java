@@ -5,10 +5,7 @@ import enums.AnimalTypeEnum;
 public class AnimalBlack extends Animal {
 
 	public AnimalBlack(AnimalTypeEnum animalTypeEnum, int numberOfAnimals) {
-
-		super(animalTypeEnum, numberOfAnimals);
-		super.filePath += "B";
-
+		super(animalTypeEnum, numberOfAnimals, "B");
 	}
 
 }

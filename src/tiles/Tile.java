@@ -6,18 +6,20 @@ import utils.ImageView;
 
 public abstract class Tile implements EventHandlerAble {
 
-	protected String filePath = "tiles/";
 	private ImageView imageView = null;
 	protected TileTypeEnum tileTypeEnum = null;
 
-	public Tile() {
-
+	protected Tile(String filePathTemp) {
+		createImageView(filePathTemp);
 	}
 
-	public void createImageView() {
+	public void createImageView(String filePathTemp) {
 
-		this.filePath += ".png";
-		this.imageView = new ImageView(this.filePath, this);
+		String filePath = "tiles/";
+		filePath += filePathTemp;
+		filePath += ".png";
+
+		this.imageView = new ImageView(filePath, this);
 		setVisible(false);
 
 	}

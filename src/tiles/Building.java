@@ -9,12 +9,21 @@ public class Building extends Tile {
 
 	public Building(BuildingTypeEnum buildingTypeEnum) {
 
+		super("buildings/" + buildingTypeEnum.getText());
+		setCredentials(buildingTypeEnum);
+
+	}
+
+	protected Building(BuildingTypeEnum buildingTypeEnum, String filePath) {
+
+		super("buildings/" + buildingTypeEnum.getText() + filePath);
+		setCredentials(buildingTypeEnum);
+
+	}
+
+	private void setCredentials(BuildingTypeEnum buildingTypeEnum) {
 		this.buildingTypeEnum = buildingTypeEnum;
 		super.tileTypeEnum = TileTypeEnum.BUILDING;
-
-		super.filePath += "buildings/";
-		super.filePath += this.buildingTypeEnum.getText();
-
 	}
 
 	public BuildingTypeEnum getBuildingTypeEnum() {
