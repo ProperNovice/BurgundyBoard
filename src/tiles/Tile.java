@@ -1,6 +1,8 @@
 package tiles;
 
 import enums.TileTypeEnum;
+import utils.Animation;
+import utils.Animation.AnimationSynch;
 import utils.EventHandler.EventHandlerAble;
 import utils.ImageView;
 
@@ -26,6 +28,14 @@ public abstract class Tile implements EventHandlerAble {
 
 	public void relocate(double x, double y) {
 		this.imageView.relocate(x, y);
+	}
+
+	public void animateAsynchronous(double x, double y) {
+		Animation.animate(this.imageView, x, y, AnimationSynch.ASYNCHRONOUS);
+	}
+
+	public void animateSynchronous(double x, double y) {
+		Animation.animate(this.imageView, x, y, AnimationSynch.SYNCHRONOUS);
 	}
 
 	public void setVisible(boolean value) {

@@ -9,7 +9,7 @@ public class Credentials {
 
 	public static void calculateCredentials() {
 
-		boardScale = 0.8;
+		boardScale = 0.9;
 
 //		DimensionsFrame = new Pair(1366, 788);
 		DimensionsInsets = new Pair(7, 29);
