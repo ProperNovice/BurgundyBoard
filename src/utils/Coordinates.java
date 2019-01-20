@@ -4,34 +4,26 @@ public class Coordinates {
 
 	private ArrayList<Spot> coordinatesTemp = new ArrayList<>();
 	private ArrayList<Spot> coordinatesFinal = new ArrayList<>();
-	private int coordinatesToCreate = 100;
+	private double width, height, gapBetweenNodes;
+	private int nodesPerRow;
 
 	public Coordinates(double width, double height, double gapBetweenNodes, int nodesPerRow) {
 
-		double x = 0, y = 0;
-
-		for (int counter = 1; counter <= coordinatesToCreate; counter++) {
-
-			this.coordinatesFinal.addLast(new Spot(x, y));
-
-			if (counter % nodesPerRow > 0) {
-
-				x += width + gapBetweenNodes;
-				continue;
-
-			} else if (counter % nodesPerRow == 0) {
-
-				x = 0;
-				y += height + gapBetweenNodes;
-
-			}
-
-		}
+		this.width = width;
+		this.height = height;
+		this.gapBetweenNodes = gapBetweenNodes;
+		this.nodesPerRow = nodesPerRow;
 
 	}
 
-	public void proceedToNextCoordinates() {
-		this.coordinatesTemp.removeFirst();
+	public void setUpNextCoordinates() {
+
+		if (!this.coordinatesTemp.isEmpty())
+			this.coordinatesTemp.removeFirst();
+
+		if (this.coordinatesTemp.isEmpty())
+			createNewCoordinates();
+
 	}
 
 	public double getX() {
@@ -45,6 +37,21 @@ public class Coordinates {
 	public void resetCoordinates() {
 		this.coordinatesTemp.clear();
 		this.coordinatesTemp.addAll(this.coordinatesFinal);
+	}
+
+	private void createNewCoordinates() {
+
+		int row = this.coordinatesFinal.size() / this.nodesPerRow;
+		int column = this.coordinatesFinal.size() - row * this.nodesPerRow;
+
+		double x = column * (this.width + this.gapBetweenNodes);
+		double y = row * (this.height + this.gapBetweenNodes);
+
+		Spot spot = new Spot(x, y);
+
+		this.coordinatesFinal.addLast(spot);
+		this.coordinatesTemp.addLast(spot);
+
 	}
 
 	private class Spot {
