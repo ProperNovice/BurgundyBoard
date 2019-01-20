@@ -22,8 +22,11 @@ public class Phase {
 		path += ".png";
 
 		this.imageView = new ImageView(path);
-		this.imageView.relocate(20, 20);
 
+	}
+
+	public void relocate(double x, double y) {
+		this.imageView.relocate(x, y);
 	}
 
 	public PhaseEnum getPhaseEnum() {

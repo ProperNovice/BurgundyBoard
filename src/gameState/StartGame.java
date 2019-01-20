@@ -9,6 +9,7 @@ public class StartGame extends GameState {
 	public void handleGameStateChange() {
 
 		Phase phase = new Phase(PhaseEnum.D);
+		phase.relocate(1000, 20);
 
 	}
 
