@@ -1,6 +1,6 @@
 package controller;
 
-import board.Board;
+import board.PlayerBoard;
 import instances.Instances;
 
 public class Controller {
@@ -8,7 +8,7 @@ public class Controller {
 	private GameStateManager gameStateManager = null;
 	private TextManager textManager = null;
 	private FlowManager flowManager = null;
-	private Board board = null;
+	private PlayerBoard playerBoard = null;
 	private TileManager tileManager = null;
 	private GoodsManager goodsManager = null;
 
@@ -23,7 +23,7 @@ public class Controller {
 		this.gameStateManager = new GameStateManager();
 		this.textManager = new TextManager();
 		this.flowManager = new FlowManager();
-		this.board = new Board();
+		this.playerBoard = new PlayerBoard();
 		this.tileManager = new TileManager();
 		this.goodsManager = new GoodsManager();
 
@@ -41,8 +41,8 @@ public class Controller {
 		return this.flowManager;
 	}
 
-	public Board board() {
-		return this.board;
+	public PlayerBoard playerBoard() {
+		return this.playerBoard;
 	}
 
 	public TileManager tileManager() {

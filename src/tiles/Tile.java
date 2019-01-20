@@ -4,7 +4,7 @@ import enums.TileTypeEnum;
 import utils.EventHandler.EventHandlerAble;
 import utils.ImageView;
 
-public class Tile implements EventHandlerAble {
+public abstract class Tile implements EventHandlerAble {
 
 	protected String filePath = "tiles/";
 	private ImageView imageView = null;

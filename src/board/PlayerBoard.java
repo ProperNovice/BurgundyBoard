@@ -6,12 +6,12 @@ import utils.ArrayList;
 import utils.EventHandler.EventHandlerAble;
 import utils.ImageView;
 
-public class Board implements EventHandlerAble {
+public class PlayerBoard implements EventHandlerAble {
 
 	private ImageView imageView = null;
 	private ArrayList<Space> spaces = new ArrayList<>();
 
-	public Board() {
+	public PlayerBoard() {
 
 		createBoard();
 		createSpaces();
