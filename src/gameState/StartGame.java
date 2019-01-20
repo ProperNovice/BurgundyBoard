@@ -5,8 +5,6 @@ public class StartGame extends GameState {
 	@Override
 	public void handleGameStateChange() {
 
-		new Test();
-
 	}
 
 }
