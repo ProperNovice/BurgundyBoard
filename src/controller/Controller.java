@@ -1,6 +1,5 @@
 package controller;
 
-import board.PlayerBoard;
 import instances.Instances;
 
 public class Controller {

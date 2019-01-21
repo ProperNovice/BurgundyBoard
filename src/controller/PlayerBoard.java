@@ -1,6 +1,6 @@
-package board;
+package controller;
 
-import controller.Credentials;
+import board.Space;
 import enums.TileTypeEnum;
 import utils.ArrayList;
 import utils.EventHandler.EventHandlerAble;
