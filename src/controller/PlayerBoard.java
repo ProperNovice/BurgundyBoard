@@ -21,7 +21,7 @@ public class PlayerBoard implements EventHandlerAble {
 
 	private void createBoard() {
 
-		this.imageView = new ImageView("boards/aTrans.png", this);
+		this.imageView = new ImageView("boards/a.png", this);
 		this.imageView.setScale(Credentials.boardScale);
 		this.imageView.relocate(Credentials.CoordinatesBoard.x, Credentials.CoordinatesBoard.y);
 
@@ -146,8 +146,8 @@ public class PlayerBoard implements EventHandlerAble {
 
 		topLeftX *= Credentials.boardScale;
 		topLeftY *= Credentials.boardScale;
-		double centerX = topLeftX + Credentials.DimensionsDiceAreaInSpace.x * Credentials.boardScale / 2;
-		double centerY = topLeftY + Credentials.DimensionsDiceAreaInSpace.y * Credentials.boardScale / 2;
+		double centerX = topLeftX + Credentials.DimensionsDiceAreaInSpace.x * Credentials.boardScale / 4;
+		double centerY = topLeftY + Credentials.DimensionsDiceAreaInSpace.y * Credentials.boardScale / 4;
 
 		this.spaces.addLast(new Space(tileTypeEnum, diceValue, centerX, centerY));
 
