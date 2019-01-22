@@ -34,19 +34,22 @@ public class GoodsManager {
 		double x = Credentials.CoordinatesPhaseGoods.x;
 		double y = Credentials.CoordinatesPhaseGoods.y;
 		this.coordinates.resetCoordinates();
+		Goods goods = null;
 
 		for (int counter = 1; counter <= 5; counter++) {
 
+			goods = this.goodsList.removeRandom();
+
 			this.phaseGoods.addLast(this.goodsList.removeRandom());
-			this.phaseGoods.getLast().setVisible(true);
+			goods.setVisible(true);
 
 			this.coordinates.setUpNextCoordinates();
-			this.phaseGoods.getLast().relocate(x + this.coordinates.getX(), y + this.coordinates.getY());
+			goods.relocate(x + this.coordinates.getX(), y + this.coordinates.getY());
 
 		}
 
 	}
-	
+
 	public Goods removeFirst() {
 		return this.phaseGoods.removeFirst();
 	}
