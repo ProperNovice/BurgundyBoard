@@ -1,18 +1,18 @@
-package board;
+package models;
 
 import controller.Credentials;
 import enums.TileTypeEnum;
 import utils.ArrayList;
 import utils.Logger;
 
-public class Space {
+public class BoardSpace {
 
 	private TileTypeEnum tileTypeEnum = null;
 	private int diceValue;
 	private double centerX, centerY;
-	private ArrayList<Space> adjacencies = new ArrayList<>();
+	private ArrayList<BoardSpace> adjacencies = new ArrayList<>();
 
-	public Space(TileTypeEnum tileTypeEnum, int diceValue, double centerX, double centerY) {
+	public BoardSpace(TileTypeEnum tileTypeEnum, int diceValue, double centerX, double centerY) {
 
 		this.tileTypeEnum = tileTypeEnum;
 		this.diceValue = diceValue;
@@ -42,11 +42,11 @@ public class Space {
 
 	}
 
-	public void addAdjacent(Space space) {
+	public void addAdjacent(BoardSpace space) {
 		this.adjacencies.addLast(space);
 	}
 
-	public boolean isAdjacent(Space space) {
+	public boolean isAdjacent(BoardSpace space) {
 		return this.adjacencies.contains(space);
 	}
 

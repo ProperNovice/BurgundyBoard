@@ -1,4 +1,4 @@
-package phases;
+package models;
 
 import controller.Credentials;
 import enums.PhaseEnum;

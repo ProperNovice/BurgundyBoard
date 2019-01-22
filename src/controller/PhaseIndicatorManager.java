@@ -1,7 +1,7 @@
 package controller;
 
 import enums.PhaseEnum;
-import phases.PhaseIndicator;
+import models.PhaseIndicator;
 import utils.ArrayList;
 
 public class PhaseIndicatorManager {

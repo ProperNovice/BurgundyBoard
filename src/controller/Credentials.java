@@ -47,7 +47,7 @@ public class Credentials {
 		DimensionsFrame = new Pair(x, y);
 
 		x = CoordinatesBoard.x + DimensionsBoard.x * boardScale + DimensionsGapBetweenBorders.x;
-		y = DimensionsGapBetweenBorders.y;
+		y = DimensionsGapBetweenBorders.y + (DimensionsGoods.y - DimensionsPhaseIndicators.y) / 2;
 		CoordinatesPhaseIndicators = new Pair(x, y);
 
 		x = CoordinatesPhaseIndicators.x + DimensionsPhaseIndicators.x + 2 * DimensionsGapBetweenComponents.x;

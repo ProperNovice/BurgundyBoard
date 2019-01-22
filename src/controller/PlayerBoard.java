@@ -1,7 +1,7 @@
 package controller;
 
-import board.Space;
 import enums.TileTypeEnum;
+import models.BoardSpace;
 import utils.ArrayList;
 import utils.EventHandler.EventHandlerAble;
 import utils.ImageView;
@@ -9,7 +9,7 @@ import utils.ImageView;
 public class PlayerBoard implements EventHandlerAble {
 
 	private ImageView imageView = null;
-	private ArrayList<Space> spaces = new ArrayList<>();
+	private ArrayList<BoardSpace> boardSpaces = new ArrayList<>();
 
 	public PlayerBoard() {
 
@@ -149,7 +149,7 @@ public class PlayerBoard implements EventHandlerAble {
 		double centerX = topLeftX + Credentials.DimensionsDiceAreaInSpace.x * Credentials.boardScale / 4;
 		double centerY = topLeftY + Credentials.DimensionsDiceAreaInSpace.y * Credentials.boardScale / 4;
 
-		this.spaces.addLast(new Space(tileTypeEnum, diceValue, centerX, centerY));
+		this.boardSpaces.addLast(new BoardSpace(tileTypeEnum, diceValue, centerX, centerY));
 
 	}
 
@@ -233,8 +233,8 @@ public class PlayerBoard implements EventHandlerAble {
 
 	private void addAdjacents(int indexA, int indexB) {
 
-		Space spaceA = this.spaces.get(indexA);
-		Space spaceB = this.spaces.get(indexB);
+		BoardSpace spaceA = this.boardSpaces.get(indexA);
+		BoardSpace spaceB = this.boardSpaces.get(indexB);
 
 		spaceA.addAdjacent(spaceB);
 		spaceB.addAdjacent(spaceA);
@@ -247,7 +247,7 @@ public class PlayerBoard implements EventHandlerAble {
 		double x = this.imageView.getEventX();
 		double y = this.imageView.getEventY();
 
-		Space spacePressed = getSpacePressed(x, y);
+		BoardSpace spacePressed = getSpacePressed(x, y);
 
 		if (spacePressed == null)
 			return;
@@ -256,9 +256,9 @@ public class PlayerBoard implements EventHandlerAble {
 
 	}
 
-	private Space getSpacePressed(double x, double y) {
+	private BoardSpace getSpacePressed(double x, double y) {
 
-		for (Space space : this.spaces)
+		for (BoardSpace space : this.boardSpaces)
 			if (space.contains(x, y))
 				return space;
 

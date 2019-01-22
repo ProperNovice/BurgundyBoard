@@ -1,6 +1,6 @@
 package controller;
 
-import goods.Goods;
+import models.Goods;
 import utils.ArrayList;
 import utils.Coordinates;
 import utils.CoordinatesBuilder;
