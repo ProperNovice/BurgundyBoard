@@ -15,7 +15,7 @@ public abstract class Tile implements EventHandlerAble {
 		createImageView(filePathTemp);
 	}
 
-	public void createImageView(String filePathTemp) {
+	protected void createImageView(String filePathTemp) {
 
 		String filePath = "tiles/";
 		filePath += filePathTemp;

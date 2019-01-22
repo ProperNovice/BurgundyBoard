@@ -21,6 +21,10 @@ public class Goods {
 		this.imageView.setVisible(false);
 
 	}
+	
+	public void setVisible(boolean value) {
+		this.imageView.setVisible(value);
+	}
 
 	public void relocate(double x, double y) {
 		this.imageView.relocate(x, y);

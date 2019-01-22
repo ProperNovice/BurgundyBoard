@@ -10,6 +10,7 @@ public class Controller {
 	private PlayerBoard playerBoard = null;
 	private TileManager tileManager = null;
 	private GoodsManager goodsManager = null;
+	private PhaseIndicatorManager phaseManager = null;
 
 	public Controller() {
 		createInstances();
@@ -25,6 +26,7 @@ public class Controller {
 		this.playerBoard = new PlayerBoard();
 		this.tileManager = new TileManager();
 		this.goodsManager = new GoodsManager();
+		this.phaseManager = new PhaseIndicatorManager();
 
 	}
 
@@ -50,6 +52,10 @@ public class Controller {
 
 	public GoodsManager goodsManager() {
 		return this.goodsManager;
+	}
+
+	public PhaseIndicatorManager phaseIndicatorManager() {
+		return this.phaseManager;
 	}
 
 }

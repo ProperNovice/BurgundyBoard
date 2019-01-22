@@ -1,14 +1,15 @@
 package phases;
 
+import controller.Credentials;
 import enums.PhaseEnum;
 import utils.ImageView;
 
-public class Phase {
+public class PhaseIndicator {
 
 	private PhaseEnum phasesEnum = null;
 	private ImageView imageView = null;
 
-	public Phase(PhaseEnum phasesEnum) {
+	public PhaseIndicator(PhaseEnum phasesEnum) {
 
 		this.phasesEnum = phasesEnum;
 		createImageView();
@@ -22,11 +23,13 @@ public class Phase {
 		path += ".png";
 
 		this.imageView = new ImageView(path);
+		this.imageView.setVisible(false);
+		this.imageView.relocate(Credentials.CoordinatesPhaseIndicators.x, Credentials.CoordinatesPhaseIndicators.y);
 
 	}
 
-	public void relocate(double x, double y) {
-		this.imageView.relocate(x, y);
+	public void setVisible(boolean value) {
+		this.imageView.setVisible(value);
 	}
 
 	public PhaseEnum getPhaseEnum() {

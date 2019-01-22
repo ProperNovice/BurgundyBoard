@@ -2,10 +2,14 @@ package enums;
 
 import gameState.GameState;
 import gameState.StartGame;
+import gameState.StartNewPhase;
 
 public enum GameStateEnum {
 
-	START_GAME(new StartGame());
+	START_GAME(new StartGame()),
+	START_NEW_PHASE(new StartNewPhase())
+
+	;
 
 	private GameState gameState = null;
 
