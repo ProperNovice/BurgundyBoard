@@ -26,9 +26,13 @@ public class DepotNumbered {
 	public boolean containsTile(Tile tile) {
 		return this.tiles.contains(tile);
 	}
-	
+
 	public boolean containsGoods(Goods goods) {
 		return this.goods.contains(goods);
+	}
+
+	public int getDepotNumber() {
+		return this.depotNumber;
 	}
 
 }
