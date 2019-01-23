@@ -3,6 +3,7 @@ package models;
 import enums.TileTypeEnum;
 import tiles.Tile;
 import utils.ArrayList;
+import utils.ImageView;
 
 public class DepotNumbered {
 
@@ -10,12 +11,25 @@ public class DepotNumbered {
 	private ArrayList<TileTypeEnum> tilesTypeEnum = new ArrayList<>();
 	private ArrayList<Tile> tiles = new ArrayList<>();
 	private ArrayList<Goods> goods = new ArrayList<>();
+	private ImageView depotNumberIndicator = null;
 
 	public DepotNumbered(int depotNumber, TileTypeEnum tileTypeEnumFirst, TileTypeEnum tileTypeEnumSecond) {
 
 		this.depotNumber = depotNumber;
 		this.tilesTypeEnum.addLast(tileTypeEnumFirst);
 		this.tilesTypeEnum.addLast(tileTypeEnumSecond);
+
+		createDepotNumberIndicator();
+
+	}
+
+	private void createDepotNumberIndicator() {
+
+		String path = "dice/gray";
+		path += this.depotNumber;
+		path += ".png";
+
+		this.depotNumberIndicator = new ImageView(path);
 
 	}
 
