@@ -129,23 +129,8 @@ public class TileManager {
 
 	}
 
-//	private void createImageViews() {
-//
-//		for (TileTypeEnum tileTypeEnum : this.tilesNormal)
-//			for (Tile tile : this.tilesNormal.get(tileTypeEnum))
-//				tile.createImageView();
-//
-//	}
-
-	public ArrayList<Tile> getRandomTileNormal(TileTypeEnum tileTypeEnum, int amount) {
-
-		ArrayList<Tile> tiles = new ArrayList<>();
-
-		for (int counter = 1; counter <= amount; counter++)
-			tiles.addLast(this.tilesNormal.get(tileTypeEnum).removeRandom());
-
-		return tiles;
-
+	public Tile getRandomTileNormal(TileTypeEnum tileTypeEnum) {
+		return this.tilesNormal.get(tileTypeEnum).removeRandom();
 	}
 
 	public ArrayList<Tile> getRandomTileBlack(int amount) {

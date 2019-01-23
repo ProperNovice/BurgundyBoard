@@ -5,7 +5,8 @@ public class Credentials {
 	public static Pair DimensionsInsets, DimensionsGapBetweenBorders, DimensionsBoard, DimensionsTile,
 			DimensionsDiceAreaInSpace, DimensionsGoods, DimensionsFrame, DimensionsGapBetweenComponents,
 			DimensionsPhaseIndicators, DimensionsDice;
-	public static Pair CoordinatesTextPanel, CoordinatesBoard, CoordinatesPhaseIndicators, CoordinatesPhaseGoods;
+	public static Pair CoordinatesTextPanel, CoordinatesBoard, CoordinatesPhaseIndicators, CoordinatesPhaseGoods,
+			CoordinatesDepotNumbers;
 	public static double textHeight, boardScale;
 
 	public static class Pair {
@@ -43,17 +44,21 @@ public class Credentials {
 
 		CoordinatesBoard = new Pair(DimensionsGapBetweenBorders.x, DimensionsGapBetweenBorders.y);
 
-		x = 1420;
+		x = 1520;
 		y = Math.ceil(DimensionsBoard.y * boardScale + 2 * DimensionsGapBetweenBorders.y);
 		DimensionsFrame = new Pair(x, y);
 
-		x = CoordinatesBoard.x + DimensionsBoard.x * boardScale + DimensionsGapBetweenBorders.x;
+		x = CoordinatesBoard.x + DimensionsBoard.x * boardScale + 2 * DimensionsGapBetweenComponents.x;
 		y = DimensionsGapBetweenBorders.y + (DimensionsGoods.y - DimensionsPhaseIndicators.y) / 2;
 		CoordinatesPhaseIndicators = new Pair(x, y);
 
 		x = CoordinatesPhaseIndicators.x + DimensionsPhaseIndicators.x + 2 * DimensionsGapBetweenComponents.x;
 		y = DimensionsGapBetweenBorders.y;
 		CoordinatesPhaseGoods = new Pair(x, y);
+
+		x = CoordinatesPhaseIndicators.x;
+		y = CoordinatesPhaseIndicators.y + DimensionsGoods.y + 2 * DimensionsGapBetweenComponents.y;
+		CoordinatesDepotNumbers = new Pair(x, y);
 
 	}
 
