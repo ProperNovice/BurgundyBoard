@@ -133,15 +133,8 @@ public class TileManager {
 		return this.tilesNormal.get(tileTypeEnum).removeRandom();
 	}
 
-	public ArrayList<Tile> getRandomTileBlack(int amount) {
-
-		ArrayList<Tile> tiles = new ArrayList<>();
-
-		for (int counter = 1; counter <= amount; counter++)
-			tiles.addLast(this.tilesBlack.removeRandom());
-
-		return tiles;
-
+	public Tile getRandomTileBlack() {
+		return this.tilesBlack.removeRandom();
 	}
 
 }
