@@ -13,6 +13,10 @@ public class DepotNumbered {
 
 	public DepotNumbered(int depotNumber, TileTypeEnum tileTypeEnumFirst, TileTypeEnum tileTypeEnumSecond) {
 
+		this.depotNumber = depotNumber;
+		this.tilesTypeEnum.addLast(tileTypeEnumFirst);
+		this.tilesTypeEnum.addLast(tileTypeEnumSecond);
+
 	}
 
 	public TileTypeEnum getTileTypeEnumFirst() {
