@@ -10,6 +10,10 @@ public class CoordinatesBuilder {
 
 	}
 
+	public enum CoordinatesType {
+		LINEAR
+	}
+
 	public CoordinatesBuilder width(double width) {
 		this.width = width;
 		this.dataInput++;
@@ -34,7 +38,7 @@ public class CoordinatesBuilder {
 		return this;
 	}
 
-	public Coordinates create() {
+	public Coordinates create(CoordinatesType coordinatesType) {
 
 		if (this.dataInput != this.dataTotal) {
 
@@ -43,7 +47,14 @@ public class CoordinatesBuilder {
 
 		}
 
-		return new Coordinates(this.width, this.height, this.gapBetweenNodes, this.nodesPerRow);
+		switch (coordinatesType) {
+
+		case LINEAR:
+			return new CoordinatesLinear(this.width, this.height, this.gapBetweenNodes, this.nodesPerRow);
+
+		}
+
+		return new CoordinatesLinear(this.width, this.height, this.gapBetweenNodes, this.nodesPerRow);
 	}
 
 }
