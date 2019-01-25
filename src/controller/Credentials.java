@@ -4,9 +4,9 @@ public class Credentials {
 
 	public static Pair DimensionsInsets, DimensionsGapBetweenBorders, DimensionsBoard, DimensionsTile,
 			DimensionsDiceAreaInSpace, DimensionsGoods, DimensionsFrame, DimensionsGapBetweenComponents,
-			DimensionsPhaseIndicators, DimensionsDice, DimensionsDepotNumbered, DimensionsWorker;
+			DimensionsPhaseIndicators, DimensionsDice, DimensionsDepotNumbered, DimensionsWorker, DimensionsSilverling;
 	public static Pair CoordinatesTextPanel, CoordinatesBoard, CoordinatesPhaseIndicators, CoordinatesPhaseGoods,
-			CoordinatesDepotNumbers, CoordinatesWorkers;
+			CoordinatesDepotNumbers, CoordinatesWorkers, CoordinatesSilverling;
 	public static double textHeight, boardScale;
 
 	public static class Pair {
@@ -42,6 +42,7 @@ public class Credentials {
 		DimensionsPhaseIndicators = new Pair(29, 47);
 		DimensionsDice = new Pair(40, 40);
 		DimensionsWorker = new Pair(36, 36);
+		DimensionsSilverling = new Pair(36, 36);
 
 		CoordinatesBoard = new Pair(DimensionsGapBetweenBorders.x, DimensionsGapBetweenBorders.y);
 
@@ -68,6 +69,10 @@ public class Credentials {
 		x = CoordinatesBoard.x + boardScale * (519 + 132 / 2);
 		y = CoordinatesBoard.y + boardScale * (241 + 132 / 2);
 		CoordinatesWorkers = new Pair(x, y);
+
+		x = CoordinatesBoard.x + boardScale * (429 + 181 / 2);
+		y = CoordinatesBoard.y + boardScale * (2 + 130 / 2);
+		CoordinatesSilverling = new Pair(x, y);
 
 	}
 

@@ -6,6 +6,7 @@ public class StartGame extends GameState {
 	public void handleGameStateChange() {
 
 		addWorkersAndRelocate();
+		addSilverlingsAndRelocate();
 
 		test();
 
@@ -15,6 +16,10 @@ public class StartGame extends GameState {
 
 	private void addWorkersAndRelocate() {
 		super.controller.workerManager().addWorkersAndRelocate(2);
+	}
+
+	private void addSilverlingsAndRelocate() {
+		super.controller.silverlingManager().addSilverlingsAndRelocate(1);
 	}
 
 	private void test() {

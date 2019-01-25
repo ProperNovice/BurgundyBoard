@@ -13,6 +13,7 @@ public class Controller {
 	private PhaseIndicatorManager phaseManager = null;
 	private DepotNumberedManager depotNumberedManager = null;
 	private WorkerManager workerManager = null;
+	private SilverlingManager silverlingManager = null;
 
 	public Controller() {
 		createInstances();
@@ -31,6 +32,7 @@ public class Controller {
 		this.phaseManager = new PhaseIndicatorManager();
 		this.depotNumberedManager = new DepotNumberedManager();
 		this.workerManager = new WorkerManager();
+		this.silverlingManager = new SilverlingManager();
 
 	}
 
@@ -68,6 +70,10 @@ public class Controller {
 
 	public WorkerManager workerManager() {
 		return this.workerManager;
+	}
+
+	public SilverlingManager silverlingManager() {
+		return this.silverlingManager;
 	}
 
 }
