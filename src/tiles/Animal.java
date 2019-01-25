@@ -2,6 +2,7 @@ package tiles;
 
 import enums.AnimalTypeEnum;
 import enums.TileTypeEnum;
+import utils.Logger;
 
 public class Animal extends Tile {
 
@@ -36,6 +37,12 @@ public class Animal extends Tile {
 
 	public int getNumberOfAnimals() {
 		return this.numberOfAnimals;
+	}
+
+	@Override
+	protected void printTile() {
+		super.printTile();
+		Logger.log(this.animalTypeEnum + " - " + this.numberOfAnimals);
 	}
 
 }

@@ -1,6 +1,7 @@
 package tiles;
 
 import enums.TileTypeEnum;
+import utils.Logger;
 
 public class Knowledge extends Tile {
 
@@ -28,6 +29,12 @@ public class Knowledge extends Tile {
 
 	public int getTileNumber() {
 		return this.tileNumber;
+	}
+
+	@Override
+	protected void printTile() {
+		super.printTile();
+		Logger.log(this.tileNumber);
 	}
 
 }

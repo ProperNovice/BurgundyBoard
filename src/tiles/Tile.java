@@ -5,6 +5,7 @@ import utils.Animation;
 import utils.Animation.AnimationSynch;
 import utils.EventHandler.EventHandlerAble;
 import utils.ImageView;
+import utils.Logger;
 
 public abstract class Tile implements EventHandlerAble {
 
@@ -44,6 +45,15 @@ public abstract class Tile implements EventHandlerAble {
 
 	public TileTypeEnum getTileTypeEnum() {
 		return this.tileTypeEnum;
+	}
+
+	protected void printTile() {
+		Logger.log(this.tileTypeEnum);
+	}
+
+	@Override
+	public void handleMouseButtonPressedPrimary() {
+		printTile();
 	}
 
 }

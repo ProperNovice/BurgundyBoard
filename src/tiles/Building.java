@@ -2,6 +2,7 @@ package tiles;
 
 import enums.BuildingTypeEnum;
 import enums.TileTypeEnum;
+import utils.Logger;
 
 public class Building extends Tile {
 
@@ -28,6 +29,12 @@ public class Building extends Tile {
 
 	public BuildingTypeEnum getBuildingTypeEnum() {
 		return this.buildingTypeEnum;
+	}
+
+	@Override
+	protected void printTile() {
+		super.printTile();
+		Logger.log(this.buildingTypeEnum);
 	}
 
 }

@@ -23,19 +23,19 @@ public class BoardSpace {
 
 	public boolean contains(double x, double y) {
 
-		double topX = centerX - Credentials.DimensionsDiceAreaInSpace.x * Credentials.boardScale / 4;
-		double topY = centerY - Credentials.DimensionsDiceAreaInSpace.y * Credentials.boardScale / 4;
+		double topLeftX = centerX - Credentials.DimensionsDiceAreaInSpace.x * Credentials.boardScale / 4;
+		double topLeftY = centerY - Credentials.DimensionsDiceAreaInSpace.y * Credentials.boardScale / 4;
 
-		if (x < topX)
+		if (x < topLeftX)
 			return false;
 
-		if (x > topX + Credentials.DimensionsDiceAreaInSpace.x * Credentials.boardScale)
+		if (x > topLeftX + Credentials.DimensionsDiceAreaInSpace.x * Credentials.boardScale)
 			return false;
 
-		if (y < topY)
+		if (y < topLeftY)
 			return false;
 
-		if (y > topY + Credentials.DimensionsDiceAreaInSpace.y * Credentials.boardScale)
+		if (y > topLeftY + Credentials.DimensionsDiceAreaInSpace.y * Credentials.boardScale)
 			return false;
 
 		return true;
