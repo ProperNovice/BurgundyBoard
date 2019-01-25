@@ -7,6 +7,12 @@ public class StartGame extends GameState {
 
 		super.controller.flowManager().proceedToNextPhase();
 
+		test();
+
+	}
+
+	private void test() {
+
 	}
 
 }

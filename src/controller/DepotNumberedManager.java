@@ -4,9 +4,8 @@ import enums.TileTypeEnum;
 import model.DepotNumbered;
 import tiles.Tile;
 import utils.ArrayList;
-import utils.Coordinates;
 import utils.CoordinatesBuilder;
-import utils.CoordinatesBuilder.CoordinatesType;
+import utils.CoordinatesLinear;
 
 public class DepotNumberedManager {
 
@@ -18,23 +17,22 @@ public class DepotNumberedManager {
 
 	private void createDepotNumbers() {
 
-		double topLeftX = Credentials.CoordinatesDepotNumbers.x;
-		double topLeftY = Credentials.CoordinatesDepotNumbers.y;
 		double coordinatesX, coordinatesY;
 		int index = 0;
 
-		Coordinates coordinates = new CoordinatesBuilder().width(Credentials.DimensionsDepotNumbered.x)
+		CoordinatesLinear coordinates = new CoordinatesBuilder().width(Credentials.DimensionsDepotNumbered.x)
 				.height(Credentials.DimensionsDepotNumbered.y)
-				.gapBetweenNodes(Credentials.DimensionsGapBetweenComponents.x).nodesPerRow(2)
-				.type(CoordinatesType.LINEAR).create();
+				.gapBetweenNodes(Credentials.DimensionsGapBetweenComponents.x)
+				.xPointOfInterest(Credentials.CoordinatesDepotNumbers.x)
+				.yPointOfInterest(Credentials.CoordinatesDepotNumbers.y).nodesPerRow(2).createCoordinatesLinear();
 
 		// 1
 
 		coordinatesX = coordinates.getX(index);
 		coordinatesY = coordinates.getY(index);
 
-		this.depotNumbers.addLast(new DepotNumbered(1, TileTypeEnum.BUILDING, TileTypeEnum.SHIP,
-				topLeftX + coordinatesX, topLeftY + coordinatesY));
+		this.depotNumbers
+				.addLast(new DepotNumbered(1, TileTypeEnum.BUILDING, TileTypeEnum.SHIP, coordinatesX, coordinatesY));
 
 		// 2
 
@@ -42,8 +40,8 @@ public class DepotNumberedManager {
 		coordinatesX = coordinates.getX(index);
 		coordinatesY = coordinates.getY(index);
 
-		this.depotNumbers.addLast(new DepotNumbered(2, TileTypeEnum.KNOWLEDGE, TileTypeEnum.CASTLE,
-				topLeftX + coordinatesX, topLeftY + coordinatesY));
+		this.depotNumbers
+				.addLast(new DepotNumbered(2, TileTypeEnum.KNOWLEDGE, TileTypeEnum.CASTLE, coordinatesX, coordinatesY));
 
 		// 3
 
@@ -51,8 +49,8 @@ public class DepotNumberedManager {
 		coordinatesX = coordinates.getX(index);
 		coordinatesY = coordinates.getY(index);
 
-		this.depotNumbers.addLast(new DepotNumbered(3, TileTypeEnum.ANIMAL, TileTypeEnum.BUILDING,
-				topLeftX + coordinatesX, topLeftY + coordinatesY));
+		this.depotNumbers
+				.addLast(new DepotNumbered(3, TileTypeEnum.ANIMAL, TileTypeEnum.BUILDING, coordinatesX, coordinatesY));
 
 		// 4
 
@@ -60,8 +58,8 @@ public class DepotNumberedManager {
 		coordinatesX = coordinates.getX(index);
 		coordinatesY = coordinates.getY(index);
 
-		this.depotNumbers.addLast(new DepotNumbered(4, TileTypeEnum.SHIP, TileTypeEnum.BUILDING,
-				topLeftX + coordinatesX, topLeftY + coordinatesY));
+		this.depotNumbers
+				.addLast(new DepotNumbered(4, TileTypeEnum.SHIP, TileTypeEnum.BUILDING, coordinatesX, coordinatesY));
 
 		// 5
 
@@ -69,8 +67,8 @@ public class DepotNumberedManager {
 		coordinatesX = coordinates.getX(index);
 		coordinatesY = coordinates.getY(index);
 
-		this.depotNumbers.addLast(new DepotNumbered(5, TileTypeEnum.MINE, TileTypeEnum.KNOWLEDGE,
-				topLeftX + coordinatesX, topLeftY + coordinatesY));
+		this.depotNumbers
+				.addLast(new DepotNumbered(5, TileTypeEnum.MINE, TileTypeEnum.KNOWLEDGE, coordinatesX, coordinatesY));
 
 		// 6
 
@@ -78,8 +76,8 @@ public class DepotNumberedManager {
 		coordinatesX = coordinates.getX(index);
 		coordinatesY = coordinates.getY(index);
 
-		this.depotNumbers.addLast(new DepotNumbered(6, TileTypeEnum.BUILDING, TileTypeEnum.ANIMAL,
-				topLeftX + coordinatesX, topLeftY + coordinatesY));
+		this.depotNumbers
+				.addLast(new DepotNumbered(6, TileTypeEnum.BUILDING, TileTypeEnum.ANIMAL, coordinatesX, coordinatesY));
 
 	}
 

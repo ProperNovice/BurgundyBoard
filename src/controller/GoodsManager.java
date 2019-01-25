@@ -2,15 +2,14 @@ package controller;
 
 import model.Goods;
 import utils.ArrayList;
-import utils.Coordinates;
 import utils.CoordinatesBuilder;
-import utils.CoordinatesBuilder.CoordinatesType;
+import utils.CoordinatesLinear;
 
 public class GoodsManager {
 
 	private ArrayList<Goods> goodsList = new ArrayList<>();
 	private ArrayList<Goods> phaseGoods = new ArrayList<>();
-	private Coordinates coordinates = null;
+	private CoordinatesLinear coordinatesLinear = null;
 
 	public GoodsManager() {
 
@@ -29,16 +28,15 @@ public class GoodsManager {
 
 	private void createCoordinates() {
 
-		this.coordinates = new CoordinatesBuilder().width(Credentials.DimensionsGoods.x)
+		this.coordinatesLinear = new CoordinatesBuilder().width(Credentials.DimensionsGoods.x)
 				.height(Credentials.DimensionsGoods.y).gapBetweenNodes(Credentials.DimensionsGapBetweenComponents.x)
-				.nodesPerRow(5).type(CoordinatesType.LINEAR).create();
+				.xPointOfInterest(Credentials.CoordinatesPhaseGoods.x)
+				.yPointOfInterest(Credentials.CoordinatesPhaseGoods.y).nodesPerRow(5).createCoordinatesLinear();
 
 	}
 
 	public void createNewPhaseGoodsAndRelocate() {
 
-		double x = Credentials.CoordinatesPhaseGoods.x;
-		double y = Credentials.CoordinatesPhaseGoods.y;
 		Goods goods = null;
 
 		for (int counter = 1; counter <= 5; counter++) {
@@ -49,7 +47,7 @@ public class GoodsManager {
 
 			goods.setVisible(true);
 
-			goods.relocate(x + this.coordinates.getX(goodsIndex), y + this.coordinates.getY(goodsIndex));
+			goods.relocate(this.coordinatesLinear.getX(goodsIndex), this.coordinatesLinear.getY(goodsIndex));
 
 		}
 
