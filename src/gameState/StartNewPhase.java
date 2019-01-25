@@ -26,14 +26,18 @@ public class StartNewPhase extends GameState {
 	private void addTilesToDepotsNumbered() {
 
 		ArrayList<TileTypeEnum> list = null;
+		TileTypeEnum tileTypeEnumFirst, tileTypeEnumSecond;
 		Tile tileFirst, tileSecond;
 
 		for (int counter = 1; counter <= 6; counter++) {
 
 			list = super.controller.depotNumberedManager().getDepotNumberedTileTypeEnumList(counter);
 
-			tileFirst = super.controller.tileManager().getRandomTileNormalSetVisibleTrue(list.get(0));
-			tileSecond = super.controller.tileManager().getRandomTileNormalSetVisibleTrue(list.get(1));
+			tileTypeEnumFirst = list.get(0);
+			tileTypeEnumSecond = list.get(1);
+
+			tileFirst = super.controller.tileManager().getRandomTileNormalSetVisibleTrue(tileTypeEnumFirst);
+			tileSecond = super.controller.tileManager().getRandomTileNormalSetVisibleTrue(tileTypeEnumSecond);
 
 			super.controller.depotNumberedManager().addTilesToDepotNumbers(counter, tileFirst, tileSecond);
 
