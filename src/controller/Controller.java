@@ -12,6 +12,7 @@ public class Controller {
 	private GoodsManager goodsManager = null;
 	private PhaseIndicatorManager phaseManager = null;
 	private DepotNumberedManager depotNumberedManager = null;
+	private WorkerManager workerManager = null;
 
 	public Controller() {
 		createInstances();
@@ -29,6 +30,7 @@ public class Controller {
 		this.goodsManager = new GoodsManager();
 		this.phaseManager = new PhaseIndicatorManager();
 		this.depotNumberedManager = new DepotNumberedManager();
+		this.workerManager = new WorkerManager();
 
 	}
 
@@ -62,6 +64,10 @@ public class Controller {
 
 	public DepotNumberedManager depotNumberedManager() {
 		return this.depotNumberedManager;
+	}
+
+	public WorkerManager workerManager() {
+		return this.workerManager;
 	}
 
 }

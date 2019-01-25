@@ -5,10 +5,16 @@ public class StartGame extends GameState {
 	@Override
 	public void handleGameStateChange() {
 
-		super.controller.flowManager().proceedToNextPhase();
+		addWorkersAndRelocate();
 
 		test();
 
+		super.controller.flowManager().proceedToNextPhase();
+
+	}
+
+	private void addWorkersAndRelocate() {
+		super.controller.workerManager().addWorkersAndRelocate(2);
 	}
 
 	private void test() {
