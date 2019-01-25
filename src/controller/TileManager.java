@@ -27,7 +27,6 @@ public class TileManager {
 	public TileManager() {
 
 		createTiles();
-//		createImageViews();
 
 	}
 
@@ -129,12 +128,22 @@ public class TileManager {
 
 	}
 
-	public Tile getRandomTileNormal(TileTypeEnum tileTypeEnum) {
-		return this.tilesNormal.get(tileTypeEnum).removeRandom();
+	public Tile getRandomTileNormalSetVisibleTrue(TileTypeEnum tileTypeEnum) {
+
+		Tile tile = this.tilesNormal.get(tileTypeEnum).removeRandom();
+		tile.setVisible(true);
+
+		return tile;
+
 	}
 
 	public Tile getRandomTileBlack() {
-		return this.tilesBlack.removeRandom();
+
+		Tile tile = this.tilesBlack.removeRandom();
+		tile.setVisible(true);
+
+		return tile;
+
 	}
 
 }
