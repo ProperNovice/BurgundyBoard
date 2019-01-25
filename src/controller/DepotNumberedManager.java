@@ -1,7 +1,7 @@
 package controller;
 
 import enums.TileTypeEnum;
-import models.DepotNumbered;
+import model.DepotNumbered;
 import tiles.Tile;
 import utils.ArrayList;
 import utils.Coordinates;
@@ -23,10 +23,10 @@ public class DepotNumberedManager {
 		double coordinatesX, coordinatesY;
 		int index = 0;
 
-		Coordinates coordinates = new CoordinatesBuilder().width(Credentials.DimensionsDeponNumbered.x)
-				.height(Credentials.DimensionsDeponNumbered.y)
+		Coordinates coordinates = new CoordinatesBuilder().width(Credentials.DimensionsDepotNumbered.x)
+				.height(Credentials.DimensionsDepotNumbered.y)
 				.gapBetweenNodes(Credentials.DimensionsGapBetweenComponents.x).nodesPerRow(2)
-				.create(CoordinatesType.LINEAR);
+				.type(CoordinatesType.LINEAR).create();
 
 		// 1
 

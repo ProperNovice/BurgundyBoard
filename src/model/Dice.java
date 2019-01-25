@@ -1,4 +1,4 @@
-package models;
+package model;
 
 import enums.DiceColor;
 import utils.EventHandler.EventHandlerAble;

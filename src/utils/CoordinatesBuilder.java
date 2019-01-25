@@ -4,14 +4,15 @@ public class CoordinatesBuilder {
 
 	private double width, height, gapBetweenNodes;
 	private int nodesPerRow;
-	private int dataTotal = 4, dataInput = 0;
+	private CoordinatesType coordinatesType = null;
+	private int dataTotal = 5, dataInput = 0;
 
 	public CoordinatesBuilder() {
 
 	}
 
 	public enum CoordinatesType {
-		LINEAR
+		LINEAR, PIVOT
 	}
 
 	public CoordinatesBuilder width(double width) {
@@ -38,7 +39,13 @@ public class CoordinatesBuilder {
 		return this;
 	}
 
-	public Coordinates create(CoordinatesType coordinatesType) {
+	public CoordinatesBuilder type(CoordinatesType coordinatesType) {
+		this.coordinatesType = coordinatesType;
+		this.dataInput++;
+		return this;
+	}
+
+	public Coordinates create() {
 
 		if (this.dataInput != this.dataTotal) {
 
@@ -52,9 +59,12 @@ public class CoordinatesBuilder {
 		case LINEAR:
 			return new CoordinatesLinear(this.width, this.height, this.gapBetweenNodes, this.nodesPerRow);
 
+		case PIVOT:
+			return new CoordinatesPivot(this.width, this.height, this.gapBetweenNodes, this.nodesPerRow);
+
 		}
 
-		return new CoordinatesLinear(this.width, this.height, this.gapBetweenNodes, this.nodesPerRow);
+		return null;
 	}
 
 }

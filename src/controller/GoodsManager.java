@@ -1,6 +1,6 @@
 package controller;
 
-import models.Goods;
+import model.Goods;
 import utils.ArrayList;
 import utils.Coordinates;
 import utils.CoordinatesBuilder;
@@ -31,7 +31,7 @@ public class GoodsManager {
 
 		this.coordinates = new CoordinatesBuilder().width(Credentials.DimensionsGoods.x)
 				.height(Credentials.DimensionsGoods.y).gapBetweenNodes(Credentials.DimensionsGapBetweenComponents.x)
-				.nodesPerRow(5).create(CoordinatesType.LINEAR);
+				.nodesPerRow(5).type(CoordinatesType.LINEAR).create();
 
 	}
 

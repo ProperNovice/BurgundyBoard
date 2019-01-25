@@ -4,7 +4,7 @@ public class Credentials {
 
 	public static Pair DimensionsInsets, DimensionsGapBetweenBorders, DimensionsBoard, DimensionsTile,
 			DimensionsDiceAreaInSpace, DimensionsGoods, DimensionsFrame, DimensionsGapBetweenComponents,
-			DimensionsPhaseIndicators, DimensionsDice, DimensionsDeponNumbered;
+			DimensionsPhaseIndicators, DimensionsDice, DimensionsDepotNumbered;
 	public static Pair CoordinatesTextPanel, CoordinatesBoard, CoordinatesPhaseIndicators, CoordinatesPhaseGoods,
 			CoordinatesDepotNumbers;
 	public static double textHeight, boardScale;
@@ -57,12 +57,12 @@ public class Credentials {
 		CoordinatesPhaseGoods = new Pair(x, y);
 
 		x = CoordinatesPhaseIndicators.x;
-		y = CoordinatesPhaseIndicators.y + DimensionsGoods.y + 2 * DimensionsGapBetweenComponents.y;
+		y = CoordinatesPhaseGoods.y + DimensionsGoods.y + 2 * DimensionsGapBetweenComponents.y;
 		CoordinatesDepotNumbers = new Pair(x, y);
 
 		x = DimensionsDice.x + 2 * DimensionsTile.x + 1.4 * DimensionsGoods.x + 3 * DimensionsGapBetweenComponents.x;
 		y = DimensionsTile.y;
-		DimensionsDeponNumbered = new Pair(x, y);
+		DimensionsDepotNumbered = new Pair(x, y);
 
 	}
 

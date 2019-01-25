@@ -1,7 +1,7 @@
 package controller;
 
 import enums.TileTypeEnum;
-import models.BoardSpace;
+import model.BoardSpace;
 import utils.ArrayList;
 import utils.EventHandler.EventHandlerAble;
 import utils.ImageView;
