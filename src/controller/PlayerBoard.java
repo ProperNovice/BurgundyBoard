@@ -255,9 +255,6 @@ public class PlayerBoard implements EventHandlerAble {
 		if (boardSpacePressed == null)
 			return;
 
-		System.out.println(x + " xpr");
-		System.out.println(y + " ypr");
-
 		TileTypeEnum tileTypeEnum = boardSpacePressed.getTileTypeEnum();
 		int diceValue = boardSpacePressed.getDiceValue();
 
