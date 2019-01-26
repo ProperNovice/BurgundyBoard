@@ -1,9 +1,11 @@
 package controller;
 
 import enums.TileTypeEnum;
+import instances.Instances;
 import model.BoardSpace;
 import utils.ArrayList;
 import utils.EventHandler.EventHandlerAble;
+import utils.Executor;
 import utils.ImageView;
 
 public class PlayerBoard implements EventHandlerAble {
@@ -30,13 +32,13 @@ public class PlayerBoard implements EventHandlerAble {
 	private void createSpaces() {
 
 		// 0
-		createSpace(TileTypeEnum.SHIP, 6, 665, 71);
+		createSpace(TileTypeEnum.SHIP, 6, 663, 71);
 
 		// 1
-		createSpace(TileTypeEnum.MINE, 5, 772, 70);
+		createSpace(TileTypeEnum.MINE, 5, 769, 70);
 
 		// 2
-		createSpace(TileTypeEnum.BUILDING, 6, 880, 72);
+		createSpace(TileTypeEnum.BUILDING, 6, 878, 72);
 
 		// 3
 		createSpace(TileTypeEnum.BUILDING, 2, 987, 72);
@@ -45,19 +47,19 @@ public class PlayerBoard implements EventHandlerAble {
 		createSpace(TileTypeEnum.BUILDING, 4, 716, 163);
 
 		// 5
-		createSpace(TileTypeEnum.ANIMAL, 2, 829, 162);
+		createSpace(TileTypeEnum.ANIMAL, 2, 823, 162);
 
 		// 6
-		createSpace(TileTypeEnum.CASTLE, 4, 934, 165);
+		createSpace(TileTypeEnum.CASTLE, 4, 930, 165);
 
 		// 7
-		createSpace(TileTypeEnum.KNOWLEDGE, 3, 1041, 161);
+		createSpace(TileTypeEnum.KNOWLEDGE, 3, 1038, 161);
 
 		// 8
-		createSpace(TileTypeEnum.BUILDING, 6, 770, 255);
+		createSpace(TileTypeEnum.BUILDING, 6, 768, 255);
 
 		// 9
-		createSpace(TileTypeEnum.SHIP, 3, 881, 257);
+		createSpace(TileTypeEnum.SHIP, 3, 878, 257);
 
 		// 10
 		createSpace(TileTypeEnum.BUILDING, 1, 986, 256);
@@ -72,70 +74,70 @@ public class PlayerBoard implements EventHandlerAble {
 		createSpace(TileTypeEnum.KNOWLEDGE, 5, 827, 508);
 
 		// 14
-		createSpace(TileTypeEnum.ANIMAL, 1, 937, 508);
+		createSpace(TileTypeEnum.ANIMAL, 1, 932, 508);
 
 		// 15
-		createSpace(TileTypeEnum.SHIP, 1, 558, 604);
+		createSpace(TileTypeEnum.SHIP, 1, 554, 604);
 
 		// 16
-		createSpace(TileTypeEnum.BUILDING, 2, 665, 602);
+		createSpace(TileTypeEnum.BUILDING, 2, 663, 602);
 
 		// 17
-		createSpace(TileTypeEnum.CASTLE, 4, 774, 602);
+		createSpace(TileTypeEnum.CASTLE, 4, 772, 602);
 
 		// 18
-		createSpace(TileTypeEnum.ANIMAL, 6, 884, 601);
+		createSpace(TileTypeEnum.ANIMAL, 6, 878, 601);
 
 		// 19
-		createSpace(TileTypeEnum.SHIP, 1, 989, 603);
+		createSpace(TileTypeEnum.SHIP, 1, 986, 603);
 
 		// 20
-		createSpace(TileTypeEnum.BUILDING, 6, 610, 697);
+		createSpace(TileTypeEnum.BUILDING, 6, 608, 697);
 
 		// 21
 		createSpace(TileTypeEnum.MINE, 5, 718, 693);
 
 		// 22
-		createSpace(TileTypeEnum.BUILDING, 1, 827, 696);
+		createSpace(TileTypeEnum.BUILDING, 1, 824, 696);
 
 		// 23
-		createSpace(TileTypeEnum.ANIMAL, 2, 937, 694);
+		createSpace(TileTypeEnum.ANIMAL, 2, 934, 694);
 
 		// 24
-		createSpace(TileTypeEnum.ANIMAL, 6, 180, 46);
+		createSpace(TileTypeEnum.ANIMAL, 6, 177, 46);
 
 		// 25
-		createSpace(TileTypeEnum.BUILDING, 4, 286, 47);
+		createSpace(TileTypeEnum.BUILDING, 4, 284, 47);
 
 		// 26
-		createSpace(TileTypeEnum.CASTLE, 2, 124, 139);
+		createSpace(TileTypeEnum.CASTLE, 2, 122, 139);
 
 		// 27
-		createSpace(TileTypeEnum.KNOWLEDGE, 3, 231, 137);
+		createSpace(TileTypeEnum.KNOWLEDGE, 3, 229, 137);
 
 		// 28
-		createSpace(TileTypeEnum.CASTLE, 2, 340, 139);
+		createSpace(TileTypeEnum.CASTLE, 2, 338, 139);
 
 		// 29
-		createSpace(TileTypeEnum.MINE, 5, 177, 230);
+		createSpace(TileTypeEnum.MINE, 5, 175, 230);
 
 		// 30
-		createSpace(TileTypeEnum.SHIP, 1, 287, 233);
+		createSpace(TileTypeEnum.SHIP, 1, 284, 233);
 
 		// 31
-		createSpace(TileTypeEnum.BUILDING, 2, 180, 510);
+		createSpace(TileTypeEnum.BUILDING, 2, 178, 510);
 
 		// 32
-		createSpace(TileTypeEnum.SHIP, 4, 290, 510);
+		createSpace(TileTypeEnum.SHIP, 4, 286, 510);
 
 		// 33
-		createSpace(TileTypeEnum.BUILDING, 5, 126, 601);
+		createSpace(TileTypeEnum.BUILDING, 5, 124, 601);
 
 		// 34
-		createSpace(TileTypeEnum.BUILDING, 4, 234, 602);
+		createSpace(TileTypeEnum.BUILDING, 4, 233, 602);
 
 		// 35
-		createSpace(TileTypeEnum.ANIMAL, 1, 74, 693);
+		createSpace(TileTypeEnum.ANIMAL, 1, 68, 693);
 
 		// 36
 		createSpace(TileTypeEnum.KNOWLEDGE, 3, 179, 692);
@@ -146,8 +148,9 @@ public class PlayerBoard implements EventHandlerAble {
 
 		topLeftX *= Credentials.boardScale;
 		topLeftY *= Credentials.boardScale;
-		double centerX = topLeftX + Credentials.DimensionsDiceAreaInSpace.x * Credentials.boardScale / 4;
-		double centerY = topLeftY + Credentials.DimensionsDiceAreaInSpace.y * Credentials.boardScale / 4;
+
+		double centerX = topLeftX + Credentials.DimensionsDiceAreaInSpace.x * Credentials.boardScale / 2;
+		double centerY = topLeftY + Credentials.DimensionsDiceAreaInSpace.y * Credentials.boardScale / 2;
 
 		this.boardSpaces.addLast(new BoardSpace(tileTypeEnum, diceValue, centerX, centerY));
 
@@ -247,19 +250,28 @@ public class PlayerBoard implements EventHandlerAble {
 		double x = this.imageView.getEventX();
 		double y = this.imageView.getEventY();
 
-		BoardSpace spacePressed = getSpacePressed(x, y);
+		BoardSpace boardSpacePressed = getSpacePressed(x, y);
 
-		if (spacePressed == null)
+		if (boardSpacePressed == null)
 			return;
 
-		spacePressed.print();
+		System.out.println(x + " xpr");
+		System.out.println(y + " ypr");
+
+		TileTypeEnum tileTypeEnum = boardSpacePressed.getTileTypeEnum();
+		int diceValue = boardSpacePressed.getDiceValue();
+
+		boardSpacePressed.print();
+
+		Executor.runLater(() -> Instances.getControllerInstance().gameStateManager().getCurrentGameState()
+				.handleBoardSpacePressed(boardSpacePressed, tileTypeEnum, diceValue));
 
 	}
 
 	private BoardSpace getSpacePressed(double x, double y) {
 
 		for (BoardSpace space : this.boardSpaces)
-			if (space.contains(x, y))
+			if (space.containsCoordinate(x, y))
 				return space;
 
 		return null;

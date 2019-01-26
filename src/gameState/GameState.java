@@ -2,8 +2,10 @@ package gameState;
 
 import controller.Controller;
 import enums.TextEnum;
+import enums.TileTypeEnum;
 import instances.Instances;
 import javafx.scene.input.KeyCode;
+import model.BoardSpace;
 
 public abstract class GameState {
 
@@ -16,6 +18,10 @@ public abstract class GameState {
 	}
 
 	public void handleKeyPressed(KeyCode keyCode) {
+
+	}
+
+	public void handleBoardSpacePressed(BoardSpace boardSpacePressed, TileTypeEnum tileTypeEnum, int diceValue) {
 
 	}
 

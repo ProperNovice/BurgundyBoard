@@ -2,12 +2,14 @@ package model;
 
 import controller.Credentials;
 import enums.TileTypeEnum;
+import tiles.Tile;
 import utils.ArrayList;
 import utils.Logger;
 
 public class BoardSpace {
 
 	private TileTypeEnum tileTypeEnum = null;
+	private Tile tileContaining = null;
 	private int diceValue;
 	private double centerX, centerY;
 	private ArrayList<BoardSpace> adjacencies = new ArrayList<>();
@@ -21,10 +23,10 @@ public class BoardSpace {
 
 	}
 
-	public boolean contains(double x, double y) {
+	public boolean containsCoordinate(double x, double y) {
 
-		double topLeftX = centerX - Credentials.DimensionsDiceAreaInSpace.x * Credentials.boardScale / 4;
-		double topLeftY = centerY - Credentials.DimensionsDiceAreaInSpace.y * Credentials.boardScale / 4;
+		double topLeftX = centerX - Credentials.DimensionsDiceAreaInSpace.x * Credentials.boardScale / 2;
+		double topLeftY = centerY - Credentials.DimensionsDiceAreaInSpace.y * Credentials.boardScale / 2;
 
 		if (x < topLeftX)
 			return false;
@@ -40,6 +42,27 @@ public class BoardSpace {
 
 		return true;
 
+	}
+
+	public void addTileAndRelocate(Tile tile) {
+
+		double topLeftX = Credentials.CoordinatesBoard.x + this.centerX - Credentials.DimensionsTile.x / 2;
+		double topLeftY = Credentials.CoordinatesBoard.y + this.centerY - Credentials.DimensionsTile.y / 2;
+
+		tile.relocate(topLeftX, topLeftY);
+
+	}
+
+	public TileTypeEnum getTileTypeEnum() {
+		return this.tileTypeEnum;
+	}
+
+	public int getDiceValue() {
+		return this.diceValue;
+	}
+
+	public boolean containsTile() {
+		return this.tileContaining == null;
 	}
 
 	public void addAdjacent(BoardSpace space) {

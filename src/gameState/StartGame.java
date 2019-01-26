@@ -10,7 +10,7 @@ public class StartGame extends GameState {
 
 		test();
 
-		super.controller.flowManager().proceedToNextPhase();
+//		super.controller.flowManager().proceedToNextPhase();
 
 	}
 

@@ -27,7 +27,7 @@ public class Credentials {
 
 		double x, y;
 
-		boardScale = 0.8;
+		boardScale = 1;
 		textHeight = 50;
 
 		DimensionsInsets = new Pair(7, 29);
