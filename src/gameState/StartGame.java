@@ -1,8 +1,5 @@
 package gameState;
 
-import enums.TileTypeEnum;
-import model.BoardSpace;
-
 public class StartGame extends GameState {
 
 	@Override
