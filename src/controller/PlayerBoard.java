@@ -12,12 +12,63 @@ public class PlayerBoard implements EventHandlerAble {
 
 	private ImageView imageView = null;
 	private ArrayList<BoardSpace> boardSpaces = new ArrayList<>();
+	private ArrayList<ArrayList<BoardSpace>> regions = new ArrayList<>();
 
 	public PlayerBoard() {
 
 		createBoard();
 		createSpaces();
 		createAdjacencies();
+		createRegions();
+
+	}
+
+	private void createRegions() {
+
+		addBoardSpacesToNewRegion(getBoardSpace(0));
+		addBoardSpacesToNewRegion(getBoardSpace(1));
+		addBoardSpacesToNewRegion(getBoardSpace(2), getBoardSpace(3));
+		addBoardSpacesToNewRegion(getBoardSpace(4), getBoardSpace(8));
+		addBoardSpacesToNewRegion(getBoardSpace(5));
+		addBoardSpacesToNewRegion(getBoardSpace(6));
+		addBoardSpacesToNewRegion(getBoardSpace(7));
+		addBoardSpacesToNewRegion(getBoardSpace(9));
+		addBoardSpacesToNewRegion(getBoardSpace(10));
+
+		addBoardSpacesToNewRegion(getBoardSpace(11), getBoardSpace(12), getBoardSpace(13));
+		addBoardSpacesToNewRegion(getBoardSpace(14), getBoardSpace(18), getBoardSpace(23));
+		addBoardSpacesToNewRegion(getBoardSpace(19));
+		addBoardSpacesToNewRegion(getBoardSpace(15));
+		addBoardSpacesToNewRegion(getBoardSpace(16), getBoardSpace(20));
+		addBoardSpacesToNewRegion(getBoardSpace(17));
+		addBoardSpacesToNewRegion(getBoardSpace(21));
+		addBoardSpacesToNewRegion(getBoardSpace(22));
+
+		addBoardSpacesToNewRegion(getBoardSpace(24));
+		addBoardSpacesToNewRegion(getBoardSpace(25));
+		addBoardSpacesToNewRegion(getBoardSpace(26));
+		addBoardSpacesToNewRegion(getBoardSpace(27));
+		addBoardSpacesToNewRegion(getBoardSpace(28));
+		addBoardSpacesToNewRegion(getBoardSpace(29));
+		addBoardSpacesToNewRegion(getBoardSpace(30));
+
+		addBoardSpacesToNewRegion(getBoardSpace(31), getBoardSpace(33), getBoardSpace(34));
+		addBoardSpacesToNewRegion(getBoardSpace(32));
+		addBoardSpacesToNewRegion(getBoardSpace(35));
+		addBoardSpacesToNewRegion(getBoardSpace(36));
+
+	}
+
+	private BoardSpace getBoardSpace(int index) {
+		return this.boardSpaces.get(index);
+	}
+
+	private void addBoardSpacesToNewRegion(BoardSpace... boardSpaces) {
+
+		ArrayList<BoardSpace> list = new ArrayList<>();
+		list.addAll(boardSpaces);
+
+		this.regions.addLast(list);
 
 	}
 
