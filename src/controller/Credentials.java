@@ -55,7 +55,7 @@ public class Credentials {
 		CoordinatesPhaseIndicators = new Pair(x, y);
 
 		x = CoordinatesPhaseIndicators.x + DimensionsPhaseIndicators.x + 2 * DimensionsGapBetweenComponents.x;
-		y = DimensionsGapBetweenBorders.y;
+		y = CoordinatesPhaseIndicators.y - (DimensionsGoods.y - DimensionsPhaseIndicators.y) / 2;
 		CoordinatesPhaseGoods = new Pair(x, y);
 
 		x = CoordinatesPhaseIndicators.x;
