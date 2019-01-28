@@ -27,11 +27,11 @@ public class StartGame extends GameState {
 	private void test() {
 
 		super.controller.storageSpaceManager().addTileAndRelocate(
-				super.controller.tileManager().getRandomTileNormalSetVisibleTrue(TileTypeEnum.CASTLE));
+				super.controller.tileManager().getRandomTileNormalSetVisibleTrue(TileTypeEnum.KNOWLEDGE));
 		super.controller.storageSpaceManager().addTileAndRelocate(
 				super.controller.tileManager().getRandomTileNormalSetVisibleTrue(TileTypeEnum.BUILDING));
 		super.controller.storageSpaceManager().addTileAndRelocate(
-				super.controller.tileManager().getRandomTileNormalSetVisibleTrue(TileTypeEnum.MINE));
+				super.controller.tileManager().getRandomTileNormalSetVisibleTrue(TileTypeEnum.SHIP));
 
 	}
 

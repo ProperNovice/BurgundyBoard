@@ -2,13 +2,13 @@ package controller;
 
 public class Credentials {
 
-	public static Pair DimensionsInsets, DimensionsGapBetweenBorders, DimensionsBoard, DimensionsTile,
-			DimensionsDiceAreaInSpace, DimensionsGoods, DimensionsFrame, DimensionsGapBetweenComponents,
-			DimensionsPhaseIndicators, DimensionsDice, DimensionsDepotNumbered, DimensionsWorker, DimensionsSilverling;
+	public static Pair DimensionsInsets, DimensionsBoard, DimensionsTile, DimensionsDiceAreaInSpace, DimensionsGoods,
+			DimensionsFrame, DimensionsGapBetweenComponents, DimensionsPhaseIndicators, DimensionsDice,
+			DimensionsDepotNumbered, DimensionsWorker, DimensionsSilverling;
 	public static Pair CoordinatesTextPanel, CoordinatesBoard, CoordinatesPhaseIndicators, CoordinatesPhaseGoods,
 			CoordinatesDepotNumbered, CoordinatesWorkers, CoordinatesSilverling, CoordinatesDepotBlack,
 			CoordinatesStorageSpaceFirst, CoordinatesStorageSpaceSecond, CoordinatesStorageSpaceThird;
-	public static double textHeight, boardScale;
+	public static double gapBetweenBorders, textHeight, boardScale;
 
 	public static class Pair {
 
@@ -32,7 +32,7 @@ public class Credentials {
 		textHeight = 50;
 
 		DimensionsInsets = new Pair(7, 29);
-		DimensionsGapBetweenBorders = new Pair(20, 20);
+		gapBetweenBorders = 20;
 		DimensionsGapBetweenComponents = new Pair(5, 5);
 		CoordinatesTextPanel = new Pair(50, 50);
 
@@ -45,14 +45,14 @@ public class Credentials {
 		DimensionsWorker = new Pair(36, 36);
 		DimensionsSilverling = new Pair(36, 36);
 
-		CoordinatesBoard = new Pair(DimensionsGapBetweenBorders.x, DimensionsGapBetweenBorders.y);
+		CoordinatesBoard = new Pair(gapBetweenBorders, gapBetweenBorders);
 
 		x = 1520;
-		y = Math.ceil(DimensionsBoard.y * boardScale + 2 * DimensionsGapBetweenBorders.y);
+		y = Math.ceil(DimensionsBoard.y * boardScale + 2 * gapBetweenBorders);
 		DimensionsFrame = new Pair(x, y);
 
 		x = CoordinatesBoard.x + DimensionsBoard.x * boardScale + 2 * DimensionsGapBetweenComponents.x;
-		y = DimensionsGapBetweenBorders.y + (DimensionsGoods.y - DimensionsPhaseIndicators.y) / 2;
+		y = gapBetweenBorders + (DimensionsGoods.y - DimensionsPhaseIndicators.y) / 2;
 		CoordinatesPhaseIndicators = new Pair(x, y);
 
 		x = CoordinatesPhaseIndicators.x + DimensionsPhaseIndicators.x + 2 * DimensionsGapBetweenComponents.x;
@@ -79,16 +79,16 @@ public class Credentials {
 		y = CoordinatesDepotNumbered.y + 3 * (DimensionsTile.y + DimensionsGapBetweenComponents.y);
 		CoordinatesDepotBlack = new Pair(x, y);
 
-		x = boardScale * (-1 + 115 / 2);
-		y = boardScale * (324 + 132 / 2);
+		x = CoordinatesBoard.x + boardScale * (-1 + 115 / 2);
+		y = CoordinatesBoard.y + boardScale * (324 + 132 / 2);
 		CoordinatesStorageSpaceFirst = new Pair(x, y);
 
-		x = boardScale * (125 + 115 / 2);
-		y = boardScale * (324 + 132 / 2);
+		x = CoordinatesBoard.x + boardScale * (125 + 115 / 2);
+		y = CoordinatesBoard.y + boardScale * (324 + 132 / 2);
 		CoordinatesStorageSpaceSecond = new Pair(x, y);
 
-		x = boardScale * (247 + 115 / 2);
-		y = boardScale * (324 + 132 / 2);
+		x = CoordinatesBoard.x + boardScale * (247 + 115 / 2);
+		y = CoordinatesBoard.y + boardScale * (324 + 132 / 2);
 		CoordinatesStorageSpaceThird = new Pair(x, y);
 
 	}
