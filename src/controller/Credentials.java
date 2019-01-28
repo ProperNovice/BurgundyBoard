@@ -6,7 +6,8 @@ public class Credentials {
 			DimensionsDiceAreaInSpace, DimensionsGoods, DimensionsFrame, DimensionsGapBetweenComponents,
 			DimensionsPhaseIndicators, DimensionsDice, DimensionsDepotNumbered, DimensionsWorker, DimensionsSilverling;
 	public static Pair CoordinatesTextPanel, CoordinatesBoard, CoordinatesPhaseIndicators, CoordinatesPhaseGoods,
-			CoordinatesDepotNumbered, CoordinatesWorkers, CoordinatesSilverling, CoordinatesDepotBlack;
+			CoordinatesDepotNumbered, CoordinatesWorkers, CoordinatesSilverling, CoordinatesDepotBlack,
+			CoordinatesStorageSpaceFirst, CoordinatesStorageSpaceSecond, CoordinatesStorageSpaceThird;
 	public static double textHeight, boardScale;
 
 	public static class Pair {
@@ -77,6 +78,18 @@ public class Credentials {
 		x = CoordinatesDepotNumbered.x + DimensionsDice.x + DimensionsGapBetweenComponents.x;
 		y = CoordinatesDepotNumbered.y + 3 * (DimensionsTile.y + DimensionsGapBetweenComponents.y);
 		CoordinatesDepotBlack = new Pair(x, y);
+
+		x = boardScale * (-1 + 115 / 2);
+		y = boardScale * (324 + 132 / 2);
+		CoordinatesStorageSpaceFirst = new Pair(x, y);
+
+		x = boardScale * (125 + 115 / 2);
+		y = boardScale * (324 + 132 / 2);
+		CoordinatesStorageSpaceSecond = new Pair(x, y);
+
+		x = boardScale * (247 + 115 / 2);
+		y = boardScale * (324 + 132 / 2);
+		CoordinatesStorageSpaceThird = new Pair(x, y);
 
 	}
 

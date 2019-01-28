@@ -1,5 +1,7 @@
 package gameState;
 
+import enums.TileTypeEnum;
+
 public class StartGame extends GameState {
 
 	@Override
@@ -23,6 +25,13 @@ public class StartGame extends GameState {
 	}
 
 	private void test() {
+
+		super.controller.storageSpaceManager().addTileAndRelocate(
+				super.controller.tileManager().getRandomTileNormalSetVisibleTrue(TileTypeEnum.CASTLE));
+		super.controller.storageSpaceManager().addTileAndRelocate(
+				super.controller.tileManager().getRandomTileNormalSetVisibleTrue(TileTypeEnum.BUILDING));
+		super.controller.storageSpaceManager().addTileAndRelocate(
+				super.controller.tileManager().getRandomTileNormalSetVisibleTrue(TileTypeEnum.MINE));
 
 	}
 

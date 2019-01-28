@@ -15,6 +15,7 @@ public class Controller {
 	private WorkerManager workerManager = null;
 	private SilverlingManager silverlingManager = null;
 	private DepotBlackManager depotBlackManager = null;
+	private StorageSpaceManager storageSpaceManager = null;
 
 	public Controller() {
 		createInstances();
@@ -35,6 +36,7 @@ public class Controller {
 		this.workerManager = new WorkerManager();
 		this.silverlingManager = new SilverlingManager();
 		this.depotBlackManager = new DepotBlackManager();
+		this.storageSpaceManager = new StorageSpaceManager();
 
 	}
 
@@ -80,6 +82,10 @@ public class Controller {
 
 	public DepotBlackManager depotBlackManager() {
 		return this.depotBlackManager;
+	}
+
+	public StorageSpaceManager storageSpaceManager() {
+		return this.storageSpaceManager;
 	}
 
 }

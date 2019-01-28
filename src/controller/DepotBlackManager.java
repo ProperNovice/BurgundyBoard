@@ -32,11 +32,6 @@ public class DepotBlackManager {
 		this.tiles.addAll(tilesBlack);
 
 		for (Tile tile : this.tiles) {
-			
-			System.out.println(this.coordinates.getX(this.tiles.indexOf(tile)));
-			System.out.println(this.coordinates.getY(this.tiles.indexOf(tile)));
-			System.out.println();
-			
 			tile.relocate(this.coordinates.getX(this.tiles.indexOf(tile)),
 					this.coordinates.getY(this.tiles.indexOf(tile)));
 		}
