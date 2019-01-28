@@ -13,16 +13,16 @@ public class DepotNumbered {
 	private ArrayList<Tile> tiles = new ArrayList<>();
 	private ArrayList<Goods> goods = new ArrayList<>();
 	private ImageView depotNumberIndicator = null;
-	private double x, y;
+	private double xCoordinates, yCoordinates;
 
-	public DepotNumbered(int depotNumber, TileTypeEnum tileTypeEnumFirst, TileTypeEnum tileTypeEnumSecond, double x,
-			double y) {
+	public DepotNumbered(int depotNumber, TileTypeEnum tileTypeEnumFirst, TileTypeEnum tileTypeEnumSecond,
+			double xCoordinates, double yCoordinates) {
 
 		this.depotNumber = depotNumber;
 		this.tilesTypeEnum.addLast(tileTypeEnumFirst);
 		this.tilesTypeEnum.addLast(tileTypeEnumSecond);
-		this.x = x;
-		this.y = y;
+		this.xCoordinates = xCoordinates;
+		this.yCoordinates = yCoordinates;
 
 		createDepotNumberIndicator();
 		relocateDepotNumbered();
@@ -57,8 +57,8 @@ public class DepotNumbered {
 
 	public void relocateDepotNumbered() {
 
-		double y = this.y + (Credentials.DimensionsTile.y - Credentials.DimensionsDice.y) / 2;
-		this.depotNumberIndicator.relocate(this.x, y);
+		double y = this.yCoordinates + (Credentials.DimensionsTile.y - Credentials.DimensionsDice.y) / 2;
+		this.depotNumberIndicator.relocate(this.xCoordinates, y);
 
 	}
 
@@ -67,11 +67,11 @@ public class DepotNumbered {
 		this.tiles.addLast(tileFirst);
 		this.tiles.addLast(tileSecond);
 
-		double x = this.x + Credentials.DimensionsDice.x + Credentials.DimensionsGapBetweenComponents.x;
+		double x = this.xCoordinates + Credentials.DimensionsDice.x + Credentials.DimensionsGapBetweenComponents.x;
 
 		for (Tile tile : this.tiles) {
 
-			tile.relocate(x, this.y);
+			tile.relocate(x, this.yCoordinates);
 			x += Credentials.DimensionsTile.x + Credentials.DimensionsGapBetweenComponents.x;
 
 		}

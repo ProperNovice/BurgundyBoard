@@ -12,6 +12,7 @@ public class StartNewPhase extends GameState {
 		setNewPhaseIndicator();
 		createNewPhaseGoodsAndRelocate();
 		addTilesToDepotsNumbered();
+		addTilesToDepotsBlack();
 
 	}
 
@@ -42,6 +43,18 @@ public class StartNewPhase extends GameState {
 			super.controller.depotNumberedManager().addTilesToDepotNumbers(counter, tileFirst, tileSecond);
 
 		}
+
+	}
+
+	private void addTilesToDepotsBlack() {
+
+		ArrayList<Tile> tilesBlack = new ArrayList<>();
+
+		for (int counter = 1; counter <= 4; counter++) {
+			tilesBlack.addLast(super.controller.tileManager().getRandomTileBlack());
+		}
+
+		super.controller.depotBlackManager().addTilesAndRelocate(tilesBlack);
 
 	}
 

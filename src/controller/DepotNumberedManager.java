@@ -23,8 +23,8 @@ public class DepotNumberedManager {
 		CoordinatesLinear coordinates = new CoordinatesBuilder().width(Credentials.DimensionsDepotNumbered.x)
 				.height(Credentials.DimensionsDepotNumbered.y)
 				.gapBetweenNodes(Credentials.DimensionsGapBetweenComponents.x)
-				.xPointOfInterest(Credentials.CoordinatesDepotNumbers.x)
-				.yPointOfInterest(Credentials.CoordinatesDepotNumbers.y).nodesPerRow(2).createCoordinatesLinear();
+				.xPointOfInterest(Credentials.CoordinatesDepotNumbered.x)
+				.yPointOfInterest(Credentials.CoordinatesDepotNumbered.y).nodesPerRow(2).createCoordinatesLinear();
 
 		// 1
 
