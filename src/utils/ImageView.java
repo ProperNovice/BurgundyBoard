@@ -37,6 +37,14 @@ public class ImageView implements Node {
 
 	}
 
+	public ImageView(Image image, EventHandlerAble eventHandlerAble) {
+
+		this.imageTrue = image;
+		createAndAddNode();
+		this.setEventHandler(eventHandlerAble);
+
+	}
+
 	private void createAndAddNode() {
 
 		this.imageView = new javafx.scene.image.ImageView(this.imageTrue.getImage());
