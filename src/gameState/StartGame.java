@@ -1,5 +1,8 @@
 package gameState;
 
+import tiles.Castle;
+import tiles.Tile;
+
 public class StartGame extends GameState {
 
 	@Override
@@ -8,6 +11,7 @@ public class StartGame extends GameState {
 		addWorkersAndRelocate();
 		addSilverlingsAndRelocate();
 
+		testAddTilesToGameBoard();
 		test();
 
 		super.controller.flowManager().proceedToNextPhase();
@@ -23,6 +27,15 @@ public class StartGame extends GameState {
 	}
 
 	private void test() {
+
+	}
+
+	private void testAddTilesToGameBoard() {
+
+		Tile tile = null;
+
+		tile = new Castle();
+		super.controller.playerBoard().testAddTileToBoardSpace(tile, 6);
 
 	}
 

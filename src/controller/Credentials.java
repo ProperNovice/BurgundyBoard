@@ -4,11 +4,12 @@ public class Credentials {
 
 	public static NumbersPair DimensionsInsets, DimensionsBoard, DimensionsTile, DimensionsDiceAreaInSpace,
 			DimensionsGoods, DimensionsFrame, DimensionsGapBetweenComponents, DimensionsPhaseIndicators, DimensionsDice,
-			DimensionsDepotNumbered, DimensionsWorker, DimensionsSilverling, DimensionsTileIndicators;
+			DimensionsDepotNumbered, DimensionsWorker, DimensionsSilverling, DimensionsTileIndicators,
+			DimensionsRegionScoringIndicator;
 	public static NumbersPair CoordinatesTextPanel, CoordinatesBoard, CoordinatesPhaseIndicators, CoordinatesPhaseGoods,
 			CoordinatesDepotNumbered, CoordinatesWorkers, CoordinatesSilverling, CoordinatesDepotBlack,
 			CoordinatesStorageSpaceFirst, CoordinatesStorageSpaceSecond, CoordinatesStorageSpaceThird,
-			CoordinatesTileIndicators;
+			CoordinatesTileIndicators, CoordinatesRegionScoringIndicators;
 	public static double gapBetweenBorders, textHeight, boardScale;
 
 	public static class NumbersPair {
@@ -46,6 +47,7 @@ public class Credentials {
 		DimensionsWorker = new NumbersPair(36, 36);
 		DimensionsSilverling = new NumbersPair(36, 36);
 		DimensionsTileIndicators = new NumbersPair(42, 76);
+		DimensionsRegionScoringIndicator = new NumbersPair(26, 31);
 
 		CoordinatesBoard = new NumbersPair(gapBetweenBorders, gapBetweenBorders);
 
@@ -58,7 +60,7 @@ public class Credentials {
 		DimensionsFrame = new NumbersPair(x, y);
 
 		x = CoordinatesBoard.x + DimensionsBoard.x * boardScale + 2 * DimensionsGapBetweenComponents.x;
-		y = CoordinatesTileIndicators.y + DimensionsTileIndicators.y + gapBetweenBorders
+		y = CoordinatesTileIndicators.y + DimensionsTileIndicators.y + 2 * DimensionsGapBetweenComponents.y
 				+ (DimensionsGoods.y - DimensionsPhaseIndicators.y) / 2;
 		CoordinatesPhaseIndicators = new NumbersPair(x, y);
 
@@ -97,6 +99,11 @@ public class Credentials {
 		x = CoordinatesBoard.x + boardScale * (247 + 115 / 2);
 		y = CoordinatesBoard.y + boardScale * (324 + 132 / 2);
 		CoordinatesStorageSpaceThird = new NumbersPair(x, y);
+
+		x = CoordinatesPhaseGoods.x + 5 * (DimensionsGoods.x + DimensionsGapBetweenComponents.x)
+				+ DimensionsGapBetweenComponents.x;
+		y = CoordinatesPhaseGoods.y + (DimensionsGoods.y - DimensionsRegionScoringIndicator.y) / 2;
+		CoordinatesRegionScoringIndicators = new NumbersPair(x, y);
 
 	}
 

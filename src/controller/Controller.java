@@ -17,6 +17,7 @@ public class Controller {
 	private DepotBlackManager depotBlackManager = null;
 	private StorageSpaceManager storageSpaceManager = null;
 	private TileIndicatorManager tileIndicatorManager = null;
+	private RegionScoringManager regionScoringManager = null;
 
 	public Controller() {
 		createInstances();
@@ -39,6 +40,7 @@ public class Controller {
 		this.depotBlackManager = new DepotBlackManager();
 		this.storageSpaceManager = new StorageSpaceManager();
 		this.tileIndicatorManager = new TileIndicatorManager();
+		this.regionScoringManager = new RegionScoringManager();
 
 	}
 
@@ -92,6 +94,10 @@ public class Controller {
 
 	public TileIndicatorManager tileIndicatorManager() {
 		return this.tileIndicatorManager;
+	}
+
+	public RegionScoringManager regionScoringManager() {
+		return this.regionScoringManager;
 	}
 
 }

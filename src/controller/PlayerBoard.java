@@ -3,6 +3,7 @@ package controller;
 import enums.TileTypeEnum;
 import instances.Instances;
 import model.BoardSpace;
+import tiles.Tile;
 import utils.ArrayList;
 import utils.EventHandler.EventHandlerAble;
 import utils.Executor;
@@ -101,7 +102,7 @@ public class PlayerBoard implements EventHandlerAble {
 		createSpace(TileTypeEnum.ANIMAL, 2, 823, 162);
 
 		// 6
-		createSpace(TileTypeEnum.CASTLE, 4, 930, 165);
+		createSpace(TileTypeEnum.CASTLE, 4, 932, 165);
 
 		// 7
 		createSpace(TileTypeEnum.KNOWLEDGE, 3, 1038, 161);
@@ -324,6 +325,11 @@ public class PlayerBoard implements EventHandlerAble {
 
 		return null;
 
+	}
+
+	public void testAddTileToBoardSpace(Tile tile, int boardSpace) {
+		this.boardSpaces.get(boardSpace).addTileAndRelocate(tile);
+		tile.setVisible(true);
 	}
 
 }
