@@ -49,13 +49,13 @@ public class Credentials {
 
 		CoordinatesBoard = new NumbersPair(gapBetweenBorders, gapBetweenBorders);
 
-		x = 1520;
-		y = Math.ceil(DimensionsBoard.y * boardScale + 2 * gapBetweenBorders);
-		DimensionsFrame = new NumbersPair(x, y);
-
 		x = CoordinatesBoard.x + DimensionsBoard.x * boardScale + 2 * DimensionsGapBetweenComponents.x;
 		y = gapBetweenBorders;
 		CoordinatesTileIndicators = new NumbersPair(x, y);
+
+		x = CoordinatesTileIndicators.x + 13 * (DimensionsTileIndicators.x + 1) - 1 + gapBetweenBorders;
+		y = Math.ceil(DimensionsBoard.y * boardScale + 2 * gapBetweenBorders);
+		DimensionsFrame = new NumbersPair(x, y);
 
 		x = CoordinatesBoard.x + DimensionsBoard.x * boardScale + 2 * DimensionsGapBetweenComponents.x;
 		y = CoordinatesTileIndicators.y + DimensionsTileIndicators.y + gapBetweenBorders
