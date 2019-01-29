@@ -4,6 +4,7 @@ public enum TextEnum {
 
 	CONTINUE("Continue", TextTypeEnum.OPTION),
 	RESTART("Restart", TextTypeEnum.OPTION),
+	ROLL_DICE("Roll dice", TextTypeEnum.OPTION),
 
 	;
 

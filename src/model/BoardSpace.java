@@ -74,7 +74,7 @@ public class BoardSpace {
 	}
 
 	public void print() {
-		Logger.log(this.tileTypeEnum + " - " + this.diceValue);
+		Logger.logNewLine(this.tileTypeEnum + " - " + this.diceValue);
 	}
 
 	public double getCenterX() {

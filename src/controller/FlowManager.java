@@ -32,7 +32,7 @@ public class FlowManager {
 
 	private void createGameStateNormalTurn() {
 
-		this.gameStateNormalTurn.addLast(GameStateEnum.START_NEW_PHASE);
+		this.gameStateNormalTurn.addLast(GameStateEnum.ROLL_DICE);
 
 	}
 

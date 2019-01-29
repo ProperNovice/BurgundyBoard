@@ -22,6 +22,7 @@ public class Dice implements EventHandlerAble {
 
 		String path = "dice/";
 		path += this.diceColor.getText();
+		path += "/";
 		path += this.value;
 		path += ".png";
 

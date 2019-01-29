@@ -13,6 +13,7 @@ public class StartNewPhase extends GameState {
 		createNewPhaseGoodsAndRelocate();
 		addTilesToDepotsNumbered();
 		addTilesToDepotsBlack();
+		proceedToNextGameState();
 
 	}
 
@@ -56,6 +57,10 @@ public class StartNewPhase extends GameState {
 
 		super.controller.depotBlackManager().addTilesAndRelocate(tilesBlack);
 
+	}
+
+	private void proceedToNextGameState() {
+		super.controller.flowManager().proceedToNextPhase();
 	}
 
 }

@@ -1,5 +1,6 @@
 package gameState;
 
+import enums.GameStateEnum;
 import tiles.Castle;
 import tiles.Tile;
 
@@ -14,6 +15,7 @@ public class StartGame extends GameState {
 		testAddTilesToGameBoard();
 		test();
 
+		super.controller.flowManager().addGameStateFirst(GameStateEnum.START_NEW_PHASE);
 		super.controller.flowManager().proceedToNextPhase();
 
 	}

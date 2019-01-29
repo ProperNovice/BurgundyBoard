@@ -31,7 +31,7 @@ public class DepotNumbered {
 
 	private void createDepotNumberIndicator() {
 
-		String path = "dice/gray";
+		String path = "dice/gray/";
 		path += this.depotNumber;
 		path += ".png";
 

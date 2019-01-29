@@ -1,13 +1,15 @@
 package enums;
 
 import gameState.GameState;
+import gameState.RollDice;
 import gameState.StartGame;
 import gameState.StartNewPhase;
 
 public enum GameStateEnum {
 
 	START_GAME(new StartGame()),
-	START_NEW_PHASE(new StartNewPhase())
+	START_NEW_PHASE(new StartNewPhase()),
+	ROLL_DICE(new RollDice()),
 
 	;
 
