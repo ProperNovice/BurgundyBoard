@@ -54,12 +54,13 @@ public class Credentials {
 		DimensionsFrame = new NumbersPair(x, y);
 
 		x = CoordinatesBoard.x + DimensionsBoard.x * boardScale + 2 * DimensionsGapBetweenComponents.x;
-		y = gapBetweenBorders + (DimensionsGoods.y - DimensionsPhaseIndicators.y) / 2;
-		CoordinatesPhaseIndicators = new NumbersPair(x, y);
-
-		x = 10;
-		y = 10;
+		y = gapBetweenBorders;
 		CoordinatesTileIndicators = new NumbersPair(x, y);
+
+		x = CoordinatesBoard.x + DimensionsBoard.x * boardScale + 2 * DimensionsGapBetweenComponents.x;
+		y = CoordinatesTileIndicators.y + DimensionsTileIndicators.y + gapBetweenBorders
+				+ (DimensionsGoods.y - DimensionsPhaseIndicators.y) / 2;
+		CoordinatesPhaseIndicators = new NumbersPair(x, y);
 
 		x = CoordinatesPhaseIndicators.x + DimensionsPhaseIndicators.x + 2 * DimensionsGapBetweenComponents.x;
 		y = CoordinatesPhaseIndicators.y - (DimensionsGoods.y - DimensionsPhaseIndicators.y) / 2;

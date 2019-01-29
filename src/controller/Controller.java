@@ -16,6 +16,7 @@ public class Controller {
 	private SilverlingManager silverlingManager = null;
 	private DepotBlackManager depotBlackManager = null;
 	private StorageSpaceManager storageSpaceManager = null;
+	private TileIndicatorManager tileIndicatorManager = null;
 
 	public Controller() {
 		createInstances();
@@ -37,6 +38,7 @@ public class Controller {
 		this.silverlingManager = new SilverlingManager();
 		this.depotBlackManager = new DepotBlackManager();
 		this.storageSpaceManager = new StorageSpaceManager();
+		this.tileIndicatorManager = new TileIndicatorManager();
 
 	}
 
@@ -86,6 +88,10 @@ public class Controller {
 
 	public StorageSpaceManager storageSpaceManager() {
 		return this.storageSpaceManager;
+	}
+
+	public TileIndicatorManager tileIndicatorManager() {
+		return this.tileIndicatorManager;
 	}
 
 }

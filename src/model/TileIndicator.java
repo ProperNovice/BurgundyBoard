@@ -1,8 +1,5 @@
 package model;
 
-import controller.Credentials;
-import utils.CoordinatesBuilder;
-import utils.CoordinatesLinear;
 import utils.ImageView;
 
 public class TileIndicator {
@@ -15,7 +12,7 @@ public class TileIndicator {
 
 	private void createImageView(String pathFile) {
 
-		String path = "indicators/tiles";
+		String path = "indicators/tiles/";
 		path += pathFile;
 		path += ".png";
 
@@ -24,12 +21,7 @@ public class TileIndicator {
 	}
 
 	public void relocate(double x, double y) {
-
-		CoordinatesLinear coordinatesLinear = new CoordinatesBuilder().width(Credentials.DimensionsTileIndicators.x)
-				.height(Credentials.DimensionsTileIndicators.y).gapBetweenNodes(0)
-				.xPointOfInterest(Credentials.CoordinatesTileIndicators.x)
-				.yPointOfInterest(Credentials.CoordinatesTileIndicators.y).nodesPerRow(60).createCoordinatesLinear();
-
+		this.imageView.relocate(x, y);
 	}
 
 }
