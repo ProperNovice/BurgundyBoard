@@ -18,7 +18,7 @@ public class PhaseIndicator {
 
 	private void createImageView() {
 
-		String path = "phases/";
+		String path = "indicators/phases/";
 		path += phasesEnum.toString().toLowerCase();
 		path += ".png";
 
