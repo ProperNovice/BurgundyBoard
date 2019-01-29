@@ -54,6 +54,7 @@ public abstract class Tile implements EventHandlerAble {
 	@Override
 	public void handleMouseButtonPressedPrimary() {
 		printTile();
+		Logger.newLine();
 	}
 
 }
