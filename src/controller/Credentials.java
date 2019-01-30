@@ -5,11 +5,11 @@ public class Credentials {
 	public static NumbersPair DimensionsInsets, DimensionsBoard, DimensionsTile, DimensionsDiceAreaInSpace,
 			DimensionsGoods, DimensionsFrame, DimensionsGapBetweenComponents, DimensionsPhaseIndicators, DimensionsDice,
 			DimensionsDepotNumbered, DimensionsWorker, DimensionsSilverling, DimensionsTileIndicators,
-			DimensionsRegionScoringIndicator;
+			DimensionsRegionScoringIndicator, DimensionsAction;
 	public static NumbersPair CoordinatesTextPanel, CoordinatesBoard, CoordinatesPhaseIndicators, CoordinatesPhaseGoods,
 			CoordinatesDepotNumbered, CoordinatesWorkers, CoordinatesSilverling, CoordinatesDepotBlack,
 			CoordinatesStorageSpaceFirst, CoordinatesStorageSpaceSecond, CoordinatesStorageSpaceThird,
-			CoordinatesTileIndicators, CoordinatesRegionScoringIndicators, CoordinatesDice;
+			CoordinatesTileIndicators, CoordinatesRegionScoringIndicators, CoordinatesDice, CoordinatesActions;
 	public static double gapBetweenBorders, textHeight, boardScale;
 
 	public static class NumbersPair {
@@ -31,7 +31,7 @@ public class Credentials {
 		double x, y;
 
 		boardScale = 0.8;
-		textHeight = 50;
+		textHeight = 40;
 
 		DimensionsInsets = new NumbersPair(7, 29);
 		gapBetweenBorders = 20;
@@ -47,6 +47,7 @@ public class Credentials {
 		DimensionsSilverling = new NumbersPair(36, 36);
 		DimensionsTileIndicators = new NumbersPair(42, 76);
 		DimensionsRegionScoringIndicator = new NumbersPair(26, 31);
+		DimensionsAction = new NumbersPair(50, 40);
 
 		CoordinatesBoard = new NumbersPair(gapBetweenBorders, gapBetweenBorders);
 
@@ -111,6 +112,10 @@ public class Credentials {
 		x = CoordinatesDice.x + 4 * (DimensionsDice.x + DimensionsGapBetweenComponents.x);
 		y = CoordinatesDice.y;
 		CoordinatesTextPanel = new NumbersPair(x, y);
+
+		x = 10;
+		y = 10;
+		CoordinatesActions = new NumbersPair(x, y);
 
 	}
 

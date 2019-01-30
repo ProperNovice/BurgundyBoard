@@ -15,7 +15,10 @@ public class ResolveGrayDice extends GameState {
 
 	@Override
 	public void handleTextOptionPressed(TextEnum textEnum) {
+
+		super.controller.textManager().concealText();
 		resolveGrayDice();
+
 	}
 
 	@Override
@@ -31,6 +34,8 @@ public class ResolveGrayDice extends GameState {
 
 		super.controller.depotNumberedManager().addGoodsToDepotNumbered(goods, diceGrayValue);
 		super.controller.diceManager().setDiceGrayInactive();
+
+		super.controller.flowManager().proceedToNextGameStatePhase();
 
 	}
 

@@ -65,9 +65,26 @@ public class DiceManager {
 		this.diceAvailableThisRound.removeLast();
 
 	}
-	
-	public void testSetRedDiceValues(int diceValueFirst, int diceValueSecond) {
-//		thi
+
+	public void testSetRedDiceValuesAndRelocate(int diceValueFirst, int diceValueSecond) {
+
+		this.diceAvailableThisRound.addAll(this.diceOriginal);
+		this.diceAvailableThisRound.removeLast();
+
+		this.diceAvailableThisRound.get(0).testSetValue(diceValueFirst);
+		this.diceAvailableThisRound.get(1).testSetValue(diceValueSecond);
+
+		for (Dice dice : this.diceAvailableThisRound) {
+
+			dice.relocate(this.coordinatesLinear.getX(this.diceAvailableThisRound.indexOf(dice)),
+					this.coordinatesLinear.getY(this.diceAvailableThisRound.indexOf(dice)));
+
+			dice.setVisible(true);
+
+		}
+
+		Logger.newLine();
+
 	}
 
 }

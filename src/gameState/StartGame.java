@@ -10,20 +10,16 @@ public class StartGame extends GameState {
 	@Override
 	public void handleGameStateChange() {
 
-		testAddTilesToGameBoard();
-//		testAddGoodsToDepotNumbers();
-		test();
+//		addTilesToGameBoard();
+//		addGoodsToDepotNumbers();
+//		setDiceValuesRed();
 
 		super.controller.flowManager().addGameStateFirst(GameStateEnum.START_NEW_PHASE);
 		super.controller.flowManager().proceedToNextGameStatePhase();
 
 	}
 
-	private void test() {
-
-	}
-
-	private void testAddTilesToGameBoard() {
+	private void addTilesToGameBoard() {
 
 		Tile tile = null;
 
@@ -32,7 +28,7 @@ public class StartGame extends GameState {
 
 	}
 
-	private void testAddGoodsToDepotNumbers() {
+	private void addGoodsToDepotNumbers() {
 
 		int depotNumbered = 1;
 
@@ -47,6 +43,10 @@ public class StartGame extends GameState {
 		super.controller.depotNumberedManager().addGoodsToDepotNumbered(b, depotNumbered);
 		super.controller.depotNumberedManager().addGoodsToDepotNumbered(c, depotNumbered);
 
+	}
+
+	private void setDiceValuesRed() {
+		super.controller.diceManager().testSetRedDiceValuesAndRelocate(2, 6);
 	}
 
 }

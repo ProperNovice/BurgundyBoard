@@ -1,10 +1,6 @@
 package enums;
 
-import gameState.GameState;
-import gameState.ResolveGrayDice;
-import gameState.RollDice;
-import gameState.StartGame;
-import gameState.StartNewPhase;
+import gameState.*;
 
 public enum GameStateEnum {
 
@@ -12,7 +8,7 @@ public enum GameStateEnum {
 	START_NEW_PHASE(new StartNewPhase()),
 	ROLL_DICE(new RollDice()),
 	RESOLVE_GRAY_DICE(new ResolveGrayDice()),
-	
+	CHOOSE_AN_ACTION(new ChooseAnAction()),
 
 	;
 

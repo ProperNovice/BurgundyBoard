@@ -34,6 +34,7 @@ public class FlowManager {
 
 		this.gameStateNormalTurn.addLast(GameStateEnum.ROLL_DICE);
 		this.gameStateNormalTurn.addLast(GameStateEnum.RESOLVE_GRAY_DICE);
+		this.gameStateNormalTurn.addLast(GameStateEnum.CHOOSE_AN_ACTION);
 
 	}
 

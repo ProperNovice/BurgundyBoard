@@ -70,6 +70,8 @@ public class Dice implements EventHandlerAble {
 		this.imageView.setImage(this.sides.get(this.diceValue));
 		this.imageView.setVisible(true);
 
+		Logger.log("dice set value " + this.diceColor + " - " + this.diceValue);
+
 	}
 
 }
