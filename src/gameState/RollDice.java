@@ -18,6 +18,7 @@ public class RollDice extends GameState {
 		if (keyCode != KeyCode.Q)
 			return;
 
+		super.controller.textManager().concealText();
 		rollDice();
 
 	}
@@ -28,6 +29,8 @@ public class RollDice extends GameState {
 	}
 
 	private void rollDice() {
+
+		super.controller.diceManager().rollDiceAndRelocate();
 
 	}
 

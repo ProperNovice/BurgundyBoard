@@ -1,16 +1,18 @@
-package dice;
+package model;
 
 import enums.DiceColor;
 import utils.EventHandler.EventHandlerAble;
 import utils.HashMap;
 import utils.Image;
 import utils.ImageView;
+import utils.Random;
 
 public class Dice implements EventHandlerAble {
 
 	private DiceColor diceColor = null;
 	private ImageView imageView = null;
 	private HashMap<Integer, Image> sides = new HashMap<>();
+	private int valueShowing;
 
 	public Dice(DiceColor diceColor) {
 
@@ -35,13 +37,24 @@ public class Dice implements EventHandlerAble {
 	}
 
 	private void createImageView() {
-
-//		this.imageView = new imagev
-		
+		this.imageView = new ImageView(this.sides.get(1), this);
+		this.imageView.setVisible(false);
 	}
 
 	public void relocate(double x, double y) {
 		this.imageView.relocate(x, y);
+	}
+
+	public void setVisible(boolean value) {
+		this.imageView.setVisible(value);
+	}
+
+	public void rollDice() {
+
+		this.valueShowing = Random.getRandomNumber(1, 6);
+		this.imageView.setImage(this.sides.get(this.valueShowing));
+		this.imageView.setVisible(true);
+
 	}
 
 }

@@ -18,6 +18,7 @@ public class Controller {
 	private StorageSpaceManager storageSpaceManager = null;
 	private TileIndicatorManager tileIndicatorManager = null;
 	private RegionScoringManager regionScoringManager = null;
+	private DiceManager diceManager = null;
 
 	public Controller() {
 		createInstances();
@@ -41,6 +42,7 @@ public class Controller {
 		this.storageSpaceManager = new StorageSpaceManager();
 		this.tileIndicatorManager = new TileIndicatorManager();
 		this.regionScoringManager = new RegionScoringManager();
+		this.diceManager = new DiceManager();
 
 	}
 
@@ -98,6 +100,10 @@ public class Controller {
 
 	public RegionScoringManager regionScoringManager() {
 		return this.regionScoringManager;
+	}
+
+	public DiceManager diceManager() {
+		return this.diceManager;
 	}
 
 }

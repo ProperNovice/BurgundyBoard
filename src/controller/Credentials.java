@@ -9,7 +9,7 @@ public class Credentials {
 	public static NumbersPair CoordinatesTextPanel, CoordinatesBoard, CoordinatesPhaseIndicators, CoordinatesPhaseGoods,
 			CoordinatesDepotNumbered, CoordinatesWorkers, CoordinatesSilverling, CoordinatesDepotBlack,
 			CoordinatesStorageSpaceFirst, CoordinatesStorageSpaceSecond, CoordinatesStorageSpaceThird,
-			CoordinatesTileIndicators, CoordinatesRegionScoringIndicators;
+			CoordinatesTileIndicators, CoordinatesRegionScoringIndicators, CoordinatesDice;
 	public static double gapBetweenBorders, textHeight, boardScale;
 
 	public static class NumbersPair {
@@ -36,7 +36,6 @@ public class Credentials {
 		DimensionsInsets = new NumbersPair(7, 29);
 		gapBetweenBorders = 20;
 		DimensionsGapBetweenComponents = new NumbersPair(5, 5);
-		CoordinatesTextPanel = new NumbersPair(50, 50);
 
 		DimensionsBoard = new NumbersPair(1121, 781);
 		DimensionsTile = new NumbersPair(70, 80);
@@ -104,6 +103,14 @@ public class Credentials {
 				+ DimensionsGapBetweenComponents.x;
 		y = CoordinatesPhaseGoods.y + (DimensionsGoods.y - DimensionsRegionScoringIndicator.y) / 2;
 		CoordinatesRegionScoringIndicators = new NumbersPair(x, y);
+
+		x = CoordinatesDepotBlack.x;
+		y = CoordinatesDepotBlack.y + DimensionsTile.y + 2 * DimensionsGapBetweenComponents.y;
+		CoordinatesTextPanel = new NumbersPair(x, y);
+
+		x = CoordinatesDepotBlack.x + 2 * (DimensionsTile.x + DimensionsGapBetweenComponents.x);
+		y = CoordinatesDepotBlack.y + DimensionsTile.y + 2 * DimensionsGapBetweenComponents.y;
+		CoordinatesDice = new NumbersPair(x, y);
 
 	}
 
