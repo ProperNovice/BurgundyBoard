@@ -20,9 +20,10 @@ public class Action implements EventHandlerAble {
 
 		String path = "actions/";
 		path += this.actionEnum.getText();
-		path += ".png";
+		path += ".jpg";
 
 		this.imageView = new ImageView(path, this);
+		this.imageView.setVisible(false);
 
 	}
 
