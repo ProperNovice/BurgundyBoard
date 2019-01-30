@@ -55,4 +55,15 @@ public class DiceManager {
 
 	}
 
+	public int getDiceGrayValue() {
+		return this.diceAvailableThisRound.getLast().getDiceValue();
+	}
+
+	public void setDiceGrayInactive() {
+
+		this.diceAvailableThisRound.getLast().setVisible(false);
+		this.diceAvailableThisRound.removeLast();
+
+	}
+
 }

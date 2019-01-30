@@ -78,4 +78,26 @@ public class DepotNumbered {
 
 	}
 
+	public void addGoodsAndRelocate(Goods goods) {
+
+		this.goods.addLast(goods);
+
+		double x = this.xCoordinates;
+		x += Credentials.DimensionsDice.x;
+		x += 2 * Credentials.DimensionsTile.x;
+		x += 3 * Credentials.DimensionsGapBetweenComponents.x;
+
+		double y = this.yCoordinates + (Credentials.DimensionsTile.y - Credentials.DimensionsGoods.y) / 2;
+		double gapBetweenGoods = 0.15 * Credentials.DimensionsGoods.x;
+
+		for (Goods goodsTemp : this.goods) {
+
+			goodsTemp.relocate(x, y);
+			goodsTemp.toFront();
+			x += gapBetweenGoods;
+
+		}
+
+	}
+
 }

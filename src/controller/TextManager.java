@@ -39,17 +39,19 @@ public class TextManager {
 
 	private void showText() {
 
+		double currentCoordinatesY = this.coordinatesY;
+
 		for (TextGame textGame : this.textGameShowing) {
 
 			textGame.toFront();
 
 			textGame.setVisible(true);
-			textGame.relocate(this.coordinatesX, this.coordinatesY);
+			textGame.relocate(this.coordinatesX, currentCoordinatesY);
 
-			this.coordinatesY += Credentials.textHeight;
+			currentCoordinatesY += Credentials.textHeight;
 
 			if (textGame.getTextEnum().string().contains("\n"))
-				this.coordinatesY += Credentials.textHeight;
+				currentCoordinatesY += Credentials.textHeight;
 
 		}
 

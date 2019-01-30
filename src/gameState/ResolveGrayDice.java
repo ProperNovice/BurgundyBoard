@@ -2,6 +2,7 @@ package gameState;
 
 import enums.TextEnum;
 import javafx.scene.input.KeyCode;
+import model.Goods;
 
 public class ResolveGrayDice extends GameState {
 
@@ -25,7 +26,11 @@ public class ResolveGrayDice extends GameState {
 
 	private void resolveGrayDice() {
 
-		System.out.println("yo");
+		Goods goods = super.controller.goodsManager().removeFirst();
+		int diceGrayValue = super.controller.diceManager().getDiceGrayValue();
+
+		super.controller.depotNumberedManager().addGoodsToDepotNumbered(goods, diceGrayValue);
+		super.controller.diceManager().setDiceGrayInactive();
 
 	}
 

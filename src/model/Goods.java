@@ -21,7 +21,7 @@ public class Goods {
 		this.imageView.setVisible(false);
 
 	}
-	
+
 	public void setVisible(boolean value) {
 		this.imageView.setVisible(value);
 	}
@@ -32,6 +32,10 @@ public class Goods {
 
 	public int getDiceValue() {
 		return this.diceValue;
+	}
+
+	public void toFront() {
+		this.imageView.toFront();
 	}
 
 }

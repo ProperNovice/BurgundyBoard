@@ -2,10 +2,12 @@ package controller;
 
 import enums.TileTypeEnum;
 import model.DepotNumbered;
+import model.Goods;
 import tiles.Tile;
 import utils.ArrayList;
 import utils.CoordinatesBuilder;
 import utils.CoordinatesLinear;
+import utils.Logger;
 
 public class DepotNumberedManager {
 
@@ -85,8 +87,16 @@ public class DepotNumberedManager {
 		return this.depotNumbers.get(depotNumbered - 1).getTileTypeEnumList();
 	}
 
-	public void addTilesToDepotNumbers(int depotNumbered, Tile tileFirst, Tile tileSecond) {
+	public void addTilesToDepotNumbered(int depotNumbered, Tile tileFirst, Tile tileSecond) {
 		this.depotNumbers.get(depotNumbered - 1).addTilesAndRelocate(tileFirst, tileSecond);
+	}
+
+	public void addGoodsToDepotNumbered(Goods goods, int depotNumbered) {
+		this.depotNumbers.get(depotNumbered - 1).addGoodsAndRelocate(goods);
+
+		Logger.log("depot number - " + depotNumbered);
+		Logger.logNewLine("add goods - " + goods.getDiceValue());
+
 	}
 
 }
