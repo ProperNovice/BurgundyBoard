@@ -16,7 +16,7 @@ public class StartGame extends GameState {
 		test();
 
 		super.controller.flowManager().addGameStateFirst(GameStateEnum.START_NEW_PHASE);
-		super.controller.flowManager().proceedToNextPhase();
+		super.controller.flowManager().proceedToNextGameStatePhase();
 
 	}
 

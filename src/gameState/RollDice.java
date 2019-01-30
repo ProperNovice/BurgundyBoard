@@ -31,6 +31,7 @@ public class RollDice extends GameState {
 	private void rollDice() {
 
 		super.controller.diceManager().rollDiceAndRelocate();
+		super.controller.flowManager().proceedToNextGameStatePhase();
 
 	}
 

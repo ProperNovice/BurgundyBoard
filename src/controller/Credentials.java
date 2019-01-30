@@ -106,11 +106,11 @@ public class Credentials {
 
 		x = CoordinatesDepotBlack.x;
 		y = CoordinatesDepotBlack.y + DimensionsTile.y + 2 * DimensionsGapBetweenComponents.y;
-		CoordinatesTextPanel = new NumbersPair(x, y);
-
-		x = CoordinatesDepotBlack.x + 2 * (DimensionsTile.x + DimensionsGapBetweenComponents.x);
-		y = CoordinatesDepotBlack.y + DimensionsTile.y + 2 * DimensionsGapBetweenComponents.y;
 		CoordinatesDice = new NumbersPair(x, y);
+
+		x = CoordinatesDice.x + 4 * (DimensionsDice.x + DimensionsGapBetweenComponents.x);
+		y = CoordinatesDice.y;
+		CoordinatesTextPanel = new NumbersPair(x, y);
 
 	}
 

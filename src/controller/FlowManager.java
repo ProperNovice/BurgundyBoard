@@ -16,7 +16,7 @@ public class FlowManager {
 
 	}
 
-	public void proceedToNextPhase() {
+	public void proceedToNextGameStatePhase() {
 
 		if (this.gameStateResolving.isEmpty())
 			this.gameStateResolving.addAll(this.gameStateNormalTurn);
@@ -33,6 +33,7 @@ public class FlowManager {
 	private void createGameStateNormalTurn() {
 
 		this.gameStateNormalTurn.addLast(GameStateEnum.ROLL_DICE);
+		this.gameStateNormalTurn.addLast(GameStateEnum.RESOLVE_GRAY_DICE);
 
 	}
 

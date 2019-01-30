@@ -5,6 +5,7 @@ import utils.EventHandler.EventHandlerAble;
 import utils.HashMap;
 import utils.Image;
 import utils.ImageView;
+import utils.Logger;
 import utils.Random;
 
 public class Dice implements EventHandlerAble {
@@ -12,7 +13,7 @@ public class Dice implements EventHandlerAble {
 	private DiceColor diceColor = null;
 	private ImageView imageView = null;
 	private HashMap<Integer, Image> sides = new HashMap<>();
-	private int valueShowing;
+	private int diceValue;
 
 	public Dice(DiceColor diceColor) {
 
@@ -51,10 +52,16 @@ public class Dice implements EventHandlerAble {
 
 	public void rollDice() {
 
-		this.valueShowing = Random.getRandomNumber(1, 6);
-		this.imageView.setImage(this.sides.get(this.valueShowing));
+		this.diceValue = Random.getRandomNumber(1, 6);
+		this.imageView.setImage(this.sides.get(this.diceValue));
 		this.imageView.setVisible(true);
 
+		Logger.log(this.diceColor + " - " + this.diceValue);
+
+	}
+
+	public int getDiceValue() {
+		return this.diceValue;
 	}
 
 }

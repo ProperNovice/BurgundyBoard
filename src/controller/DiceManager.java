@@ -5,6 +5,7 @@ import model.Dice;
 import utils.ArrayList;
 import utils.CoordinatesBuilder;
 import utils.CoordinatesLinear;
+import utils.Logger;
 
 public class DiceManager {
 
@@ -21,9 +22,9 @@ public class DiceManager {
 
 	private void createDice() {
 
+		this.diceOriginal.addLast(new Dice(DiceColor.RED));
+		this.diceOriginal.addLast(new Dice(DiceColor.RED));
 		this.diceOriginal.addLast(new Dice(DiceColor.GRAY));
-		this.diceOriginal.addLast(new Dice(DiceColor.RED));
-		this.diceOriginal.addLast(new Dice(DiceColor.RED));
 
 	}
 
@@ -49,6 +50,8 @@ public class DiceManager {
 			dice.setVisible(true);
 
 		}
+
+		Logger.newLine();
 
 	}
 

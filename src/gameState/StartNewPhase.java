@@ -60,7 +60,7 @@ public class StartNewPhase extends GameState {
 	}
 
 	private void proceedToNextGameState() {
-		super.controller.flowManager().proceedToNextPhase();
+		super.controller.flowManager().proceedToNextGameStatePhase();
 	}
 
 }
