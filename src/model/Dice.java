@@ -64,4 +64,12 @@ public class Dice implements EventHandlerAble {
 		return this.diceValue;
 	}
 
+	public void testSetValue(int diceValue) {
+
+		this.diceValue = diceValue;
+		this.imageView.setImage(this.sides.get(this.diceValue));
+		this.imageView.setVisible(true);
+
+	}
+
 }

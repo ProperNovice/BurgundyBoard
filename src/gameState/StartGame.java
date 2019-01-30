@@ -10,24 +10,13 @@ public class StartGame extends GameState {
 	@Override
 	public void handleGameStateChange() {
 
-		addWorkersAndRelocate();
-		addSilverlingsAndRelocate();
-
 		testAddTilesToGameBoard();
-		testAddGoodsToDepotNumbers();
+//		testAddGoodsToDepotNumbers();
 		test();
 
 		super.controller.flowManager().addGameStateFirst(GameStateEnum.START_NEW_PHASE);
 		super.controller.flowManager().proceedToNextGameStatePhase();
 
-	}
-
-	private void addWorkersAndRelocate() {
-		super.controller.workerManager().addWorkersAndRelocate(2);
-	}
-
-	private void addSilverlingsAndRelocate() {
-		super.controller.silverlingManager().addSilverlingsAndRelocate(1);
 	}
 
 	private void test() {

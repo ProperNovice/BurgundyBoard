@@ -12,6 +12,7 @@ public class WorkerManager {
 
 	public WorkerManager() {
 		createCoordinatesPivot();
+		addWorkersAndRelocate(2);
 	}
 
 	private void createCoordinatesPivot() {
@@ -28,10 +29,7 @@ public class WorkerManager {
 	public void addWorkersAndRelocate(int amount) {
 
 		for (int counter = 1; counter <= amount; counter++) {
-
-			Worker worker = new Worker();
-			this.workers.addLast(worker);
-
+			this.workers.addLast(new Worker());
 		}
 
 		relocate();

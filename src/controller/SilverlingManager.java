@@ -12,6 +12,7 @@ public class SilverlingManager {
 
 	public SilverlingManager() {
 		createCoordinatesPivot();
+		addSilverlingsAndRelocate(1);
 	}
 
 	private void createCoordinatesPivot() {

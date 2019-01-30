@@ -65,5 +65,9 @@ public class DiceManager {
 		this.diceAvailableThisRound.removeLast();
 
 	}
+	
+	public void testSetRedDiceValues(int diceValueFirst, int diceValueSecond) {
+//		thi
+	}
 
 }
