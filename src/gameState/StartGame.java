@@ -51,7 +51,7 @@ public class StartGame extends GameState {
 	}
 
 	private void setDiceValuesRed() {
-		super.controller.diceManager().testSetRedDiceValuesAndRelocate(5, 4);
+		super.controller.diceManager().testSetRedDiceValuesAndRelocate(3, 1);
 	}
 
 	private void addTilesToStorageSpaces() {

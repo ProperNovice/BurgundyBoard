@@ -1,9 +1,11 @@
 package tiles;
 
 import enums.TileTypeEnum;
+import instances.Instances;
 import utils.Animation;
 import utils.Animation.AnimationSynch;
 import utils.EventHandler.EventHandlerAble;
+import utils.Executor;
 import utils.ImageView;
 import utils.Logger;
 
@@ -53,8 +55,13 @@ public abstract class Tile implements EventHandlerAble {
 
 	@Override
 	public void handleMouseButtonPressedPrimary() {
+
 		printTile();
 		Logger.newLine();
+
+		Executor.runLater(() -> Instances.getControllerInstance().gameStateManager().getCurrentGameState()
+				.handleTilePressed(this, this.tileTypeEnum));
+
 	}
 
 }

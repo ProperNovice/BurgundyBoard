@@ -7,6 +7,7 @@ import enums.TileTypeEnum;
 import instances.Instances;
 import javafx.scene.input.KeyCode;
 import model.BoardSpace;
+import tiles.Tile;
 
 public abstract class GameState {
 
@@ -27,6 +28,10 @@ public abstract class GameState {
 	}
 
 	public void handleActionPressed(ActionEnum actionEnum) {
+
+	}
+
+	public final void handleTilePressed(Tile tile, TileTypeEnum tileTypeEnum) {
 
 	}
 

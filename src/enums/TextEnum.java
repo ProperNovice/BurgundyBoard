@@ -7,6 +7,7 @@ public enum TextEnum {
 	ROLL_DICE("Roll dice", TextTypeEnum.OPTION),
 	RESOLVE_GRAY_DICE("Resolve gray dice", TextTypeEnum.OPTION),
 	CHOOSE_AN_ACTION("Choose an action", TextTypeEnum.INDICATOR),
+	CHOOSE_A_TILE("Choose a tile", TextTypeEnum.INDICATOR),
 
 	;
 

@@ -40,7 +40,6 @@ public class ChooseAnAction extends GameState {
 
 		super.controller.textManager().concealText();
 		super.controller.actionManager().concealActions();
-		super.controller.actionManager().showAction(actionEnum);
 
 		GameStateEnum gameStateEnum = null;
 
