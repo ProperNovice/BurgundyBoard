@@ -20,6 +20,7 @@ public class Controller {
 	private RegionScoringManager regionScoringManager = null;
 	private DiceManager diceManager = null;
 	private ActionManager actionManager = null;
+	private DiceModifiersManager diceModifiersManager = null;
 
 	public Controller() {
 		createInstances();
@@ -45,6 +46,7 @@ public class Controller {
 		this.regionScoringManager = new RegionScoringManager();
 		this.diceManager = new DiceManager();
 		this.actionManager = new ActionManager();
+		this.diceModifiersManager = new DiceModifiersManager();
 
 	}
 
@@ -110,6 +112,10 @@ public class Controller {
 
 	public ActionManager actionManager() {
 		return this.actionManager;
+	}
+
+	public DiceModifiersManager diceModifiersManager() {
+		return this.diceModifiersManager;
 	}
 
 }

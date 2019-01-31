@@ -20,12 +20,12 @@ public class ActionTakeTileFromTheGameBoard extends GameState {
 
 		super.controller.textManager().concealText();
 
+		super.controller.depotNumberedManager().removeTile(tile);
+
 		if (super.controller.storageSpaceManager().isMaxedCapacty()) {
 			System.out.println("maxed");
 			return;
 		}
-
-		super.controller.depotNumberedManager().removeTile(tile);
 
 		super.controller.storageSpaceManager().addTileAndRelocate(tile);
 

@@ -84,7 +84,7 @@ public class ArrayList<T> implements Iterable<T> {
 	}
 
 	public boolean isMaxedCapacity() {
-		return this.list.size() == this.maxCapacity;
+		return this.list.size() >= this.maxCapacity;
 	}
 
 	public int getMaxCapacity() {
