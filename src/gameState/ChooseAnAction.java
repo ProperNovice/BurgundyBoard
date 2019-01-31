@@ -63,7 +63,7 @@ public class ChooseAnAction extends GameState {
 
 		}
 
-		super.controller.flowManager().addGameStateFirst(gameStateEnum);
+		super.controller.flowManager().addGameStateResolvingFirst(gameStateEnum);
 		super.controller.flowManager().proceedToNextGameStatePhase();
 
 	}

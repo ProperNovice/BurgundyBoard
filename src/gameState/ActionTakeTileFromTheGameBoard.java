@@ -26,7 +26,7 @@ public class ActionTakeTileFromTheGameBoard extends GameState {
 		super.controller.storageSpaceManager().addTileAndRelocate(tile);
 
 		if (super.controller.storageSpaceManager().exceedsMaxedCapacity())
-			super.controller.flowManager().addGameStateFirst(GameStateEnum.CHOOSE_TILE_TO_DISCARD);
+			super.controller.flowManager().addGameStateResolvingFirst(GameStateEnum.CHOOSE_TILE_TO_DISCARD);
 
 		super.controller.flowManager().proceedToNextGameStatePhase();
 

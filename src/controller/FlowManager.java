@@ -31,7 +31,7 @@ public class FlowManager {
 
 	}
 
-	public void addGameStateFirst(GameStateEnum gameStateEnum) {
+	public void addGameStateResolvingFirst(GameStateEnum gameStateEnum) {
 		this.gameStateResolving.addFirst(gameStateEnum);
 	}
 
