@@ -4,6 +4,7 @@ import enums.GameStateEnum;
 import model.Goods;
 import tiles.Castle;
 import tiles.Mine;
+import tiles.Ship;
 import tiles.Tile;
 
 public class StartGame extends GameState {
@@ -15,7 +16,7 @@ public class StartGame extends GameState {
 //		addGoodsToDepotNumbers();
 		setDiceValuesRed();
 		addTilesToStorageSpaces();
-		addSilverlings(4);
+//		addSilverlings(4);
 //		addWorkers(11);
 
 		super.controller.flowManager().addGameStateFirst(GameStateEnum.START_NEW_PHASE);
@@ -57,7 +58,7 @@ public class StartGame extends GameState {
 
 		Tile tile = null;
 
-		tile = new Castle();
+		tile = new Ship();
 		super.controller.storageSpaceManager().addTileAndRelocate(tile);
 		tile.setVisible(true);
 

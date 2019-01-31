@@ -9,6 +9,7 @@ public enum GameStateEnum {
 	ROLL_DICE(new RollDice()),
 	RESOLVE_GRAY_DICE(new ResolveGrayDice()),
 	CHOOSE_AN_ACTION(new ChooseAnAction()),
+	ACTION_TAKE_TILE_FROM_THE_GAME_BOARD(new ActionTakeTileFromTheGameBoard()),
 
 	;
 

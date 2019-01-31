@@ -52,6 +52,28 @@ public class ActionManager {
 		Logger.newLine();
 
 		relocateActionsAndSetVisibleTrue();
+
+	}
+
+	public void showAction(ActionEnum actionEnumToShow) {
+
+		Logger.log("showing action");
+		Logger.logNewLine(actionEnumToShow);
+
+		ActionEnum actionEnum = null;
+
+		for (Action action : this.actionsOriginal) {
+
+			actionEnum = action.getActionEnum();
+
+			if (actionEnum == actionEnumToShow) {
+				this.actionsShowing.addLast(action);
+			}
+
+		}
+
+		relocateActionsAndSetVisibleTrue();
+
 	}
 
 	private void relocateActionsAndSetVisibleTrue() {
@@ -67,6 +89,16 @@ public class ActionManager {
 			action.setVisible(true);
 
 		}
+
+	}
+
+	public void concealActions() {
+
+		for (Action action : this.actionsShowing) {
+			action.setVisible(false);
+		}
+
+		this.actionsShowing.clear();
 
 	}
 

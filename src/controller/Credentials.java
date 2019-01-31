@@ -106,7 +106,7 @@ public class Credentials {
 		CoordinatesRegionScoringIndicators = new NumbersPair(x, y);
 
 		x = CoordinatesDepotBlack.x;
-		y = CoordinatesDepotBlack.y + DimensionsTile.y + 2 * DimensionsGapBetweenComponents.y;
+		y = CoordinatesDepotBlack.y + DimensionsTile.y + DimensionsGapBetweenComponents.y;
 		CoordinatesDice = new NumbersPair(x, y);
 
 		x = CoordinatesDice.x + 4 * (DimensionsDice.x + DimensionsGapBetweenComponents.x);

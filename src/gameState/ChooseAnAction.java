@@ -1,6 +1,7 @@
 package gameState;
 
 import enums.ActionEnum;
+import enums.GameStateEnum;
 import enums.TextEnum;
 import utils.ArrayList;
 
@@ -32,6 +33,40 @@ public class ChooseAnAction extends GameState {
 
 	private boolean addBuyTileFromTheBlackDepot() {
 		return super.controller.silverlingManager().hasAtLeastTwoSilverlings();
+	}
+
+	@Override
+	public void handleActionPressed(ActionEnum actionEnum) {
+
+		super.controller.textManager().concealText();
+		super.controller.actionManager().concealActions();
+		super.controller.actionManager().showAction(actionEnum);
+
+		GameStateEnum gameStateEnum = null;
+
+		switch (actionEnum) {
+
+		case TAKE_TILE_FROM_THE_GAME_BOARD:
+			gameStateEnum = GameStateEnum.ACTION_TAKE_TILE_FROM_THE_GAME_BOARD;
+			break;
+
+		case ADD_TILE_TO_YOUR_ESTATE:
+			break;
+
+		case BUY_TILE_FROM_THE_BLACK_DEPOT:
+			break;
+
+		case SELL_GOODS:
+			break;
+
+		case TAKE_WORKERS_TILES:
+			break;
+
+		}
+
+		super.controller.flowManager().addGameStateFirst(gameStateEnum);
+		super.controller.flowManager().proceedToNextGameStatePhase();
+
 	}
 
 }
