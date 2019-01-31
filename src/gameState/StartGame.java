@@ -1,5 +1,6 @@
 package gameState;
 
+import enums.GameStateEnum;
 import model.Goods;
 import tiles.Castle;
 import tiles.Mine;
@@ -18,6 +19,9 @@ public class StartGame extends GameState {
 //		addSilverlings(4);
 //		addWorkers(11);
 
+		super.controller.flowManager().addGameStateResolvingFirst(GameStateEnum.CHOOSE_TILE_TO_DISCARD);
+
+		super.controller.flowManager().addGameStateResolvingFirst(GameStateEnum.START_NEW_PHASE);
 		super.controller.flowManager().proceedToNextGameStatePhase();
 
 	}
