@@ -19,12 +19,19 @@ public class ChooseAnAction extends GameState {
 		if (addTileToYourEstate())
 			actionsToShow.addLast(ActionEnum.ADD_TILE_TO_YOUR_ESTATE);
 
+		if (addBuyTileFromTheBlackDepot())
+			actionsToShow.addLast(ActionEnum.BUY_TILE_FROM_THE_BLACK_DEPOT);
+
 		super.controller.actionManager().showActions(actionsToShow);
 
 	}
 
 	private boolean addTileToYourEstate() {
 		return !super.controller.storageSpaceManager().isEmpty();
+	}
+
+	private boolean addBuyTileFromTheBlackDepot() {
+		return super.controller.silverlingManager().hasAtLeastTwoSilverlings();
 	}
 
 }

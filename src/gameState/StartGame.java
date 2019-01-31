@@ -15,8 +15,8 @@ public class StartGame extends GameState {
 //		addGoodsToDepotNumbers();
 		setDiceValuesRed();
 		addTilesToStorageSpaces();
-		addSilverlings(10);
-		addWorkers(11);
+		addSilverlings(4);
+//		addWorkers(11);
 
 		super.controller.flowManager().addGameStateFirst(GameStateEnum.START_NEW_PHASE);
 		super.controller.flowManager().proceedToNextGameStatePhase();

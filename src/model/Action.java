@@ -1,7 +1,9 @@
 package model;
 
 import enums.ActionEnum;
+import instances.Instances;
 import utils.EventHandler.EventHandlerAble;
+import utils.Executor;
 import utils.ImageView;
 
 public class Action implements EventHandlerAble {
@@ -37,6 +39,14 @@ public class Action implements EventHandlerAble {
 
 	public ActionEnum getActionEnum() {
 		return this.actionEnum;
+	}
+
+	@Override
+	public void handleMouseButtonPressedPrimary() {
+
+		Executor.runLater(() -> Instances.getControllerInstance().gameStateManager().getCurrentGameState()
+				.handleActionPressed(this.actionEnum));
+
 	}
 
 }

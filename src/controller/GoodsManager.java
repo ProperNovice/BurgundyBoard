@@ -9,7 +9,7 @@ public class GoodsManager {
 
 	private ArrayList<Goods> goodsList = new ArrayList<>();
 	private ArrayList<Goods> phaseGoods = new ArrayList<>();
-	private CoordinatesLinear coordinatesLinear = null;
+	private CoordinatesLinear coordinatesLinearPhaseGoods = null;
 
 	public GoodsManager() {
 
@@ -28,7 +28,7 @@ public class GoodsManager {
 
 	private void createCoordinates() {
 
-		this.coordinatesLinear = new CoordinatesBuilder().width(Credentials.DimensionsGoods.x)
+		this.coordinatesLinearPhaseGoods = new CoordinatesBuilder().width(Credentials.DimensionsGoods.x)
 				.height(Credentials.DimensionsGoods.y).gapBetweenNodes(Credentials.DimensionsGapBetweenComponents.x)
 				.xPointOfInterest(Credentials.CoordinatesPhaseGoods.x)
 				.yPointOfInterest(Credentials.CoordinatesPhaseGoods.y).nodesPerRow(5).createCoordinatesLinear();
@@ -47,13 +47,14 @@ public class GoodsManager {
 
 			goods.setVisible(true);
 
-			goods.relocate(this.coordinatesLinear.getX(goodsIndex), this.coordinatesLinear.getY(goodsIndex));
+			goods.relocate(this.coordinatesLinearPhaseGoods.getX(goodsIndex),
+					this.coordinatesLinearPhaseGoods.getY(goodsIndex));
 
 		}
 
 	}
 
-	public Goods removeFirst() {
+	public Goods removeFirstPhaseGoods() {
 		return this.phaseGoods.removeFirst();
 	}
 

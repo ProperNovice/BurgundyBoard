@@ -1,6 +1,7 @@
 package gameState;
 
 import controller.Controller;
+import enums.ActionEnum;
 import enums.TextEnum;
 import enums.TileTypeEnum;
 import instances.Instances;
@@ -22,6 +23,10 @@ public abstract class GameState {
 	}
 
 	public void handleBoardSpacePressed(BoardSpace boardSpacePressed, TileTypeEnum tileTypeEnum, int diceValue) {
+
+	}
+
+	public void handleActionPressed(ActionEnum actionEnum) {
 
 	}
 

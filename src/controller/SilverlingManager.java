@@ -12,7 +12,7 @@ public class SilverlingManager {
 
 	public SilverlingManager() {
 		createCoordinatesPivot();
-		addSilverlingsAndRelocate(10);
+		addSilverlingsAndRelocate(1);
 	}
 
 	private void createCoordinatesPivot() {
@@ -68,6 +68,10 @@ public class SilverlingManager {
 
 		}
 
+	}
+
+	public boolean hasAtLeastTwoSilverlings() {
+		return this.silverlings.size() >= 2;
 	}
 
 }

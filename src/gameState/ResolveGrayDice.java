@@ -29,7 +29,7 @@ public class ResolveGrayDice extends GameState {
 
 	private void resolveGrayDice() {
 
-		Goods goods = super.controller.goodsManager().removeFirst();
+		Goods goods = super.controller.goodsManager().removeFirstPhaseGoods();
 		int diceGrayValue = super.controller.diceManager().getDiceGrayValue();
 
 		super.controller.depotNumberedManager().addGoodsToDepotNumbered(goods, diceGrayValue);
