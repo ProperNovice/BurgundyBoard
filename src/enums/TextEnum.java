@@ -4,7 +4,9 @@ public enum TextEnum {
 
 	CONTINUE("Continue", TextTypeEnum.OPTION),
 	RESTART("Restart", TextTypeEnum.OPTION),
-	ROLL_DICE("Roll dice", TextTypeEnum.OPTION),
+	CHOOSE_SPACE_TO_PLACE_THE_CASTLE("Choose space for castle", TextTypeEnum.INDICATOR),
+	START_NEW_PHASE("Start new phase", TextTypeEnum.OPTION),
+	START_NEW_ROUND("Start new round", TextTypeEnum.OPTION),
 	RESOLVE_GRAY_DICE("Resolve gray dice", TextTypeEnum.OPTION),
 	CHOOSE_AN_ACTION("Choose an action", TextTypeEnum.INDICATOR),
 	CHOOSE_A_TILE("Choose a tile", TextTypeEnum.INDICATOR),

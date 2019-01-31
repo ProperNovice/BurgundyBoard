@@ -47,6 +47,10 @@ public class DepotNumbered {
 		return this.tiles.contains(tile);
 	}
 
+	public void removeTile(Tile tile) {
+		this.tiles.remove(tile);
+	}
+
 	public boolean containsGoods(Goods goods) {
 		return this.goods.contains(goods);
 	}

@@ -33,7 +33,7 @@ public class ActionManager {
 
 	public void showActions(ArrayList<ActionEnum> actionsToShow) {
 
-		Logger.log("showing actions");
+		Logger.log("available actions");
 
 		ActionEnum actionEnum = null;
 
@@ -57,7 +57,7 @@ public class ActionManager {
 
 	public void showAction(ActionEnum actionEnumToShow) {
 
-		Logger.log("showing action");
+		Logger.log("available action");
 		Logger.logNewLine(actionEnumToShow);
 
 		ActionEnum actionEnum = null;

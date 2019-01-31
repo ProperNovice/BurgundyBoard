@@ -33,6 +33,13 @@ public abstract class GameState {
 
 	public final void handleTilePressed(Tile tile, TileTypeEnum tileTypeEnum) {
 
+		if (this.controller.depotNumberedManager().containsTile(tile))
+			handleTileDepotNumberedPressed(tile, tileTypeEnum);
+
+	}
+
+	protected void handleTileDepotNumberedPressed(Tile tile, TileTypeEnum tileTypeEnum) {
+
 	}
 
 }

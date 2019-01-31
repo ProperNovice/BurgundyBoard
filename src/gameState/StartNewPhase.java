@@ -1,6 +1,8 @@
 package gameState;
 
+import enums.TextEnum;
 import enums.TileTypeEnum;
+import javafx.scene.input.KeyCode;
 import tiles.Tile;
 import utils.ArrayList;
 
@@ -8,6 +10,32 @@ public class StartNewPhase extends GameState {
 
 	@Override
 	public void handleGameStateChange() {
+
+		super.controller.textManager().showText(TextEnum.START_NEW_PHASE);
+
+		// TODO
+
+		super.controller.textManager().concealText();
+		handleTextOptionPressed(null);
+	}
+
+	@Override
+	public void handleTextOptionPressed(TextEnum textEnum) {
+		executeStartNewPhase();
+	}
+
+	@Override
+	public void handleKeyPressed(KeyCode keyCode) {
+
+		if (keyCode != KeyCode.Q)
+			return;
+
+		super.controller.textManager().concealText();
+		executeStartNewPhase();
+
+	}
+
+	private void executeStartNewPhase() {
 
 		setNewPhaseIndicator();
 		createNewPhaseGoodsAndRelocate();

@@ -6,6 +6,7 @@ import java.util.Iterator;
 public class ArrayList<T> implements Iterable<T> {
 
 	private java.util.ArrayList<T> list = new java.util.ArrayList<>();
+	private int maxCapacity = -1;
 
 	public ArrayList() {
 
@@ -20,6 +21,10 @@ public class ArrayList<T> implements Iterable<T> {
 
 	public ArrayList(T[] list) {
 		addAll(list);
+	}
+
+	public ArrayList(int maxCapacity) {
+		this.maxCapacity = maxCapacity;
 	}
 
 	private ArrayList(java.util.ArrayList<T> list) {
@@ -78,6 +83,14 @@ public class ArrayList<T> implements Iterable<T> {
 		return this.list.isEmpty();
 	}
 
+	public boolean isMaxedCapacity() {
+		return this.list.size() == this.maxCapacity;
+	}
+
+	public int getMaxCapacity() {
+		return this.maxCapacity;
+	}
+
 	public T remove(int index) {
 		return this.list.remove(index);
 	}
@@ -88,13 +101,11 @@ public class ArrayList<T> implements Iterable<T> {
 
 	public void shuffle() {
 
-		java.util.ArrayList<T> listOriginal = new java.util.ArrayList<>(
-				this.list);
+		java.util.ArrayList<T> listOriginal = new java.util.ArrayList<>(this.list);
 		this.list.clear();
 
 		while (!listOriginal.isEmpty())
-			this.list.add(listOriginal.remove(Random.getRandomNumber(0,
-					listOriginal.size() - 1)));
+			this.list.add(listOriginal.remove(Random.getRandomNumber(0, listOriginal.size() - 1)));
 
 	}
 
@@ -129,6 +140,10 @@ public class ArrayList<T> implements Iterable<T> {
 
 	public void reverse() {
 		Collections.reverse(this.list);
+	}
+
+	public void setMaxCapacity(int maxCapacity) {
+		this.maxCapacity = maxCapacity;
 	}
 
 	@Override

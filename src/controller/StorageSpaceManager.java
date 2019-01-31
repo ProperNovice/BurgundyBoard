@@ -5,7 +5,7 @@ import utils.ArrayList;
 
 public class StorageSpaceManager {
 
-	private ArrayList<Tile> tiles = new ArrayList<>();
+	private ArrayList<Tile> tiles = new ArrayList<>(3);
 
 	public StorageSpaceManager() {
 
@@ -51,6 +51,10 @@ public class StorageSpaceManager {
 
 	public boolean isEmpty() {
 		return this.tiles.isEmpty();
+	}
+
+	public boolean isMaxedCapacty() {
+		return this.tiles.isMaxedCapacity();
 	}
 
 }

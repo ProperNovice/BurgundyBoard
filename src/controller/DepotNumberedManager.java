@@ -83,19 +83,68 @@ public class DepotNumberedManager {
 
 	}
 
-	public ArrayList<TileTypeEnum> getDepotNumberedTileTypeEnumList(int depotNumbered) {
-		return this.depotNumbers.get(depotNumbered - 1).getTileTypeEnumList();
+	public ArrayList<TileTypeEnum> getDepotNumberedTileTypeEnumList(int depotNumberedValue) {
+
+		for (DepotNumbered depotNumbered : this.depotNumbers) {
+
+			if (depotNumbered.getDepotNumber() != depotNumberedValue)
+				continue;
+
+			return depotNumbered.getTileTypeEnumList();
+
+		}
+
+		return null;
 	}
 
-	public void addTilesToDepotNumbered(int depotNumbered, Tile tileFirst, Tile tileSecond) {
-		this.depotNumbers.get(depotNumbered - 1).addTilesAndRelocate(tileFirst, tileSecond);
+	public void addTilesToDepotNumbered(int depotNumberedValue, Tile tileFirst, Tile tileSecond) {
+
+		for (DepotNumbered depotNumbered : this.depotNumbers) {
+
+			if (depotNumbered.getDepotNumber() != depotNumberedValue)
+				continue;
+
+			depotNumbered.addTilesAndRelocate(tileFirst, tileSecond);
+			break;
+
+		}
+
 	}
 
-	public void addGoodsToDepotNumbered(Goods goods, int depotNumbered) {
-		this.depotNumbers.get(depotNumbered - 1).addGoodsAndRelocate(goods);
+	public void addGoodsToDepotNumbered(Goods goods, int depotNumberedValue) {
 
-		Logger.log("depot number - " + depotNumbered);
+		for (DepotNumbered depotNumbered : this.depotNumbers) {
+
+			if (depotNumbered.getDepotNumber() != depotNumberedValue)
+				continue;
+
+			depotNumbered.addGoodsAndRelocate(goods);
+			break;
+
+		}
+
+		Logger.log("depot number - " + depotNumberedValue);
 		Logger.logNewLine("add goods - " + goods.getDiceValue());
+
+	}
+
+	public boolean containsTile(Tile tile) {
+
+		for (DepotNumbered depotNumbered : this.depotNumbers) {
+			if (depotNumbered.containsTile(tile))
+				return true;
+		}
+
+		return false;
+
+	}
+
+	public void removeTile(Tile tile) {
+
+		for (DepotNumbered depotNumbered : this.depotNumbers) {
+			if (depotNumbered.containsTile(tile))
+				depotNumbered.removeTile(tile);
+		}
 
 	}
 

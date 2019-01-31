@@ -3,12 +3,12 @@ package gameState;
 import enums.TextEnum;
 import javafx.scene.input.KeyCode;
 
-public class RollDice extends GameState {
+public class StartNewRound extends GameState {
 
 	@Override
 	public void handleGameStateChange() {
 
-		super.controller.textManager().showText(TextEnum.ROLL_DICE);
+		super.controller.textManager().showText(TextEnum.START_NEW_ROUND);
 
 	}
 
