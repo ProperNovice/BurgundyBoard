@@ -15,11 +15,11 @@ public class StartGame extends GameState {
 		addTilesToGameBoard();
 //		addGoodsToDepotNumbers();
 		setDiceValuesRed();
-		addTilesToStorageSpaces();
+//		addTilesToStorageSpaces();
 //		addSilverlings(4);
 //		addWorkers(11);
 
-		super.controller.flowManager().addGameStateResolvingFirst(GameStateEnum.CHOOSE_TILE_TO_DISCARD);
+		super.controller.flowManager().addGameStateResolvingFirst(GameStateEnum.ACTION_TAKE_TILE_FROM_THE_GAME_BOARD);
 
 		super.controller.flowManager().addGameStateResolvingFirst(GameStateEnum.START_NEW_PHASE);
 		super.controller.flowManager().proceedToNextGameStatePhase();

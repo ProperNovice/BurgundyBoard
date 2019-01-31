@@ -67,6 +67,9 @@ public class StorageSpaceManager {
 
 	public boolean containsPriorTile(Tile tile) {
 
+		if (this.tiles.isEmpty())
+			return false;
+
 		for (int counter = 0; counter < this.tiles.getMaxCapacity(); counter++)
 			if (this.tiles.get(counter) == tile)
 				return true;
