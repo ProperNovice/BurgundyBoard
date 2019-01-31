@@ -35,4 +35,8 @@ public class Action implements EventHandlerAble {
 		this.imageView.setVisible(value);
 	}
 
+	public ActionEnum getActionEnum() {
+		return this.actionEnum;
+	}
+
 }

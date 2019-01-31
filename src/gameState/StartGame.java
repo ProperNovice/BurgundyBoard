@@ -3,6 +3,7 @@ package gameState;
 import enums.GameStateEnum;
 import model.Goods;
 import tiles.Castle;
+import tiles.Mine;
 import tiles.Tile;
 
 public class StartGame extends GameState {
@@ -10,9 +11,12 @@ public class StartGame extends GameState {
 	@Override
 	public void handleGameStateChange() {
 
-//		addTilesToGameBoard();
+		addTilesToGameBoard();
 //		addGoodsToDepotNumbers();
-//		setDiceValuesRed();
+		setDiceValuesRed();
+		addTilesToStorageSpaces();
+		addSilverlings(10);
+		addWorkers(11);
 
 		super.controller.flowManager().addGameStateFirst(GameStateEnum.START_NEW_PHASE);
 		super.controller.flowManager().proceedToNextGameStatePhase();
@@ -46,7 +50,29 @@ public class StartGame extends GameState {
 	}
 
 	private void setDiceValuesRed() {
-		super.controller.diceManager().testSetRedDiceValuesAndRelocate(2, 6);
+		super.controller.diceManager().testSetRedDiceValuesAndRelocate(5, 4);
+	}
+
+	private void addTilesToStorageSpaces() {
+
+		Tile tile = null;
+
+		tile = new Castle();
+		super.controller.storageSpaceManager().addTileAndRelocate(tile);
+		tile.setVisible(true);
+
+		tile = new Mine();
+		super.controller.storageSpaceManager().addTileAndRelocate(tile);
+		tile.setVisible(true);
+
+	}
+
+	private void addSilverlings(int amount) {
+		super.controller.silverlingManager().addSilverlingsAndRelocate(amount);
+	}
+
+	private void addWorkers(int amount) {
+		super.controller.workerManager().addWorkersAndRelocate(amount);
 	}
 
 }

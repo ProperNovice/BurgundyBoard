@@ -32,8 +32,8 @@ public class FlowManager {
 
 	private void createGameStateNormalTurn() {
 
-		this.gameStateNormalTurn.addLast(GameStateEnum.ROLL_DICE);
-		this.gameStateNormalTurn.addLast(GameStateEnum.RESOLVE_GRAY_DICE);
+//		this.gameStateNormalTurn.addLast(GameStateEnum.ROLL_DICE);
+//		this.gameStateNormalTurn.addLast(GameStateEnum.RESOLVE_GRAY_DICE);
 		this.gameStateNormalTurn.addLast(GameStateEnum.CHOOSE_AN_ACTION);
 
 	}

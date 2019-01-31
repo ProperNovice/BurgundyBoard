@@ -37,9 +37,15 @@ public class WorkerManager {
 	}
 
 	public void removeWorkersAndRelocate(int amount) {
+		
+		Worker worker = null;
 
-		for (int counter = 1; counter <= amount; counter++)
-			this.workers.removeLast();
+		for (int counter = 1; counter <= amount; counter++) {
+
+			worker = this.workers.removeLast();
+			worker.setVisible(false);
+
+		}
 
 		relocate();
 

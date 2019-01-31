@@ -113,8 +113,8 @@ public class Credentials {
 		y = CoordinatesDice.y;
 		CoordinatesTextPanel = new NumbersPair(x, y);
 
-		x = 10;
-		y = 10;
+		x = CoordinatesDice.x;
+		y = CoordinatesDice.y + DimensionsDice.y + DimensionsGapBetweenComponents.y;
 		CoordinatesActions = new NumbersPair(x, y);
 
 	}

@@ -12,7 +12,7 @@ public class SilverlingManager {
 
 	public SilverlingManager() {
 		createCoordinatesPivot();
-		addSilverlingsAndRelocate(1);
+		addSilverlingsAndRelocate(10);
 	}
 
 	private void createCoordinatesPivot() {
@@ -35,28 +35,34 @@ public class SilverlingManager {
 
 		}
 
-		relocate();
+		relocateSilverlings();
 
 	}
 
 	public void removeSilverlingsAndRelocate(int amount) {
 
-		for (int counter = 1; counter <= amount; counter++)
-			this.silverlings.removeLast();
+		Silverling silverling = null;
 
-		relocate();
+		for (int counter = 1; counter <= amount; counter++) {
+
+			silverling = this.silverlings.removeLast();
+			silverling.setVisible(false);
+
+		}
+
+		relocateSilverlings();
 
 	}
 
-	private void relocate() {
+	private void relocateSilverlings() {
 
 		this.coordinatesPivot.setNodesTotal(this.silverlings.size());
 
 		for (Silverling silverling : this.silverlings) {
 
-			int workerIndex = this.silverlings.indexOf(silverling);
-			double x = this.coordinatesPivot.getX(workerIndex);
-			double y = this.coordinatesPivot.getY(workerIndex);
+			int silverlingIndex = this.silverlings.indexOf(silverling);
+			double x = this.coordinatesPivot.getX(silverlingIndex);
+			double y = this.coordinatesPivot.getY(silverlingIndex);
 
 			silverling.relocate(x, y);
 

@@ -49,4 +49,8 @@ public class StorageSpaceManager {
 
 	}
 
+	public boolean isEmpty() {
+		return this.tiles.isEmpty();
+	}
+
 }

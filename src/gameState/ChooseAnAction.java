@@ -1,6 +1,8 @@
 package gameState;
 
+import enums.ActionEnum;
 import enums.TextEnum;
+import utils.ArrayList;
 
 public class ChooseAnAction extends GameState {
 
@@ -9,6 +11,20 @@ public class ChooseAnAction extends GameState {
 
 		super.controller.textManager().showText(TextEnum.CHOOSE_AN_ACTION);
 
+		ArrayList<ActionEnum> actionsToShow = new ArrayList<>();
+
+		actionsToShow.addLast(ActionEnum.TAKE_TILE_FROM_THE_GAME_BOARD);
+		actionsToShow.addLast(ActionEnum.TAKE_WORKERS_TILES);
+
+		if (addTileToYourEstate())
+			actionsToShow.addLast(ActionEnum.ADD_TILE_TO_YOUR_ESTATE);
+
+		super.controller.actionManager().showActions(actionsToShow);
+
+	}
+
+	private boolean addTileToYourEstate() {
+		return !super.controller.storageSpaceManager().isEmpty();
 	}
 
 }
