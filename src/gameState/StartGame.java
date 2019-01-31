@@ -1,6 +1,5 @@
 package gameState;
 
-import enums.GameStateEnum;
 import model.Goods;
 import tiles.Castle;
 import tiles.Mine;
@@ -15,7 +14,7 @@ public class StartGame extends GameState {
 		addTilesToGameBoard();
 //		addGoodsToDepotNumbers();
 		setDiceValuesRed();
-//		addTilesToStorageSpaces();
+		addTilesToStorageSpaces();
 //		addSilverlings(4);
 //		addWorkers(11);
 
@@ -23,7 +22,7 @@ public class StartGame extends GameState {
 
 	}
 
-	private void addTilesToGameBoard() {
+	public void addTilesToGameBoard() {
 
 		Tile tile = null;
 
@@ -32,9 +31,9 @@ public class StartGame extends GameState {
 
 	}
 
-	private void addGoodsToDepotNumbers() {
+	public void addGoodsToDepotNumbers() {
 
-		int depotNumbered = 1;
+		int depotNumbered = 2;
 
 		Goods a = new Goods(1);
 		a.setVisible(true);
@@ -44,16 +43,16 @@ public class StartGame extends GameState {
 		c.setVisible(true);
 
 		super.controller.depotNumberedManager().addGoodsToDepotNumbered(a, depotNumbered);
-		super.controller.depotNumberedManager().addGoodsToDepotNumbered(b, depotNumbered);
+		super.controller.depotNumberedManager().addGoodsToDepotNumbered(b, depotNumbered + 1);
 		super.controller.depotNumberedManager().addGoodsToDepotNumbered(c, depotNumbered);
 
 	}
 
-	private void setDiceValuesRed() {
+	public void setDiceValuesRed() {
 		super.controller.diceManager().testSetRedDiceValuesAndRelocate(3, 1);
 	}
 
-	private void addTilesToStorageSpaces() {
+	public void addTilesToStorageSpaces() {
 
 		Tile tile = null;
 
@@ -65,13 +64,17 @@ public class StartGame extends GameState {
 		super.controller.storageSpaceManager().addTileAndRelocate(tile);
 		tile.setVisible(true);
 
+		tile = new Castle();
+		super.controller.storageSpaceManager().addTileAndRelocate(tile);
+		tile.setVisible(true);
+
 	}
 
-	private void addSilverlings(int amount) {
+	public void addSilverlings(int amount) {
 		super.controller.silverlingManager().addSilverlingsAndRelocate(amount);
 	}
 
-	private void addWorkers(int amount) {
+	public void addWorkers(int amount) {
 		super.controller.workerManager().addWorkersAndRelocate(amount);
 	}
 

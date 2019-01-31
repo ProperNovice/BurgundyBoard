@@ -17,7 +17,7 @@ public class FlowManager {
 //		this.gameStateResolving.addLast(GameStateEnum.CHOOSE_SPACE_TO_PLACE_THE_CASTLE);
 		this.gameStateResolving.addLast(GameStateEnum.START_NEW_PHASE);
 
-		this.gameStateResolving.addLast(GameStateEnum.ACTION_TAKE_TILE_FROM_THE_GAME_BOARD);
+		this.gameStateResolving.addLast(GameStateEnum.CHOOSE_TILE_TO_DISCARD);
 
 	}
 

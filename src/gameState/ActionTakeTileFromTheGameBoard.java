@@ -1,6 +1,7 @@
 package gameState;
 
 import enums.ActionEnum;
+import enums.GameStateEnum;
 import enums.TextEnum;
 import enums.TileTypeEnum;
 import tiles.Tile;
@@ -19,15 +20,15 @@ public class ActionTakeTileFromTheGameBoard extends GameState {
 	protected void handleTileDepotNumberedPressed(Tile tile, TileTypeEnum tileTypeEnum) {
 
 		super.controller.textManager().concealText();
+		super.controller.actionManager().concealActions();
 
 		super.controller.depotNumberedManager().removeTile(tile);
-
-		if (super.controller.storageSpaceManager().isMaxedCapacty()) {
-			System.out.println("maxed");
-			return;
-		}
-
 		super.controller.storageSpaceManager().addTileAndRelocate(tile);
+
+		if (super.controller.storageSpaceManager().exceedsMaxedCapacity())
+			super.controller.flowManager().addGameStateFirst(GameStateEnum.CHOOSE_TILE_TO_DISCARD);
+
+		super.controller.flowManager().proceedToNextGameStatePhase();
 
 	}
 

@@ -57,6 +57,8 @@ public class ActionManager {
 
 	public void showAction(ActionEnum actionEnumToShow) {
 
+		concealActions();
+
 		Logger.log("available action");
 		Logger.logNewLine(actionEnumToShow);
 

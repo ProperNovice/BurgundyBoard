@@ -12,8 +12,10 @@ public class StorageSpaceManager {
 	}
 
 	public void addTileAndRelocate(Tile tile) {
+
 		this.tiles.addLast(tile);
 		relocateTiles();
+
 	}
 
 	private void relocateTiles() {
@@ -43,6 +45,12 @@ public class StorageSpaceManager {
 				tile.relocate(x, y);
 				break;
 
+			case 3:
+				x = Credentials.CoordinatesStorageSpaceTemp.x;
+				y = Credentials.CoordinatesStorageSpaceTemp.y - Credentials.DimensionsTile.y / 2;
+				tile.relocate(x, y);
+				break;
+
 			}
 
 		}
@@ -53,8 +61,23 @@ public class StorageSpaceManager {
 		return this.tiles.isEmpty();
 	}
 
-	public boolean isMaxedCapacty() {
-		return this.tiles.isMaxedCapacity();
+	public boolean exceedsMaxedCapacity() {
+		return this.tiles.size() > this.tiles.getMaxCapacity();
+	}
+
+	public boolean containsPriorTile(Tile tile) {
+
+		for (int counter = 0; counter < this.tiles.getMaxCapacity(); counter++)
+			if (this.tiles.get(counter) == tile)
+				return true;
+
+		return false;
+
+	}
+
+	public void removeTileAndRelocate(Tile tile) {
+		this.tiles.remove(tile);
+		relocateTiles();
 	}
 
 }
