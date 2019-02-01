@@ -66,25 +66,27 @@ public class ActionTakeTileFromTheGameBoard extends GameState {
 
 		TileTypeEnum tileTypeEnumSelected = this.tileSelected.getTileTypeEnum();
 
-		int modifier = super.controller.diceModifiersManager()
+		int tileTypeEnumModifier = super.controller.diceModifiersManager()
 				.getDiceModifierTakeTileFromTheGameBoard(tileTypeEnumSelected);
 
-		Logger.logNewLine(tileTypeEnumSelected + " " + modifier + " - dice modifier ");
+		Logger.logNewLine(tileTypeEnumSelected + " " + tileTypeEnumModifier + " - dice modifier ");
 
-		System.out.println(canBeExecuted(modifier));
+		System.out.println(canBeExecuted(tileTypeEnumModifier) + " cbe");
+		System.out.println(this.workersNeeded + " wn");
 		System.out.println();
 
 	}
 
-	private boolean canBeExecuted(int modifier) {
+	private boolean canBeExecuted(int tileTypeEnumModifier) {
 
 		ArrayList<Integer> numbersAvailable = new ArrayList<>();
 		numbersAvailable.addLast(this.diceSelected.getDiceValue());
 
 		// numbersAvailable with no Workers
 
-		numbersAvailable = getNumbersAvailable(modifier, numbersAvailable);
+		numbersAvailable = getNumbersAvailable(tileTypeEnumModifier, numbersAvailable);
 
+		Logger.log("with no workers");
 		numbersAvailable.printList();
 
 		if (numbersAvailable.contains(this.numberTarget)) {
@@ -93,6 +95,30 @@ public class ActionTakeTileFromTheGameBoard extends GameState {
 		}
 
 		// numbersAvailable with Workers
+
+		int workersAvailable = super.controller.workersManager().workersSize();
+
+		if (workersAvailable == 0)
+			return false;
+
+		int workersModifier = super.controller.diceModifiersManager().getWorkersModifier();
+
+		Logger.logNewLine(workersModifier + " - workers modifier");
+
+		for (int counter = 1; counter <= workersAvailable; counter++) {
+
+			numbersAvailable = getNumbersAvailable(workersModifier, numbersAvailable);
+
+			Logger.log("with " + counter + " workers");
+			numbersAvailable.printList();
+
+			if (numbersAvailable.contains(this.numberTarget)) {
+				this.workersNeeded = counter;
+				return true;
+
+			}
+
+		}
 
 		return false;
 	}

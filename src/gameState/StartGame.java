@@ -87,6 +87,7 @@ public class StartGame extends GameState {
 	public void setDiceModifiers() {
 
 		super.controller.diceModifiersManager().addDiceModifierTakeTileFromTheGameBoard(TileTypeEnum.BUILDING);
+		super.controller.diceModifiersManager().addWorkersModifier();
 
 	}
 

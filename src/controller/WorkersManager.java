@@ -8,7 +8,7 @@ import utils.CoordinatesPivot;
 public class WorkersManager {
 
 	private ArrayList<Worker> workers = new ArrayList<>();
-	private CoordinatesPivot coordinatesPivot = null;
+	private CoordinatesPivot coordinatesPivotPlayerBoard = null;
 
 	public WorkersManager() {
 		createCoordinatesPivot();
@@ -20,7 +20,7 @@ public class WorkersManager {
 		double x = Credentials.CoordinatesWorkers.x;
 		double y = Credentials.CoordinatesWorkers.y;
 
-		this.coordinatesPivot = new CoordinatesBuilder().width(Credentials.DimensionsWorker.x)
+		this.coordinatesPivotPlayerBoard = new CoordinatesBuilder().width(Credentials.DimensionsWorker.x)
 				.height(Credentials.DimensionsWorker.y).gapBetweenNodes(-Credentials.DimensionsWorker.x / 2)
 				.nodesPerRow(4).xPointOfInterest(x).yPointOfInterest(y).createCoordinatesPivot();
 
@@ -53,13 +53,13 @@ public class WorkersManager {
 
 	private void relocate() {
 
-		this.coordinatesPivot.setNodesTotal(this.workers.size());
+		this.coordinatesPivotPlayerBoard.setNodesTotal(this.workers.size());
 
 		for (Worker worker : this.workers) {
 
 			int workerIndex = this.workers.indexOf(worker);
-			double x = this.coordinatesPivot.getX(workerIndex);
-			double y = this.coordinatesPivot.getY(workerIndex);
+			double x = this.coordinatesPivotPlayerBoard.getX(workerIndex);
+			double y = this.coordinatesPivotPlayerBoard.getY(workerIndex);
 
 			worker.relocate(x, y);
 

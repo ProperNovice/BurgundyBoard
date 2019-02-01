@@ -92,7 +92,7 @@ public class Dice implements EventHandlerAble {
 	@Override
 	public void handleMouseButtonPressedPrimary() {
 
-		Logger.logNewLine("dice value - " + this.diceValue);
+		Logger.logNewLine(this.diceValue + " - dice value");
 
 		Executor.runLater(() -> Instances.getControllerInstance().gameStateManager().getCurrentGameState()
 				.handleDiceRedPressed(this, this.diceValue));
