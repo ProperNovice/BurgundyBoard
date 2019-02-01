@@ -12,7 +12,7 @@ public class Controller {
 	private GoodsManager goodsManager = null;
 	private PhaseIndicatorManager phaseManager = null;
 	private DepotNumberedManager depotNumberedManager = null;
-	private WorkerManager workerManager = null;
+	private WorkersManager workersManager = null;
 	private SilverlingManager silverlingManager = null;
 	private DepotBlackManager depotBlackManager = null;
 	private StorageSpaceManager storageSpaceManager = null;
@@ -38,7 +38,7 @@ public class Controller {
 		this.goodsManager = new GoodsManager();
 		this.phaseManager = new PhaseIndicatorManager();
 		this.depotNumberedManager = new DepotNumberedManager();
-		this.workerManager = new WorkerManager();
+		this.workersManager = new WorkersManager();
 		this.silverlingManager = new SilverlingManager();
 		this.depotBlackManager = new DepotBlackManager();
 		this.storageSpaceManager = new StorageSpaceManager();
@@ -82,8 +82,8 @@ public class Controller {
 		return this.depotNumberedManager;
 	}
 
-	public WorkerManager workerManager() {
-		return this.workerManager;
+	public WorkersManager workersManager() {
+		return this.workersManager;
 	}
 
 	public SilverlingManager silverlingManager() {

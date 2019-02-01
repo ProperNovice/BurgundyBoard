@@ -35,14 +35,15 @@ public abstract class GameState {
 	public final void handleTilePressed(Tile tile, TileTypeEnum tileTypeEnum) {
 
 		if (this.controller.depotNumberedManager().containsTile(tile))
-			handleTileDepotNumberedPressed(tile, tileTypeEnum);
+			handleTileDepotNumberedPressed(tile, tileTypeEnum,
+					this.controller.depotNumberedManager().getDepotNumberedValueContainingTile(tile));
 
 		else if (this.controller.storageSpaceManager().containsPriorTile(tile))
 			handleTileStorageSpacePriorPressed(tile, tileTypeEnum);
 
 	}
 
-	protected void handleTileDepotNumberedPressed(Tile tile, TileTypeEnum tileTypeEnum) {
+	protected void handleTileDepotNumberedPressed(Tile tile, TileTypeEnum tileTypeEnum, int depotNumberedValue) {
 
 	}
 

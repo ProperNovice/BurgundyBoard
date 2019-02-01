@@ -148,4 +148,19 @@ public class DepotNumberedManager {
 
 	}
 
+	public int getDepotNumberedValueContainingTile(Tile tile) {
+
+		int depotNumberedValue = -1;
+
+		for (DepotNumbered depotNumbered : this.depotNumbers) {
+			if (depotNumbered.containsTile(tile)) {
+				depotNumberedValue = depotNumbered.getDepotNumber();
+				break;
+			}
+		}
+
+		return depotNumberedValue;
+
+	}
+
 }

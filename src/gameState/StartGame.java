@@ -1,6 +1,7 @@
 package gameState;
 
 import enums.GameStateEnum;
+import enums.TileTypeEnum;
 import model.Goods;
 import tiles.Castle;
 import tiles.Mine;
@@ -18,6 +19,7 @@ public class StartGame extends GameState {
 //		addTilesToStorageSpaces();
 //		addSilverlings(4);
 //		addWorkers(11);
+		setDiceModifiers();
 
 		super.controller.flowManager().addGameStateResolvingFirst(GameStateEnum.ACTION_TAKE_TILE_FROM_THE_GAME_BOARD);
 
@@ -53,7 +55,7 @@ public class StartGame extends GameState {
 	}
 
 	public void setDiceValuesRed() {
-		super.controller.diceManager().testSetRedDiceValuesAndRelocate(3, 1);
+		super.controller.diceManager().testSetRedDiceValuesAndRelocate(3, 6);
 	}
 
 	public void addTilesToStorageSpaces() {
@@ -79,7 +81,13 @@ public class StartGame extends GameState {
 	}
 
 	public void addWorkers(int amount) {
-		super.controller.workerManager().addWorkersAndRelocate(amount);
+		super.controller.workersManager().addWorkersAndRelocate(amount);
+	}
+	
+	public void setDiceModifiers() {
+		
+		super.controller.diceModifiersManager().a();
+		
 	}
 
 }

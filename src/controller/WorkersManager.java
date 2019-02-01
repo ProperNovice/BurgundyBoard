@@ -5,12 +5,12 @@ import utils.ArrayList;
 import utils.CoordinatesBuilder;
 import utils.CoordinatesPivot;
 
-public class WorkerManager {
+public class WorkersManager {
 
 	private ArrayList<Worker> workers = new ArrayList<>();
 	private CoordinatesPivot coordinatesPivot = null;
 
-	public WorkerManager() {
+	public WorkersManager() {
 		createCoordinatesPivot();
 		addWorkersAndRelocate(2);
 	}
@@ -37,7 +37,7 @@ public class WorkerManager {
 	}
 
 	public void removeWorkersAndRelocate(int amount) {
-		
+
 		Worker worker = null;
 
 		for (int counter = 1; counter <= amount; counter++) {
@@ -65,6 +65,10 @@ public class WorkerManager {
 
 		}
 
+	}
+
+	public int workersSize() {
+		return this.workers.size();
 	}
 
 }
