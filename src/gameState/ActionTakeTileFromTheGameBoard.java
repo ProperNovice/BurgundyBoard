@@ -7,6 +7,7 @@ import enums.TileTypeEnum;
 import model.Dice;
 import tiles.Tile;
 import utils.ArrayList;
+import utils.Logger;
 
 public class ActionTakeTileFromTheGameBoard extends GameState {
 
@@ -64,18 +65,25 @@ public class ActionTakeTileFromTheGameBoard extends GameState {
 			return;
 
 		TileTypeEnum tileTypeEnumSelected = this.tileSelected.getTileTypeEnum();
+
 		int modifier = super.controller.diceModifiersManager()
 				.getDiceModifierTakeTileFromTheGameBoard(tileTypeEnumSelected);
 
-		System.out.println(tileTypeEnumSelected + " modifier " + modifier);
+		Logger.logNewLine(tileTypeEnumSelected + " " + modifier + " - dice modifier ");
 
 		System.out.println(canBeExecuted(modifier));
+		System.out.println();
 
 	}
 
 	private boolean canBeExecuted(int modifier) {
 
-		ArrayList<Integer> numbersAvailable = getNumbersAvailable(modifier);
+		ArrayList<Integer> numbersAvailable = new ArrayList<>();
+		numbersAvailable.addLast(this.diceSelected.getDiceValue());
+
+		// numbersAvailable with no Workers
+
+		numbersAvailable = getNumbersAvailable(modifier, numbersAvailable);
 
 		numbersAvailable.printList();
 
@@ -84,25 +92,24 @@ public class ActionTakeTileFromTheGameBoard extends GameState {
 			return true;
 		}
 
+		// numbersAvailable with Workers
+
 		return false;
 	}
 
-	private ArrayList<Integer> getNumbersAvailable(int modifier) {
+	private ArrayList<Integer> getNumbersAvailable(int modifier, ArrayList<Integer> numbersAvailable) {
 
-		ArrayList<Integer> numbersAvailable = new ArrayList<>();
-
-		numbersAvailable.addLast(this.diceSelected.getDiceValue());
-
-		int indexUp = this.diceSelected.getDiceValue();
-		int indexDown = this.diceSelected.getDiceValue();
+		int indexUp, indexDown;
 
 		for (int counter = 1; counter <= modifier; counter++) {
 
+			indexUp = numbersAvailable.getLast();
 			indexUp++;
 			if (indexUp == 7)
 				indexUp = 1;
 			numbersAvailable.addLast(indexUp);
 
+			indexDown = numbersAvailable.getFirst();
 			indexDown--;
 			if (indexDown == 0)
 				indexDown = 6;

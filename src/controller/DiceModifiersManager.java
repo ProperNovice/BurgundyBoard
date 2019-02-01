@@ -33,15 +33,32 @@ public class DiceModifiersManager {
 	}
 
 	public void addDiceModifierTakeTileFromTheGameBoard(TileTypeEnum tileTypeEnum) {
-		this.takeTileFromTheGameBoard.put(tileTypeEnum, 1);
+		addDiceModifier(tileTypeEnum, this.takeTileFromTheGameBoard);
+	}
+
+	public void addDiceModifierAddTileToYourEstate(TileTypeEnum tileTypeEnum) {
+		addDiceModifier(tileTypeEnum, this.addTileToYourEstate);
+	}
+
+	private void addDiceModifier(TileTypeEnum tileTypeEnum, HashMap<TileTypeEnum, Integer> hashMap) {
+
+		int value = hashMap.get(tileTypeEnum);
+		value++;
+
+		hashMap.put(tileTypeEnum, value);
+
 	}
 
 	public int getWorkersModifiers() {
 		return this.workers;
 	}
-	
-	public void a() {
+
+	public void printTakeTileFromTheGameBoard() {
 		this.takeTileFromTheGameBoard.print();
+	}
+
+	public void printAddTileToYourEstate() {
+		this.addTileToYourEstate.print();
 	}
 
 }

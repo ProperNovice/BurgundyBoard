@@ -158,13 +158,12 @@ public class ArrayList<T> implements Iterable<T> {
 
 	public void printList() {
 
-		System.out.println("/*");
+		Logger.log("/*");
 
 		for (T t : this.list)
 			System.out.println(t);
 
-		System.out.println("*/");
-		System.out.println();
+		Logger.logNewLine("*/");
 
 	}
 

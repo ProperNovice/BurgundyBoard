@@ -46,9 +46,7 @@ public class HashMap<K, V> implements Iterable<K> {
 		for (Map.Entry<K, V> entry : this.hashMap.entrySet())
 			Logger.log(entry.getKey() + " - " + entry.getValue());
 
-		Logger.log("*/");
-
-		Logger.newLine();
+		Logger.logNewLine("*/");
 
 	}
 
