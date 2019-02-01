@@ -1,5 +1,6 @@
 package model;
 
+import controller.Credentials;
 import enums.DiceColor;
 import instances.Instances;
 import utils.EventHandler.EventHandlerAble;
@@ -16,12 +17,13 @@ public class Dice implements EventHandlerAble {
 	private ImageView imageView = null;
 	private HashMap<Integer, Image> sides = new HashMap<>();
 	private int diceValue;
+	private ImageView selectImageView = null;
 
 	public Dice(DiceColor diceColor) {
 
 		this.diceColor = diceColor;
 		createSides();
-		createImageView();
+		createImageViews();
 
 	}
 
@@ -39,13 +41,20 @@ public class Dice implements EventHandlerAble {
 
 	}
 
-	private void createImageView() {
+	private void createImageViews() {
+
 		this.imageView = new ImageView(this.sides.get(1), this);
 		this.imageView.setVisible(false);
+
+		this.selectImageView = new ImageView("select.png");
+		this.selectImageView.setVisible(false);
+		this.selectImageView.setWidth(Credentials.DimensionsSelectImageViewDice.x);
+
 	}
 
 	public void relocate(double x, double y) {
 		this.imageView.relocate(x, y);
+		this.selectImageView.relocate(x, y);
 	}
 
 	public void setVisible(boolean value) {
@@ -60,6 +69,10 @@ public class Dice implements EventHandlerAble {
 
 		Logger.log(this.diceColor + " - " + this.diceValue);
 
+	}
+
+	public void setSelected(boolean value) {
+		this.selectImageView.setVisible(value);
 	}
 
 	public int getDiceValue() {

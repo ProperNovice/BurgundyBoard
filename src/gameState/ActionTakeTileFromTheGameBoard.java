@@ -25,15 +25,28 @@ public class ActionTakeTileFromTheGameBoard extends GameState {
 
 	@Override
 	protected void handleTileDepotNumberedPressed(Tile tile, TileTypeEnum tileTypeEnum) {
+
+		if (this.tileSelected != null)
+			this.tileSelected.setSelected(false);
+
 		this.tileSelected = tile;
 		this.tileSelected.setSelected(true);
+
 		checkSelected();
+
 	}
 
 	@Override
 	public void handleDiceRedPressed(Dice dice, int diceValue) {
+
+		if (this.diceSelected != null)
+			this.diceSelected.setSelected(false);
+
 		this.diceSelected = dice;
+		this.diceSelected.setSelected(true);
+
 		checkSelected();
+
 	}
 
 	private void checkSelected() {
@@ -46,6 +59,14 @@ public class ActionTakeTileFromTheGameBoard extends GameState {
 
 		System.out.println("yay");
 
+	}
+
+	private boolean canBeExecuted() {
+
+		
+		
+		return false;
+		
 	}
 
 	private void executeAction(Tile tile) {
