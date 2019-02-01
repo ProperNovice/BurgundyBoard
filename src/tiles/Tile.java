@@ -29,7 +29,7 @@ public abstract class Tile implements EventHandlerAble {
 		this.imageView = new ImageView(filePath, this);
 		setVisible(false);
 
-		this.selectImageView = new ImageView("select.png", this);
+		this.selectImageView = new ImageView("select.png");
 		this.selectImageView.setVisible(false);
 		this.selectImageView.setWidth(Credentials.DimensionsSelectImageViewTile.x);
 

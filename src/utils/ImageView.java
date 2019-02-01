@@ -12,7 +12,7 @@ public class ImageView implements Node {
 	private Image imageTrue = null;
 	private Image imageFalse = new Image("misc/imageVisibilityFalse.png");
 	private Image imageActive = null;
-	private double scale = 1;
+	private double widthOriginal, heightOriginal, scale = 1;
 	private EventHandler eventHandler = null;
 
 	public ImageView(String path) {
@@ -53,6 +53,9 @@ public class ImageView implements Node {
 		PlatformFX.runLater(() -> panelGame.addNode(this.imageView));
 
 		this.imageActive = this.imageTrue;
+
+		this.widthOriginal = this.imageView.minWidth(0);
+		this.heightOriginal = this.imageView.minHeight(0);
 
 	}
 
@@ -158,8 +161,8 @@ public class ImageView implements Node {
 			this.imageView.setScaleX(this.scale);
 			this.imageView.setScaleY(this.scale);
 
-			double widthTotal = this.imageView.minWidth(0);
-			double heightTotal = this.imageView.minHeight(0);
+			double widthTotal = this.widthOriginal;
+			double heightTotal = this.heightOriginal;
 
 			double widthNew = this.scale * widthTotal;
 			double heightNew = this.scale * heightTotal;
@@ -176,24 +179,24 @@ public class ImageView implements Node {
 
 	public void setWidth(double width) {
 
-		double scale = width / this.imageView.minWidth(0);
+		double scale = width / this.widthOriginal;
 		setScale(scale);
 
 	}
 
 	public void setHeight(double height) {
 
-		double scale = height / this.imageView.minHeight(0);
+		double scale = height / this.heightOriginal;
 		setScale(scale);
 
 	}
 
 	public double getWidth() {
-		return this.imageView.minWidth(0) * this.scale;
+		return this.widthOriginal * this.scale;
 	}
 
 	public double getHeight() {
-		return this.imageView.minHeight(0) * this.scale;
+		return this.heightOriginal * this.scale;
 	}
 
 	public double getScale() {
