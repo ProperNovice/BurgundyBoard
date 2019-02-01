@@ -7,6 +7,7 @@ import enums.TileTypeEnum;
 import instances.Instances;
 import javafx.scene.input.KeyCode;
 import model.BoardSpace;
+import model.Dice;
 import tiles.Tile;
 
 public abstract class GameState {
@@ -46,6 +47,10 @@ public abstract class GameState {
 	}
 
 	protected void handleTileStorageSpacePriorPressed(Tile tile, TileTypeEnum tileTypeEnum) {
+
+	}
+
+	public void handleDiceRedPressed(Dice dice, int diceValue) {
 
 	}
 

@@ -1,7 +1,9 @@
 package model;
 
 import enums.DiceColor;
+import instances.Instances;
 import utils.EventHandler.EventHandlerAble;
+import utils.Executor;
 import utils.HashMap;
 import utils.Image;
 import utils.ImageView;
@@ -71,6 +73,16 @@ public class Dice implements EventHandlerAble {
 		this.imageView.setVisible(true);
 
 		Logger.log("dice set value " + this.diceColor + " - " + this.diceValue);
+
+	}
+
+	@Override
+	public void handleMouseButtonPressedPrimary() {
+
+		Logger.logNewLine("dice value - " + this.diceValue);
+
+		Executor.runLater(() -> Instances.getControllerInstance().gameStateManager().getCurrentGameState()
+				.handleDiceRedPressed(this, this.diceValue));
 
 	}
 

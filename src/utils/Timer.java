@@ -32,11 +32,11 @@ public class Timer {
 
 	private class TimerClass extends java.lang.Thread {
 
-		private long startTime = -1;
+		private long startTime = System.currentTimeMillis();
 		private AtomicBoolean stopTimer = new AtomicBoolean(false);
 
 		public TimerClass() {
-			this.startTime = currentTimeMillis();
+
 		}
 
 		public void stopTimer() {
@@ -50,7 +50,7 @@ public class Timer {
 
 				sleepTime(0);
 
-				long actualTimeSleeping = currentTimeMillis() - this.startTime;
+				long actualTimeSleeping = System.currentTimeMillis() - this.startTime;
 
 				if (actualTimeSleeping < MILLIS_TO_FIRE_EVENT)
 					continue;
@@ -70,10 +70,6 @@ public class Timer {
 			return;
 
 		this.timerClass.stopTimer();
-	}
-
-	private long currentTimeMillis() {
-		return System.currentTimeMillis();
 	}
 
 	private void sleepTime(long duration) {
