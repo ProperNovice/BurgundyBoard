@@ -1,5 +1,6 @@
 package tiles;
 
+import controller.Credentials;
 import enums.TileTypeEnum;
 import instances.Instances;
 import utils.Animation;
@@ -13,12 +14,13 @@ public abstract class Tile implements EventHandlerAble {
 
 	private ImageView imageView = null;
 	protected TileTypeEnum tileTypeEnum = null;
+	private ImageView selectImageView = null;
 
 	protected Tile(String filePathTemp) {
-		createImageView(filePathTemp);
+		createImageViews(filePathTemp);
 	}
 
-	protected void createImageView(String filePathTemp) {
+	protected void createImageViews(String filePathTemp) {
 
 		String filePath = "tiles/";
 		filePath += filePathTemp;
@@ -27,10 +29,15 @@ public abstract class Tile implements EventHandlerAble {
 		this.imageView = new ImageView(filePath, this);
 		setVisible(false);
 
+		this.selectImageView = new ImageView("select.png", this);
+		this.selectImageView.setVisible(false);
+		this.selectImageView.setWidth(Credentials.DimensionsSelectImageViewTile.x);
+
 	}
 
 	public void relocate(double x, double y) {
 		this.imageView.relocate(x, y);
+		this.selectImageView.relocate(x, y);
 	}
 
 	public void animateAsynchronous(double x, double y) {
@@ -51,6 +58,10 @@ public abstract class Tile implements EventHandlerAble {
 
 	protected void printTile() {
 		Logger.log(this.tileTypeEnum);
+	}
+
+	public void setSelected(boolean value) {
+		this.selectImageView.setVisible(value);
 	}
 
 	@Override

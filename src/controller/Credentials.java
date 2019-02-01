@@ -4,8 +4,8 @@ public class Credentials {
 
 	public static NumbersPair DimensionsInsets, DimensionsBoard, DimensionsTile, DimensionsDiceAreaInSpace,
 			DimensionsGoods, DimensionsFrame, DimensionsGapBetweenComponents, DimensionsPhaseIndicators, DimensionsDice,
-			DimensionsDepotNumbered, DimensionsWorker, DimensionsSilverling, DimensionsTileIndicators,
-			DimensionsRegionScoringIndicator, DimensionsAction;
+			DimensionsSelectImageViewTile, DimensionsDepotNumbered, DimensionsWorker, DimensionsSilverling,
+			DimensionsTileIndicators, DimensionsRegionScoringIndicator, DimensionsAction;
 	public static NumbersPair CoordinatesTextPanel, CoordinatesBoard, CoordinatesPhaseIndicators, CoordinatesPhaseGoods,
 			CoordinatesDepotNumbered, CoordinatesWorkers, CoordinatesSilverling, CoordinatesDepotBlack,
 			CoordinatesStorageSpaceFirst, CoordinatesStorageSpaceSecond, CoordinatesStorageSpaceThird,
@@ -40,6 +40,7 @@ public class Credentials {
 
 		DimensionsBoard = new NumbersPair(1121, 781);
 		DimensionsTile = new NumbersPair(70, 80);
+		DimensionsSelectImageViewTile = new NumbersPair(40, 40);
 		DimensionsDiceAreaInSpace = new NumbersPair(46, 46);
 		DimensionsGoods = new NumbersPair(60, 60);
 		DimensionsPhaseIndicators = new NumbersPair(29, 47);

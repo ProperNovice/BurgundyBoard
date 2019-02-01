@@ -26,6 +26,7 @@ public class ActionTakeTileFromTheGameBoard extends GameState {
 	@Override
 	protected void handleTileDepotNumberedPressed(Tile tile, TileTypeEnum tileTypeEnum) {
 		this.tileSelected = tile;
+		this.tileSelected.setSelected(true);
 		checkSelected();
 	}
 
