@@ -79,27 +79,24 @@ public class ActionTakeTileFromTheGameBoard extends GameState {
 
 	private boolean canBeExecuted(int tileTypeEnumModifier) {
 
-		ArrayList<Integer> numbersAvailable = new ArrayList<>();
-		numbersAvailable.addLast(this.diceSelected.getDiceValue());
+		ArrayList<Integer> numbersAvailableList = new ArrayList<>();
+		numbersAvailableList.addLast(this.diceSelected.getDiceValue());
 
 		// numbersAvailable with no Workers
 
-		numbersAvailable = getNumbersAvailable(tileTypeEnumModifier, numbersAvailable);
+		numbersAvailableList = getNumbersAvailable(tileTypeEnumModifier, numbersAvailableList);
 
 		Logger.log("with no workers");
-		numbersAvailable.printList();
+		numbersAvailableList.printList();
 
-		if (numbersAvailable.contains(this.numberTarget)) {
+		if (numbersAvailableList.contains(this.numberTarget)) {
 			this.workersNeeded = 0;
 			return true;
 		}
 
 		// numbersAvailable with Workers
 
-		int workersAvailable = super.controller.workersManager().workersSize();
-
-		if (workersAvailable == 0)
-			return false;
+		int workersAvailable = super.controller.workersManager().workersSizePlayerBoard();
 
 		int workersModifier = super.controller.diceModifiersManager().getWorkersModifier();
 
@@ -107,12 +104,12 @@ public class ActionTakeTileFromTheGameBoard extends GameState {
 
 		for (int counter = 1; counter <= workersAvailable; counter++) {
 
-			numbersAvailable = getNumbersAvailable(workersModifier, numbersAvailable);
+			numbersAvailableList = getNumbersAvailable(workersModifier, numbersAvailableList);
 
 			Logger.log("with " + counter + " workers");
-			numbersAvailable.printList();
+			numbersAvailableList.printList();
 
-			if (numbersAvailable.contains(this.numberTarget)) {
+			if (numbersAvailableList.contains(this.numberTarget)) {
 				this.workersNeeded = counter;
 				return true;
 

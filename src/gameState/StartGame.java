@@ -81,13 +81,13 @@ public class StartGame extends GameState {
 	}
 
 	public void addWorkers(int amount) {
-		super.controller.workersManager().addWorkersAndRelocate(amount);
+		super.controller.workersManager().addWorkersToPlayerBoardAndRelocate(amount);
 	}
 
 	public void setDiceModifiers() {
 
 		super.controller.diceModifiersManager().addDiceModifierTakeTileFromTheGameBoard(TileTypeEnum.BUILDING);
-		super.controller.diceModifiersManager().addWorkersModifier();
+//		super.controller.diceModifiersManager().addWorkersModifier();
 
 	}
 

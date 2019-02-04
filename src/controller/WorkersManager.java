@@ -7,12 +7,12 @@ import utils.CoordinatesPivot;
 
 public class WorkersManager {
 
-	private ArrayList<Worker> workers = new ArrayList<>();
+	private ArrayList<Worker> workersPlayerBoard = new ArrayList<>();
 	private CoordinatesPivot coordinatesPivotPlayerBoard = null;
 
 	public WorkersManager() {
 		createCoordinatesPivot();
-		addWorkersAndRelocate(2);
+		addWorkersToPlayerBoardAndRelocate(2);
 	}
 
 	private void createCoordinatesPivot() {
@@ -26,38 +26,38 @@ public class WorkersManager {
 
 	}
 
-	public void addWorkersAndRelocate(int amount) {
+	public void addWorkersToPlayerBoardAndRelocate(int amount) {
 
 		for (int counter = 1; counter <= amount; counter++) {
-			this.workers.addLast(new Worker());
+			this.workersPlayerBoard.addLast(new Worker());
 		}
 
-		relocate();
+		relocateWorkers();
 
 	}
 
-	public void removeWorkersAndRelocate(int amount) {
+	public void removeWorkersFromPlayerBoardAndRelocate(int amount) {
 
 		Worker worker = null;
 
 		for (int counter = 1; counter <= amount; counter++) {
 
-			worker = this.workers.removeLast();
+			worker = this.workersPlayerBoard.removeLast();
 			worker.setVisible(false);
 
 		}
 
-		relocate();
+		relocateWorkers();
 
 	}
 
-	private void relocate() {
+	private void relocateWorkers() {
 
-		this.coordinatesPivotPlayerBoard.setNodesTotal(this.workers.size());
+		this.coordinatesPivotPlayerBoard.setNodesTotal(this.workersPlayerBoard.size());
 
-		for (Worker worker : this.workers) {
+		for (Worker worker : this.workersPlayerBoard) {
 
-			int workerIndex = this.workers.indexOf(worker);
+			int workerIndex = this.workersPlayerBoard.indexOf(worker);
 			double x = this.coordinatesPivotPlayerBoard.getX(workerIndex);
 			double y = this.coordinatesPivotPlayerBoard.getY(workerIndex);
 
@@ -67,8 +67,8 @@ public class WorkersManager {
 
 	}
 
-	public int workersSize() {
-		return this.workers.size();
+	public int workersSizePlayerBoard() {
+		return this.workersPlayerBoard.size();
 	}
 
 }
