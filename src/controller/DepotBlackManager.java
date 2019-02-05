@@ -38,4 +38,8 @@ public class DepotBlackManager {
 
 	}
 
+	public void removeTile(Tile tile) {
+		this.tiles.remove(tile);
+	}
+
 }

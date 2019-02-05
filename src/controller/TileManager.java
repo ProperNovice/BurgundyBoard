@@ -146,4 +146,8 @@ public class TileManager {
 
 	}
 
+	public boolean tileBlackListIsEmpty() {
+		return this.tilesBlack.isEmpty();
+	}
+
 }

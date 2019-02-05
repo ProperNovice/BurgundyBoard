@@ -18,7 +18,7 @@ public class StartGame extends GameState {
 		setDiceValuesRed();
 //		addTilesToStorageSpaces();
 		addSilverlings(4);
-//		addWorkers(1);
+//		addWorkers(3);
 		setDiceModifiers();
 //		removeDiceFromAction();
 

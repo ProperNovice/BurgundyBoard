@@ -32,7 +32,15 @@ public class ChooseAnAction extends GameState {
 	}
 
 	private boolean addBuyTileFromTheBlackDepot() {
-		return super.controller.silverlingManager().hasAtLeastTwoSilverlings();
+
+		if (!super.controller.silverlingManager().hasAtLeastTwoSilverlings())
+			return false;
+
+		if (super.controller.tileManager().tileBlackListIsEmpty())
+			return false;
+
+		return true;
+
 	}
 
 	@Override
