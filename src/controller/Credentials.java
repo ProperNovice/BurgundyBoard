@@ -2,15 +2,16 @@ package controller;
 
 public class Credentials {
 
-	public static NumbersPair DimensionsInsets, DimensionsBoard, DimensionsTile, DimensionsDiceAreaInSpace,
+	public static NumbersPair DimensionsInsets, DimensionsBoard, DimensionsTile, DimensionsDiceAreaInBoardSpace,
 			DimensionsGoods, DimensionsFrame, DimensionsGapBetweenComponents, DimensionsPhaseIndicators, DimensionsDice,
 			DimensionsSelectImageViewTile, DimensionsSelectImageViewDice, DimensionsDepotNumbered, DimensionsWorker,
-			DimensionsSilverling, DimensionsTileIndicators, DimensionsRegionScoringIndicator, DimensionsAction;
+			DimensionsSilverling, DimensionsTileIndicators, DimensionsRegionScoringIndicator, DimensionsAction,
+			DimensionsSelectImageViewBoardSpace;
 	public static NumbersPair CoordinatesTextPanel, CoordinatesBoard, CoordinatesPhaseIndicators, CoordinatesPhaseGoods,
 			CoordinatesDepotNumbered, CoordinatesWorkers, CoordinatesSilverling, CoordinatesDepotBlack,
 			CoordinatesStorageSpaceFirst, CoordinatesStorageSpaceSecond, CoordinatesStorageSpaceThird,
 			CoordinatesStorageSpaceTemp, CoordinatesTileIndicators, CoordinatesRegionScoringIndicators, CoordinatesDice,
-			CoordinatesActions, CoordinatesWorkersDiceTemp;
+			CoordinatesActions, CoordinatesWorkersDiceTemp, CoordinatesSilverlingsTemp;
 	public static double gapBetweenBorders, textHeight, boardScale;
 
 	public static class NumbersPair {
@@ -41,7 +42,7 @@ public class Credentials {
 		DimensionsBoard = new NumbersPair(1121, 781);
 		DimensionsTile = new NumbersPair(70, 80);
 		DimensionsSelectImageViewTile = new NumbersPair(40, 40);
-		DimensionsDiceAreaInSpace = new NumbersPair(46, 46);
+		DimensionsDiceAreaInBoardSpace = new NumbersPair(46, 46);
 		DimensionsGoods = new NumbersPair(60, 60);
 		DimensionsPhaseIndicators = new NumbersPair(29, 47);
 		DimensionsDice = new NumbersPair(40, 40);
@@ -51,6 +52,7 @@ public class Credentials {
 		DimensionsTileIndicators = new NumbersPair(42, 76);
 		DimensionsRegionScoringIndicator = new NumbersPair(26, 31);
 		DimensionsAction = new NumbersPair(50, 40);
+		DimensionsSelectImageViewBoardSpace = new NumbersPair(23, 23);
 
 		CoordinatesBoard = new NumbersPair(gapBetweenBorders, gapBetweenBorders);
 
@@ -127,6 +129,10 @@ public class Credentials {
 		x = CoordinatesDice.x + 2 * (DimensionsDice.x + DimensionsGapBetweenComponents.x);
 		y = CoordinatesDice.y + (DimensionsDice.y - DimensionsWorker.y) / 2;
 		CoordinatesWorkersDiceTemp = new NumbersPair(x, y);
+
+		x = CoordinatesDice.x + 2 * (DimensionsDice.x + DimensionsGapBetweenComponents.x);
+		y = CoordinatesDice.y + (DimensionsDice.y - DimensionsSilverling.y) / 2;
+		CoordinatesSilverlingsTemp = new NumbersPair(x, y);
 
 	}
 

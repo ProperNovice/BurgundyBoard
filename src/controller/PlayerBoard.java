@@ -201,8 +201,8 @@ public class PlayerBoard implements EventHandlerAble {
 		topLeftX *= Credentials.boardScale;
 		topLeftY *= Credentials.boardScale;
 
-		double centerX = topLeftX + Credentials.DimensionsDiceAreaInSpace.x * Credentials.boardScale / 2;
-		double centerY = topLeftY + Credentials.DimensionsDiceAreaInSpace.y * Credentials.boardScale / 2;
+		double centerX = topLeftX + Credentials.DimensionsDiceAreaInBoardSpace.x * Credentials.boardScale / 2;
+		double centerY = topLeftY + Credentials.DimensionsDiceAreaInBoardSpace.y * Credentials.boardScale / 2;
 
 		this.boardSpaces.addLast(new BoardSpace(tileTypeEnum, diceValue, centerX, centerY));
 

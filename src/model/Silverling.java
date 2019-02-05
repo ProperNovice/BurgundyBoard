@@ -26,4 +26,8 @@ public class Silverling {
 		this.imageView.setVisible(value);
 	}
 
+	public void toFront() {
+		this.imageView.toFront();
+	}
+
 }

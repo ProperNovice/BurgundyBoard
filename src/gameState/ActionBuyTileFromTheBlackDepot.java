@@ -37,6 +37,8 @@ public class ActionBuyTileFromTheBlackDepot extends GameState {
 
 		this.actionCanBeExecuted = true;
 
+		super.controller.silverlingManager().setSilverlingsTempAndRelocate(2);
+
 		super.controller.textManager().showText(TextEnum.CONTINUE);
 
 	}
@@ -63,6 +65,7 @@ public class ActionBuyTileFromTheBlackDepot extends GameState {
 
 		super.controller.depotBlackManager().removeTile(this.tileSelected);
 		super.controller.storageSpaceManager().addTileAndRelocate(this.tileSelected);
+		super.controller.silverlingManager().removeSilverlingsTemp();
 
 		super.controller.workersManager().removeWorkersTemp();
 

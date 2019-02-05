@@ -16,13 +16,13 @@ public class StartGame extends GameState {
 		addTilesToGameBoard();
 //		addGoodsToDepotNumbers();
 		setDiceValuesRed();
-//		addTilesToStorageSpaces();
-		addSilverlings(4);
+		addTilesToStorageSpaces();
+		addSilverlings(5);
 //		addWorkers(3);
 		setDiceModifiers();
 //		removeDiceFromAction();
 
-		super.controller.flowManager().addGameStateResolvingFirst(GameStateEnum.ACTION_BUY_TILE_FROM_THE_BLACK_DEPOT);
+		super.controller.flowManager().addGameStateResolvingFirst(GameStateEnum.ACTION_ADD_TILE_TO_YOUR_ESTATE);
 
 		super.controller.flowManager().addGameStateResolvingFirst(GameStateEnum.START_NEW_PHASE);
 		super.controller.flowManager().proceedToNextGameStatePhase();
@@ -78,7 +78,7 @@ public class StartGame extends GameState {
 	}
 
 	public void addSilverlings(int amount) {
-		super.controller.silverlingManager().addSilverlingsAndRelocate(amount);
+		super.controller.silverlingManager().addSilverlingsToPlayerBoardAndRelocate(amount);
 	}
 
 	public void addWorkers(int amount) {

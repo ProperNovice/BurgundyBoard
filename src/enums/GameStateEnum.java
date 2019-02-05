@@ -11,6 +11,7 @@ public enum GameStateEnum {
 	RESOLVE_GRAY_DICE(new ResolveGrayDice()),
 	CHOOSE_AN_ACTION(new ChooseAnAction()),
 	ACTION_TAKE_TILE_FROM_THE_GAME_BOARD(new ActionTakeTileFromTheGameBoard()),
+	ACTION_ADD_TILE_TO_YOUR_ESTATE(new ActionAddTileToYourEstate()),
 	ACTION_TAKE_WORKERS_TILES(new ActionTakeWorkersTiles()),
 	ACTION_BUY_TILE_FROM_THE_BLACK_DEPOT(new ActionBuyTileFromTheBlackDepot()),
 	CHOOSE_TILE_TO_DISCARD(new ChooseTileToDiscard()),

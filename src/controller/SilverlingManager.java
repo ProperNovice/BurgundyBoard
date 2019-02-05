@@ -3,16 +3,19 @@ package controller;
 import model.Silverling;
 import utils.ArrayList;
 import utils.CoordinatesBuilder;
+import utils.CoordinatesLinear;
 import utils.CoordinatesPivot;
 
 public class SilverlingManager {
 
-	private ArrayList<Silverling> silverlings = new ArrayList<>();
+	private ArrayList<Silverling> silverlingsPlayerBoard = new ArrayList<>();
+	private ArrayList<Silverling> silverlingsTemp = new ArrayList<>();
 	private CoordinatesPivot coordinatesPivot = null;
+	private CoordinatesLinear coordinatesLinearSilverlingsTemp = null;
 
 	public SilverlingManager() {
 		createCoordinatesPivot();
-		addSilverlingsAndRelocate(1);
+		addSilverlingsToPlayerBoardAndRelocate(1);
 	}
 
 	private void createCoordinatesPivot() {
@@ -24,14 +27,21 @@ public class SilverlingManager {
 				.height(Credentials.DimensionsSilverling.y).gapBetweenNodes(-Credentials.DimensionsSilverling.x / 2)
 				.nodesPerRow(4).xPointOfInterest(x).yPointOfInterest(y).createCoordinatesPivot();
 
+		x = Credentials.CoordinatesSilverlingsTemp.x;
+		y = Credentials.CoordinatesSilverlingsTemp.y;
+
+		this.coordinatesLinearSilverlingsTemp = new CoordinatesBuilder().width(Credentials.DimensionsSilverling.x)
+				.height(Credentials.DimensionsSilverling.y).gapBetweenNodes(-Credentials.DimensionsSilverling.x / 2)
+				.nodesPerRow(2).xPointOfInterest(x).yPointOfInterest(y).createCoordinatesLinear();
+
 	}
 
-	public void addSilverlingsAndRelocate(int amount) {
+	public void addSilverlingsToPlayerBoardAndRelocate(int amount) {
 
 		for (int counter = 1; counter <= amount; counter++) {
 
 			Silverling silverling = new Silverling();
-			this.silverlings.addLast(silverling);
+			this.silverlingsPlayerBoard.addLast(silverling);
 
 		}
 
@@ -39,13 +49,30 @@ public class SilverlingManager {
 
 	}
 
-	public void removeSilverlingsAndRelocate(int amount) {
+	public void setSilverlingsTempAndRelocate(int amount) {
+
+		this.silverlingsPlayerBoard.addAll(this.silverlingsTemp);
+		this.silverlingsTemp.clear();
+
+		for (int counter = 1; counter <= amount; counter++) {
+
+			Silverling silverlingToAdd = this.silverlingsPlayerBoard.removeLast();
+			silverlingToAdd.toFront();
+			this.silverlingsTemp.addLast(silverlingToAdd);
+
+		}
+
+		relocateSilverlings();
+
+	}
+
+	public void removeSilverlingsFromPlayerBoardAndRelocate(int amount) {
 
 		Silverling silverling = null;
 
 		for (int counter = 1; counter <= amount; counter++) {
 
-			silverling = this.silverlings.removeLast();
+			silverling = this.silverlingsPlayerBoard.removeLast();
 			silverling.setVisible(false);
 
 		}
@@ -56,11 +83,11 @@ public class SilverlingManager {
 
 	private void relocateSilverlings() {
 
-		this.coordinatesPivot.setNodesTotal(this.silverlings.size());
+		this.coordinatesPivot.setNodesTotal(this.silverlingsPlayerBoard.size());
 
-		for (Silverling silverling : this.silverlings) {
+		for (Silverling silverling : this.silverlingsPlayerBoard) {
 
-			int silverlingIndex = this.silverlings.indexOf(silverling);
+			int silverlingIndex = this.silverlingsPlayerBoard.indexOf(silverling);
 			double x = this.coordinatesPivot.getX(silverlingIndex);
 			double y = this.coordinatesPivot.getY(silverlingIndex);
 
@@ -68,10 +95,31 @@ public class SilverlingManager {
 
 		}
 
+		for (Silverling silverling : this.silverlingsTemp) {
+
+			int silverlingIndex = this.silverlingsTemp.indexOf(silverling);
+
+			double x = this.coordinatesLinearSilverlingsTemp.getX(silverlingIndex);
+			double y = this.coordinatesLinearSilverlingsTemp.getY(silverlingIndex);
+
+			silverling.relocate(x, y);
+
+		}
+
+	}
+
+	public void removeSilverlingsTemp() {
+
+		for (Silverling silverling : this.silverlingsTemp) {
+			silverling.setVisible(false);
+		}
+
+		this.silverlingsTemp.clear();
+
 	}
 
 	public boolean hasAtLeastTwoSilverlings() {
-		return this.silverlings.size() >= 2;
+		return this.silverlingsPlayerBoard.size() >= 2;
 	}
 
 }
