@@ -18,10 +18,11 @@ public class StartGame extends GameState {
 		setDiceValuesRed();
 //		addTilesToStorageSpaces();
 //		addSilverlings(4);
-//		addWorkers(11);
+//		addWorkers(1);
 		setDiceModifiers();
+//		removeDiceFromAction();
 
-		super.controller.flowManager().addGameStateResolvingFirst(GameStateEnum.ACTION_TAKE_TILE_FROM_THE_GAME_BOARD);
+		super.controller.flowManager().addGameStateResolvingFirst(GameStateEnum.ACTION_TAKE_WORKERS_TILES);
 
 		super.controller.flowManager().addGameStateResolvingFirst(GameStateEnum.START_NEW_PHASE);
 		super.controller.flowManager().proceedToNextGameStatePhase();
@@ -88,6 +89,12 @@ public class StartGame extends GameState {
 
 		super.controller.diceModifiersManager().addDiceModifierTakeTileFromTheGameBoard(TileTypeEnum.BUILDING);
 //		super.controller.diceModifiersManager().addWorkersModifier();
+
+	}
+
+	public void removeDiceFromAction() {
+
+		super.controller.diceManager().testRemoveDiceFromAction(0);
 
 	}
 

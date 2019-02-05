@@ -59,6 +59,7 @@ public class ChooseAnAction extends GameState {
 			break;
 
 		case TAKE_WORKERS_TILES:
+			gameStateEnum = GameStateEnum.ACTION_TAKE_WORKERS_TILES;
 			break;
 
 		}

@@ -29,6 +29,13 @@ public class ActionTakeTileFromTheGameBoard extends GameState {
 		super.controller.actionManager().showAction(ActionEnum.TAKE_TILE_FROM_THE_GAME_BOARD);
 		setUpText();
 
+		if (super.controller.diceManager().diceAvailableThisRoundAmount() > 1)
+			return;
+
+		Dice dice = super.controller.diceManager().getFirstDieAvailableThisRound();
+		int diceValue = dice.getDiceValue();
+		this.handleDiceRedPressed(dice, diceValue);
+
 	}
 
 	@Override
@@ -76,18 +83,11 @@ public class ActionTakeTileFromTheGameBoard extends GameState {
 		int tileTypeEnumModifier = super.controller.diceModifiersManager()
 				.getDiceModifierTakeTileFromTheGameBoard(tileTypeEnumSelected);
 
-		Logger.logNewLine(tileTypeEnumSelected + " " + tileTypeEnumModifier + " - dice modifier ");
+		Logger.logNewLine(tileTypeEnumSelected + " - " + tileTypeEnumModifier + " dice modifier ");
 
 		setUpActionToBeExecuted(tileTypeEnumModifier);
 
-		super.controller.workersManager().setWorkersToDiceTempAndRelocate(this.workersNeeded);
-
-		System.out.println(this.actionCanBeExecuted + " cbe");
-
-		if (this.actionCanBeExecuted)
-			System.out.println(this.workersNeeded + " wn");
-
-		System.out.println();
+		super.controller.workersManager().setWorkersTempAndRelocate(this.workersNeeded);
 
 		setUpText();
 
@@ -118,7 +118,7 @@ public class ActionTakeTileFromTheGameBoard extends GameState {
 
 		int workersModifier = super.controller.diceModifiersManager().getWorkersModifier();
 
-		Logger.logNewLine(workersModifier + " - workers modifier");
+		Logger.logNewLine("Workers - " + workersModifier + " dice modifier");
 
 		for (int counter = 1; counter <= workersAvailable; counter++) {
 
@@ -201,6 +201,12 @@ public class ActionTakeTileFromTheGameBoard extends GameState {
 
 		super.controller.depotNumberedManager().removeTile(this.tileSelected);
 		super.controller.storageSpaceManager().addTileAndRelocate(this.tileSelected);
+
+		super.controller.workersManager().removeWorkersTemp();
+		super.controller.diceManager().removeDiceFromAction(this.diceSelected);
+
+		this.tileSelected.setSelected(false);
+		this.diceSelected.setSelected(false);
 
 		if (super.controller.storageSpaceManager().exceedsMaxedCapacity())
 			super.controller.flowManager().addGameStateResolvingFirst(GameStateEnum.CHOOSE_TILE_TO_DISCARD);

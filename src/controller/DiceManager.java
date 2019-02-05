@@ -66,6 +66,21 @@ public class DiceManager {
 
 	}
 
+	public void removeDiceFromAction(Dice dice) {
+
+		this.diceAvailableThisRound.remove(dice);
+		dice.setVisible(false);
+
+	}
+
+	public int diceAvailableThisRoundAmount() {
+		return this.diceAvailableThisRound.size();
+	}
+
+	public Dice getFirstDieAvailableThisRound() {
+		return this.diceAvailableThisRound.getFirst();
+	}
+
 	public void testSetRedDiceValuesAndRelocate(int diceValueFirst, int diceValueSecond) {
 
 		this.diceAvailableThisRound.addAll(this.diceOriginal);
@@ -84,6 +99,13 @@ public class DiceManager {
 		}
 
 		Logger.newLine();
+
+	}
+
+	public void testRemoveDiceFromAction(int index) {
+
+		Dice dice = this.diceAvailableThisRound.get(index);
+		removeDiceFromAction(dice);
 
 	}
 

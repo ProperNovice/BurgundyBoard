@@ -9,13 +9,15 @@ import utils.CoordinatesPivot;
 public class WorkersManager {
 
 	private ArrayList<Worker> workersPlayerBoard = new ArrayList<>();
-	private ArrayList<Worker> workersDiceTemp = new ArrayList<>();
+	private ArrayList<Worker> workersTemp = new ArrayList<>();
 	private CoordinatesPivot coordinatesPivotPlayerBoard = null;
 	private CoordinatesLinear coordinatesLinearDiceTemp = null;
 
 	public WorkersManager() {
+
 		createCoordinates();
 		addWorkersToPlayerBoardAndRelocate(2);
+
 	}
 
 	private void createCoordinates() {
@@ -48,16 +50,16 @@ public class WorkersManager {
 
 	}
 
-	public void setWorkersToDiceTempAndRelocate(int amount) {
+	public void setWorkersTempAndRelocate(int amount) {
 
-		this.workersPlayerBoard.addAll(this.workersDiceTemp);
-		this.workersDiceTemp.clear();
+		this.workersPlayerBoard.addAll(this.workersTemp);
+		this.workersTemp.clear();
 
 		for (int counter = 1; counter <= amount; counter++) {
 
 			Worker workerToAdd = this.workersPlayerBoard.removeLast();
 			workerToAdd.toFront();
-			this.workersDiceTemp.addLast(workerToAdd);
+			this.workersTemp.addLast(workerToAdd);
 
 		}
 
@@ -95,9 +97,9 @@ public class WorkersManager {
 
 		}
 
-		for (Worker worker : this.workersDiceTemp) {
+		for (Worker worker : this.workersTemp) {
 
-			int workerIndex = this.workersDiceTemp.indexOf(worker);
+			int workerIndex = this.workersTemp.indexOf(worker);
 
 			double x = this.coordinatesLinearDiceTemp.getX(workerIndex);
 			double y = this.coordinatesLinearDiceTemp.getY(workerIndex);
@@ -108,8 +110,18 @@ public class WorkersManager {
 
 	}
 
+	public void removeWorkersTemp() {
+
+		for (Worker worker : this.workersTemp) {
+			worker.setVisible(false);
+		}
+
+		this.workersTemp.clear();
+
+	}
+
 	public int workersSizeAvailable() {
-		return this.workersPlayerBoard.size() + this.workersDiceTemp.size();
+		return this.workersPlayerBoard.size() + this.workersTemp.size();
 	}
 
 }
