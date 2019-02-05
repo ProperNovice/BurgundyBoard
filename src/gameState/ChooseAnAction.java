@@ -53,6 +53,7 @@ public class ChooseAnAction extends GameState {
 			break;
 
 		case BUY_TILE_FROM_THE_BLACK_DEPOT:
+			gameStateEnum = GameStateEnum.ACTION_BUY_TILE_FROM_THE_BLACK_DEPOT;
 			break;
 
 		case SELL_GOODS:

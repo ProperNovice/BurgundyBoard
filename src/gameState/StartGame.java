@@ -17,12 +17,12 @@ public class StartGame extends GameState {
 //		addGoodsToDepotNumbers();
 		setDiceValuesRed();
 //		addTilesToStorageSpaces();
-//		addSilverlings(4);
+		addSilverlings(4);
 //		addWorkers(1);
 		setDiceModifiers();
 //		removeDiceFromAction();
 
-		super.controller.flowManager().addGameStateResolvingFirst(GameStateEnum.ACTION_TAKE_WORKERS_TILES);
+		super.controller.flowManager().addGameStateResolvingFirst(GameStateEnum.ACTION_BUY_TILE_FROM_THE_BLACK_DEPOT);
 
 		super.controller.flowManager().addGameStateResolvingFirst(GameStateEnum.START_NEW_PHASE);
 		super.controller.flowManager().proceedToNextGameStatePhase();
