@@ -10,7 +10,7 @@ public class Credentials {
 			CoordinatesDepotNumbered, CoordinatesWorkers, CoordinatesSilverling, CoordinatesDepotBlack,
 			CoordinatesStorageSpaceFirst, CoordinatesStorageSpaceSecond, CoordinatesStorageSpaceThird,
 			CoordinatesStorageSpaceTemp, CoordinatesTileIndicators, CoordinatesRegionScoringIndicators, CoordinatesDice,
-			CoordinatesActions;
+			CoordinatesActions, CoordinatesWorkersDiceTemp;
 	public static double gapBetweenBorders, textHeight, boardScale;
 
 	public static class NumbersPair {
@@ -123,6 +123,10 @@ public class Credentials {
 		x = CoordinatesDice.x;
 		y = CoordinatesDice.y + DimensionsDice.y + DimensionsGapBetweenComponents.y;
 		CoordinatesActions = new NumbersPair(x, y);
+
+		x = CoordinatesDice.x + 2 * (DimensionsDice.x + DimensionsGapBetweenComponents.x);
+		y = CoordinatesDice.y + (DimensionsDice.y - DimensionsWorker.y) / 2;
+		CoordinatesWorkersDiceTemp = new NumbersPair(x, y);
 
 	}
 

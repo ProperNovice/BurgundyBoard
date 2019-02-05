@@ -4,6 +4,7 @@ import enums.ActionEnum;
 import enums.GameStateEnum;
 import enums.TextEnum;
 import enums.TileTypeEnum;
+import javafx.scene.input.KeyCode;
 import model.Dice;
 import tiles.Tile;
 import utils.ArrayList;
@@ -14,6 +15,7 @@ public class ActionTakeTileFromTheGameBoard extends GameState {
 	private Tile tileSelected = null;
 	private Dice diceSelected = null;
 	private int numberTarget = -1, workersNeeded = -1;
+	private boolean actionCanBeExecuted;
 
 	@Override
 	public void handleGameStateChange() {
@@ -22,9 +24,10 @@ public class ActionTakeTileFromTheGameBoard extends GameState {
 		this.diceSelected = null;
 		this.numberTarget = -1;
 		this.workersNeeded = -1;
+		this.actionCanBeExecuted = false;
 
 		super.controller.actionManager().showAction(ActionEnum.TAKE_TILE_FROM_THE_GAME_BOARD);
-		super.controller.textManager().showText(TextEnum.CHOOSE_TILE_AND_DICE);
+		setUpText();
 
 	}
 
@@ -58,11 +61,15 @@ public class ActionTakeTileFromTheGameBoard extends GameState {
 
 	private void checkSelected() {
 
-		if (this.tileSelected == null)
+		if (this.tileSelected == null) {
+			this.actionCanBeExecuted = false;
 			return;
+		}
 
-		if (this.diceSelected == null)
+		if (this.diceSelected == null) {
+			this.actionCanBeExecuted = false;
 			return;
+		}
 
 		TileTypeEnum tileTypeEnumSelected = this.tileSelected.getTileTypeEnum();
 
@@ -71,13 +78,22 @@ public class ActionTakeTileFromTheGameBoard extends GameState {
 
 		Logger.logNewLine(tileTypeEnumSelected + " " + tileTypeEnumModifier + " - dice modifier ");
 
-		System.out.println(canBeExecuted(tileTypeEnumModifier) + " cbe");
-		System.out.println(this.workersNeeded + " wn");
+		setUpActionToBeExecuted(tileTypeEnumModifier);
+
+		super.controller.workersManager().setWorkersToDiceTempAndRelocate(this.workersNeeded);
+
+		System.out.println(this.actionCanBeExecuted + " cbe");
+
+		if (this.actionCanBeExecuted)
+			System.out.println(this.workersNeeded + " wn");
+
 		System.out.println();
+
+		setUpText();
 
 	}
 
-	private boolean canBeExecuted(int tileTypeEnumModifier) {
+	private void setUpActionToBeExecuted(int tileTypeEnumModifier) {
 
 		ArrayList<Integer> numbersAvailableList = new ArrayList<>();
 		numbersAvailableList.addLast(this.diceSelected.getDiceValue());
@@ -90,13 +106,15 @@ public class ActionTakeTileFromTheGameBoard extends GameState {
 		numbersAvailableList.printList();
 
 		if (numbersAvailableList.contains(this.numberTarget)) {
+
 			this.workersNeeded = 0;
-			return true;
+			this.actionCanBeExecuted = true;
+			return;
 		}
 
 		// numbersAvailable with Workers
 
-		int workersAvailable = super.controller.workersManager().workersSizePlayerBoard();
+		int workersAvailable = super.controller.workersManager().workersSizeAvailable();
 
 		int workersModifier = super.controller.diceModifiersManager().getWorkersModifier();
 
@@ -110,14 +128,18 @@ public class ActionTakeTileFromTheGameBoard extends GameState {
 			numbersAvailableList.printList();
 
 			if (numbersAvailableList.contains(this.numberTarget)) {
+
 				this.workersNeeded = counter;
-				return true;
+				this.actionCanBeExecuted = true;
+				return;
 
 			}
 
 		}
 
-		return false;
+		this.workersNeeded = 0;
+		this.actionCanBeExecuted = false;
+
 	}
 
 	private ArrayList<Integer> getNumbersAvailable(int modifier, ArrayList<Integer> numbersAvailable) {
@@ -144,13 +166,41 @@ public class ActionTakeTileFromTheGameBoard extends GameState {
 
 	}
 
-	private void executeAction(Tile tile) {
+	private void setUpText() {
+
+		super.controller.textManager().concealText();
+		super.controller.textManager().showText(TextEnum.CHOOSE_TILE_AND_DICE);
+
+		if (this.actionCanBeExecuted)
+			super.controller.textManager().showText(TextEnum.CONTINUE);
+
+	}
+
+	@Override
+	public void handleTextOptionPressed(TextEnum textEnum) {
+		executeAction();
+	}
+
+	@Override
+	public void handleKeyPressed(KeyCode keyCode) {
+
+		if (keyCode != KeyCode.Q)
+			return;
+
+		if (!this.actionCanBeExecuted)
+			return;
+
+		executeAction();
+
+	}
+
+	private void executeAction() {
 
 		super.controller.textManager().concealText();
 		super.controller.actionManager().concealActions();
 
-		super.controller.depotNumberedManager().removeTile(tile);
-		super.controller.storageSpaceManager().addTileAndRelocate(tile);
+		super.controller.depotNumberedManager().removeTile(this.tileSelected);
+		super.controller.storageSpaceManager().addTileAndRelocate(this.tileSelected);
 
 		if (super.controller.storageSpaceManager().exceedsMaxedCapacity())
 			super.controller.flowManager().addGameStateResolvingFirst(GameStateEnum.CHOOSE_TILE_TO_DISCARD);

@@ -24,4 +24,8 @@ public class Worker {
 		this.imageView.setVisible(value);
 	}
 
+	public void toFront() {
+		this.imageView.toFront();
+	}
+
 }
