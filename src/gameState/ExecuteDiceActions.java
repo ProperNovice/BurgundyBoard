@@ -1,6 +1,7 @@
 package gameState;
 
 import enums.ActionEnum;
+import enums.TextEnum;
 import model.Dice;
 import tiles.Tile;
 import utils.ArrayList;
@@ -120,10 +121,22 @@ public abstract class ExecuteDiceActions extends GameState {
 		return numbersAvailable;
 
 	}
+	
+	protected final void setUpText() {
+
+		super.controller.textManager().concealText();
+
+		if (super.controller.diceManager().diceAvailableThisRoundAmount() > 1)
+			super.controller.textManager().showText(TextEnum.CHOOSE_TILE_AND_DICE);
+		else
+			super.controller.textManager().showText(TextEnum.CHOOSE_TILE);
+
+		if (this.actionCanBeExecuted)
+			super.controller.textManager().showText(TextEnum.CONTINUE);
+
+	}
 
 	protected abstract void checkSelected();
-
-	protected abstract void setUpText();
 
 	protected abstract void executeAction();
 

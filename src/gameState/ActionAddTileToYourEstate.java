@@ -1,6 +1,9 @@
 package gameState;
 
 import enums.ActionEnum;
+import enums.TileTypeEnum;
+import model.BoardSpace;
+import tiles.Tile;
 
 public class ActionAddTileToYourEstate extends ExecuteDiceActions {
 
@@ -9,12 +12,17 @@ public class ActionAddTileToYourEstate extends ExecuteDiceActions {
 	}
 
 	@Override
-	protected void checkSelected() {
+	public void handleBoardSpacePressed(BoardSpace boardSpacePressed, TileTypeEnum tileTypeEnum, int diceValue) {
 
 	}
 
 	@Override
-	protected void setUpText() {
+	protected void handleTileStorageSpacePriorPressed(Tile tile, TileTypeEnum tileTypeEnum) {
+
+	}
+
+	@Override
+	protected void checkSelected() {
 
 	}
 

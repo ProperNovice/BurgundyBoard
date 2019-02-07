@@ -32,6 +32,10 @@ public abstract class GameState {
 
 	}
 
+	public void handleDiceRedPressed(Dice dice, int diceValue) {
+
+	}
+
 	public final void handleTilePressed(Tile tile, TileTypeEnum tileTypeEnum) {
 
 		if (this.controller.depotNumberedManager().containsTile(tile))
@@ -55,10 +59,6 @@ public abstract class GameState {
 	}
 
 	protected void handleTileStorageSpacePriorPressed(Tile tile, TileTypeEnum tileTypeEnum) {
-
-	}
-
-	public void handleDiceRedPressed(Dice dice, int diceValue) {
 
 	}
 

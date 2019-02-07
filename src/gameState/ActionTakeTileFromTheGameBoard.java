@@ -2,7 +2,6 @@ package gameState;
 
 import enums.ActionEnum;
 import enums.GameStateEnum;
-import enums.TextEnum;
 import enums.TileTypeEnum;
 import tiles.Tile;
 import utils.Logger;
@@ -53,21 +52,6 @@ public class ActionTakeTileFromTheGameBoard extends ExecuteDiceActions {
 		super.controller.workersManager().setWorkersTempAndRelocate(super.workersNeeded);
 
 		setUpText();
-
-	}
-
-	@Override
-	protected void setUpText() {
-
-		super.controller.textManager().concealText();
-
-		if (super.controller.diceManager().diceAvailableThisRoundAmount() > 1)
-			super.controller.textManager().showText(TextEnum.CHOOSE_TILE_AND_DICE);
-		else
-			super.controller.textManager().showText(TextEnum.CHOOSE_TILE);
-
-		if (super.actionCanBeExecuted)
-			super.controller.textManager().showText(TextEnum.CONTINUE);
 
 	}
 
