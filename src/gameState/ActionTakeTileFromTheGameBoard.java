@@ -1,5 +1,6 @@
 package gameState;
 
+import enums.ActionEnum;
 import enums.GameStateEnum;
 import enums.TextEnum;
 import enums.TileTypeEnum;
@@ -7,6 +8,10 @@ import tiles.Tile;
 import utils.Logger;
 
 public class ActionTakeTileFromTheGameBoard extends ExecuteDiceActions {
+
+	public ActionTakeTileFromTheGameBoard() {
+		super.actionEnumToShow = ActionEnum.TAKE_TILE_FROM_THE_GAME_BOARD;
+	}
 
 	@Override
 	protected void handleTileDepotNumberedPressed(Tile tile, TileTypeEnum tileTypeEnum, int depotNumberedValue) {

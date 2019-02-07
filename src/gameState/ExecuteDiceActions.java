@@ -12,6 +12,7 @@ public abstract class ExecuteDiceActions extends GameState {
 	protected Dice diceSelected = null;
 	protected int numberTarget = -1, workersNeeded = -1;
 	protected boolean actionCanBeExecuted;
+	protected ActionEnum actionEnumToShow = null;
 
 	@Override
 	public void handleGameStateChange() {
@@ -22,7 +23,7 @@ public abstract class ExecuteDiceActions extends GameState {
 		this.workersNeeded = -1;
 		this.actionCanBeExecuted = false;
 
-		super.controller.actionManager().showAction(ActionEnum.TAKE_TILE_FROM_THE_GAME_BOARD);
+		super.controller.actionManager().showAction(this.actionEnumToShow);
 		setUpText();
 
 		if (super.controller.diceManager().diceAvailableThisRoundAmount() > 1)
@@ -123,7 +124,7 @@ public abstract class ExecuteDiceActions extends GameState {
 	protected abstract void checkSelected();
 
 	protected abstract void setUpText();
-	
+
 	protected abstract void executeAction();
 
 }
