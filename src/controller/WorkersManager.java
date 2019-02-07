@@ -112,6 +112,9 @@ public class WorkersManager {
 
 	public void removeWorkersTemp() {
 
+		if (this.workersTemp.isEmpty())
+			return;
+
 		for (Worker worker : this.workersTemp) {
 			worker.setVisible(false);
 		}

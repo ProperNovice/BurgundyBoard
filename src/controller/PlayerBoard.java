@@ -1,8 +1,10 @@
 package controller;
 
+import enums.BuildingTypeEnum;
 import enums.TileTypeEnum;
 import instances.Instances;
 import model.BoardSpace;
+import tiles.Building;
 import tiles.Tile;
 import utils.ArrayList;
 import utils.EventHandler.EventHandlerAble;
@@ -324,6 +326,39 @@ public class PlayerBoard implements EventHandlerAble {
 				return space;
 
 		return null;
+
+	}
+
+	public boolean regionContainingBoardSpaceHasAnIdenticalBuilding(BoardSpace boardSpace,
+			BuildingTypeEnum buildingTypeEnum) {
+
+		ArrayList<BoardSpace> region = null;
+
+		for (ArrayList<BoardSpace> regionTemp : this.regions) {
+
+			if (!regionTemp.contains(boardSpace))
+				continue;
+
+			region = regionTemp;
+			break;
+
+		}
+
+		for (BoardSpace boardSpaceTemp : region) {
+
+			if (!boardSpaceTemp.containsTile())
+				continue;
+
+			Tile tile = boardSpaceTemp.getTileContaining();
+			Building building = (Building) tile;
+			BuildingTypeEnum buildingTypeEnumContaining = building.getBuildingTypeEnum();
+
+			if (buildingTypeEnumContaining == buildingTypeEnum)
+				return true;
+
+		}
+
+		return false;
 
 	}
 

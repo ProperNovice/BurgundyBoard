@@ -69,6 +69,8 @@ public class BoardSpace {
 
 	public void addTileAndRelocate(Tile tile) {
 
+		this.tileContaining = tile;
+
 		double topLeftX = Credentials.CoordinatesBoard.x + this.centerX - Credentials.DimensionsTile.x / 2;
 		double topLeftY = Credentials.CoordinatesBoard.y + this.centerY - Credentials.DimensionsTile.y / 2;
 
@@ -116,6 +118,10 @@ public class BoardSpace {
 
 	public double getCenterY() {
 		return this.centerY;
+	}
+
+	public Tile getTileContaining() {
+		return this.tileContaining;
 	}
 
 }

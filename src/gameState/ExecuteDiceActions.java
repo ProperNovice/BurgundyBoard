@@ -2,6 +2,7 @@ package gameState;
 
 import enums.ActionEnum;
 import enums.TextEnum;
+import javafx.scene.input.KeyCode;
 import model.Dice;
 import tiles.Tile;
 import utils.ArrayList;
@@ -121,7 +122,7 @@ public abstract class ExecuteDiceActions extends GameState {
 		return numbersAvailable;
 
 	}
-	
+
 	protected final void setUpText() {
 
 		super.controller.textManager().concealText();
@@ -133,6 +134,26 @@ public abstract class ExecuteDiceActions extends GameState {
 
 		if (this.actionCanBeExecuted)
 			super.controller.textManager().showText(TextEnum.CONTINUE);
+		else
+			super.controller.workersManager().removeWorkersTemp();
+
+	}
+
+	@Override
+	public void handleTextOptionPressed(TextEnum textEnum) {
+		executeAction();
+	}
+
+	@Override
+	public void handleKeyPressed(KeyCode keyCode) {
+
+		if (keyCode != KeyCode.Q)
+			return;
+
+		if (!this.actionCanBeExecuted)
+			return;
+
+		executeAction();
 
 	}
 

@@ -54,6 +54,9 @@ public class ActionBuyTileFromTheBlackDepot extends GameState {
 		if (keyCode != KeyCode.Q)
 			return;
 
+		if (!this.actionCanBeExecuted)
+			return;
+
 		executeAction();
 
 	}

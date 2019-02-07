@@ -50,6 +50,8 @@ public class ActionTakeTileFromTheGameBoard extends ExecuteDiceActions {
 		setUpActionToBeExecuted(tileTypeEnumModifier);
 
 		super.controller.workersManager().setWorkersTempAndRelocate(super.workersNeeded);
+		
+		System.out.println(super.workersNeeded + " wn");
 
 		setUpText();
 
