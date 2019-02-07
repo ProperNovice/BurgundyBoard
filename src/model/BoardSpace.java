@@ -85,7 +85,17 @@ public class BoardSpace {
 	}
 
 	public boolean containsTile() {
-		return this.tileContaining == null;
+		return this.tileContaining != null;
+	}
+
+	public boolean adjacentsContainTile() {
+
+		for (BoardSpace boardSpace : this.adjacencies)
+			if (boardSpace.containsTile())
+				return true;
+
+		return false;
+
 	}
 
 	public void addAdjacent(BoardSpace space) {

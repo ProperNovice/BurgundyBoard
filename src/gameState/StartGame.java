@@ -22,7 +22,7 @@ public class StartGame extends GameState {
 		setDiceModifiers();
 //		removeDiceFromAction();
 
-		super.controller.flowManager().addGameStateResolvingFirst(GameStateEnum.ACTION_ADD_TILE_TO_YOUR_ESTATE);
+		super.controller.flowManager().addGameStateResolvingFirst(GameStateEnum.ACTION_TAKE_TILE_FROM_THE_GAME_BOARD);
 
 		super.controller.flowManager().addGameStateResolvingFirst(GameStateEnum.START_NEW_PHASE);
 		super.controller.flowManager().proceedToNextGameStatePhase();

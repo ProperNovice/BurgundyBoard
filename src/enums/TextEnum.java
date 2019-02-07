@@ -13,6 +13,8 @@ public enum TextEnum {
 	CHOOSE_BLACK_TILE("Choose black tile", TextTypeEnum.INDICATOR),
 	CHOOSE_DICE("Choose dice", TextTypeEnum.INDICATOR),
 	CHOOSE_A_TILE_TO_DISCARD("Choose a tile to discard", TextTypeEnum.INDICATOR),
+	CHOOSE_DICE_TILE_AND_BOARD_SPACE("Choose dice, tile &\nboard space", TextTypeEnum.INDICATOR),
+	CHOOSE_TILE("Choose a tile", TextTypeEnum.INDICATOR),
 
 	;
 
