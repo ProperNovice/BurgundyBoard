@@ -16,6 +16,9 @@ public class PlayerBoard implements EventHandlerAble {
 	private ImageView imageView = null;
 	private ArrayList<BoardSpace> boardSpaces = new ArrayList<>();
 	private ArrayList<ArrayList<BoardSpace>> regions = new ArrayList<>();
+	private boolean canBePlacedIdenticalBuildings = false;
+	private Tile lastTileAddedToBoard = null;
+	private BoardSpace lastBoardspaceTileAddedTo = null;
 
 	public PlayerBoard() {
 
@@ -360,6 +363,19 @@ public class PlayerBoard implements EventHandlerAble {
 
 		return false;
 
+	}
+
+	public boolean canBePlacedIdenticalBuildings() {
+		return this.canBePlacedIdenticalBuildings;
+	}
+
+	public void setCanBePlacedIdenticalBuildingsTrue() {
+		this.canBePlacedIdenticalBuildings = true;
+	}
+
+	public void setLastTileAddedToBoard(Tile tile, BoardSpace boardSpace) {
+		this.lastTileAddedToBoard = tile;
+		this.lastBoardspaceTileAddedTo = boardSpace;
 	}
 
 	public void testAddTileToBoardSpace(Tile tile, int boardSpace) {

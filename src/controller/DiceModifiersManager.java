@@ -8,7 +8,6 @@ public class DiceModifiersManager {
 	private HashMap<TileTypeEnum, Integer> takeTileFromTheGameBoard = new HashMap<>();
 	private HashMap<TileTypeEnum, Integer> addTileToYourEstate = new HashMap<>();
 	private int workers = 1;
-	private boolean canBePlacedIdenticalBuildings = false;
 
 	public DiceModifiersManager() {
 		createHashMaps();
@@ -64,14 +63,6 @@ public class DiceModifiersManager {
 
 	public void printAddTileToYourEstate() {
 		this.addTileToYourEstate.print();
-	}
-
-	public boolean canBePlacedIdenticalBuildings() {
-		return this.canBePlacedIdenticalBuildings;
-	}
-
-	public void setCanBePlacedIdenticalBuildingsTrue() {
-		this.canBePlacedIdenticalBuildings = true;
 	}
 
 }

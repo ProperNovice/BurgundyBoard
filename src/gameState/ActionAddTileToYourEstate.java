@@ -86,7 +86,7 @@ public class ActionAddTileToYourEstate extends ExecuteDiceActions {
 
 		if (tileTypeEnumSelected == TileTypeEnum.BUILDING) {
 
-			if (!super.controller.diceModifiersManager().canBePlacedIdenticalBuildings()) {
+			if (!super.controller.playerBoard().canBePlacedIdenticalBuildings()) {
 
 				Building buildingSelected = (Building) super.tileSelected;
 				BuildingTypeEnum buildingTypeEnum = buildingSelected.getBuildingTypeEnum();

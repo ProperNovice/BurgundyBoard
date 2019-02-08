@@ -111,7 +111,7 @@ public class StartGame extends GameState {
 	}
 
 	public void setCanBePlacedIdenticalBuildingsTrue() {
-		super.controller.diceModifiersManager().setCanBePlacedIdenticalBuildingsTrue();
+		super.controller.playerBoard().setCanBePlacedIdenticalBuildingsTrue();
 	}
 
 }
