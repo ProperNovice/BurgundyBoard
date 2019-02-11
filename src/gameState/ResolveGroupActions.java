@@ -19,8 +19,6 @@ public class ResolveGroupActions extends GameState {
 	@Override
 	public void handleTextOptionPressed(TextEnum textEnum) {
 
-		System.out.println(textEnum);
-
 	}
 
 }
