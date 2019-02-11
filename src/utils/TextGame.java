@@ -47,6 +47,9 @@ public class TextGame implements EventHandlerAble {
 
 		Instances.getControllerInstance().textManager().concealText();
 
+		Logger.log("pressed");
+		Logger.logNewLine(this.textEnum);
+
 		Instances.getControllerInstance().gameStateManager().getCurrentGameState()
 				.handleTextOptionPressed(this.textEnum);
 

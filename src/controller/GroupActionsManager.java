@@ -18,8 +18,19 @@ public class GroupActionsManager {
 
 	public void addGroupAction(GameStateEnum gameStateEnum) {
 
-		Logger.logNewLine("adding group action - " + gameStateEnum);
+		Logger.log("adding group action");
+		Logger.logNewLine(gameStateEnum);
+
 		this.groupActionsList.addLast(gameStateEnum);
+
+	}
+
+	public void removeGroupAction(GameStateEnum gameStateEnum) {
+
+		Logger.log("removing group action");
+		Logger.logNewLine(gameStateEnum);
+
+		this.groupActionsList.remove(gameStateEnum);
 
 	}
 
