@@ -26,6 +26,7 @@ public class StartGame extends GameState {
 //		removeDiceFromAction();
 		setCanBePlacedIdenticalBuildingsTrue();
 		setTextScore();
+		addGroupAction();
 
 //		super.controller.flowManager().addGameStateResolvingFirst(GameStateEnum.ACTION_TAKE_TILE_FROM_THE_GAME_BOARD);
 		super.controller.flowManager().addGameStateResolvingFirst(GameStateEnum.ACTION_ADD_TILE_TO_YOUR_ESTATE);
@@ -40,10 +41,10 @@ public class StartGame extends GameState {
 		Tile tile = null;
 
 		tile = new Castle();
-		super.controller.playerBoard().testAddTileToBoardSpace(tile, 6);
+		super.controller.playerBoard().testAddTileToBoardSpaceAndSetLastTilePlayed(tile, 6);
 
 		tile = new Building(BuildingTypeEnum.MARKET);
-		super.controller.playerBoard().testAddTileToBoardSpace(tile, 3);
+		super.controller.playerBoard().testAddTileToBoardSpaceAndSetLastTilePlayed(tile, 3);
 
 	}
 
@@ -114,8 +115,15 @@ public class StartGame extends GameState {
 
 	public void setTextScore() {
 
-		super.controller.victoryPointManager().updateCurrentScore(42);
-		super.controller.victoryPointManager().updateTargetScore(55);
+		super.controller.victoryPointManager().addCurrentVictoryPoints(42);
+		super.controller.victoryPointManager().setTargetVictoryPoints(45);
+
+	}
+
+	public void addGroupAction() {
+
+		super.controller.groupActionsManager().addGroupAction(GameStateEnum.RESOLVE_TILE_ADDED_ANIMAL);
+		super.controller.groupActionsManager().addGroupAction(GameStateEnum.RESOLVE_VICTORY_POINTS_TARGET_REACHED);
 
 	}
 

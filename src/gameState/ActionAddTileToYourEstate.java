@@ -136,11 +136,14 @@ public class ActionAddTileToYourEstate extends ExecuteDiceActions {
 		super.controller.playerBoard().setLastTileAddedToBoardSpace(super.tileSelected, this.boardSpaceSelected);
 
 		handleCheckIfCompletesRegion();
+		addGroupActionConcerningTileAdded();
+
+		super.controller.flowManager().addGameStateResolvingFirst(GameStateEnum.RESOLVE_GROUP_ACTIONS);
 
 		if (super.controller.storageSpaceManager().exceedsMaxedCapacity())
 			super.controller.flowManager().addGameStateResolvingFirst(GameStateEnum.CHOOSE_TILE_TO_DISCARD);
 
-//		super.controller.flowManager().proceedToNextGameStatePhase();
+		super.controller.flowManager().proceedToNextGameStatePhase();
 
 	}
 
@@ -161,9 +164,46 @@ public class ActionAddTileToYourEstate extends ExecuteDiceActions {
 
 		int totalPoints = regionTotalPoints + currentPhaseRegionCompletedVictoryPoints;
 
-		super.controller.victoryPointManager().updateCurrentScore(totalPoints);
+		super.controller.victoryPointManager().addCurrentVictoryPoints(totalPoints);
 
-		// TODO
+		if (super.controller.victoryPointManager().currentVictoryPointsReachedTargetVictoryPoints())
+			super.controller.groupActionsManager().addGroupAction(GameStateEnum.RESOLVE_VICTORY_POINTS_TARGET_REACHED);
+
+	}
+
+	private void addGroupActionConcerningTileAdded() {
+
+		GameStateEnum gameStateEnum = null;
+
+		switch (super.tileSelected.getTileTypeEnum()) {
+
+		case ANIMAL:
+			gameStateEnum = GameStateEnum.RESOLVE_TILE_ADDED_ANIMAL;
+			break;
+
+		case BUILDING:
+			gameStateEnum = GameStateEnum.RESOLVE_TILE_ADDED_BUILDING;
+			break;
+
+		case CASTLE:
+			gameStateEnum = GameStateEnum.RESOLVE_TILE_ADDED_CASTLE;
+			break;
+
+		case KNOWLEDGE:
+			gameStateEnum = GameStateEnum.RESOLVE_TILE_ADDED_KNOWLEDGE;
+			break;
+
+		case MINE:
+			gameStateEnum = GameStateEnum.RESOLVE_TILE_ADDED_MINE;
+			break;
+
+		case SHIP:
+			gameStateEnum = GameStateEnum.RESOLVE_TILE_ADDED_SHIP;
+			break;
+
+		}
+
+		super.controller.groupActionsManager().addGroupAction(gameStateEnum);
 
 	}
 

@@ -2,6 +2,7 @@ package controller;
 
 import enums.GameStateEnum;
 import utils.ArrayList;
+import utils.Logger;
 
 public class GroupActionsManager {
 
@@ -16,7 +17,10 @@ public class GroupActionsManager {
 	}
 
 	public void addGroupAction(GameStateEnum gameStateEnum) {
+
+		Logger.logNewLine("adding group action - " + gameStateEnum);
 		this.groupActionsList.addLast(gameStateEnum);
+
 	}
 
 	public ArrayList<GameStateEnum> getGroupActionsList() {

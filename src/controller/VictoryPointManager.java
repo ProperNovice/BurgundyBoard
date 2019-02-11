@@ -4,7 +4,7 @@ import utils.Text;
 
 public class VictoryPointManager {
 
-	private int currentScore = 0, targetScore = -1;
+	private int currentVictoryPoints = 0, targetVictoryPoints = -1;
 	private String victoryPointIndicator = "VP: ", seperator = " / ";
 	private Text text = null;
 
@@ -21,28 +21,28 @@ public class VictoryPointManager {
 
 	}
 
-	public void updateCurrentScore(int value) {
+	public void addCurrentVictoryPoints(int value) {
 
-		this.currentScore += value;
-		updateScore();
-
-	}
-
-	public void updateTargetScore(int value) {
-
-		this.targetScore = value;
-		updateScore();
+		this.currentVictoryPoints += value;
+		updateText();
 
 	}
 
-	private void updateScore() {
+	public void setTargetVictoryPoints(int value) {
 
-		String currentScoreText = Integer.toString(this.currentScore);
+		this.targetVictoryPoints = value;
+		updateText();
+
+	}
+
+	private void updateText() {
+
+		String currentScoreText = Integer.toString(this.currentVictoryPoints);
 
 		if (currentScoreText.length() == 1)
 			currentScoreText = "0" + currentScoreText;
 
-		String targetScoreText = Integer.toString(this.targetScore);
+		String targetScoreText = Integer.toString(this.targetVictoryPoints);
 
 		if (targetScoreText.length() == 1)
 			targetScoreText = "0" + targetScoreText;
@@ -56,8 +56,12 @@ public class VictoryPointManager {
 
 	}
 
-	public boolean currentScoreReachesToargerScore() {
-		return this.currentScore >= this.targetScore;
+	public boolean currentVictoryPointsReachedTargetVictoryPoints() {
+		
+		System.out.println(this.currentVictoryPoints);
+		System.out.println(this.targetVictoryPoints);
+		
+		return this.currentVictoryPoints >= this.targetVictoryPoints;
 	}
 
 }
