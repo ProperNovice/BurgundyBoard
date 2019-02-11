@@ -10,6 +10,10 @@ public class Text implements Node {
 
 	protected javafx.scene.text.Text text = null;
 
+	public Text() {
+		createText(null);
+	}
+
 	public Text(String text) {
 		createText(text);
 	}
@@ -20,7 +24,11 @@ public class Text implements Node {
 
 	private void createText(String text) {
 
-		this.text = new javafx.scene.text.Text(text);
+		if (text == null)
+			this.text = new javafx.scene.text.Text();
+
+		else
+			this.text = new javafx.scene.text.Text(text);
 
 		PanelGame panelGame = Instances.getPanelGameInstance();
 		panelGame.addNode(this.text);

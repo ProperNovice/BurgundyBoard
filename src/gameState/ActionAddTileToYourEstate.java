@@ -60,6 +60,8 @@ public class ActionAddTileToYourEstate extends ExecuteDiceActions {
 	@Override
 	protected void checkSelected() {
 
+		super.controller.workersManager().resetWorkersTempAndRelocate();
+
 		if (super.tileSelected == null) {
 			super.actionCanBeExecuted = false;
 			return;

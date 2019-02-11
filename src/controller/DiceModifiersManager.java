@@ -32,6 +32,10 @@ public class DiceModifiersManager {
 		return this.addTileToYourEstate.get(tileTypeEnum);
 	}
 
+	public int getWorkersModifier() {
+		return this.workers;
+	}
+
 	public void addDiceModifierTakeTileFromTheGameBoard(TileTypeEnum tileTypeEnum) {
 		addDiceModifier(tileTypeEnum, this.takeTileFromTheGameBoard);
 	}
@@ -51,10 +55,6 @@ public class DiceModifiersManager {
 
 		hashMap.put(tileTypeEnum, value);
 
-	}
-
-	public int getWorkersModifier() {
-		return this.workers;
 	}
 
 	public void printTakeTileFromTheGameBoard() {

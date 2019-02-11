@@ -40,6 +40,8 @@ public class ActionTakeTileFromTheGameBoard extends ExecuteDiceActions {
 			return;
 		}
 
+		super.controller.workersManager().resetWorkersTempAndRelocate();
+
 		TileTypeEnum tileTypeEnumSelected = super.tileSelected.getTileTypeEnum();
 
 		int tileTypeEnumModifier = super.controller.diceModifiersManager()
@@ -50,7 +52,7 @@ public class ActionTakeTileFromTheGameBoard extends ExecuteDiceActions {
 		setUpActionToBeExecuted(tileTypeEnumModifier);
 
 		super.controller.workersManager().setWorkersTempAndRelocate(super.workersNeeded);
-		
+
 		System.out.println(super.workersNeeded + " wn");
 
 		setUpText();

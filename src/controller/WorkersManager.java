@@ -67,6 +67,15 @@ public class WorkersManager {
 
 	}
 
+	public void resetWorkersTempAndRelocate() {
+
+		this.workersPlayerBoard.addAll(this.workersTemp);
+		this.workersTemp.clear();
+
+		relocateWorkers();
+
+	}
+
 	public void removeWorkersFromPlayerBoardAndRelocate(int amount) {
 
 		Worker worker = null;

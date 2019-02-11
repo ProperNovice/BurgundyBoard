@@ -373,7 +373,7 @@ public class PlayerBoard implements EventHandlerAble {
 		this.canBePlacedIdenticalBuildings = true;
 	}
 
-	public void setLastTileAddedToBoard(Tile tile, BoardSpace boardSpace) {
+	public void setLastTileAddedToBoardSpace(Tile tile, BoardSpace boardSpace) {
 		this.lastTileAddedToBoard = tile;
 		this.lastBoardspaceTileAddedTo = boardSpace;
 	}
