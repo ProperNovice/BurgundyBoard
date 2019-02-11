@@ -133,6 +133,8 @@ public class ActionAddTileToYourEstate extends ExecuteDiceActions {
 		super.diceSelected.setSelected(false);
 		this.boardSpaceSelected.setSelected(false);
 
+		super.controller.playerBoard().setLastTileAddedToBoardSpace(super.tileSelected, this.boardSpaceSelected);
+
 		handleCheckIfCompletesRegion();
 
 		if (super.controller.storageSpaceManager().exceedsMaxedCapacity())
@@ -160,8 +162,8 @@ public class ActionAddTileToYourEstate extends ExecuteDiceActions {
 		int totalPoints = regionTotalPoints + currentPhaseRegionCompletedVictoryPoints;
 
 		super.controller.victoryPointManager().updateCurrentScore(totalPoints);
-		
-		System.out.println(super.controller.victoryPointManager().currentScoreReachesToargerScore());
+
+		// TODO
 
 	}
 

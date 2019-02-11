@@ -411,13 +411,17 @@ public class PlayerBoard implements EventHandlerAble {
 	}
 
 	public void setLastTileAddedToBoardSpace(Tile tile, BoardSpace boardSpace) {
+
 		this.lastTileAddedToBoard = tile;
 		this.lastBoardspaceTileAddedTo = boardSpace;
+
 	}
 
 	public void testAddTileToBoardSpace(Tile tile, int boardSpace) {
+
 		this.boardSpaces.get(boardSpace).addTileAndRelocate(tile);
 		tile.setVisible(true);
+
 	}
 
 }

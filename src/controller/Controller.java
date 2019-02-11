@@ -22,6 +22,7 @@ public class Controller {
 	private ActionManager actionManager = null;
 	private DiceModifiersManager diceModifiersManager = null;
 	private VictoryPointManager victoryPointManager = null;
+	private GroupActionsManager groupActionsManager = null;
 
 	public Controller() {
 		createInstances();
@@ -49,6 +50,7 @@ public class Controller {
 		this.actionManager = new ActionManager();
 		this.diceModifiersManager = new DiceModifiersManager();
 		this.victoryPointManager = new VictoryPointManager();
+		this.groupActionsManager = new GroupActionsManager();
 
 	}
 
@@ -122,6 +124,10 @@ public class Controller {
 
 	public VictoryPointManager victoryPointManager() {
 		return this.victoryPointManager;
+	}
+
+	public GroupActionsManager groupActionsManager() {
+		return this.groupActionsManager;
 	}
 
 }

@@ -15,6 +15,12 @@ public enum GameStateEnum {
 	ACTION_TAKE_WORKERS_TILES(new ActionTakeWorkersTiles()),
 	ACTION_BUY_TILE_FROM_THE_BLACK_DEPOT(new ActionBuyTileFromTheBlackDepot()),
 	CHOOSE_TILE_TO_DISCARD(new ChooseTileToDiscard()),
+	RESOLVE_TILE_ADDED_CASTLE(new ResolveTileAddedCastle()),
+	RESOLVE_TILE_ADDED_SHIP(new ResolveTileAddedShip()),
+	RESOLVE_TILE_ADDED_MINE(new ResolveTileAddedMine()),
+	RESOLVE_TILE_ADDED_BUILDING(new ResolveTileAddedBuilding()),
+	RESOLVE_TILE_ADDED_ANIMAL(new ResolveTileAddedAnimal()),
+	RESOLVE_TILE_ADDED_KNOWLEDGE(new ResolveTileAddedKnowledge()),
 
 	;
 
