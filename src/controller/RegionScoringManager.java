@@ -4,6 +4,7 @@ import model.RegionScoringIndicator;
 import utils.ArrayList;
 import utils.CoordinatesBuilder;
 import utils.CoordinatesLinear;
+import utils.ShutDown;
 
 public class RegionScoringManager {
 
@@ -30,6 +31,20 @@ public class RegionScoringManager {
 			regionScoringIndicator.relocate(coordinatesLinear.getX(this.list.indexOf(regionScoringIndicator)),
 					coordinatesLinear.getY(this.list.indexOf(regionScoringIndicator)));
 		}
+
+	}
+
+	public int getRegionTotalPoints(int totalSpaces) {
+
+		for (RegionScoringIndicator regionScoringIndicator : this.list) {
+
+			if (regionScoringIndicator.getTotalSpaces() == totalSpaces)
+				return regionScoringIndicator.getPoints();
+
+		}
+
+		ShutDown.execute("no total spaces found @ RegionScoringManager - getRegionTotalPoints(int totalSpaces)");
+		return -1;
 
 	}
 

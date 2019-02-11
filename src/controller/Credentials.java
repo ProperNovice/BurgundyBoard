@@ -7,11 +7,13 @@ public class Credentials {
 			DimensionsSelectImageViewTile, DimensionsSelectImageViewDice, DimensionsDepotNumbered, DimensionsWorker,
 			DimensionsSilverling, DimensionsTileIndicators, DimensionsRegionScoringIndicator, DimensionsAction,
 			DimensionsSelectImageViewBoardSpace;
+
 	public static NumbersPair CoordinatesTextPanel, CoordinatesBoard, CoordinatesPhaseIndicators, CoordinatesPhaseGoods,
 			CoordinatesDepotNumbered, CoordinatesWorkers, CoordinatesSilverling, CoordinatesDepotBlack,
 			CoordinatesStorageSpaceFirst, CoordinatesStorageSpaceSecond, CoordinatesStorageSpaceThird,
 			CoordinatesStorageSpaceTemp, CoordinatesTileIndicators, CoordinatesRegionScoringIndicators, CoordinatesDice,
-			CoordinatesActions, CoordinatesWorkersDiceTemp, CoordinatesSilverlingsTemp;
+			CoordinatesActions, CoordinatesWorkersDiceTemp, CoordinatesSilverlingsTemp, CoordinatesVictoryPointText;
+
 	public static double gapBetweenBorders, textHeight, boardScale;
 
 	public static class NumbersPair {
@@ -92,6 +94,11 @@ public class Credentials {
 		x = CoordinatesDepotNumbered.x + DimensionsDice.x + DimensionsGapBetweenComponents.x;
 		y = CoordinatesDepotNumbered.y + 3 * (DimensionsTile.y + DimensionsGapBetweenComponents.y);
 		CoordinatesDepotBlack = new NumbersPair(x, y);
+
+		x = CoordinatesDepotBlack.x + 4 * (DimensionsTile.x + DimensionsGapBetweenComponents.x)
+				+ DimensionsGapBetweenComponents.x;
+		y = CoordinatesDepotBlack.y + (DimensionsTile.y - textHeight) / 2;
+		CoordinatesVictoryPointText = new NumbersPair(x, y);
 
 		x = CoordinatesBoard.x + boardScale * (1 + 115 / 2);
 		y = CoordinatesBoard.y + boardScale * (324 + 132 / 2);

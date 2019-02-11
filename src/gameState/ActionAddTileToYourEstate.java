@@ -133,10 +133,35 @@ public class ActionAddTileToYourEstate extends ExecuteDiceActions {
 		super.diceSelected.setSelected(false);
 		this.boardSpaceSelected.setSelected(false);
 
+		handleCheckIfCompletesRegion();
+
 		if (super.controller.storageSpaceManager().exceedsMaxedCapacity())
 			super.controller.flowManager().addGameStateResolvingFirst(GameStateEnum.CHOOSE_TILE_TO_DISCARD);
 
 //		super.controller.flowManager().proceedToNextGameStatePhase();
+
+	}
+
+	private void handleCheckIfCompletesRegion() {
+
+		boolean boardSpaceCompletesRegion = super.controller.playerBoard()
+				.boardSpaceCompletesRegion(this.boardSpaceSelected);
+
+		if (!boardSpaceCompletesRegion)
+			return;
+
+		int regionTotalSize = super.controller.playerBoard().getRegionTotalSize(this.boardSpaceSelected);
+
+		int regionTotalPoints = super.controller.regionScoringManager().getRegionTotalPoints(regionTotalSize);
+
+		int currentPhaseRegionCompletedVictoryPoints = super.controller.phaseIndicatorManager()
+				.getCurrentPhaseRegionCompletedVictoryPoints();
+
+		int totalPoints = regionTotalPoints + currentPhaseRegionCompletedVictoryPoints;
+
+		super.controller.victoryPointManager().updateCurrentScore(totalPoints);
+		
+		System.out.println(super.controller.victoryPointManager().currentScoreReachesToargerScore());
 
 	}
 

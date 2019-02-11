@@ -30,8 +30,8 @@ public class PhaseIndicatorManager {
 
 	}
 
-	public PhaseEnum getCurrentPhaseEnum() {
-		return this.currentPhaseIndicator.getPhaseEnum();
+	public int getCurrentPhaseRegionCompletedVictoryPoints() {
+		return this.currentPhaseIndicator.getPhaseEnum().victoryPoints();
 	}
 
 }

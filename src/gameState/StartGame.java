@@ -8,6 +8,7 @@ import model.Goods;
 import tiles.Animal;
 import tiles.Building;
 import tiles.Castle;
+import tiles.Ship;
 import tiles.Tile;
 
 public class StartGame extends GameState {
@@ -24,6 +25,7 @@ public class StartGame extends GameState {
 		setDiceModifiers();
 //		removeDiceFromAction();
 		setCanBePlacedIdenticalBuildingsTrue();
+		setTextScore();
 
 //		super.controller.flowManager().addGameStateResolvingFirst(GameStateEnum.ACTION_TAKE_TILE_FROM_THE_GAME_BOARD);
 		super.controller.flowManager().addGameStateResolvingFirst(GameStateEnum.ACTION_ADD_TILE_TO_YOUR_ESTATE);
@@ -70,15 +72,11 @@ public class StartGame extends GameState {
 
 		Tile tile = null;
 
-//		tile = new Ship();
-//		super.controller.storageSpaceManager().addTileAndRelocate(tile);
-//		tile.setVisible(true);
-
-		tile = new Building(BuildingTypeEnum.BANK);
+		tile = new Ship();
 		super.controller.storageSpaceManager().addTileAndRelocate(tile);
 		tile.setVisible(true);
 
-		tile = new Building(BuildingTypeEnum.MARKET);
+		tile = new Building(BuildingTypeEnum.BANK);
 		super.controller.storageSpaceManager().addTileAndRelocate(tile);
 		tile.setVisible(true);
 
@@ -112,6 +110,13 @@ public class StartGame extends GameState {
 
 	public void setCanBePlacedIdenticalBuildingsTrue() {
 		super.controller.playerBoard().setCanBePlacedIdenticalBuildingsTrue();
+	}
+
+	public void setTextScore() {
+
+		super.controller.victoryPointManager().updateCurrentScore(42);
+		super.controller.victoryPointManager().updateTargetScore(55);
+
 	}
 
 }

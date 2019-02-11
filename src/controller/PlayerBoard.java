@@ -10,6 +10,7 @@ import utils.ArrayList;
 import utils.EventHandler.EventHandlerAble;
 import utils.Executor;
 import utils.ImageView;
+import utils.ShutDown;
 
 public class PlayerBoard implements EventHandlerAble {
 
@@ -367,6 +368,42 @@ public class PlayerBoard implements EventHandlerAble {
 
 	public boolean canBePlacedIdenticalBuildings() {
 		return this.canBePlacedIdenticalBuildings;
+	}
+
+	public boolean boardSpaceCompletesRegion(BoardSpace boardSpace) {
+
+		ArrayList<BoardSpace> region = getRegion(boardSpace);
+
+		for (BoardSpace boardSpaceTemp : region) {
+
+			if (!boardSpaceTemp.containsTile())
+				return false;
+
+			return true;
+
+		}
+
+		ShutDown.execute("no region found @ PlayerBoard - tileCompletesRegion()");
+		return true;
+
+	}
+
+	public int getRegionTotalSize(BoardSpace boardSpace) {
+
+		ArrayList<BoardSpace> region = getRegion(boardSpace);
+		return region.size();
+
+	}
+
+	private ArrayList<BoardSpace> getRegion(BoardSpace boardSpace) {
+
+		for (ArrayList<BoardSpace> region : this.regions) {
+			if (region.contains(boardSpace))
+				return region;
+		}
+
+		return null;
+
 	}
 
 	public void setCanBePlacedIdenticalBuildingsTrue() {
