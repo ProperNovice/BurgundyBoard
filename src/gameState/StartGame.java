@@ -4,6 +4,7 @@ import enums.AnimalTypeEnum;
 import enums.BuildingTypeEnum;
 import enums.GameStateEnum;
 import enums.TileTypeEnum;
+import model.BoardSpace;
 import model.Goods;
 import tiles.Animal;
 import tiles.Building;
@@ -29,6 +30,7 @@ public class StartGame extends GameState {
 		addGroupActions();
 
 //		super.controller.flowManager().addGameStateResolvingFirst(GameStateEnum.ACTION_TAKE_TILE_FROM_THE_GAME_BOARD);
+//		super.controller.flowManager().addGameStateResolvingFirst(GameStateEnum.ACTION_ADD_TILE_TO_YOUR_ESTATE);
 		super.controller.flowManager().addGameStateResolvingFirst(GameStateEnum.RESOLVE_GROUP_ACTIONS);
 
 		super.controller.flowManager().addGameStateResolvingFirst(GameStateEnum.START_NEW_PHASE);
@@ -41,10 +43,22 @@ public class StartGame extends GameState {
 		Tile tile = null;
 
 		tile = new Castle();
-		super.controller.playerBoard().testAddTileToBoardSpaceSetTileBoardSpaceLastPlayer(tile, 6);
+		addTileToBoardSpace(tile, 6);
 
-		tile = new Building(BuildingTypeEnum.MARKET);
-		super.controller.playerBoard().testAddTileToBoardSpaceSetTileBoardSpaceLastPlayer(tile, 3);
+		tile = new Building(BuildingTypeEnum.BANK);
+		addTileToBoardSpace(tile, 3);
+
+	}
+
+	private void addTileToBoardSpace(Tile tile, int boardSpaceInt) {
+
+		tile.setVisible(true);
+		BoardSpace boardSpace = null;
+
+		boardSpace = super.controller.playerBoard().testGetBoardSpace(boardSpaceInt);
+		boardSpace.addTileAndRelocate(tile);
+
+		super.controller.gameModifiersManager().setLastTileAddedToBoardSpace(tile, boardSpace);
 
 	}
 
@@ -97,8 +111,8 @@ public class StartGame extends GameState {
 
 	public void setDiceModifiers() {
 
-		super.controller.diceModifiersManager().addDiceModifierTakeTileFromTheGameBoard(TileTypeEnum.BUILDING);
-		super.controller.diceModifiersManager().addDiceModifierAddTileToYourEstate(TileTypeEnum.ANIMAL);
+		super.controller.gameModifiersManager().addDiceModifierTakeTileFromTheGameBoard(TileTypeEnum.BUILDING);
+		super.controller.gameModifiersManager().addDiceModifierAddTileToYourEstate(TileTypeEnum.ANIMAL);
 //		super.controller.diceModifiersManager().addWorkersModifier();
 
 	}
@@ -110,13 +124,13 @@ public class StartGame extends GameState {
 	}
 
 	public void setCanBePlacedIdenticalBuildingsTrue() {
-		super.controller.playerBoard().setCanBePlacedIdenticalBuildingsTrue();
+		super.controller.gameModifiersManager().setCanBePlacedIdenticalBuildingsTrue();
 	}
 
 	public void setTextScore() {
 
-//		super.controller.victoryPointManager().addCurrentVictoryPoints(42);
-		super.controller.victoryPointManager().setTargetVictoryPoints(45);
+		super.controller.victoryPointManager().addCurrentVictoryPoints(2);
+		super.controller.victoryPointManager().setTargetVictoryPoints(50);
 
 	}
 

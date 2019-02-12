@@ -88,7 +88,7 @@ public class ActionAddTileToYourEstate extends ExecuteDiceActions {
 
 		if (tileTypeEnumSelected == TileTypeEnum.BUILDING) {
 
-			if (!super.controller.playerBoard().canBePlacedIdenticalBuildings()) {
+			if (!super.controller.gameModifiersManager().canBePlacedIdenticalBuildings()) {
 
 				Building buildingSelected = (Building) super.tileSelected;
 				BuildingTypeEnum buildingTypeEnum = buildingSelected.getBuildingTypeEnum();
@@ -104,7 +104,7 @@ public class ActionAddTileToYourEstate extends ExecuteDiceActions {
 
 		}
 
-		int tileTypeEnumModifier = super.controller.diceModifiersManager()
+		int tileTypeEnumModifier = super.controller.gameModifiersManager()
 				.getDiceModifierAddTileToYourEstate(tileTypeEnumSelected);
 
 		Logger.logNewLine(tileTypeEnumSelected + " - " + tileTypeEnumModifier + " dice modifier ");
@@ -133,7 +133,8 @@ public class ActionAddTileToYourEstate extends ExecuteDiceActions {
 		super.diceSelected.setSelected(false);
 		this.boardSpaceSelected.setSelected(false);
 
-		super.controller.playerBoard().setLastTileAddedToBoardSpace(super.tileSelected, this.boardSpaceSelected);
+		super.controller.gameModifiersManager().setLastTileAddedToBoardSpace(super.tileSelected,
+				this.boardSpaceSelected);
 
 		handleCheckIfCompletesRegion();
 
@@ -167,8 +168,11 @@ public class ActionAddTileToYourEstate extends ExecuteDiceActions {
 
 		super.controller.victoryPointManager().addCurrentVictoryPoints(totalPoints);
 
-		if (super.controller.victoryPointManager().currentVictoryPointsReachedTargetVictoryPoints())
-			super.controller.groupActionsManager().addGroupAction(GameStateEnum.RESOLVE_VICTORY_POINTS_TARGET_REACHED);
+		if (!super.controller.victoryPointManager().currentVictoryPointsReachedTargetVictoryPoints())
+			return;
+
+		super.controller.groupActionsManager().addGroupAction(GameStateEnum.RESOLVE_VICTORY_POINTS_TARGET_REACHED);
+		super.controller.victoryPointManager().resetScoring();
 
 	}
 

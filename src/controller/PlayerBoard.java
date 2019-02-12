@@ -17,9 +17,6 @@ public class PlayerBoard implements EventHandlerAble {
 	private ImageView imageView = null;
 	private ArrayList<BoardSpace> boardSpaces = new ArrayList<>();
 	private ArrayList<ArrayList<BoardSpace>> regions = new ArrayList<>();
-	private boolean canBePlacedIdenticalBuildings = false;
-	private Tile lastTileAddedToBoard = null;
-	private BoardSpace lastBoardspaceTileAddedTo = null;
 
 	public PlayerBoard() {
 
@@ -366,10 +363,6 @@ public class PlayerBoard implements EventHandlerAble {
 
 	}
 
-	public boolean canBePlacedIdenticalBuildings() {
-		return this.canBePlacedIdenticalBuildings;
-	}
-
 	public boolean boardSpaceCompletesRegion(BoardSpace boardSpace) {
 
 		ArrayList<BoardSpace> region = getRegion(boardSpace);
@@ -406,30 +399,8 @@ public class PlayerBoard implements EventHandlerAble {
 
 	}
 
-	public void setCanBePlacedIdenticalBuildingsTrue() {
-		this.canBePlacedIdenticalBuildings = true;
-	}
-
-	public void setLastTileAddedToBoardSpace(Tile tile, BoardSpace boardSpace) {
-
-		this.lastTileAddedToBoard = tile;
-		this.lastBoardspaceTileAddedTo = boardSpace;
-
-	}
-
-	public Tile getLastTileAddedToBoard() {
-		return this.lastTileAddedToBoard;
-	}
-
-	public void testAddTileToBoardSpaceSetTileBoardSpaceLastPlayer(Tile tile, int boardSpace) {
-
-		this.boardSpaces.get(boardSpace).addTileAndRelocate(tile);
-
-		this.lastTileAddedToBoard = tile;
-		this.lastBoardspaceTileAddedTo = this.boardSpaces.get(boardSpace);
-
-		tile.setVisible(true);
-
+	public BoardSpace testGetBoardSpace(int boardspace) {
+		return this.boardSpaces.get(boardspace);
 	}
 
 }

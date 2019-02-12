@@ -57,11 +57,15 @@ public class VictoryPointManager {
 	}
 
 	public boolean currentVictoryPointsReachedTargetVictoryPoints() {
-		
-		System.out.println(this.currentVictoryPoints);
-		System.out.println(this.targetVictoryPoints);
-		
 		return this.currentVictoryPoints >= this.targetVictoryPoints;
+	}
+
+	public void resetScoring() {
+
+		this.currentVictoryPoints = 0;
+		this.targetVictoryPoints -= 5;
+		updateText();
+
 	}
 
 }
