@@ -5,7 +5,7 @@ import model.BoardSpace;
 import tiles.Tile;
 import utils.HashMap;
 
-public class GameModifiersManager {
+public class GameModifiers {
 
 	private HashMap<TileTypeEnum, Integer> diceModifierTakeTileFromTheGameBoard = new HashMap<>();
 	private HashMap<TileTypeEnum, Integer> diceModifierAddTileToYourEstate = new HashMap<>();
@@ -14,7 +14,7 @@ public class GameModifiersManager {
 	private Tile lastTileAddedToBoard = null;
 	private BoardSpace lastBoardspaceTileAddedTo = null;
 
-	public GameModifiersManager() {
+	public GameModifiers() {
 		createHashMaps();
 	}
 

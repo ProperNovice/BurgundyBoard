@@ -44,7 +44,7 @@ public class ActionTakeTileFromTheGameBoard extends ExecuteDiceActions {
 
 		TileTypeEnum tileTypeEnumSelected = super.tileSelected.getTileTypeEnum();
 
-		int tileTypeEnumModifier = super.controller.gameModifiersManager()
+		int tileTypeEnumModifier = super.controller.gameModifiers()
 				.getDiceModifierTakeTileFromTheGameBoard(tileTypeEnumSelected);
 
 		Logger.logNewLine(tileTypeEnumSelected + " - " + tileTypeEnumModifier + " dice modifier ");

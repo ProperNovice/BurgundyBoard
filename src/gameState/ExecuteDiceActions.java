@@ -73,7 +73,7 @@ public abstract class ExecuteDiceActions extends GameState {
 
 		int workersAvailable = super.controller.workersManager().workersSizeAvailable();
 
-		int workersModifier = super.controller.gameModifiersManager().getDiceModifierWorkers();
+		int workersModifier = super.controller.gameModifiers().getDiceModifierWorkers();
 
 		Logger.logNewLine("Workers - " + workersModifier + " dice modifier");
 

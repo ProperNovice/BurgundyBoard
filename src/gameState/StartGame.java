@@ -58,7 +58,7 @@ public class StartGame extends GameState {
 		boardSpace = super.controller.playerBoard().testGetBoardSpace(boardSpaceInt);
 		boardSpace.addTileAndRelocate(tile);
 
-		super.controller.gameModifiersManager().setLastTileAddedToBoardSpace(tile, boardSpace);
+		super.controller.gameModifiers().setLastTileAddedToBoardSpace(tile, boardSpace);
 
 	}
 
@@ -111,8 +111,8 @@ public class StartGame extends GameState {
 
 	public void setDiceModifiers() {
 
-		super.controller.gameModifiersManager().addDiceModifierTakeTileFromTheGameBoard(TileTypeEnum.BUILDING);
-		super.controller.gameModifiersManager().addDiceModifierAddTileToYourEstate(TileTypeEnum.ANIMAL);
+		super.controller.gameModifiers().addDiceModifierTakeTileFromTheGameBoard(TileTypeEnum.BUILDING);
+		super.controller.gameModifiers().addDiceModifierAddTileToYourEstate(TileTypeEnum.ANIMAL);
 //		super.controller.diceModifiersManager().addWorkersModifier();
 
 	}
@@ -124,7 +124,7 @@ public class StartGame extends GameState {
 	}
 
 	public void setCanBePlacedIdenticalBuildingsTrue() {
-		super.controller.gameModifiersManager().setCanBePlacedIdenticalBuildingsTrue();
+		super.controller.gameModifiers().setCanBePlacedIdenticalBuildingsTrue();
 	}
 
 	public void setTextScore() {

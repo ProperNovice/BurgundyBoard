@@ -20,7 +20,7 @@ public class Controller {
 	private RegionScoringManager regionScoringManager = null;
 	private DiceManager diceManager = null;
 	private ActionManager actionManager = null;
-	private GameModifiersManager gameModifiersManager = null;
+	private GameModifiers gameModifiers = null;
 	private VictoryPointManager victoryPointManager = null;
 	private GroupActionsManager groupActionsManager = null;
 
@@ -48,7 +48,7 @@ public class Controller {
 		this.regionScoringManager = new RegionScoringManager();
 		this.diceManager = new DiceManager();
 		this.actionManager = new ActionManager();
-		this.gameModifiersManager = new GameModifiersManager();
+		this.gameModifiers = new GameModifiers();
 		this.victoryPointManager = new VictoryPointManager();
 		this.groupActionsManager = new GroupActionsManager();
 
@@ -118,8 +118,8 @@ public class Controller {
 		return this.actionManager;
 	}
 
-	public GameModifiersManager gameModifiersManager() {
-		return this.gameModifiersManager;
+	public GameModifiers gameModifiers() {
+		return this.gameModifiers;
 	}
 
 	public VictoryPointManager victoryPointManager() {

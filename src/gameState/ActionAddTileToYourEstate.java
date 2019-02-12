@@ -88,7 +88,7 @@ public class ActionAddTileToYourEstate extends ExecuteDiceActions {
 
 		if (tileTypeEnumSelected == TileTypeEnum.BUILDING) {
 
-			if (!super.controller.gameModifiersManager().canBePlacedIdenticalBuildings()) {
+			if (!super.controller.gameModifiers().canBePlacedIdenticalBuildings()) {
 
 				Building buildingSelected = (Building) super.tileSelected;
 				BuildingTypeEnum buildingTypeEnum = buildingSelected.getBuildingTypeEnum();
@@ -104,7 +104,7 @@ public class ActionAddTileToYourEstate extends ExecuteDiceActions {
 
 		}
 
-		int tileTypeEnumModifier = super.controller.gameModifiersManager()
+		int tileTypeEnumModifier = super.controller.gameModifiers()
 				.getDiceModifierAddTileToYourEstate(tileTypeEnumSelected);
 
 		Logger.logNewLine(tileTypeEnumSelected + " - " + tileTypeEnumModifier + " dice modifier ");
@@ -133,7 +133,7 @@ public class ActionAddTileToYourEstate extends ExecuteDiceActions {
 		super.diceSelected.setSelected(false);
 		this.boardSpaceSelected.setSelected(false);
 
-		super.controller.gameModifiersManager().setLastTileAddedToBoardSpace(super.tileSelected,
+		super.controller.gameModifiers().setLastTileAddedToBoardSpace(super.tileSelected,
 				this.boardSpaceSelected);
 
 		handleCheckIfCompletesRegion();

@@ -9,7 +9,7 @@ public class ResolveTileAdded extends GameState {
 	public void handleGameStateChange() {
 
 		GameStateEnum gameStateEnum = null;
-		Tile lastTileAddedToBoard = super.controller.gameModifiersManager().getLastTileAddedToBoard();
+		Tile lastTileAddedToBoard = super.controller.gameModifiers().getLastTileAddedToBoard();
 
 		switch (lastTileAddedToBoard.getTileTypeEnum()) {
 
