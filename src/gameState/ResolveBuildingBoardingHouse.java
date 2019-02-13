@@ -6,7 +6,7 @@ public class ResolveBuildingBoardingHouse extends GameState {
 	public void handleGameStateChange() {
 		
 		super.controller.workersManager().addWorkersToPlayerBoardAndRelocate(4);
-//		super.controller.flowManager().proceedToNextGameStatePhase();
+		super.controller.flowManager().proceedToNextGameStatePhase();
 
 	}
 
