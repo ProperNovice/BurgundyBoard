@@ -42,18 +42,18 @@ public class GameModifiers {
 	}
 
 	public void addDiceModifierTakeTileFromTheGameBoard(TileTypeEnum tileTypeEnum) {
-		addDiceModifier(tileTypeEnum, this.diceModifierTakeTileFromTheGameBoard);
+		addDiceModifierTilePlusOne(tileTypeEnum, this.diceModifierTakeTileFromTheGameBoard);
 	}
 
 	public void addDiceModifierAddTileToYourEstate(TileTypeEnum tileTypeEnum) {
-		addDiceModifier(tileTypeEnum, this.diceModifierAddTileToYourEstate);
+		addDiceModifierTilePlusOne(tileTypeEnum, this.diceModifierAddTileToYourEstate);
 	}
 
-	public void addDiceModifierWorkers() {
+	public void addDiceModifierWorkersPlusOne() {
 		this.diceModifierWorkers++;
 	}
 
-	private void addDiceModifier(TileTypeEnum tileTypeEnum, HashMap<TileTypeEnum, Integer> hashMap) {
+	private void addDiceModifierTilePlusOne(TileTypeEnum tileTypeEnum, HashMap<TileTypeEnum, Integer> hashMap) {
 
 		int value = hashMap.get(tileTypeEnum);
 		value++;
@@ -62,15 +62,15 @@ public class GameModifiers {
 
 	}
 
-	public void printTakeTileFromTheGameBoard() {
+	public void testPrintTakeTileFromTheGameBoard() {
 		this.diceModifierTakeTileFromTheGameBoard.print();
 	}
 
-	public void printAddTileToYourEstate() {
+	public void testPrintAddTileToYourEstate() {
 		this.diceModifierAddTileToYourEstate.print();
 	}
 
-	public boolean canBePlacedIdenticalBuildings() {
+	public boolean canPlaceIdenticalBuildings() {
 		return this.canBePlacedIdenticalBuildings;
 	}
 

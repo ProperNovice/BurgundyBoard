@@ -1,6 +1,7 @@
 package gameState;
 
 import enums.GameStateEnum;
+import enums.TileTypeEnum;
 import tiles.Tile;
 
 public class ResolveTileAdded extends GameState {
@@ -10,8 +11,9 @@ public class ResolveTileAdded extends GameState {
 
 		GameStateEnum gameStateEnum = null;
 		Tile lastTileAddedToBoard = super.controller.gameModifiers().getLastTileAddedToBoard();
+		TileTypeEnum tileTypeEnum = lastTileAddedToBoard.getTileTypeEnum();
 
-		switch (lastTileAddedToBoard.getTileTypeEnum()) {
+		switch (tileTypeEnum) {
 
 		case ANIMAL:
 			gameStateEnum = GameStateEnum.RESOLVE_TILE_ADDED_ANIMAL;
@@ -38,6 +40,9 @@ public class ResolveTileAdded extends GameState {
 			break;
 
 		}
+
+		super.controller.flowManager().addGameStateResolvingFirst(gameStateEnum);
+		super.controller.flowManager().proceedToNextGameStatePhase();
 
 	}
 

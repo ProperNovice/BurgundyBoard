@@ -35,7 +35,11 @@ public class GroupActionsManager {
 	}
 
 	public ArrayList<GameStateEnum> getGroupActionsList() {
-		return this.groupActionsList;
+		return this.groupActionsList.clone();
+	}
+
+	public boolean isEmpty() {
+		return this.groupActionsList.isEmpty();
 	}
 
 }

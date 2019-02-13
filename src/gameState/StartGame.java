@@ -21,17 +21,16 @@ public class StartGame extends GameState {
 //		addGoodsToDepotNumbers();
 		setDiceValuesRed();
 		addTilesToStorageSpaces();
-		addSilverlings(5);
-		addWorkers(3);
+//		addSilverlings(1);
+//		addWorkers(2);
 		setDiceModifiers();
 //		removeDiceFromAction();
 		setCanBePlacedIdenticalBuildingsTrue();
 		setTextScore();
 		addGroupActions();
 
-//		super.controller.flowManager().addGameStateResolvingFirst(GameStateEnum.ACTION_TAKE_TILE_FROM_THE_GAME_BOARD);
-//		super.controller.flowManager().addGameStateResolvingFirst(GameStateEnum.ACTION_ADD_TILE_TO_YOUR_ESTATE);
 		super.controller.flowManager().addGameStateResolvingFirst(GameStateEnum.RESOLVE_GROUP_ACTIONS);
+//		super.controller.flowManager().addGameStateResolvingFirst(GameStateEnum.RESOLVE_TILE_ADDED_BUILDING);
 
 		super.controller.flowManager().addGameStateResolvingFirst(GameStateEnum.START_NEW_PHASE);
 		super.controller.flowManager().proceedToNextGameStatePhase();
@@ -45,7 +44,7 @@ public class StartGame extends GameState {
 		tile = new Castle();
 		addTileToBoardSpace(tile, 6);
 
-		tile = new Building(BuildingTypeEnum.BANK);
+		tile = new Building(BuildingTypeEnum.BOARDING_HOUSE);
 		addTileToBoardSpace(tile, 3);
 
 	}
