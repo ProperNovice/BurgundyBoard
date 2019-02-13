@@ -17,6 +17,9 @@ public enum TextEnum {
 	CHOOSE_TILE("Choose a tile", TextTypeEnum.INDICATOR),
 	RESOLVE_TILE_ADDED("Resolve tile added", TextTypeEnum.OPTION),
 	RESOLVE_VICTORY_POINTS_TARGET_REACHED("Resolve vp reached", TextTypeEnum.OPTION),
+	CHOOSE_A_BUILDING("Choose a building", TextTypeEnum.INDICATOR),
+	CHOOSE_A_MINE_KNOWLEDGE_OR_CASTLE("Choose a mine,\nknowledge or castle", TextTypeEnum.INDICATOR),
+	CHOOSE_AN_ANIMAL_OR_SHIP("Choose an animal\nor ship", TextTypeEnum.INDICATOR),
 	
 	;
 

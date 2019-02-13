@@ -24,6 +24,12 @@ public enum GameStateEnum {
 	RESOLVE_TILE_ADDED(new ResolveTileAdded()),
 	RESOLVE_GROUP_ACTIONS(new ResolveGroupActions()),
 	RESOLVE_VICTORY_POINTS_TARGET_REACHED(new ResolveVictoryPointsTargetReached()),
+	RESOLVE_BUILDING_BANK(new ResolveBuildingBank()),
+	RESOLVE_BUILDING_BOARDING_HOUSE(new ResolveBuildingBoardingHouse()),
+	RESOLVE_BUILDING_CARPENTERS_WORKSHOP(new ResolveBuildingCarpentersWorkshop()),
+	RESOLVE_BUILDING_CHURCH(new ResolveBuildingChurch()),
+	RESOLVE_BUILDING_MARKET(new ResolveBuildingMarket()),
+	RESOLVE_BUILDING_WATCHTOWER(new ResolveBuildingWatchtower()),
 
 	;
 

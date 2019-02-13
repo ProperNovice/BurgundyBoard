@@ -1,6 +1,7 @@
 package gameState;
 
 import enums.BuildingTypeEnum;
+import enums.GameStateEnum;
 import tiles.Building;
 import tiles.Tile;
 
@@ -8,6 +9,8 @@ public class ResolveTileAddedBuilding extends GameState {
 
 	@Override
 	public void handleGameStateChange() {
+
+		GameStateEnum gameStateEnum = null;
 
 		Tile lastTileAddedToBoard = super.controller.gameModifiers().getLastTileAddedToBoard();
 
@@ -17,74 +20,39 @@ public class ResolveTileAddedBuilding extends GameState {
 		switch (buildingTypeEnum) {
 
 		case BANK:
-			resolveBank();
+			gameStateEnum = GameStateEnum.RESOLVE_BUILDING_BANK;
 			break;
 
 		case BOARDING_HOUSE:
-			resolveBoardingHouse();
+			gameStateEnum = GameStateEnum.RESOLVE_BUILDING_BOARDING_HOUSE;
 			break;
 
 		case CARPENTERS_WORKSHOP:
-			resolveCarpentersWorkshop();
+			gameStateEnum = GameStateEnum.RESOLVE_BUILDING_CARPENTERS_WORKSHOP;
 			break;
 
 		case CHURCH:
-			resolveChurch();
+			gameStateEnum = GameStateEnum.RESOLVE_BUILDING_CHURCH;
 			break;
 
 		case CITY_HALL:
-			resolveCityHall();
 			break;
 
 		case MARKET:
-			resolveMarket();
+			gameStateEnum = GameStateEnum.RESOLVE_BUILDING_MARKET;
 			break;
 
 		case WAREHOUSE:
-			resolveWarehouse();
 			break;
 
 		case WATCHTOWER:
-			resolveWatchtower();
+			gameStateEnum = GameStateEnum.RESOLVE_BUILDING_WATCHTOWER;
 			break;
 
 		}
 
-	}
-
-	private void resolveBank() {
-
-		super.controller.silverlingManager().addSilverlingsToPlayerBoardAndRelocate(2);
-
-	}
-
-	private void resolveBoardingHouse() {
-
-		super.controller.workersManager().addWorkersToPlayerBoardAndRelocate(4);
-
-	}
-
-	private void resolveCarpentersWorkshop() {
-
-	}
-
-	private void resolveChurch() {
-
-	}
-
-	private void resolveCityHall() {
-
-	}
-
-	private void resolveMarket() {
-
-	}
-
-	private void resolveWarehouse() {
-
-	}
-
-	private void resolveWatchtower() {
+		super.controller.flowManager().addGameStateResolvingFirst(gameStateEnum);
+		super.controller.flowManager().proceedToNextGameStatePhase();
 
 	}
 

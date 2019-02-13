@@ -9,7 +9,6 @@ import model.Goods;
 import tiles.Animal;
 import tiles.Building;
 import tiles.Castle;
-import tiles.Ship;
 import tiles.Tile;
 
 public class StartGame extends GameState {
@@ -44,7 +43,7 @@ public class StartGame extends GameState {
 		tile = new Castle();
 		addTileToBoardSpace(tile, 6);
 
-		tile = new Building(BuildingTypeEnum.BOARDING_HOUSE);
+		tile = new Building(BuildingTypeEnum.WATCHTOWER);
 		addTileToBoardSpace(tile, 3);
 
 	}
@@ -86,13 +85,13 @@ public class StartGame extends GameState {
 
 		Tile tile = null;
 
-		tile = new Ship();
-		super.controller.storageSpaceManager().addTileAndRelocate(tile);
-		tile.setVisible(true);
+//		tile = new Ship();
+//		super.controller.storageSpaceManager().addTileAndRelocate(tile);
+//		tile.setVisible(true);
 
-		tile = new Building(BuildingTypeEnum.BANK);
-		super.controller.storageSpaceManager().addTileAndRelocate(tile);
-		tile.setVisible(true);
+//		tile = new Building(BuildingTypeEnum.BANK);
+//		super.controller.storageSpaceManager().addTileAndRelocate(tile);
+//		tile.setVisible(true);
 
 		tile = new Animal(AnimalTypeEnum.PIG, 3);
 		super.controller.storageSpaceManager().addTileAndRelocate(tile);
