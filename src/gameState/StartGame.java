@@ -43,7 +43,7 @@ public class StartGame extends GameState {
 		tile = new Castle();
 		addTileToBoardSpace(tile, 6);
 
-		tile = new Building(BuildingTypeEnum.WATCHTOWER);
+		tile = new Building(BuildingTypeEnum.CITY_HALL);
 		addTileToBoardSpace(tile, 3);
 
 	}

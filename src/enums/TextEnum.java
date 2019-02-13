@@ -20,6 +20,7 @@ public enum TextEnum {
 	CHOOSE_A_BUILDING("Choose a building", TextTypeEnum.INDICATOR),
 	CHOOSE_A_MINE_KNOWLEDGE_OR_CASTLE("Choose a mine,\nknowledge or castle", TextTypeEnum.INDICATOR),
 	CHOOSE_AN_ANIMAL_OR_SHIP("Choose an animal\nor ship", TextTypeEnum.INDICATOR),
+	CHOOSE_TILE_AND_BOARD_SPACE("Choose dice &\nboard space", TextTypeEnum.INDICATOR),
 	
 	;
 

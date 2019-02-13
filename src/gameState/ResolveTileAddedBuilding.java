@@ -36,6 +36,7 @@ public class ResolveTileAddedBuilding extends GameState {
 			break;
 
 		case CITY_HALL:
+			gameStateEnum = GameStateEnum.RESOLVE_BUILDING_CITY_HALL;
 			break;
 
 		case MARKET:

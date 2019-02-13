@@ -68,7 +68,9 @@ public class StorageSpaceManager {
 		if (this.tiles.isEmpty())
 			return false;
 
-		for (int counter = 0; counter < this.tiles.getMaxCapacity(); counter++)
+		int targetCounter = (Integer) Math.min(this.tiles.size(), this.tiles.getMaxCapacity());
+
+		for (int counter = 0; counter < targetCounter; counter++)
 			if (this.tiles.get(counter) == tile)
 				return true;
 
