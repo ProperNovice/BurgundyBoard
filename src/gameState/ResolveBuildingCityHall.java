@@ -1,5 +1,6 @@
 package gameState;
 
+import enums.GameStateEnum;
 import enums.TextEnum;
 import enums.TileTypeEnum;
 import model.BoardSpace;
@@ -61,15 +62,7 @@ public class ResolveBuildingCityHall extends GameState {
 
 	@Override
 	public void handleTextOptionPressed(TextEnum textEnum) {
-
-		this.tileSelected.setSelected(false);
-		this.boardSpaceSelected.setSelected(false);
-
-		super.controller.storageSpaceManager().removeTileAndRelocate(this.tileSelected);
-		this.boardSpaceSelected.addTileAndRelocate(this.tileSelected);
-
-		super.controller.flowManager().proceedToNextGameStatePhase();
-
+		executeAction();
 	}
 
 	private void checkSelected() {
@@ -98,6 +91,51 @@ public class ResolveBuildingCityHall extends GameState {
 			return;
 
 		super.controller.textManager().showText(TextEnum.CONTINUE);
+
+	}
+
+	private void executeAction() {
+
+		this.tileSelected.setSelected(false);
+		this.boardSpaceSelected.setSelected(false);
+
+		super.controller.storageSpaceManager().removeTileAndRelocate(this.tileSelected);
+		this.boardSpaceSelected.addTileAndRelocate(this.tileSelected);
+
+		super.controller.gameModifiers().setLastTileAddedToBoardSpace(this.tileSelected, this.boardSpaceSelected);
+		handleCheckIfCompletesRegion();
+		
+		super.controller.groupActionsManager().addGroupAction(GameStateEnum.RESOLVE_TILE_ADDED);
+		super.controller.flowManager().addGameStateResolvingFirst(GameStateEnum.RESOLVE_GROUP_ACTIONS);
+
+		super.controller.flowManager().proceedToNextGameStatePhase();
+
+	}
+
+	private void handleCheckIfCompletesRegion() {
+
+		boolean boardSpaceCompletesRegion = super.controller.playerBoard()
+				.boardSpaceCompletesRegion(this.boardSpaceSelected);
+
+		if (!boardSpaceCompletesRegion)
+			return;
+
+		int regionTotalSize = super.controller.playerBoard().getRegionTotalSize(this.boardSpaceSelected);
+
+		int regionTotalPoints = super.controller.regionScoringManager().getRegionTotalPoints(regionTotalSize);
+
+		int currentPhaseRegionCompletedVictoryPoints = super.controller.phaseIndicatorManager()
+				.getCurrentPhaseRegionCompletedVictoryPoints();
+
+		int totalPoints = regionTotalPoints + currentPhaseRegionCompletedVictoryPoints;
+
+		super.controller.victoryPointManager().addCurrentVictoryPoints(totalPoints);
+
+		if (!super.controller.victoryPointManager().currentVictoryPointsReachedTargetVictoryPoints())
+			return;
+
+		super.controller.groupActionsManager().addGroupAction(GameStateEnum.RESOLVE_VICTORY_POINTS_TARGET_REACHED);
+		super.controller.victoryPointManager().resetScoring();
 
 	}
 

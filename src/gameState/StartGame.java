@@ -87,12 +87,12 @@ public class StartGame extends GameState {
 		super.controller.storageSpaceManager().addTileAndRelocate(tile);
 		tile.setVisible(true);
 
-//		tile = new Building(BuildingTypeEnum.BANK);
-//		super.controller.storageSpaceManager().addTileAndRelocate(tile);
-//		tile.setVisible(true);
-//
-//		tile = new Animal(AnimalTypeEnum.PIG, 3);
-//		super.controller.storageSpaceManager().addTileAndRelocate(tile);
+		tile = new Building(BuildingTypeEnum.BANK);
+		super.controller.storageSpaceManager().addTileAndRelocate(tile);
+		tile.setVisible(true);
+
+		tile = new Building(BuildingTypeEnum.CARPENTERS_WORKSHOP);
+		super.controller.storageSpaceManager().addTileAndRelocate(tile);
 		tile.setVisible(true);
 
 	}

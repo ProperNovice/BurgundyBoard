@@ -147,11 +147,7 @@ public class ActionAddTileToYourEstate extends ExecuteDiceActions {
 		handleCheckIfCompletesRegion();
 
 		super.controller.groupActionsManager().addGroupAction(GameStateEnum.RESOLVE_TILE_ADDED);
-
 		super.controller.flowManager().addGameStateResolvingFirst(GameStateEnum.RESOLVE_GROUP_ACTIONS);
-
-		if (super.controller.storageSpaceManager().exceedsMaxedCapacity())
-			super.controller.flowManager().addGameStateResolvingFirst(GameStateEnum.CHOOSE_TILE_TO_DISCARD);
 
 		super.controller.flowManager().proceedToNextGameStatePhase();
 
