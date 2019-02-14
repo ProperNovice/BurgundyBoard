@@ -1,14 +1,13 @@
 package gameState;
 
-import enums.AnimalTypeEnum;
 import enums.BuildingTypeEnum;
 import enums.GameStateEnum;
 import enums.TileTypeEnum;
 import model.BoardSpace;
 import model.Goods;
-import tiles.Animal;
 import tiles.Building;
 import tiles.Castle;
+import tiles.Mine;
 import tiles.Tile;
 
 public class StartGame extends GameState {
@@ -29,7 +28,6 @@ public class StartGame extends GameState {
 		addGroupActions();
 
 		super.controller.flowManager().addGameStateResolvingFirst(GameStateEnum.RESOLVE_GROUP_ACTIONS);
-//		super.controller.flowManager().addGameStateResolvingFirst(GameStateEnum.RESOLVE_TILE_ADDED_BUILDING);
 
 		super.controller.flowManager().addGameStateResolvingFirst(GameStateEnum.START_NEW_PHASE);
 		super.controller.flowManager().proceedToNextGameStatePhase();
@@ -44,7 +42,7 @@ public class StartGame extends GameState {
 		addTileToBoardSpace(tile, 6);
 
 		tile = new Building(BuildingTypeEnum.CITY_HALL);
-		addTileToBoardSpace(tile, 3);
+		addTileToBoardSpace(tile, 2);
 
 	}
 
@@ -85,16 +83,16 @@ public class StartGame extends GameState {
 
 		Tile tile = null;
 
-//		tile = new Ship();
-//		super.controller.storageSpaceManager().addTileAndRelocate(tile);
-//		tile.setVisible(true);
+		tile = new Mine();
+		super.controller.storageSpaceManager().addTileAndRelocate(tile);
+		tile.setVisible(true);
 
 //		tile = new Building(BuildingTypeEnum.BANK);
 //		super.controller.storageSpaceManager().addTileAndRelocate(tile);
 //		tile.setVisible(true);
-
-		tile = new Animal(AnimalTypeEnum.PIG, 3);
-		super.controller.storageSpaceManager().addTileAndRelocate(tile);
+//
+//		tile = new Animal(AnimalTypeEnum.PIG, 3);
+//		super.controller.storageSpaceManager().addTileAndRelocate(tile);
 		tile.setVisible(true);
 
 	}
@@ -109,7 +107,7 @@ public class StartGame extends GameState {
 
 	public void setDiceModifiers() {
 
-		super.controller.gameModifiers().addDiceModifierTakeTileFromTheGameBoard(TileTypeEnum.BUILDING);
+		super.controller.gameModifiers().addDiceModifierTakeTileFromTheGameBoard();
 		super.controller.gameModifiers().addDiceModifierAddTileToYourEstate(TileTypeEnum.ANIMAL);
 //		super.controller.diceModifiersManager().addWorkersModifier();
 

@@ -4,10 +4,11 @@ import enums.TileTypeEnum;
 import model.BoardSpace;
 import tiles.Tile;
 import utils.HashMap;
+import utils.Logger;
 
 public class GameModifiers {
 
-	private HashMap<TileTypeEnum, Integer> diceModifierTakeTileFromTheGameBoard = new HashMap<>();
+	private int diceModifierTakeTileFromTheGameBoard = 0;
 	private HashMap<TileTypeEnum, Integer> diceModifierAddTileToYourEstate = new HashMap<>();
 	private int diceModifierWorkers = 1;
 	private boolean canBePlacedIdenticalBuildings = false;
@@ -21,16 +22,13 @@ public class GameModifiers {
 	private void createHashMaps() {
 
 		for (TileTypeEnum tileTypeEnum : TileTypeEnum.values()) {
-
-			this.diceModifierTakeTileFromTheGameBoard.put(tileTypeEnum, 0);
 			this.diceModifierAddTileToYourEstate.put(tileTypeEnum, 0);
-
 		}
 
 	}
 
-	public int getDiceModifierTakeTileFromTheGameBoard(TileTypeEnum tileTypeEnum) {
-		return this.diceModifierTakeTileFromTheGameBoard.get(tileTypeEnum);
+	public int getDiceModifierTakeTileFromTheGameBoard() {
+		return this.diceModifierTakeTileFromTheGameBoard;
 	}
 
 	public int getDiceModifierAddTileToYourEstate(TileTypeEnum tileTypeEnum) {
@@ -41,8 +39,8 @@ public class GameModifiers {
 		return this.diceModifierWorkers;
 	}
 
-	public void addDiceModifierTakeTileFromTheGameBoard(TileTypeEnum tileTypeEnum) {
-		addDiceModifierTilePlusOne(tileTypeEnum, this.diceModifierTakeTileFromTheGameBoard);
+	public void addDiceModifierTakeTileFromTheGameBoard() {
+		this.diceModifierTakeTileFromTheGameBoard++;
 	}
 
 	public void addDiceModifierAddTileToYourEstate(TileTypeEnum tileTypeEnum) {
@@ -63,7 +61,10 @@ public class GameModifiers {
 	}
 
 	public void testPrintTakeTileFromTheGameBoard() {
-		this.diceModifierTakeTileFromTheGameBoard.print();
+
+		Logger.log("dice modifier take tile from the game board");
+		Logger.logNewLine(this.diceModifierTakeTileFromTheGameBoard);
+
 	}
 
 	public void testPrintAddTileToYourEstate() {

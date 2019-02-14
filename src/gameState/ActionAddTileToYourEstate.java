@@ -24,6 +24,15 @@ public class ActionAddTileToYourEstate extends ExecuteDiceActions {
 
 		this.boardSpaceSelected = null;
 
+		if (super.controller.storageSpaceManager().containsExactlyOneTile()) {
+
+			Tile tile = super.controller.storageSpaceManager().getFirstTile();
+
+			super.tileSelected = tile;
+			super.tileSelected.setSelected(true);
+
+		}
+
 	}
 
 	@Override
@@ -133,8 +142,7 @@ public class ActionAddTileToYourEstate extends ExecuteDiceActions {
 		super.diceSelected.setSelected(false);
 		this.boardSpaceSelected.setSelected(false);
 
-		super.controller.gameModifiers().setLastTileAddedToBoardSpace(super.tileSelected,
-				this.boardSpaceSelected);
+		super.controller.gameModifiers().setLastTileAddedToBoardSpace(super.tileSelected, this.boardSpaceSelected);
 
 		handleCheckIfCompletesRegion();
 

@@ -83,4 +83,12 @@ public class StorageSpaceManager {
 		relocateTiles();
 	}
 
+	public boolean containsExactlyOneTile() {
+		return this.tiles.size() == 1;
+	}
+
+	public Tile getFirstTile() {
+		return this.tiles.getFirst();
+	}
+
 }

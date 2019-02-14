@@ -9,6 +9,7 @@ public enum TextEnum {
 	START_NEW_ROUND("Start new round", TextTypeEnum.OPTION),
 	RESOLVE_GRAY_DICE("Resolve gray dice", TextTypeEnum.OPTION),
 	CHOOSE_AN_ACTION("Choose an action", TextTypeEnum.INDICATOR),
+	SET_UP_ACTION("Set up action", TextTypeEnum.INDICATOR),
 	CHOOSE_TILE_AND_DICE("Choose tile & dice", TextTypeEnum.INDICATOR),
 	CHOOSE_BLACK_TILE("Choose black tile", TextTypeEnum.INDICATOR),
 	CHOOSE_DICE("Choose dice", TextTypeEnum.INDICATOR),
@@ -20,7 +21,7 @@ public enum TextEnum {
 	CHOOSE_A_BUILDING("Choose a building", TextTypeEnum.INDICATOR),
 	CHOOSE_A_MINE_KNOWLEDGE_OR_CASTLE("Choose a mine,\nknowledge or castle", TextTypeEnum.INDICATOR),
 	CHOOSE_AN_ANIMAL_OR_SHIP("Choose an animal\nor ship", TextTypeEnum.INDICATOR),
-	CHOOSE_TILE_AND_BOARD_SPACE("Choose dice &\nboard space", TextTypeEnum.INDICATOR),
+	CHOOSE_TILE_AND_BOARD_SPACE("Choose tile &\nboard space", TextTypeEnum.INDICATOR),
 	
 	;
 
