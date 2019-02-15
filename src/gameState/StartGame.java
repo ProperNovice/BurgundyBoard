@@ -9,6 +9,7 @@ import tiles.Building;
 import tiles.Castle;
 import tiles.Mine;
 import tiles.Tile;
+import utils.ArrayList;
 
 public class StartGame extends GameState {
 
@@ -26,6 +27,7 @@ public class StartGame extends GameState {
 		setCanBePlacedIdenticalBuildingsTrue();
 		setTextScore();
 		addGroupActions();
+//		addPlayerGoods();
 
 		super.controller.flowManager().addGameStateResolvingFirst(GameStateEnum.RESOLVE_GROUP_ACTIONS);
 
@@ -43,6 +45,9 @@ public class StartGame extends GameState {
 
 		tile = new Building(BuildingTypeEnum.CITY_HALL);
 		addTileToBoardSpace(tile, 2);
+
+		tile = new Mine();
+		addTileToBoardSpace(tile, 1);
 
 	}
 
@@ -134,6 +139,25 @@ public class StartGame extends GameState {
 
 		super.controller.groupActionsManager().addGroupAction(GameStateEnum.RESOLVE_TILE_ADDED);
 		super.controller.groupActionsManager().addGroupAction(GameStateEnum.RESOLVE_VICTORY_POINTS_TARGET_REACHED);
+
+	}
+
+	public void addPlayerGoods() {
+		
+		int randomGoodsToAdd = 4;
+
+		ArrayList<Goods> goods = new ArrayList<>();
+		Goods goodsTemp = null;
+
+		for (int counter = 1; counter <= randomGoodsToAdd; counter++) {
+
+			goodsTemp = super.controller.goodsManager().testRemoveRandomGoodsFromStack();
+			goodsTemp.setVisible(true);
+			goods.addLast(goodsTemp);
+
+		}
+
+		super.controller.goodsManager().addPlayerGoodsAndRearrange(goods);
 
 	}
 

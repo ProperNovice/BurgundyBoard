@@ -12,7 +12,8 @@ public class Credentials {
 			CoordinatesDepotNumbered, CoordinatesWorkers, CoordinatesSilverling, CoordinatesDepotBlack,
 			CoordinatesStorageSpaceFirst, CoordinatesStorageSpaceSecond, CoordinatesStorageSpaceThird,
 			CoordinatesStorageSpaceTemp, CoordinatesTileIndicators, CoordinatesRegionScoringIndicators, CoordinatesDice,
-			CoordinatesActions, CoordinatesWorkersDiceTemp, CoordinatesSilverlingsTemp, CoordinatesVictoryPointText;
+			CoordinatesActions, CoordinatesWorkersDiceTemp, CoordinatesSilverlingsTemp, CoordinatesVictoryPointText,
+			CoordinatesPlayerGoods;
 
 	public static double gapBetweenBorders, textHeight, boardScale;
 
@@ -140,6 +141,10 @@ public class Credentials {
 		x = CoordinatesDice.x + 2 * (DimensionsDice.x + DimensionsGapBetweenComponents.x);
 		y = CoordinatesDice.y + (DimensionsDice.y - DimensionsSilverling.y) / 2;
 		CoordinatesSilverlingsTemp = new NumbersPair(x, y);
+
+		x = CoordinatesBoard.x + 518 * boardScale;
+		y = CoordinatesBoard.y + 380 * boardScale;
+		CoordinatesPlayerGoods = new NumbersPair(x, y);
 
 	}
 

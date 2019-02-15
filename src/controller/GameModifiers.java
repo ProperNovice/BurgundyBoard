@@ -4,7 +4,6 @@ import enums.TileTypeEnum;
 import model.BoardSpace;
 import tiles.Tile;
 import utils.HashMap;
-import utils.Logger;
 
 public class GameModifiers {
 
@@ -14,6 +13,7 @@ public class GameModifiers {
 	private boolean canBePlacedIdenticalBuildings = false;
 	private Tile lastTileAddedToBoard = null;
 	private BoardSpace lastBoardspaceTileAddedTo = null;
+	private int silverlingsReceivedAtTheEndOfThePhase = 0;
 
 	public GameModifiers() {
 		createHashMaps();
@@ -60,13 +60,6 @@ public class GameModifiers {
 
 	}
 
-	public void testPrintTakeTileFromTheGameBoard() {
-
-		Logger.log("dice modifier take tile from the game board");
-		Logger.logNewLine(this.diceModifierTakeTileFromTheGameBoard);
-
-	}
-
 	public void testPrintAddTileToYourEstate() {
 		this.diceModifierAddTileToYourEstate.print();
 	}
@@ -88,6 +81,14 @@ public class GameModifiers {
 
 	public Tile getLastTileAddedToBoard() {
 		return this.lastTileAddedToBoard;
+	}
+
+	public void addOneSilverlingsReceivedAtTheEndOfThePhase() {
+		this.silverlingsReceivedAtTheEndOfThePhase++;
+	}
+
+	public int getSilverlingsReceivedAtTheEndOfThePhase() {
+		return this.silverlingsReceivedAtTheEndOfThePhase;
 	}
 
 }

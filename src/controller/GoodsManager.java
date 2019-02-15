@@ -8,21 +8,26 @@ import utils.CoordinatesLinear;
 public class GoodsManager {
 
 	private ArrayList<Goods> goodsList = new ArrayList<>();
+	private ArrayList<Goods> goodsListOriginal = new ArrayList<>();
 	private ArrayList<Goods> phaseGoods = new ArrayList<>();
-	private CoordinatesLinear coordinatesLinearPhaseGoods = null;
+	private ArrayList<Goods> playerGoods = new ArrayList<>();
+	private CoordinatesLinear coordinatesLinearPhaseGoods = null, coordinatesLinearPlayerGoods = null;
 
 	public GoodsManager() {
 
 		createGoods();
 		createCoordinates();
+		addThreeRandomGoodsToPlayerGoodsAndRelocate();
 
 	}
 
 	private void createGoods() {
 
-		for (int counter = 1; counter <= 7; counter++)
-			for (int diceValue = 1; diceValue <= 6; diceValue++)
+		for (int diceValue = 1; diceValue <= 6; diceValue++)
+			for (int counter = 1; counter <= 7; counter++)
 				this.goodsList.addLast(new Goods(diceValue));
+
+		this.goodsListOriginal.addAll(this.goodsList);
 
 	}
 
@@ -32,6 +37,11 @@ public class GoodsManager {
 				.height(Credentials.DimensionsGoods.y).gapBetweenNodes(Credentials.DimensionsGapBetweenComponents.x)
 				.xPointOfInterest(Credentials.CoordinatesPhaseGoods.x)
 				.yPointOfInterest(Credentials.CoordinatesPhaseGoods.y).nodesPerRow(5).createCoordinatesLinear();
+
+		this.coordinatesLinearPlayerGoods = new CoordinatesBuilder().width(Credentials.DimensionsGoods.x)
+				.height(Credentials.DimensionsGoods.y).gapBetweenNodes(-Credentials.DimensionsGoods.x * 3 / 5)
+				.xPointOfInterest(Credentials.CoordinatesPlayerGoods.x)
+				.yPointOfInterest(Credentials.CoordinatesPlayerGoods.y).nodesPerRow(100).createCoordinatesLinear();
 
 	}
 
@@ -56,6 +66,59 @@ public class GoodsManager {
 
 	public Goods removeFirstPhaseGoods() {
 		return this.phaseGoods.removeFirst();
+	}
+
+	public void addPlayerGoodsAndRearrange(ArrayList<Goods> goods) {
+
+		this.playerGoods.addAll(goods);
+
+		ArrayList<Goods> playerGoodsTemp = this.playerGoods.clone();
+		this.playerGoods.clear();
+
+		for (Goods goodsTemp : this.goodsListOriginal) {
+
+			if (playerGoodsTemp.contains(goodsTemp))
+				this.playerGoods.addLast(goodsTemp);
+
+		}
+
+		relocatePlayerGoods();
+
+	}
+
+	private void relocatePlayerGoods() {
+
+		Goods goods = null;
+
+		for (int counter = 0; counter < this.playerGoods.size(); counter++) {
+
+			goods = this.playerGoods.get(counter);
+			goods.relocate(this.coordinatesLinearPlayerGoods.getX(counter),
+					this.coordinatesLinearPlayerGoods.getY(counter));
+
+		}
+
+	}
+
+	public Goods testRemoveRandomGoodsFromStack() {
+		return this.goodsList.removeRandom();
+	}
+
+	public void addThreeRandomGoodsToPlayerGoodsAndRelocate() {
+
+		ArrayList<Goods> goods = new ArrayList<>();
+		Goods goodsTemp = null;
+
+		for (int counter = 1; counter <= 3; counter++) {
+
+			goodsTemp = this.goodsList.removeRandom();
+			goodsTemp.setVisible(true);
+			goods.addLast(goodsTemp);
+
+		}
+
+		addPlayerGoodsAndRearrange(goods);
+
 	}
 
 }
