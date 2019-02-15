@@ -104,4 +104,12 @@ public class DepotNumbered {
 
 	}
 
+	public ArrayList<Goods> removeAndReturnAllGoods() {
+
+		ArrayList<Goods> goodsListToReturn = this.goods.clone();
+		this.goods.clear();
+		return goodsListToReturn;
+
+	}
+
 }

@@ -85,7 +85,7 @@ public class ResolveBuildingCityHall extends GameState {
 	private void setUpText() {
 
 		super.controller.textManager().concealText();
-		super.controller.textManager().showText(TextEnum.SET_UP_ACTION);
+		super.controller.textManager().showText(TextEnum.RESOLVE_ACTION);
 
 		if (!this.actionCanBeExecuted)
 			return;

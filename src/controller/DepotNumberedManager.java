@@ -139,6 +139,17 @@ public class DepotNumberedManager {
 
 	}
 
+	public boolean containsGoods(Goods goods) {
+
+		for (DepotNumbered depotNumbered : this.depotNumbers) {
+			if (depotNumbered.containsGoods(goods))
+				return true;
+		}
+
+		return false;
+
+	}
+
 	public void removeTile(Tile tile) {
 
 		for (DepotNumbered depotNumbered : this.depotNumbers) {
@@ -160,6 +171,39 @@ public class DepotNumberedManager {
 		}
 
 		return depotNumberedValue;
+
+	}
+
+	public int getDepotNumberedValueContainingGoods(Goods goods) {
+
+		int depotNumberedValue = -1;
+
+		for (DepotNumbered depotNumbered : this.depotNumbers) {
+			if (depotNumbered.containsGoods(goods)) {
+				depotNumberedValue = depotNumbered.getDepotNumber();
+				break;
+			}
+		}
+
+		return depotNumberedValue;
+
+	}
+
+	public ArrayList<Goods> removeGoodsFromDepotNumbered(int depotNumberedValue) {
+
+		ArrayList<Goods> goods = null;
+
+		for (DepotNumbered depotNumbered : this.depotNumbers) {
+
+			if (depotNumbered.getDepotNumber() != depotNumberedValue)
+				continue;
+
+			goods = depotNumbered.removeAndReturnAllGoods();
+			break;
+
+		}
+
+		return goods;
 
 	}
 

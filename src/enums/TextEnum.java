@@ -9,7 +9,7 @@ public enum TextEnum {
 	START_NEW_ROUND("Start new round", TextTypeEnum.OPTION),
 	RESOLVE_GRAY_DICE("Resolve gray dice", TextTypeEnum.OPTION),
 	CHOOSE_AN_ACTION("Choose an action", TextTypeEnum.INDICATOR),
-	SET_UP_ACTION("Set up action", TextTypeEnum.INDICATOR),
+	RESOLVE_ACTION("Resolve action", TextTypeEnum.INDICATOR),
 	CHOOSE_TILE_AND_DICE("Choose tile & dice", TextTypeEnum.INDICATOR),
 	CHOOSE_BLACK_TILE("Choose black tile", TextTypeEnum.INDICATOR),
 	CHOOSE_DICE("Choose dice", TextTypeEnum.INDICATOR),

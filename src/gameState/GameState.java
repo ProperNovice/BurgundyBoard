@@ -8,6 +8,7 @@ import instances.Instances;
 import javafx.scene.input.KeyCode;
 import model.BoardSpace;
 import model.Dice;
+import model.Goods;
 import tiles.Tile;
 
 public abstract class GameState {
@@ -59,6 +60,18 @@ public abstract class GameState {
 	}
 
 	protected void handleTileStorageSpacePriorPressed(Tile tile, TileTypeEnum tileTypeEnum) {
+
+	}
+
+	public final void handleGoodsPressed(Goods goods, int diceValue) {
+
+		if (this.controller.depotNumberedManager().containsGoods(goods))
+			handleGoodsDepotNumberedPressed(
+					this.controller.depotNumberedManager().getDepotNumberedValueContainingGoods(goods));
+
+	}
+
+	protected void handleGoodsDepotNumberedPressed(int depotNumberedValue) {
 
 	}
 

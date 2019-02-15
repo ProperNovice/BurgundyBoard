@@ -8,6 +8,7 @@ import model.Goods;
 import tiles.Building;
 import tiles.Castle;
 import tiles.Mine;
+import tiles.Ship;
 import tiles.Tile;
 import utils.ArrayList;
 
@@ -17,7 +18,7 @@ public class StartGame extends GameState {
 	public void handleGameStateChange() {
 
 		addTilesToGameBoard();
-//		addGoodsToDepotNumbers();
+		addGoodsToDepotNumbers();
 		setDiceValuesRed();
 		addTilesToStorageSpaces();
 //		addSilverlings(1);
@@ -29,7 +30,8 @@ public class StartGame extends GameState {
 		addGroupActions();
 //		addPlayerGoods();
 
-		super.controller.flowManager().addGameStateResolvingFirst(GameStateEnum.RESOLVE_GROUP_ACTIONS);
+		super.controller.flowManager().addGameStateResolvingFirst(GameStateEnum.RESOLVE_TILE_ADDED_SHIP);
+//		super.controller.flowManager().addGameStateResolvingFirst(GameStateEnum.RESOLVE_GROUP_ACTIONS);
 
 		super.controller.flowManager().addGameStateResolvingFirst(GameStateEnum.START_NEW_PHASE);
 		super.controller.flowManager().proceedToNextGameStatePhase();
@@ -46,8 +48,8 @@ public class StartGame extends GameState {
 		tile = new Building(BuildingTypeEnum.CITY_HALL);
 		addTileToBoardSpace(tile, 2);
 
-		tile = new Mine();
-		addTileToBoardSpace(tile, 1);
+		tile = new Ship();
+		addTileToBoardSpace(tile, 9);
 
 	}
 
@@ -65,18 +67,20 @@ public class StartGame extends GameState {
 
 	public void addGoodsToDepotNumbers() {
 
-		int depotNumbered = 2;
+		addGoodsToDepotNumber(2);
+		addGoodsToDepotNumber(3);
+		addGoodsToDepotNumber(2);
+		addGoodsToDepotNumber(5);
+		addGoodsToDepotNumber(5);
+		addGoodsToDepotNumber(5);
 
-		Goods a = new Goods(1);
-		a.setVisible(true);
-		Goods b = new Goods(6);
-		b.setVisible(true);
-		Goods c = new Goods(4);
-		c.setVisible(true);
+	}
 
-		super.controller.depotNumberedManager().addGoodsToDepotNumbered(a, depotNumbered);
-		super.controller.depotNumberedManager().addGoodsToDepotNumbered(b, depotNumbered + 1);
-		super.controller.depotNumberedManager().addGoodsToDepotNumbered(c, depotNumbered);
+	private void addGoodsToDepotNumber(int depotNumber) {
+
+		Goods goods = super.controller.goodsManager().testRemoveRandomGoodsFromStack();
+		goods.setVisible(true);
+		super.controller.depotNumberedManager().addGoodsToDepotNumbered(goods, depotNumber);
 
 	}
 
@@ -143,7 +147,7 @@ public class StartGame extends GameState {
 	}
 
 	public void addPlayerGoods() {
-		
+
 		int randomGoodsToAdd = 4;
 
 		ArrayList<Goods> goods = new ArrayList<>();
@@ -157,7 +161,7 @@ public class StartGame extends GameState {
 
 		}
 
-		super.controller.goodsManager().addPlayerGoodsAndRearrange(goods);
+		super.controller.goodsManager().addPlayerGoodsAndRelocate(goods);
 
 	}
 

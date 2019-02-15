@@ -68,7 +68,7 @@ public class GoodsManager {
 		return this.phaseGoods.removeFirst();
 	}
 
-	public void addPlayerGoodsAndRearrange(ArrayList<Goods> goods) {
+	public void addPlayerGoodsAndRelocate(ArrayList<Goods> goods) {
 
 		this.playerGoods.addAll(goods);
 
@@ -95,6 +95,7 @@ public class GoodsManager {
 			goods = this.playerGoods.get(counter);
 			goods.relocate(this.coordinatesLinearPlayerGoods.getX(counter),
 					this.coordinatesLinearPlayerGoods.getY(counter));
+			goods.toFront();
 
 		}
 
@@ -117,7 +118,7 @@ public class GoodsManager {
 
 		}
 
-		addPlayerGoodsAndRearrange(goods);
+		addPlayerGoodsAndRelocate(goods);
 
 	}
 
