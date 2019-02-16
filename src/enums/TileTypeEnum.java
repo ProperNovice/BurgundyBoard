@@ -2,6 +2,6 @@ package enums;
 
 public enum TileTypeEnum {
 
-	ANIMAL, BUILDING, CASTLE, KNOWLEDGE, MINE, SHIP;
+	ANIMAL, BUILDING, CASTLE, KNOWLEDGE, MINE, SHIP, BLACK;
 
 }

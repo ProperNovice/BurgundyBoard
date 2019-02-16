@@ -7,7 +7,6 @@ import model.BoardSpace;
 import model.Goods;
 import tiles.Building;
 import tiles.Castle;
-import tiles.Mine;
 import tiles.Ship;
 import tiles.Tile;
 import utils.ArrayList;
@@ -90,17 +89,14 @@ public class StartGame extends GameState {
 
 	public void addTilesToStorageSpaces() {
 
-		Tile tile = null;
+		addTileToStorageSpace(new Castle());
+		addTileToStorageSpace(new Ship());
+//		addTileToStorageSpace(new Building(BuildingTypeEnum.CARPENTERS_WORKSHOP));
 
-		tile = new Mine();
-		super.controller.storageSpaceManager().addTileAndRelocate(tile);
-		tile.setVisible(true);
+	}
 
-		tile = new Building(BuildingTypeEnum.BANK);
-		super.controller.storageSpaceManager().addTileAndRelocate(tile);
-		tile.setVisible(true);
+	private void addTileToStorageSpace(Tile tile) {
 
-		tile = new Building(BuildingTypeEnum.CARPENTERS_WORKSHOP);
 		super.controller.storageSpaceManager().addTileAndRelocate(tile);
 		tile.setVisible(true);
 

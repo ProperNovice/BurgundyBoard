@@ -22,6 +22,7 @@ public enum TextEnum {
 	CHOOSE_A_MINE_KNOWLEDGE_OR_CASTLE("Choose a mine,\nknowledge or castle", TextTypeEnum.INDICATOR),
 	CHOOSE_AN_ANIMAL_OR_SHIP("Choose an animal\nor ship", TextTypeEnum.INDICATOR),
 	CHOOSE_TILE_AND_BOARD_SPACE("Choose tile &\nboard space", TextTypeEnum.INDICATOR),
+	SKIP_BLACK_TILE("Skip black tile", TextTypeEnum.OPTION),
 	
 	;
 

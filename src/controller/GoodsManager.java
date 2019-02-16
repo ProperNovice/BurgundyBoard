@@ -122,4 +122,8 @@ public class GoodsManager {
 
 	}
 
+	public boolean playerGoodsSizeAtLeaseFive() {
+		return this.playerGoods.size() >= 5;
+	}
+
 }

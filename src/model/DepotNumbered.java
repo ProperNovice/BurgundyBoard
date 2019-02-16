@@ -112,4 +112,14 @@ public class DepotNumbered {
 
 	}
 
+	public void removeGoods() {
+
+		for (Goods goods : this.goods) {
+			goods.setVisible(false);
+		}
+
+		this.goods.clear();
+
+	}
+
 }

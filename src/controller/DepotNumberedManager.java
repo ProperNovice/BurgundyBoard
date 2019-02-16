@@ -207,4 +207,12 @@ public class DepotNumberedManager {
 
 	}
 
+	public void removeAllGoods() {
+
+		for (DepotNumbered depotNumbered : this.depotNumbers) {
+			depotNumbered.removeGoods();
+		}
+
+	}
+
 }
