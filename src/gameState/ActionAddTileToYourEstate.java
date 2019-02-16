@@ -89,10 +89,13 @@ public class ActionAddTileToYourEstate extends ExecuteDiceActions {
 		TileTypeEnum tileTypeEnumSelected = super.tileSelected.getTileTypeEnum();
 		TileTypeEnum boardSpaceTileTypeEnumSelected = this.boardSpaceSelected.getTileTypeEnum();
 
-		if (tileTypeEnumSelected != boardSpaceTileTypeEnumSelected) {
-			super.actionCanBeExecuted = false;
-			setUpText();
-			return;
+		if (tileTypeEnumSelected != TileTypeEnum.BLACK) {
+
+			if (tileTypeEnumSelected != boardSpaceTileTypeEnumSelected) {
+				super.actionCanBeExecuted = false;
+				setUpText();
+				return;
+			}
 		}
 
 		if (tileTypeEnumSelected == TileTypeEnum.BUILDING) {

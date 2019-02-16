@@ -1,13 +1,16 @@
 package gameState;
 
+import enums.AnimalTypeEnum;
 import enums.BuildingTypeEnum;
 import enums.GameStateEnum;
 import enums.TileTypeEnum;
 import model.BoardSpace;
 import model.Goods;
+import tiles.Animal;
 import tiles.Black;
 import tiles.Building;
 import tiles.Castle;
+import tiles.Knowledge;
 import tiles.Ship;
 import tiles.Tile;
 import utils.ArrayList;
@@ -30,7 +33,8 @@ public class StartGame extends GameState {
 		addGroupActions();
 //		addPlayerGoods();
 
-		super.controller.flowManager().addGameStateResolvingFirst(GameStateEnum.RESOLVE_GROUP_ACTIONS);
+//		super.controller.flowManager().addGameStateResolvingFirst(GameStateEnum.RESOLVE_TILE_ADDED_KNOWLEDGE);
+		super.controller.flowManager().addGameStateResolvingFirst(GameStateEnum.RESOLVE_TILE_ADDED);
 
 		super.controller.flowManager().addGameStateResolvingFirst(GameStateEnum.START_NEW_PHASE);
 		super.controller.flowManager().proceedToNextGameStatePhase();
@@ -42,23 +46,35 @@ public class StartGame extends GameState {
 		Tile tile = null;
 
 		tile = new Castle();
-		addTileToBoardSpace(tile, 6);
-
-		tile = new Building(BuildingTypeEnum.CITY_HALL);
-		addTileToBoardSpace(tile, 2);
+		addTileToGameBoard(tile, 6);
 
 		tile = new Ship();
-		addTileToBoardSpace(tile, 9);
+		addTileToGameBoard(tile, 9);
 
 		tile = new Black();
-		addTileToBoardSpace(tile, 10);
+		addTileToGameBoard(tile, 10);
 
 		tile = new Castle();
-		addTileToBoardSpace(tile, 17);
+		addTileToGameBoard(tile, 17);
+
+		tile = new Animal(AnimalTypeEnum.COW, 2);
+		addTileToGameBoard(tile, 18);
+
+		tile = new Animal(AnimalTypeEnum.HEN, 4);
+		addTileToGameBoard(tile, 23);
+
+		tile = new Animal(AnimalTypeEnum.COW, 3);
+		addTileToGameBoard(tile, 14);
+
+		tile = new Knowledge(4);
+		addTileToGameBoard(tile, 7);
+
+		tile = new Building(BuildingTypeEnum.CITY_HALL);
+		addTileToGameBoard(tile, 2);
 
 	}
 
-	private void addTileToBoardSpace(Tile tile, int boardSpaceInt) {
+	private void addTileToGameBoard(Tile tile, int boardSpaceInt) {
 
 		tile.setVisible(true);
 		BoardSpace boardSpace = null;
@@ -96,7 +112,7 @@ public class StartGame extends GameState {
 	public void addTilesToStorageSpaces() {
 
 		addTileToStorageSpace(new Castle());
-		addTileToStorageSpace(new Ship());
+		addTileToStorageSpace(new Black());
 		addTileToStorageSpace(new Building(BuildingTypeEnum.CARPENTERS_WORKSHOP));
 
 	}

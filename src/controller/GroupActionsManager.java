@@ -21,6 +21,9 @@ public class GroupActionsManager {
 		Logger.log("adding group action");
 		Logger.logNewLine(gameStateEnum);
 
+		if (this.groupActionsList.contains(gameStateEnum))
+			return;
+
 		this.groupActionsList.addLast(gameStateEnum);
 
 	}

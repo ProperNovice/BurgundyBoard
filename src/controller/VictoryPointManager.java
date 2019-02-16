@@ -21,9 +21,9 @@ public class VictoryPointManager {
 
 	}
 
-	public void addCurrentVictoryPoints(int value) {
+	public void addCurrentVictoryPoints(int victoryPoints) {
 
-		this.currentVictoryPoints += value;
+		this.currentVictoryPoints += victoryPoints;
 		updateText();
 
 	}

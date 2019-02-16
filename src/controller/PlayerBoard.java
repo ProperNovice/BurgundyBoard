@@ -1,9 +1,11 @@
 package controller;
 
+import enums.AnimalTypeEnum;
 import enums.BuildingTypeEnum;
 import enums.TileTypeEnum;
 import instances.Instances;
 import model.BoardSpace;
+import tiles.Animal;
 import tiles.Building;
 import tiles.Tile;
 import utils.ArrayList;
@@ -397,6 +399,33 @@ public class PlayerBoard implements EventHandlerAble {
 
 	public BoardSpace testGetBoardSpace(int boardspace) {
 		return this.boardSpaces.get(boardspace);
+	}
+
+	public int getTotalAnimalVictoryPoints(BoardSpace boardSpace, AnimalTypeEnum animalTypeEnum) {
+
+		int victoryPoints = 0;
+
+		ArrayList<BoardSpace> region = getRegion(boardSpace);
+
+		for (BoardSpace boardSpaceTemp : region) {
+
+			if (!boardSpaceTemp.containsTile())
+				continue;
+
+			Tile tile = boardSpaceTemp.getTileContaining();
+			Animal tileAnimal = (Animal) tile;
+
+			if (animalTypeEnum != tileAnimal.getAnimalTypeEnum())
+				continue;
+
+			int numberOfAnimals = tileAnimal.getNumberOfAnimals();
+
+			victoryPoints += numberOfAnimals;
+
+		}
+
+		return victoryPoints;
+
 	}
 
 }

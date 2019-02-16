@@ -91,4 +91,8 @@ public class GameModifiers {
 		return this.silverlingsReceivedAtTheEndOfThePhase;
 	}
 
+	public BoardSpace getLastBoardspaceTileAddedTo() {
+		return this.lastBoardspaceTileAddedTo;
+	}
+
 }
