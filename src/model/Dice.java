@@ -79,7 +79,7 @@ public class Dice implements EventHandlerAble {
 		return this.diceValue;
 	}
 
-	public void testSetValue(int diceValue) {
+	public void setValue(int diceValue) {
 
 		this.diceValue = diceValue;
 		this.imageView.setImage(this.sides.get(this.diceValue));

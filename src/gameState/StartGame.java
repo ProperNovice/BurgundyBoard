@@ -5,6 +5,7 @@ import enums.GameStateEnum;
 import enums.TileTypeEnum;
 import model.BoardSpace;
 import model.Goods;
+import tiles.Black;
 import tiles.Building;
 import tiles.Castle;
 import tiles.Ship;
@@ -29,8 +30,7 @@ public class StartGame extends GameState {
 		addGroupActions();
 //		addPlayerGoods();
 
-		super.controller.flowManager().addGameStateResolvingFirst(GameStateEnum.RESOLVE_TILE_ADDED_SHIP);
-//		super.controller.flowManager().addGameStateResolvingFirst(GameStateEnum.RESOLVE_GROUP_ACTIONS);
+		super.controller.flowManager().addGameStateResolvingFirst(GameStateEnum.RESOLVE_TILE_ADDED);
 
 		super.controller.flowManager().addGameStateResolvingFirst(GameStateEnum.START_NEW_PHASE);
 		super.controller.flowManager().proceedToNextGameStatePhase();
@@ -49,6 +49,12 @@ public class StartGame extends GameState {
 
 		tile = new Ship();
 		addTileToBoardSpace(tile, 9);
+
+		tile = new Black();
+		addTileToBoardSpace(tile, 10);
+
+		tile = new Castle();
+		addTileToBoardSpace(tile, 17);
 
 	}
 
@@ -91,7 +97,7 @@ public class StartGame extends GameState {
 
 		addTileToStorageSpace(new Castle());
 		addTileToStorageSpace(new Ship());
-//		addTileToStorageSpace(new Building(BuildingTypeEnum.CARPENTERS_WORKSHOP));
+		addTileToStorageSpace(new Building(BuildingTypeEnum.CARPENTERS_WORKSHOP));
 
 	}
 

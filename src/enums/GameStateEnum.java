@@ -21,6 +21,7 @@ public enum GameStateEnum {
 	RESOLVE_TILE_ADDED_BUILDING(new ResolveTileAddedBuilding()),
 	RESOLVE_TILE_ADDED_ANIMAL(new ResolveTileAddedAnimal()),
 	RESOLVE_TILE_ADDED_KNOWLEDGE(new ResolveTileAddedKnowledge()),
+	RESOLVE_TILE_ADDED_BLACK(new ResolveTileAddedBlack()),
 	RESOLVE_TILE_ADDED(new ResolveTileAdded()),
 	RESOLVE_GROUP_ACTIONS(new ResolveGroupActions()),
 	RESOLVE_VICTORY_POINTS_TARGET_REACHED(new ResolveVictoryPointsTargetReached()),

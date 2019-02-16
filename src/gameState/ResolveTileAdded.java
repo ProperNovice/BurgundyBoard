@@ -39,6 +39,9 @@ public class ResolveTileAdded extends GameState {
 			gameStateEnum = GameStateEnum.RESOLVE_TILE_ADDED_SHIP;
 			break;
 
+		case BLACK:
+			break;
+
 		}
 
 		super.controller.flowManager().addGameStateResolvingFirst(gameStateEnum);

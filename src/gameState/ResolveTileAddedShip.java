@@ -1,8 +1,12 @@
 package gameState;
 
+import enums.GameStateEnum;
 import enums.TextEnum;
+import enums.TileTypeEnum;
 import javafx.scene.input.KeyCode;
 import model.Goods;
+import tiles.Black;
+import tiles.Tile;
 import utils.ArrayList;
 import utils.Logger;
 
@@ -45,6 +49,25 @@ public class ResolveTileAddedShip extends GameState {
 	}
 
 	@Override
+	protected void handleTileBlackPressed(Tile tile, TileTypeEnum tileTypeEnum) {
+
+		super.controller.textManager().concealText();
+
+		super.controller.depotBlackManager().removeTile(tile);
+		tile.setVisible(false);
+
+		Tile tileBlack = new Black();
+		super.controller.storageSpaceManager().addTileAndRelocate(tileBlack);
+		tileBlack.setVisible(true);
+
+		if (super.controller.storageSpaceManager().exceedsMaxedCapacity())
+			super.controller.flowManager().addGameStateResolvingFirst(GameStateEnum.CHOOSE_TILE_TO_DISCARD);
+
+		super.controller.flowManager().proceedToNextGameStatePhase();
+
+	}
+
+	@Override
 	public void handleTextOptionPressed(TextEnum textEnum) {
 		super.controller.flowManager().proceedToNextGameStatePhase();
 	}
@@ -54,10 +77,10 @@ public class ResolveTileAddedShip extends GameState {
 
 		if (keyCode != KeyCode.Q)
 			return;
-		
+
 		super.controller.textManager().concealText();
 		super.controller.flowManager().proceedToNextGameStatePhase();
-		
+
 	}
 
 	private enum ResolvePhase {
