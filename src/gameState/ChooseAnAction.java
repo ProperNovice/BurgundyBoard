@@ -58,6 +58,7 @@ public class ChooseAnAction extends GameState {
 			break;
 
 		case ADD_TILE_TO_YOUR_ESTATE:
+			gameStateEnum = GameStateEnum.ACTION_ADD_TILE_TO_YOUR_ESTATE;
 			break;
 
 		case BUY_TILE_FROM_THE_BLACK_DEPOT:

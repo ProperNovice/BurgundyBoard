@@ -10,7 +10,6 @@ import utils.ArrayList;
 import utils.EventHandler.EventHandlerAble;
 import utils.Executor;
 import utils.ImageView;
-import utils.ShutDown;
 
 public class PlayerBoard implements EventHandlerAble {
 
@@ -372,11 +371,8 @@ public class PlayerBoard implements EventHandlerAble {
 			if (!boardSpaceTemp.containsTile())
 				return false;
 
-			return true;
-
 		}
 
-		ShutDown.execute("no region found @ PlayerBoard - tileCompletesRegion()");
 		return true;
 
 	}

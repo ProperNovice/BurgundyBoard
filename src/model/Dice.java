@@ -83,7 +83,7 @@ public class Dice implements EventHandlerAble {
 
 		this.diceValue = diceValue;
 		this.imageView.setImage(this.sides.get(this.diceValue));
-		this.imageView.setVisible(true);
+		this.imageView.setVisible(false);
 
 		Logger.log("dice set value " + this.diceColor + " - " + this.diceValue);
 

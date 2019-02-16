@@ -30,7 +30,7 @@ public class StartGame extends GameState {
 		addGroupActions();
 //		addPlayerGoods();
 
-		super.controller.flowManager().addGameStateResolvingFirst(GameStateEnum.RESOLVE_TILE_ADDED);
+		super.controller.flowManager().addGameStateResolvingFirst(GameStateEnum.RESOLVE_GROUP_ACTIONS);
 
 		super.controller.flowManager().addGameStateResolvingFirst(GameStateEnum.START_NEW_PHASE);
 		super.controller.flowManager().proceedToNextGameStatePhase();
@@ -136,7 +136,7 @@ public class StartGame extends GameState {
 
 	public void setTextScore() {
 
-		super.controller.victoryPointManager().addCurrentVictoryPoints(2);
+		super.controller.victoryPointManager().addCurrentVictoryPoints(0);
 		super.controller.victoryPointManager().setTargetVictoryPoints(50);
 
 	}

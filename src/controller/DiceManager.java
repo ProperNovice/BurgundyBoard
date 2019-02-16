@@ -10,9 +10,9 @@ import utils.Logger;
 public class DiceManager {
 
 	private ArrayList<Dice> diceRoundOriginal = new ArrayList<>();
-	private ArrayList<Dice> diceAvailableThisRound = new ArrayList<>();
+	private ArrayList<Dice> diceRoundAvailable = new ArrayList<>();
 	private ArrayList<Dice> diceFreeActionOriginal = new ArrayList<>();
-	private ArrayList<Dice> diceFreeAction = new ArrayList<>();
+	private ArrayList<Dice> diceFreeActionAvailable = new ArrayList<>();
 	private ArrayList<Dice> diceCurrentlyShowing = null;
 	private CoordinatesLinear coordinatesLinear = null;
 
@@ -37,9 +37,13 @@ public class DiceManager {
 
 			Dice dice = new Dice(DiceColor.RED);
 			dice.setValue(counter);
-			this.diceFreeAction.addLast(dice);
+			this.diceFreeActionOriginal.addLast(dice);
 
 		}
+
+		// set dice currently showing
+
+		this.diceCurrentlyShowing = this.diceRoundOriginal;
 
 	}
 
@@ -54,12 +58,12 @@ public class DiceManager {
 
 	public void rollDiceAndRelocate() {
 
-		this.diceAvailableThisRound.addAll(this.diceRoundOriginal);
+		this.diceRoundAvailable.addAll(this.diceRoundOriginal);
 
-		for (Dice dice : this.diceAvailableThisRound) {
+		for (Dice dice : this.diceRoundAvailable) {
 
-			dice.relocate(this.coordinatesLinear.getX(this.diceAvailableThisRound.indexOf(dice)),
-					this.coordinatesLinear.getY(this.diceAvailableThisRound.indexOf(dice)));
+			dice.relocate(this.coordinatesLinear.getX(this.diceRoundAvailable.indexOf(dice)),
+					this.coordinatesLinear.getY(this.diceRoundAvailable.indexOf(dice)));
 
 			dice.rollDice();
 			dice.setVisible(true);
@@ -71,43 +75,43 @@ public class DiceManager {
 	}
 
 	public int getDiceGrayValue() {
-		return this.diceAvailableThisRound.getLast().getDiceValue();
+		return this.diceRoundAvailable.getLast().getDiceValue();
 	}
 
 	public void setDiceGrayInactive() {
 
-		this.diceAvailableThisRound.getLast().setVisible(false);
-		this.diceAvailableThisRound.removeLast();
+		this.diceRoundAvailable.getLast().setVisible(false);
+		this.diceRoundAvailable.removeLast();
 
 	}
 
 	public void removeDiceFromAction(Dice dice) {
 
-		this.diceAvailableThisRound.remove(dice);
+		this.diceRoundAvailable.remove(dice);
 		dice.setVisible(false);
 
 	}
 
 	public int diceAvailableThisRoundAmount() {
-		return this.diceAvailableThisRound.size();
+		return this.diceRoundAvailable.size();
 	}
 
 	public Dice getFirstDieAvailableThisRound() {
-		return this.diceAvailableThisRound.getFirst();
+		return this.diceRoundAvailable.getFirst();
 	}
 
 	public void testSetRedDiceValuesAndRelocate(int diceValueFirst, int diceValueSecond) {
 
-		this.diceAvailableThisRound.addAll(this.diceRoundOriginal);
-		this.diceAvailableThisRound.removeLast();
+		this.diceRoundAvailable.addAll(this.diceRoundOriginal);
+		this.diceRoundAvailable.removeLast();
 
-		this.diceAvailableThisRound.get(0).setValue(diceValueFirst);
-		this.diceAvailableThisRound.get(1).setValue(diceValueSecond);
+		this.diceRoundAvailable.get(0).setValue(diceValueFirst);
+		this.diceRoundAvailable.get(1).setValue(diceValueSecond);
 
-		for (Dice dice : this.diceAvailableThisRound) {
+		for (Dice dice : this.diceRoundAvailable) {
 
-			dice.relocate(this.coordinatesLinear.getX(this.diceAvailableThisRound.indexOf(dice)),
-					this.coordinatesLinear.getY(this.diceAvailableThisRound.indexOf(dice)));
+			dice.relocate(this.coordinatesLinear.getX(this.diceRoundAvailable.indexOf(dice)),
+					this.coordinatesLinear.getY(this.diceRoundAvailable.indexOf(dice)));
 
 			dice.setVisible(true);
 
@@ -119,17 +123,66 @@ public class DiceManager {
 
 	public void testRemoveDiceFromAction(int index) {
 
-		Dice dice = this.diceAvailableThisRound.get(index);
+		Dice dice = this.diceRoundAvailable.get(index);
 		removeDiceFromAction(dice);
 
 	}
 
 	public void setDiceCurrentlyShowingAvailableCurrentRound() {
-		this.diceCurrentlyShowing = this.diceAvailableThisRound;
+
+		setDiceCurrentlyShowingVisible(false);
+		this.diceCurrentlyShowing = this.diceRoundAvailable;
+		setDiceCurrentlyShowingVisible(true);
+
+		relocateDiceCurrentlyShowing();
+
 	}
 
-	public void setDiceCurrentlyShowingFreeAction() {
-		this.diceCurrentlyShowing = this.diceFreeAction;
+	public void setDiceCurrentlyShowingFreeActionAndRelocate() {
+
+		setDiceCurrentlyShowingVisible(false);
+
+		this.diceCurrentlyShowing = this.diceFreeActionAvailable;
+
+		this.diceFreeActionAvailable.clear();
+		this.diceFreeActionAvailable.addAll(this.diceFreeActionOriginal);
+
+		setDiceCurrentlyShowingVisible(true);
+
+		relocateDiceCurrentlyShowing();
+
+	}
+
+	private void setDiceCurrentlyShowingVisible(boolean value) {
+
+		for (Dice dice : this.diceCurrentlyShowing) {
+			dice.setVisible(value);
+		}
+
+	}
+
+	public void relocateDiceCurrentlyShowing() {
+
+		for (Dice dice : this.diceCurrentlyShowing) {
+
+			dice.relocate(this.coordinatesLinear.getX(this.diceCurrentlyShowing.indexOf(dice)),
+					this.coordinatesLinear.getY(this.diceCurrentlyShowing.indexOf(dice)));
+
+		}
+
+	}
+
+	public void removeAllDiceCurrentlyShowingButThisAndRelocate(Dice dice) {
+
+		for (Dice diceTemp : this.diceCurrentlyShowing)
+			diceTemp.setVisible(false);
+
+		this.diceCurrentlyShowing.clear();
+		this.diceCurrentlyShowing.addLast(dice);
+
+		relocateDiceCurrentlyShowing();
+		dice.setVisible(true);
+
 	}
 
 }
