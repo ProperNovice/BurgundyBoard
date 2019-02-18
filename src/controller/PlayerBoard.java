@@ -12,6 +12,7 @@ import utils.ArrayList;
 import utils.EventHandler.EventHandlerAble;
 import utils.Executor;
 import utils.ImageView;
+import utils.Logger;
 
 public class PlayerBoard implements EventHandlerAble {
 
@@ -401,7 +402,11 @@ public class PlayerBoard implements EventHandlerAble {
 		return this.boardSpaces.get(boardspace);
 	}
 
-	public int getTotalAnimalVictoryPoints(BoardSpace boardSpace, AnimalTypeEnum animalTypeEnum) {
+	public int getTotalAnimalVictoryPoints(BoardSpace boardSpace, AnimalTypeEnum animalTypeEnum,
+			int animalTypeExtraPoints) {
+
+		Logger.log("animal type - " + animalTypeEnum);
+		Logger.log("extra points - " + animalTypeExtraPoints);
 
 		int victoryPoints = 0;
 
@@ -420,9 +425,11 @@ public class PlayerBoard implements EventHandlerAble {
 
 			int numberOfAnimals = tileAnimal.getNumberOfAnimals();
 
-			victoryPoints += numberOfAnimals;
+			victoryPoints += numberOfAnimals + animalTypeExtraPoints;
 
 		}
+
+		Logger.logNewLine("total points - " + victoryPoints);
 
 		return victoryPoints;
 

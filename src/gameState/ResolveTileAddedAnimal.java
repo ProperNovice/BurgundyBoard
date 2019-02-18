@@ -15,8 +15,10 @@ public class ResolveTileAddedAnimal extends GameState {
 		AnimalTypeEnum animalTypeEnum = tileAnimal.getAnimalTypeEnum();
 
 		BoardSpace boardSpace = super.controller.gameModifiers().getLastBoardspaceTileAddedTo();
+		int animalTypeExtraPoints = super.controller.gameModifiers().getAnimalTypeExtraPoints();
 
-		int victoryPoints = super.controller.playerBoard().getTotalAnimalVictoryPoints(boardSpace, animalTypeEnum);
+		int victoryPoints = super.controller.playerBoard().getTotalAnimalVictoryPoints(boardSpace, animalTypeEnum,
+				animalTypeExtraPoints);
 
 		super.controller.victoryPointManager().addCurrentVictoryPoints(victoryPoints);
 

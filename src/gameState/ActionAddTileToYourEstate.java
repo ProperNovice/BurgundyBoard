@@ -117,9 +117,9 @@ public class ActionAddTileToYourEstate extends ExecuteDiceActions {
 		}
 
 		int tileTypeEnumModifier = super.controller.gameModifiers()
-				.getDiceModifierAddTileToYourEstate(tileTypeEnumSelected);
+				.getDiceModifierAddTileToYourEstate(boardSpaceTileTypeEnumSelected);
 
-		Logger.logNewLine(tileTypeEnumSelected + " - " + tileTypeEnumModifier + " dice modifier ");
+		Logger.logNewLine(boardSpaceTileTypeEnumSelected + " - " + tileTypeEnumModifier + " dice modifier ");
 
 		setUpActionToBeExecuted(tileTypeEnumModifier);
 

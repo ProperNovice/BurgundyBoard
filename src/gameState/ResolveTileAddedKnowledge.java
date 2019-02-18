@@ -1,7 +1,9 @@
 package gameState;
 
+import enums.TileTypeEnum;
 import tiles.Knowledge;
 import tiles.Tile;
+import utils.Logger;
 
 public class ResolveTileAddedKnowledge extends GameState {
 
@@ -12,8 +14,6 @@ public class ResolveTileAddedKnowledge extends GameState {
 		Knowledge tileKnowledge = (Knowledge) tile;
 
 		int tileKnowledgeNumber = tileKnowledge.getTileNumber();
-		
-		
 
 		switch (tileKnowledgeNumber) {
 
@@ -126,11 +126,13 @@ public class ResolveTileAddedKnowledge extends GameState {
 	}
 
 	private void resolveTileNumber1() {
-
+		Logger.logNewLine("can place identical buildings");
+		super.controller.gameModifiers().setCanBePlacedIdenticalBuildingsTrue();
 	}
 
 	private void resolveTileNumber2() {
-
+		Logger.logNewLine("reveive workers at the end of the phase");
+		super.controller.gameModifiers().setReceiveWorkersAtTheEndOfThePhaseTrue();
 	}
 
 	private void resolveTileNumber3() {
@@ -142,35 +144,43 @@ public class ResolveTileAddedKnowledge extends GameState {
 	}
 
 	private void resolveTileNumber5() {
-
+		// TODO
 	}
 
 	private void resolveTileNumber6() {
-
+		Logger.logNewLine("can buy from numbered depots");
+		super.controller.gameModifiers().setCanOnlyBuyFromTheBlackDepotFalse();
 	}
 
 	private void resolveTileNumber7() {
-
+		Logger.logNewLine("each animal tile worth 1 vp more");
+		super.controller.gameModifiers().setAnimalTypeExtraPointsToOne();
 	}
 
 	private void resolveTileNumber8() {
-
+		Logger.logNewLine("workers tile adjust +/- 2");
+		super.controller.gameModifiers().addDiceModifierWorkersPlusOne();
 	}
 
 	private void resolveTileNumber9() {
-
+		addDiceModifierAddTileToYourEstate(TileTypeEnum.BUILDING);
 	}
 
 	private void resolveTileNumber10() {
-
+		addDiceModifierAddTileToYourEstate(TileTypeEnum.ANIMAL);
+		addDiceModifierAddTileToYourEstate(TileTypeEnum.SHIP);
 	}
 
 	private void resolveTileNumber11() {
-
+		addDiceModifierAddTileToYourEstate(TileTypeEnum.CASTLE);
+		addDiceModifierAddTileToYourEstate(TileTypeEnum.KNOWLEDGE);
+		addDiceModifierAddTileToYourEstate(TileTypeEnum.MINE);
 	}
 
 	private void resolveTileNumber12() {
-
+		Logger.log("dice modifier +/- 1");
+		Logger.logNewLine("take tile from numbered depots");
+		super.controller.gameModifiers().setDiceModifierTakeTileFromTheGameBoardToOne();
 	}
 
 	private void resolveTileNumber13() {
@@ -226,6 +236,14 @@ public class ResolveTileAddedKnowledge extends GameState {
 	}
 
 	private void resolveTileNumber26() {
+
+	}
+
+	private void addDiceModifierAddTileToYourEstate(TileTypeEnum tileTypeEnum) {
+
+		Logger.log("dice modifier +/- 1");
+		Logger.logNewLine(tileTypeEnum);
+		super.controller.gameModifiers().addDiceModifierAddTileToYourEstate(tileTypeEnum);
 
 	}
 

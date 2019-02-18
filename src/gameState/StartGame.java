@@ -24,7 +24,7 @@ public class StartGame extends GameState {
 		addGoodsToDepotNumbers();
 		setDiceValuesRed();
 		addTilesToStorageSpaces();
-//		addSilverlings(1);
+		addSilverlings(4);
 //		addWorkers(2);
 		setDiceModifiers();
 //		removeDiceFromAction();
@@ -34,7 +34,8 @@ public class StartGame extends GameState {
 //		addPlayerGoods();
 
 //		super.controller.flowManager().addGameStateResolvingFirst(GameStateEnum.RESOLVE_TILE_ADDED_KNOWLEDGE);
-		super.controller.flowManager().addGameStateResolvingFirst(GameStateEnum.RESOLVE_TILE_ADDED);
+//		super.controller.flowManager().addGameStateResolvingFirst(GameStateEnum.RESOLVE_TILE_ADDED);
+		super.controller.flowManager().addGameStateResolvingFirst(GameStateEnum.RESOLVE_TILE_ADDED_KNOWLEDGE);
 
 		super.controller.flowManager().addGameStateResolvingFirst(GameStateEnum.START_NEW_PHASE);
 		super.controller.flowManager().proceedToNextGameStatePhase();
@@ -63,14 +64,14 @@ public class StartGame extends GameState {
 		tile = new Animal(AnimalTypeEnum.HEN, 4);
 		addTileToGameBoard(tile, 23);
 
-		tile = new Animal(AnimalTypeEnum.COW, 3);
-		addTileToGameBoard(tile, 14);
-
-		tile = new Knowledge(4);
-		addTileToGameBoard(tile, 7);
-
 		tile = new Building(BuildingTypeEnum.CITY_HALL);
 		addTileToGameBoard(tile, 2);
+
+		tile = new Animal(AnimalTypeEnum.COW, 3);
+		addTileToGameBoard(tile, 14);
+		
+		tile = new Knowledge(10);
+		addTileToGameBoard(tile, 7);
 
 	}
 
@@ -134,7 +135,7 @@ public class StartGame extends GameState {
 
 	public void setDiceModifiers() {
 
-		super.controller.gameModifiers().addDiceModifierTakeTileFromTheGameBoard();
+		super.controller.gameModifiers().setDiceModifierTakeTileFromTheGameBoardToOne();
 		super.controller.gameModifiers().addDiceModifierAddTileToYourEstate(TileTypeEnum.ANIMAL);
 //		super.controller.diceModifiersManager().addWorkersModifier();
 

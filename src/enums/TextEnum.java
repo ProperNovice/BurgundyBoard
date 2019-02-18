@@ -12,6 +12,7 @@ public enum TextEnum {
 	RESOLVE_ACTION("Resolve action", TextTypeEnum.INDICATOR),
 	CHOOSE_TILE_AND_DICE("Choose tile & dice", TextTypeEnum.INDICATOR),
 	CHOOSE_BLACK_TILE("Choose black tile", TextTypeEnum.INDICATOR),
+	CHOOSE_A_TILE_TO_BUY("Choose a tile to buy", TextTypeEnum.INDICATOR),
 	CHOOSE_DICE("Choose dice", TextTypeEnum.INDICATOR),
 	CHOOSE_A_TILE_TO_DISCARD("Choose a tile to discard", TextTypeEnum.INDICATOR),
 	CHOOSE_DICE_TILE_AND_BOARD_SPACE("Choose dice, tile &\nboard space", TextTypeEnum.INDICATOR),
@@ -23,7 +24,7 @@ public enum TextEnum {
 	CHOOSE_AN_ANIMAL_OR_SHIP("Choose an animal\nor ship", TextTypeEnum.INDICATOR),
 	CHOOSE_TILE_AND_BOARD_SPACE("Choose tile &\nboard space", TextTypeEnum.INDICATOR),
 	SKIP_BLACK_TILE("Skip black tile", TextTypeEnum.OPTION),
-	
+
 	;
 
 	private String string = null;

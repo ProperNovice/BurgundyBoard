@@ -14,6 +14,9 @@ public class GameModifiers {
 	private Tile lastTileAddedToBoard = null;
 	private BoardSpace lastBoardspaceTileAddedTo = null;
 	private int silverlingsReceivedAtTheEndOfThePhase = 0;
+	private boolean receiveWorkersAtTheEndOfThePhase = false;
+	private boolean canOnlyBuyFromTheBlackDepot = true;
+	private int animalTypeExtraPoints = 0;
 
 	public GameModifiers() {
 		createHashMaps();
@@ -39,8 +42,8 @@ public class GameModifiers {
 		return this.diceModifierWorkers;
 	}
 
-	public void addDiceModifierTakeTileFromTheGameBoard() {
-		this.diceModifierTakeTileFromTheGameBoard++;
+	public void setDiceModifierTakeTileFromTheGameBoardToOne() {
+		this.diceModifierTakeTileFromTheGameBoard = 1;
 	}
 
 	public void addDiceModifierAddTileToYourEstate(TileTypeEnum tileTypeEnum) {
@@ -83,6 +86,10 @@ public class GameModifiers {
 		return this.lastTileAddedToBoard;
 	}
 
+	public BoardSpace getLastBoardspaceTileAddedTo() {
+		return this.lastBoardspaceTileAddedTo;
+	}
+
 	public void addOneSilverlingsReceivedAtTheEndOfThePhase() {
 		this.silverlingsReceivedAtTheEndOfThePhase++;
 	}
@@ -91,8 +98,28 @@ public class GameModifiers {
 		return this.silverlingsReceivedAtTheEndOfThePhase;
 	}
 
-	public BoardSpace getLastBoardspaceTileAddedTo() {
-		return this.lastBoardspaceTileAddedTo;
+	public void setReceiveWorkersAtTheEndOfThePhaseTrue() {
+		this.receiveWorkersAtTheEndOfThePhase = true;
+	}
+
+	public boolean getReceiveWorkersAtTheEndOfThePhase() {
+		return this.receiveWorkersAtTheEndOfThePhase;
+	}
+
+	public void setCanOnlyBuyFromTheBlackDepotFalse() {
+		this.canOnlyBuyFromTheBlackDepot = false;
+	}
+
+	public boolean canOnlyBuyFromTheBlackDepot() {
+		return this.canOnlyBuyFromTheBlackDepot;
+	}
+
+	public void setAnimalTypeExtraPointsToOne() {
+		this.animalTypeExtraPoints = 1;
+	}
+
+	public int getAnimalTypeExtraPoints() {
+		return this.animalTypeExtraPoints;
 	}
 
 }
