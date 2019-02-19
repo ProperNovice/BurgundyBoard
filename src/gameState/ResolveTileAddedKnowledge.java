@@ -1,5 +1,6 @@
 package gameState;
 
+import enums.BuildingTypeEnum;
 import enums.TileTypeEnum;
 import tiles.Knowledge;
 import tiles.Tile;
@@ -123,6 +124,8 @@ public class ResolveTileAddedKnowledge extends GameState {
 
 		}
 
+		super.controller.flowManager().proceedToNextGameStatePhase();
+
 	}
 
 	private void resolveTileNumber1() {
@@ -136,11 +139,11 @@ public class ResolveTileAddedKnowledge extends GameState {
 	}
 
 	private void resolveTileNumber3() {
-
+		Logger.logNewLine("Not implemented");
 	}
 
 	private void resolveTileNumber4() {
-
+		Logger.logNewLine("Not implemented");
 	}
 
 	private void resolveTileNumber5() {
@@ -162,6 +165,8 @@ public class ResolveTileAddedKnowledge extends GameState {
 		super.controller.gameModifiers().addDiceModifierWorkersPlusOne();
 	}
 
+	// ->
+
 	private void resolveTileNumber9() {
 		addDiceModifierAddTileToYourEstate(TileTypeEnum.BUILDING);
 	}
@@ -177,6 +182,16 @@ public class ResolveTileAddedKnowledge extends GameState {
 		addDiceModifierAddTileToYourEstate(TileTypeEnum.MINE);
 	}
 
+	private void addDiceModifierAddTileToYourEstate(TileTypeEnum tileTypeEnum) {
+
+		Logger.log("dice modifier +/- 1");
+		Logger.logNewLine(tileTypeEnum);
+		super.controller.gameModifiers().addDiceModifierAddTileToYourEstate(tileTypeEnum);
+
+	}
+
+	// <-
+
 	private void resolveTileNumber12() {
 		Logger.log("dice modifier +/- 1");
 		Logger.logNewLine("take tile from numbered depots");
@@ -184,67 +199,93 @@ public class ResolveTileAddedKnowledge extends GameState {
 	}
 
 	private void resolveTileNumber13() {
-
+		Logger.logNewLine("take workers action adds 1 silverling");
+		super.controller.gameModifiers().setTakeWorkersTileActionAddsOneSilverlingTrue();
 	}
 
 	private void resolveTileNumber14() {
-
+		Logger.logNewLine("take worker tiles action 4 workers");
+		super.controller.gameModifiers().setTakeWorkersTileActionAmountOfWorkersToFour();
 	}
 
 	private void resolveTileNumber15() {
-
+		Logger.logNewLine("Not implemented");
 	}
 
-	private void resolveTileNumber16() {
+	// ->
 
+	private void resolveTileNumber16() {
+		scoreFourPointsForEachBuildingType(BuildingTypeEnum.WAREHOUSE);
 	}
 
 	private void resolveTileNumber17() {
-
+		scoreFourPointsForEachBuildingType(BuildingTypeEnum.WATCHTOWER);
 	}
 
 	private void resolveTileNumber18() {
-
+		scoreFourPointsForEachBuildingType(BuildingTypeEnum.CARPENTERS_WORKSHOP);
 	}
 
 	private void resolveTileNumber19() {
-
+		scoreFourPointsForEachBuildingType(BuildingTypeEnum.CHURCH);
 	}
 
 	private void resolveTileNumber20() {
-
+		scoreFourPointsForEachBuildingType(BuildingTypeEnum.MARKET);
 	}
 
 	private void resolveTileNumber21() {
-
+		scoreFourPointsForEachBuildingType(BuildingTypeEnum.BOARDING_HOUSE);
 	}
 
 	private void resolveTileNumber22() {
-
+		scoreFourPointsForEachBuildingType(BuildingTypeEnum.BANK);
 	}
 
 	private void resolveTileNumber23() {
+		scoreFourPointsForEachBuildingType(BuildingTypeEnum.CITY_HALL);
+	}
+
+	private void scoreFourPointsForEachBuildingType(BuildingTypeEnum buildingTypeEnum) {
+
+		int buildingsAmount = super.controller.playerBoard().getAmountOfBuildingsPlacedOfChosenType(buildingTypeEnum);
+
+		int victoryPoints = buildingsAmount * 4;
+
+		Logger.log("buildings type amount - " + buildingTypeEnum);
+		Logger.log(buildingsAmount);
+		Logger.log("total victory points");
+		Logger.log(victoryPoints);
+		Logger.newLine();
+
+		super.controller.victoryPointManager().addCurrentVictoryPoints(victoryPoints);
 
 	}
 
+	// <-
+
 	private void resolveTileNumber24() {
+
+		int animalsTypeAmount = super.controller.playerBoard().getTypeOfAnimalsAmount();
+
+		int victoryPoints = animalsTypeAmount * 4;
+
+		Logger.log("animals type amount");
+		Logger.log(animalsTypeAmount);
+		Logger.log("total victory points");
+		Logger.log(victoryPoints);
+		Logger.newLine();
+
+		super.controller.victoryPointManager().addCurrentVictoryPoints(victoryPoints);
 
 	}
 
 	private void resolveTileNumber25() {
-
+		Logger.logNewLine("Not implemented");
 	}
 
 	private void resolveTileNumber26() {
-
-	}
-
-	private void addDiceModifierAddTileToYourEstate(TileTypeEnum tileTypeEnum) {
-
-		Logger.log("dice modifier +/- 1");
-		Logger.logNewLine(tileTypeEnum);
-		super.controller.gameModifiers().addDiceModifierAddTileToYourEstate(tileTypeEnum);
-
+		Logger.logNewLine("Not implemented");
 	}
 
 }

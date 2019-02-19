@@ -435,4 +435,78 @@ public class PlayerBoard implements EventHandlerAble {
 
 	}
 
+	public int getAmountOfBuildingsPlacedOfChosenType(BuildingTypeEnum buildingTypeEnum) {
+
+		int numberOfBuildings = 0;
+
+		for (ArrayList<BoardSpace> region : this.regions) {
+
+			TileTypeEnum regionTileTypeEnum = region.getFirst().getTileTypeEnum();
+
+			if (regionTileTypeEnum != TileTypeEnum.BUILDING)
+				continue;
+
+			for (BoardSpace boardSpace : region) {
+
+				if (!boardSpace.containsTile())
+					continue;
+
+				Tile tile = boardSpace.getTileContaining();
+
+				if (tile.getTileTypeEnum() == TileTypeEnum.BLACK)
+					continue;
+
+				Building tileBuilding = (Building) tile;
+				BuildingTypeEnum buildingRegionTileTypeEnum = tileBuilding.getBuildingTypeEnum();
+
+				if (buildingTypeEnum != buildingRegionTileTypeEnum)
+					continue;
+
+				numberOfBuildings++;
+
+			}
+
+		}
+
+		return numberOfBuildings;
+
+	}
+
+	public int getTypeOfAnimalsAmount() {
+
+		ArrayList<AnimalTypeEnum> animalTypeEnumList = new ArrayList<>();
+
+		for (ArrayList<BoardSpace> region : this.regions) {
+
+			TileTypeEnum regionTileTypeEnum = region.getFirst().getTileTypeEnum();
+
+			if (regionTileTypeEnum != TileTypeEnum.ANIMAL)
+				continue;
+
+			for (BoardSpace boardSpace : region) {
+
+				if (!boardSpace.containsTile())
+					continue;
+
+				Tile tile = boardSpace.getTileContaining();
+
+				if (tile.getTileTypeEnum() == TileTypeEnum.BLACK)
+					continue;
+
+				Animal animal = (Animal) tile;
+				AnimalTypeEnum animalTypeEnum = animal.getAnimalTypeEnum();
+
+				if (animalTypeEnumList.contains(animalTypeEnum))
+					continue;
+
+				animalTypeEnumList.addLast(animalTypeEnum);
+
+			}
+
+		}
+
+		return animalTypeEnumList.size();
+
+	}
+
 }

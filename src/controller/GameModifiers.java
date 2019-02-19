@@ -17,6 +17,8 @@ public class GameModifiers {
 	private boolean receiveWorkersAtTheEndOfThePhase = false;
 	private boolean canOnlyBuyFromTheBlackDepot = true;
 	private int animalTypeExtraPoints = 0;
+	private boolean takeWorkersTileActionAddsOneSilverling = false;
+	private int takeWorkersTileActionAmountOfWorkers = 2;
 
 	public GameModifiers() {
 		createHashMaps();
@@ -120,6 +122,22 @@ public class GameModifiers {
 
 	public int getAnimalTypeExtraPoints() {
 		return this.animalTypeExtraPoints;
+	}
+
+	public boolean getTakeWorkersTileActionAddsOneSilverling() {
+		return this.takeWorkersTileActionAddsOneSilverling;
+	}
+
+	public void setTakeWorkersTileActionAddsOneSilverlingTrue() {
+		this.takeWorkersTileActionAddsOneSilverling = true;
+	}
+
+	public int getTakeWorkersTileActionAmountOfWorkers() {
+		return this.takeWorkersTileActionAmountOfWorkers;
+	}
+
+	public void setTakeWorkersTileActionAmountOfWorkersToFour() {
+		this.takeWorkersTileActionAmountOfWorkers = 4;
 	}
 
 }

@@ -71,7 +71,12 @@ public class ActionTakeWorkersTiles extends GameState {
 		super.controller.textManager().concealText();
 		super.controller.actionManager().concealActions();
 
-		super.controller.workersManager().addWorkersToPlayerBoardAndRelocate(2);
+		int workersToAdd = super.controller.gameModifiers().getTakeWorkersTileActionAmountOfWorkers();
+
+		super.controller.workersManager().addWorkersToPlayerBoardAndRelocate(workersToAdd);
+
+		if (super.controller.gameModifiers().getTakeWorkersTileActionAddsOneSilverling())
+			super.controller.silverlingManager().addSilverlingsToPlayerBoardAndRelocate(1);
 
 		super.controller.diceManager().removeDiceFromAction(this.diceSelected);
 		this.diceSelected.setSelected(false);
