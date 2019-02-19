@@ -513,4 +513,24 @@ public class PlayerBoard implements EventHandlerAble {
 
 	}
 
+	public boolean tileTypeIsCompleted(TileTypeEnum tileTypeEnum) {
+
+		for (ArrayList<BoardSpace> region : this.regions) {
+
+			if (region.getFirst().getTileTypeEnum() != tileTypeEnum)
+				continue;
+
+			for (BoardSpace boardSpace : region) {
+
+				if (!boardSpace.containsTile())
+					return false;
+
+			}
+
+		}
+
+		return true;
+
+	}
+
 }
