@@ -1,9 +1,11 @@
 package gameState;
 
+import enums.BuildingTypeEnum;
 import enums.GameStateEnum;
 import enums.TextEnum;
 import enums.TileTypeEnum;
 import model.BoardSpace;
+import tiles.Building;
 import tiles.Tile;
 
 public class ResolveBuildingCityHall extends GameState {
@@ -73,12 +75,35 @@ public class ResolveBuildingCityHall extends GameState {
 		if (this.boardSpaceSelected == null)
 			return;
 
-		if (this.tileSelected.getTileTypeEnum() == TileTypeEnum.BLACK)
+		if (this.tileSelected.getTileTypeEnum() == TileTypeEnum.BLACK) {
 			this.actionCanBeExecuted = true;
-		else if (this.tileSelected.getTileTypeEnum() != this.boardSpaceSelected.getTileTypeEnum())
+			return;
+		}
+
+		if (this.tileSelected.getTileTypeEnum() != this.boardSpaceSelected.getTileTypeEnum()) {
 			this.actionCanBeExecuted = false;
-		else
-			this.actionCanBeExecuted = true;
+			return;
+		}
+
+		if (this.boardSpaceSelected.getTileTypeEnum() == TileTypeEnum.BUILDING) {
+
+			if (!super.controller.gameModifiers().canPlaceIdenticalBuildings()) {
+
+				Building buildingSelected = (Building) this.tileSelected;
+				BuildingTypeEnum buildingTypeEnum = buildingSelected.getBuildingTypeEnum();
+
+				if (super.controller.playerBoard()
+						.regionContainingBoardSpaceHasAnIdenticalBuilding(this.boardSpaceSelected, buildingTypeEnum)) {
+					this.actionCanBeExecuted = false;
+					setUpText();
+					return;
+				}
+
+			}
+
+		}
+
+		this.actionCanBeExecuted = true;
 
 		setUpText();
 

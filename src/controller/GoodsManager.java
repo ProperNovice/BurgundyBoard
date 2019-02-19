@@ -105,7 +105,7 @@ public class GoodsManager {
 		return this.goodsList.removeRandom();
 	}
 
-	public void addThreeRandomGoodsToPlayerGoodsAndRelocate() {
+	private void addThreeRandomGoodsToPlayerGoodsAndRelocate() {
 
 		ArrayList<Goods> goods = new ArrayList<>();
 		Goods goodsTemp = null;
@@ -124,6 +124,17 @@ public class GoodsManager {
 
 	public boolean playerGoodsSizeAtLeaseFive() {
 		return this.playerGoods.size() >= 5;
+	}
+
+	public void removeFiveRandomGoodsAndRelocate() {
+
+		for (int counter = 1; counter <= 5; counter++)
+			this.playerGoods.removeRandom().setVisible(false);
+
+		relocatePlayerGoods();
+		
+		System.out.println(this.playerGoods.size());
+
 	}
 
 }

@@ -56,6 +56,8 @@ public class ResolveTileAddedShip extends GameState {
 		super.controller.depotBlackManager().removeTile(tile);
 		tile.setVisible(false);
 
+		super.controller.goodsManager().removeFiveRandomGoodsAndRelocate();
+
 		Tile tileBlack = new Black();
 		super.controller.storageSpaceManager().addTileAndRelocate(tileBlack);
 		tileBlack.setVisible(true);

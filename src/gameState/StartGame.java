@@ -10,7 +10,7 @@ import tiles.Animal;
 import tiles.Black;
 import tiles.Building;
 import tiles.Castle;
-import tiles.KnowledgeBlack;
+import tiles.Knowledge;
 import tiles.Ship;
 import tiles.Tile;
 import utils.ArrayList;
@@ -81,7 +81,7 @@ public class StartGame extends GameState {
 		tile = new Building(BuildingTypeEnum.WAREHOUSE);
 		addTileToGameBoard(tile, 8);
 
-		tile = new KnowledgeBlack(24);
+		tile = new Knowledge(5);
 		addTileToGameBoard(tile, 7);
 
 	}

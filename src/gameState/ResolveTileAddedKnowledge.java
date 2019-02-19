@@ -147,7 +147,7 @@ public class ResolveTileAddedKnowledge extends GameState {
 	}
 
 	private void resolveTileNumber5() {
-		// TODO
+		Logger.logNewLine("Not implemented");
 	}
 
 	private void resolveTileNumber6() {

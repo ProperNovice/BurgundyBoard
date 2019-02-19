@@ -353,6 +353,10 @@ public class PlayerBoard implements EventHandlerAble {
 				continue;
 
 			Tile tile = boardSpaceTemp.getTileContaining();
+
+			if (tile.getTileTypeEnum() == TileTypeEnum.BLACK)
+				continue;
+
 			Building building = (Building) tile;
 			BuildingTypeEnum buildingTypeEnumContaining = building.getBuildingTypeEnum();
 
