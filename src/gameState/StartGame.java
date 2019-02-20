@@ -28,13 +28,12 @@ public class StartGame extends GameState {
 //		addWorkers(2);
 //		setDiceModifiers();
 //		removeDiceFromAction();
-		setCanBePlacedIdenticalBuildingsTrue();
+//		setCanBePlacedIdenticalBuildingsTrue();
 		setTextScore();
 		addGroupActions();
 //		addPlayerGoods();
 
-		super.controller.flowManager().addGameStateResolvingFirst(GameStateEnum.ACTION_TAKE_WORKERS_TILES);
-		super.controller.flowManager().addGameStateResolvingFirst(GameStateEnum.RESOLVE_TILE_ADDED);
+		super.controller.flowManager().addGameStateResolvingFirst(GameStateEnum.RESOLVE_TILE_TYPE_IS_COMPLETED);
 
 		super.controller.flowManager().addGameStateResolvingFirst(GameStateEnum.START_NEW_PHASE);
 		super.controller.flowManager().proceedToNextGameStatePhase();
@@ -65,21 +64,15 @@ public class StartGame extends GameState {
 
 		tile = new Animal(AnimalTypeEnum.COW, 3);
 		addTileToGameBoard(tile, 14);
-		
+
 		tile = new Animal(AnimalTypeEnum.PIG, 3);
 		addTileToGameBoard(tile, 5);
 
 		tile = new Building(BuildingTypeEnum.CITY_HALL);
 		addTileToGameBoard(tile, 2);
-		
-		tile = new Building(BuildingTypeEnum.WAREHOUSE);
-		addTileToGameBoard(tile, 3);
-		
+
 		tile = new Building(BuildingTypeEnum.WAREHOUSE);
 		addTileToGameBoard(tile, 4);
-		
-		tile = new Building(BuildingTypeEnum.WAREHOUSE);
-		addTileToGameBoard(tile, 8);
 
 		tile = new Knowledge(5);
 		addTileToGameBoard(tile, 7);

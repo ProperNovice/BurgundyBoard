@@ -32,6 +32,7 @@ public enum GameStateEnum {
 	RESOLVE_BUILDING_MARKET(new ResolveBuildingMarket()),
 	RESOLVE_BUILDING_WATCHTOWER(new ResolveBuildingWatchtower()),
 	RESOLVE_BUILDING_CITY_HALL(new ResolveBuildingCityHall()),
+	RESOLVE_TILE_TYPE_IS_COMPLETED(new ResolveTileTypeIsCompleted()),
 
 	;
 

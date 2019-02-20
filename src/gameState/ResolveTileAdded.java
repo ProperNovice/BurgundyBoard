@@ -44,7 +44,9 @@ public class ResolveTileAdded extends GameState {
 
 		}
 
-		super.controller.flowManager().addGameStateResolvingFirst(gameStateEnum);
+		if (gameStateEnum != null)
+			super.controller.flowManager().addGameStateResolvingFirst(gameStateEnum);
+
 		super.controller.flowManager().proceedToNextGameStatePhase();
 
 	}

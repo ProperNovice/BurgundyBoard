@@ -150,6 +150,10 @@ public class ActionAddTileToYourEstate extends ExecuteDiceActions {
 		handleCheckIfCompletesRegion();
 
 		super.controller.groupActionsManager().addGroupAction(GameStateEnum.RESOLVE_TILE_ADDED);
+
+		if (super.controller.playerBoard().tileTypeIsCompleted(this.boardSpaceSelected.getTileTypeEnum()))
+			super.controller.groupActionsManager().addGroupAction(GameStateEnum.RESOLVE_TILE_TYPE_IS_COMPLETED);
+
 		super.controller.flowManager().addGameStateResolvingFirst(GameStateEnum.RESOLVE_GROUP_ACTIONS);
 
 		super.controller.flowManager().proceedToNextGameStatePhase();
