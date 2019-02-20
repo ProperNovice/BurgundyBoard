@@ -8,9 +8,7 @@ public class ChooseTileToDiscard extends GameState {
 
 	@Override
 	public void handleGameStateChange() {
-
 		super.controller.textManager().showText(TextEnum.CHOOSE_A_TILE_TO_DISCARD);
-
 	}
 
 	@Override

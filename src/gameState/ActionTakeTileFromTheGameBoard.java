@@ -9,7 +9,9 @@ import utils.Logger;
 public class ActionTakeTileFromTheGameBoard extends ExecuteDiceActions {
 
 	public ActionTakeTileFromTheGameBoard() {
+
 		super.actionEnumToShow = ActionEnum.TAKE_TILE_FROM_THE_GAME_BOARD;
+
 	}
 
 	@Override
@@ -52,7 +54,7 @@ public class ActionTakeTileFromTheGameBoard extends ExecuteDiceActions {
 
 		super.controller.workersManager().setWorkersTempAndRelocate(super.workersNeeded);
 
-		System.out.println(super.workersNeeded + " wn");
+		Logger.logNewLine(super.workersNeeded + " wn");
 
 		setUpText();
 
@@ -76,7 +78,7 @@ public class ActionTakeTileFromTheGameBoard extends ExecuteDiceActions {
 		if (super.controller.storageSpaceManager().exceedsMaxedCapacity())
 			super.controller.flowManager().addGameStateResolvingFirst(GameStateEnum.CHOOSE_TILE_TO_DISCARD);
 
-//		super.controller.flowManager().proceedToNextGameStatePhase();
+		super.controller.flowManager().proceedToNextGameStatePhase();
 
 	}
 

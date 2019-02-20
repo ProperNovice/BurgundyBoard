@@ -126,11 +126,7 @@ public abstract class ExecuteDiceActions extends GameState {
 	protected final void setUpText() {
 
 		super.controller.textManager().concealText();
-
-		if (super.controller.diceManager().diceAvailableThisRoundAmount() > 1)
-			super.controller.textManager().showText(TextEnum.CHOOSE_TILE_AND_DICE);
-		else
-			super.controller.textManager().showText(TextEnum.CHOOSE_TILE);
+		super.controller.textManager().showText(TextEnum.RESOLVE_ACTION);
 
 		if (this.actionCanBeExecuted)
 			super.controller.textManager().showText(TextEnum.CONTINUE);
