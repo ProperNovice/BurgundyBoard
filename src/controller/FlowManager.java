@@ -15,7 +15,8 @@ public class FlowManager {
 		createGameStateNormalTurn();
 
 //		this.gameStateResolving.addLast(GameStateEnum.CHOOSE_SPACE_TO_PLACE_THE_CASTLE);
-//		this.gameStateResolving.addLast(GameStateEnum.START_NEW_PHASE);
+		this.gameStateResolving.addLast(GameStateEnum.START_NEW_PHASE);
+		this.gameStateResolving.addLast(GameStateEnum.END_OF_ROUND);
 
 //		this.gameStateResolving.addLast(GameStateEnum.CHOOSE_TILE_TO_DISCARD);
 

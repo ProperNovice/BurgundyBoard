@@ -5,12 +5,12 @@ import enums.TileTypeEnum;
 import model.BoardSpace;
 import tiles.Tile;
 
-public class ChooseSpaceToPlaceTheCastle extends GameState {
+public class ChooseSpaceForStartingCastle extends GameState {
 
 	@Override
 	public void handleGameStateChange() {
 
-		super.controller.textManager().showText(TextEnum.CHOOSE_SPACE_TO_PLACE_THE_CASTLE);
+		super.controller.textManager().showText(TextEnum.CHOOSE_SPACE_FOR_STARTING_CASTLE);
 
 	}
 

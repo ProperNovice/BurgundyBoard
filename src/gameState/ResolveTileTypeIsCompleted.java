@@ -1,6 +1,7 @@
 package gameState;
 
 import enums.BuildingTypeEnum;
+import enums.GameStateEnum;
 import enums.TextEnum;
 import enums.TileTypeEnum;
 import model.BoardSpace;
@@ -57,13 +58,7 @@ public class ResolveTileTypeIsCompleted extends GameState {
 
 	@Override
 	public void handleTextOptionPressed(TextEnum textEnum) {
-
-		this.tileSelected.setSelected(false);
-		this.boardSpaceSelected.setSelected(false);
-
-		super.controller.depotBlackManager().removeTile(this.tileSelected);
-		this.boardSpaceSelected.addTileAndRelocate(this.tileSelected);
-
+		executeAction();
 	}
 
 	private void setUpText() {
@@ -108,6 +103,27 @@ public class ResolveTileTypeIsCompleted extends GameState {
 		}
 
 		this.actionCanBeCompleted = true;
+
+	}
+
+	private void executeAction() {
+
+		this.tileSelected.setSelected(false);
+		this.boardSpaceSelected.setSelected(false);
+
+		super.controller.gameModifiers().setLastTileAddedToBoardSpace(this.tileSelected, this.boardSpaceSelected);
+
+		super.controller.depotBlackManager().removeTile(this.tileSelected);
+		this.boardSpaceSelected.addTileAndRelocate(this.tileSelected);
+
+		super.controller.groupActionsManager().addGroupAction(GameStateEnum.RESOLVE_TILE_ADDED);
+
+		if (super.controller.playerBoard().tileTypeIsCompleted(this.boardSpaceSelected.getTileTypeEnum()))
+			super.controller.groupActionsManager().addGroupAction(GameStateEnum.RESOLVE_TILE_TYPE_IS_COMPLETED);
+
+		super.controller.flowManager().addGameStateResolvingFirst(GameStateEnum.RESOLVE_GROUP_ACTIONS);
+
+		super.controller.flowManager().proceedToNextGameStatePhase();
 
 	}
 

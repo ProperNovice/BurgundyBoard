@@ -5,7 +5,7 @@ import gameState.*;
 public enum GameStateEnum {
 
 	START_GAME(new StartGame()),
-	CHOOSE_SPACE_TO_PLACE_THE_CASTLE(new ChooseSpaceToPlaceTheCastle()),
+	CHOOSE_SPACE_TO_PLACE_THE_CASTLE(new ChooseSpaceForStartingCastle()),
 	START_NEW_PHASE(new StartNewPhase()),
 	START_NEW_ROUND(new StartNewRound()),
 	RESOLVE_GRAY_DICE(new ResolveGrayDice()),
@@ -33,6 +33,8 @@ public enum GameStateEnum {
 	RESOLVE_BUILDING_WATCHTOWER(new ResolveBuildingWatchtower()),
 	RESOLVE_BUILDING_CITY_HALL(new ResolveBuildingCityHall()),
 	RESOLVE_TILE_TYPE_IS_COMPLETED(new ResolveTileTypeIsCompleted()),
+	END_OF_ROUND(new EndOfRound()),
+	END_OF_PHASE(new EndOfPhase()),
 
 	;
 

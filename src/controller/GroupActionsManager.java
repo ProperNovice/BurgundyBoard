@@ -18,11 +18,11 @@ public class GroupActionsManager {
 
 	public void addGroupAction(GameStateEnum gameStateEnum) {
 
-		Logger.log("adding group action");
-		Logger.logNewLine(gameStateEnum);
-
 		if (this.groupActionsList.contains(gameStateEnum))
 			return;
+
+		Logger.log("adding group action");
+		Logger.logNewLine(gameStateEnum);
 
 		this.groupActionsList.addLast(gameStateEnum);
 

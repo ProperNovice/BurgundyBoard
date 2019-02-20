@@ -1,17 +1,13 @@
 package gameState;
 
-import enums.AnimalTypeEnum;
 import enums.BuildingTypeEnum;
 import enums.GameStateEnum;
 import enums.TileTypeEnum;
 import model.BoardSpace;
 import model.Goods;
-import tiles.Animal;
 import tiles.Black;
 import tiles.Building;
 import tiles.Castle;
-import tiles.Knowledge;
-import tiles.Ship;
 import tiles.Tile;
 import utils.ArrayList;
 
@@ -21,21 +17,20 @@ public class StartGame extends GameState {
 	public void handleGameStateChange() {
 
 		addTilesToGameBoard();
-		addGoodsToDepotNumbers();
-		setDiceValuesRed();
-		addTilesToStorageSpaces();
+//		addGoodsToDepotNumbers();
+//		setDiceValuesRed();
+//		addTilesToStorageSpaces();
 //		addSilverlings(4);
 //		addWorkers(2);
 //		setDiceModifiers();
 //		removeDiceFromAction();
 //		setCanBePlacedIdenticalBuildingsTrue();
-		setTextScore();
-		addGroupActions();
+//		setTextScore();
+//		addGroupActions();
 //		addPlayerGoods();
 
-		super.controller.flowManager().addGameStateResolvingFirst(GameStateEnum.RESOLVE_TILE_TYPE_IS_COMPLETED);
-
-		super.controller.flowManager().addGameStateResolvingFirst(GameStateEnum.START_NEW_PHASE);
+//		super.controller.flowManager().addGameStateResolvingFirst(GameStateEnum.END_OF_ROUND);
+//		super.controller.flowManager().addGameStateResolvingFirst(GameStateEnum.START_NEW_PHASE);
 		super.controller.flowManager().proceedToNextGameStatePhase();
 
 	}
@@ -46,36 +41,6 @@ public class StartGame extends GameState {
 
 		tile = new Castle();
 		addTileToGameBoard(tile, 6);
-
-		tile = new Ship();
-		addTileToGameBoard(tile, 9);
-
-		tile = new Black();
-		addTileToGameBoard(tile, 10);
-
-		tile = new Castle();
-		addTileToGameBoard(tile, 17);
-
-		tile = new Animal(AnimalTypeEnum.COW, 2);
-		addTileToGameBoard(tile, 18);
-
-		tile = new Animal(AnimalTypeEnum.HEN, 4);
-		addTileToGameBoard(tile, 23);
-
-		tile = new Animal(AnimalTypeEnum.COW, 3);
-		addTileToGameBoard(tile, 14);
-
-		tile = new Animal(AnimalTypeEnum.PIG, 3);
-		addTileToGameBoard(tile, 5);
-
-		tile = new Building(BuildingTypeEnum.CITY_HALL);
-		addTileToGameBoard(tile, 2);
-
-		tile = new Building(BuildingTypeEnum.WAREHOUSE);
-		addTileToGameBoard(tile, 4);
-
-		tile = new Knowledge(5);
-		addTileToGameBoard(tile, 7);
 
 	}
 
