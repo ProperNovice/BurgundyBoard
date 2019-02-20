@@ -207,6 +207,21 @@ public class DepotNumberedManager {
 
 	}
 
+	public void removeFirstGoodFromDepotNumberIfAble(int depotNumberedValue) {
+
+		for (DepotNumbered depotNumbered : this.depotNumbers) {
+
+			if (depotNumbered.getDepotNumber() != depotNumberedValue)
+				continue;
+
+			System.out.println("a");
+			depotNumbered.removeFirstIfAble();
+			break;
+
+		}
+
+	}
+
 	public void removeAllGoods() {
 
 		for (DepotNumbered depotNumbered : this.depotNumbers) {

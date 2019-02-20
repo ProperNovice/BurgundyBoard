@@ -13,10 +13,10 @@ public class StartNewPhase extends GameState {
 
 		super.controller.textManager().showText(TextEnum.START_NEW_PHASE);
 
-		// TODO
-
+		// to erase
 		super.controller.textManager().concealText();
-		handleTextOptionPressed(null);
+		executeStartNewPhase();
+
 	}
 
 	@Override

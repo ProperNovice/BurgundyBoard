@@ -24,7 +24,11 @@ public enum TextEnum {
 	CHOOSE_AN_ANIMAL_OR_SHIP("Choose an animal\nor ship", TextTypeEnum.INDICATOR),
 	CHOOSE_TILE_AND_BOARD_SPACE("Choose tile &\nboard space", TextTypeEnum.INDICATOR),
 	SKIP_BLACK_TILE("Skip black tile", TextTypeEnum.OPTION),
-
+	CHOOSE_DIFFICULTY("Choose difficulty", TextTypeEnum.INDICATOR),
+	EASY("Easy - 45 vp", TextTypeEnum.OPTION),
+	MEDIUM("Medium - 50 vp", TextTypeEnum.OPTION),
+	HARD("Hard - 55 vp", TextTypeEnum.OPTION),
+	
 	;
 
 	private String string = null;

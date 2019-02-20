@@ -17,15 +17,15 @@ public class StartGame extends GameState {
 	public void handleGameStateChange() {
 
 		addTilesToGameBoard();
+		setTextScore();
 //		addGoodsToDepotNumbers();
-//		setDiceValuesRed();
+		setDiceValuesRed();
 //		addTilesToStorageSpaces();
-//		addSilverlings(4);
+		addSilverlings(4);
 //		addWorkers(2);
 //		setDiceModifiers();
 //		removeDiceFromAction();
 //		setCanBePlacedIdenticalBuildingsTrue();
-//		setTextScore();
 //		addGroupActions();
 //		addPlayerGoods();
 

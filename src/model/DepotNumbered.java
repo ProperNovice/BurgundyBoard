@@ -122,4 +122,13 @@ public class DepotNumbered {
 
 	}
 
+	public void removeFirstIfAble() {
+
+		if (this.tiles.isEmpty())
+			return;
+
+		this.tiles.removeFirst().setVisible(false);
+
+	}
+
 }

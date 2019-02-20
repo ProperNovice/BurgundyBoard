@@ -19,16 +19,16 @@ public class StartNewRound extends GameState {
 			return;
 
 		super.controller.textManager().concealText();
-		rollDice();
+		executeAction();
 
 	}
 
 	@Override
 	public void handleTextOptionPressed(TextEnum textEnum) {
-		rollDice();
+		executeAction();
 	}
 
-	private void rollDice() {
+	private void executeAction() {
 
 		super.controller.diceManager().rollDiceAndRelocate();
 		super.controller.flowManager().proceedToNextGameStatePhase();
