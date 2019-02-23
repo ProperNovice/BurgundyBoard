@@ -18,7 +18,7 @@ public class ActionTakeWorkersTiles extends GameState {
 
 		super.controller.actionManager().showAction(ActionEnum.TAKE_WORKERS_TILES);
 
-		if (super.controller.diceManager().diceAvailableThisRoundAmount() > 1) {
+		if (super.controller.diceManager().diceCurrentlyShowingAmount() > 1) {
 
 			super.controller.textManager().showText(TextEnum.CHOOSE_DICE);
 			return;

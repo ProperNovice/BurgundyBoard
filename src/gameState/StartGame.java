@@ -7,9 +7,9 @@ import enums.TileTypeEnum;
 import model.BoardSpace;
 import model.Goods;
 import tiles.Animal;
-import tiles.Black;
 import tiles.Building;
 import tiles.Castle;
+import tiles.Knowledge;
 import tiles.Tile;
 import utils.ArrayList;
 
@@ -84,7 +84,7 @@ public class StartGame extends GameState {
 	public void addTilesToStorageSpaces() {
 
 		addTileToStorageSpace(new Animal(AnimalTypeEnum.COW, 3));
-		addTileToStorageSpace(new Black());
+		addTileToStorageSpace(new Knowledge(1));
 		addTileToStorageSpace(new Building(BuildingTypeEnum.CARPENTERS_WORKSHOP));
 
 	}

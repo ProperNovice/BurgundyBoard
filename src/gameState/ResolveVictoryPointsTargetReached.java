@@ -1,10 +1,5 @@
 package gameState;
 
-public class ResolveVictoryPointsTargetReached extends GameState {
-
-	@Override
-	public void handleGameStateChange() {
-
-	}
+public class ResolveVictoryPointsTargetReached extends ResolveFreeAction {
 
 }

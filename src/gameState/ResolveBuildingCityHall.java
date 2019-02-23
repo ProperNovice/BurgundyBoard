@@ -167,6 +167,8 @@ public class ResolveBuildingCityHall extends GameState {
 			return;
 
 		super.controller.groupActionsManager().addGroupAction(GameStateEnum.RESOLVE_VICTORY_POINTS_TARGET_REACHED);
+		super.controller.flowManager().addGameStateResolvingFirst(GameStateEnum.RESOLVE_GROUP_ACTIONS);
+
 		super.controller.victoryPointManager().resetScoring();
 
 	}

@@ -1,6 +1,7 @@
 package gameState;
 
 import enums.BuildingTypeEnum;
+import enums.GameStateEnum;
 import enums.TileTypeEnum;
 import tiles.Knowledge;
 import tiles.Tile;
@@ -260,6 +261,13 @@ public class ResolveTileAddedKnowledge extends GameState {
 
 		super.controller.victoryPointManager().addCurrentVictoryPoints(victoryPoints);
 
+		if (!super.controller.victoryPointManager().currentVictoryPointsReachedTargetVictoryPoints())
+			return;
+
+		super.controller.groupActionsManager().addGroupAction(GameStateEnum.RESOLVE_VICTORY_POINTS_TARGET_REACHED);
+		super.controller.flowManager().addGameStateResolvingFirst(GameStateEnum.RESOLVE_GROUP_ACTIONS);
+		super.controller.victoryPointManager().resetScoring();
+
 	}
 
 	// <-
@@ -277,6 +285,13 @@ public class ResolveTileAddedKnowledge extends GameState {
 		Logger.newLine();
 
 		super.controller.victoryPointManager().addCurrentVictoryPoints(victoryPoints);
+
+		if (!super.controller.victoryPointManager().currentVictoryPointsReachedTargetVictoryPoints())
+			return;
+
+		super.controller.groupActionsManager().addGroupAction(GameStateEnum.RESOLVE_VICTORY_POINTS_TARGET_REACHED);
+		super.controller.flowManager().addGameStateResolvingFirst(GameStateEnum.RESOLVE_GROUP_ACTIONS);
+		super.controller.victoryPointManager().resetScoring();
 
 	}
 

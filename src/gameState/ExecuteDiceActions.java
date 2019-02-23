@@ -28,7 +28,7 @@ public abstract class ExecuteDiceActions extends GameState {
 		super.controller.actionManager().showAction(this.actionEnumToShow);
 		setUpText();
 
-		if (super.controller.diceManager().diceAvailableThisRoundAmount() > 1)
+		if (super.controller.diceManager().diceCurrentlyShowingAmount() > 1)
 			return;
 
 		Dice dice = super.controller.diceManager().getFirstDieAvailableThisRound();

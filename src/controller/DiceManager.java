@@ -92,12 +92,12 @@ public class DiceManager {
 
 	}
 
-	public int diceAvailableThisRoundAmount() {
-		return this.diceRoundAvailable.size();
+	public int diceCurrentlyShowingAmount() {
+		return this.diceCurrentlyShowing.size();
 	}
 
 	public Dice getFirstDieAvailableThisRound() {
-		return this.diceRoundAvailable.getFirst();
+		return this.diceCurrentlyShowing.getFirst();
 	}
 
 	public void testSetRedDiceValuesAndRelocate(int diceValueFirst, int diceValueSecond) {
