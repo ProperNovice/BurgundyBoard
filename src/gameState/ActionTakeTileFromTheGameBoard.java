@@ -66,7 +66,7 @@ public class ActionTakeTileFromTheGameBoard extends ExecuteDiceActions {
 		super.controller.textManager().concealText();
 		super.controller.actionManager().concealActions();
 
-		super.controller.depotNumberedManager().removeTile(super.tileSelected);
+		super.controller.depotNumberedManager().removeTileAndRelocate(super.tileSelected);
 		super.controller.storageSpaceManager().addTileAndRelocate(super.tileSelected);
 
 		super.controller.workersManager().removeWorkersTemp();

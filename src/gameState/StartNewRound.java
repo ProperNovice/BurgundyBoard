@@ -32,7 +32,7 @@ public class StartNewRound extends GameState {
 
 		super.controller.diceManager().rollDiceAndRelocate();
 		
-		super.controller.flowManager().createGameStatesNewRound();
+		super.controller.flowManager().createGameStatesForNewRound();
 		super.controller.flowManager().proceedToNextGameStatePhase();
 
 	}

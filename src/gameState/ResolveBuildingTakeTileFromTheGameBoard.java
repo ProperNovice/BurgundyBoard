@@ -25,7 +25,7 @@ public abstract class ResolveBuildingTakeTileFromTheGameBoard extends GameState 
 
 		super.controller.textManager().concealText();
 
-		super.controller.depotNumberedManager().removeTile(tile);
+		super.controller.depotNumberedManager().removeTileAndRelocate(tile);
 		super.controller.storageSpaceManager().addTileAndRelocate(tile);
 
 		if (super.controller.storageSpaceManager().exceedsMaxedCapacity())

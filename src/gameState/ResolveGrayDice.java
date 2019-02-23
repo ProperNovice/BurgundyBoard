@@ -15,16 +15,15 @@ public class ResolveGrayDice extends GameState {
 
 	@Override
 	public void handleTextOptionPressed(TextEnum textEnum) {
-
-		super.controller.textManager().concealText();
 		resolveGrayDice();
-
 	}
 
 	@Override
 	public void handleKeyPressed(KeyCode keyCode) {
+
 		super.controller.textManager().concealText();
 		resolveGrayDice();
+
 	}
 
 	private void resolveGrayDice() {

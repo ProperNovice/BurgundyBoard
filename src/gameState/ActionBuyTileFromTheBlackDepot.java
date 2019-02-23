@@ -95,7 +95,7 @@ public class ActionBuyTileFromTheBlackDepot extends GameState {
 			break;
 
 		case DEPOT_NUMBERED:
-			super.controller.depotNumberedManager().removeTile(this.tileSelected);
+			super.controller.depotNumberedManager().removeTileAndRelocate(this.tileSelected);
 			break;
 
 		}

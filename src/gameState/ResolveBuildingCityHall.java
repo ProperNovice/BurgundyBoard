@@ -77,11 +77,13 @@ public class ResolveBuildingCityHall extends GameState {
 
 		if (this.tileSelected.getTileTypeEnum() == TileTypeEnum.BLACK) {
 			this.actionCanBeExecuted = true;
+			setUpText();
 			return;
 		}
 
 		if (this.tileSelected.getTileTypeEnum() != this.boardSpaceSelected.getTileTypeEnum()) {
 			this.actionCanBeExecuted = false;
+			setUpText();
 			return;
 		}
 
@@ -130,7 +132,11 @@ public class ResolveBuildingCityHall extends GameState {
 		this.boardSpaceSelected.addTileAndRelocate(this.tileSelected);
 
 		super.controller.gameModifiers().setLastTileAddedToBoardSpace(this.tileSelected, this.boardSpaceSelected);
+
 		handleCheckIfCompletesRegion();
+
+		if (this.tileSelected.getTileTypeEnum() != TileTypeEnum.BLACK)
+			super.controller.groupActionsManager().addGroupAction(GameStateEnum.RESOLVE_TILE_ADDED);
 
 		if (super.controller.playerBoard().tileTypeIsCompleted(this.boardSpaceSelected.getTileTypeEnum()))
 			super.controller.groupActionsManager().addGroupAction(GameStateEnum.RESOLVE_TILE_TYPE_IS_COMPLETED);

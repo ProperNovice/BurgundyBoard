@@ -150,11 +150,11 @@ public class DepotNumberedManager {
 
 	}
 
-	public void removeTile(Tile tile) {
+	public void removeTileAndRelocate(Tile tile) {
 
 		for (DepotNumbered depotNumbered : this.depotNumbers) {
 			if (depotNumbered.containsTile(tile))
-				depotNumbered.removeTile(tile);
+				depotNumbered.removeTileAndRelocate(tile);
 		}
 
 	}
@@ -214,7 +214,7 @@ public class DepotNumberedManager {
 			if (depotNumbered.getDepotNumber() != depotNumberedValue)
 				continue;
 
-			depotNumbered.removeFirstIfAble();
+			depotNumbered.removeFirstTileIfAbleAndRelocate();
 			break;
 
 		}

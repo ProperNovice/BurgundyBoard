@@ -18,12 +18,10 @@ public class ActionTakeWorkersTiles extends GameState {
 
 		super.controller.actionManager().showAction(ActionEnum.TAKE_WORKERS_TILES);
 
-		if (super.controller.diceManager().diceCurrentlyShowingAmount() > 1) {
+		super.controller.textManager().showText(TextEnum.CHOOSE_DICE);
 
-			super.controller.textManager().showText(TextEnum.CHOOSE_DICE);
+		if (super.controller.diceManager().diceCurrentlyShowingAmount() > 1)
 			return;
-
-		}
 
 		Dice dice = super.controller.diceManager().getFirstDieAvailableThisRound();
 		int diceValue = dice.getDiceValue();
@@ -80,7 +78,7 @@ public class ActionTakeWorkersTiles extends GameState {
 
 		super.controller.diceManager().removeDiceFromAction(this.diceSelected);
 		this.diceSelected.setSelected(false);
-		
+
 		super.controller.flowManager().proceedToNextGameStatePhase();
 
 	}

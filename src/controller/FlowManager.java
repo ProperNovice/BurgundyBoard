@@ -34,7 +34,7 @@ public class FlowManager {
 		this.gameStateResolving.addFirst(gameStateEnum);
 	}
 
-	public void createGameStatesNewRound() {
+	public void createGameStatesForNewRound() {
 
 		this.gameStateNormalTurn.addLast(GameStateEnum.RESOLVE_GRAY_DICE);
 		this.gameStateNormalTurn.addLast(GameStateEnum.CHOOSE_AN_ACTION);

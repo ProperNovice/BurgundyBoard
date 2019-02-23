@@ -47,8 +47,9 @@ public class DepotNumbered {
 		return this.tiles.contains(tile);
 	}
 
-	public void removeTile(Tile tile) {
+	public void removeTileAndRelocate(Tile tile) {
 		this.tiles.remove(tile);
+		relocateTiles();
 	}
 
 	public boolean containsGoods(Goods goods) {
@@ -70,6 +71,12 @@ public class DepotNumbered {
 
 		this.tiles.addLast(tileFirst);
 		this.tiles.addLast(tileSecond);
+
+		relocateTiles();
+
+	}
+
+	public void relocateTiles() {
 
 		double x = this.xCoordinates + Credentials.DimensionsDice.x + Credentials.DimensionsGapBetweenComponents.x;
 
@@ -122,12 +129,13 @@ public class DepotNumbered {
 
 	}
 
-	public void removeFirstIfAble() {
+	public void removeFirstTileIfAbleAndRelocate() {
 
 		if (this.tiles.isEmpty())
 			return;
 
 		this.tiles.removeFirst().setVisible(false);
+		relocateTiles();
 
 	}
 

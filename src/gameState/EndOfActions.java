@@ -3,6 +3,7 @@ package gameState;
 import enums.GameStateEnum;
 import enums.TextEnum;
 import javafx.scene.input.KeyCode;
+import utils.Logger;
 
 public class EndOfActions extends GameState {
 
@@ -19,6 +20,7 @@ public class EndOfActions extends GameState {
 			this.textEnumShowing = TextEnum.END_OF_PHASE;
 
 		super.controller.textManager().showText(this.textEnumShowing);
+		Logger.logNewLine(this.textEnumShowing + " resolving");
 
 	}
 
