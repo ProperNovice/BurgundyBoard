@@ -6,6 +6,7 @@ public class ResolveBuildingBank extends GameState {
 	public void handleGameStateChange() {
 
 		super.controller.silverlingManager().addSilverlingsToPlayerBoardAndRelocate(2);
+
 		super.controller.flowManager().proceedToNextGameStatePhase();
 
 	}

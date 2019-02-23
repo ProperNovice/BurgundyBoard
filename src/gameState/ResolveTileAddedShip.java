@@ -51,6 +51,9 @@ public class ResolveTileAddedShip extends GameState {
 	@Override
 	protected void handleTileBlackPressed(Tile tile, TileTypeEnum tileTypeEnum) {
 
+		if (this.resolvePhase != ResolvePhase.TAKE_BLACK_TILE_CHOICE)
+			return;
+
 		super.controller.textManager().concealText();
 
 		super.controller.depotBlackManager().removeTile(tile);

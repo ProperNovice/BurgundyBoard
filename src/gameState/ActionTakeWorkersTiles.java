@@ -80,6 +80,8 @@ public class ActionTakeWorkersTiles extends GameState {
 
 		super.controller.diceManager().removeDiceFromAction(this.diceSelected);
 		this.diceSelected.setSelected(false);
+		
+		super.controller.flowManager().proceedToNextGameStatePhase();
 
 	}
 

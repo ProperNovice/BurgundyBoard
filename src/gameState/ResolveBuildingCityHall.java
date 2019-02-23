@@ -132,7 +132,8 @@ public class ResolveBuildingCityHall extends GameState {
 		super.controller.gameModifiers().setLastTileAddedToBoardSpace(this.tileSelected, this.boardSpaceSelected);
 		handleCheckIfCompletesRegion();
 
-		super.controller.groupActionsManager().addGroupAction(GameStateEnum.RESOLVE_TILE_ADDED);
+		if (super.controller.playerBoard().tileTypeIsCompleted(this.boardSpaceSelected.getTileTypeEnum()))
+			super.controller.groupActionsManager().addGroupAction(GameStateEnum.RESOLVE_TILE_ADDED);
 
 		if (super.controller.playerBoard().tileTypeIsCompleted(this.boardSpaceSelected.getTileTypeEnum()))
 			super.controller.groupActionsManager().addGroupAction(GameStateEnum.RESOLVE_TILE_TYPE_IS_COMPLETED);

@@ -21,6 +21,8 @@ public class ResolveTileAddedAnimal extends GameState {
 				animalTypeExtraPoints);
 
 		super.controller.victoryPointManager().addCurrentVictoryPoints(victoryPoints);
+		
+		super.controller.flowManager().proceedToNextGameStatePhase();
 
 	}
 

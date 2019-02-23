@@ -17,6 +17,7 @@ public class ChooseTileToDiscard extends GameState {
 		super.controller.textManager().concealText();
 		super.controller.storageSpaceManager().removeTileAndRelocate(tile);
 		tile.setVisible(false);
+
 		super.controller.flowManager().proceedToNextGameStatePhase();
 
 	}
