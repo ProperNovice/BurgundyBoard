@@ -28,6 +28,7 @@ public enum TextEnum {
 	EASY("Easy - 45 vp", TextTypeEnum.OPTION),
 	MEDIUM("Medium - 50 vp", TextTypeEnum.OPTION),
 	HARD("Hard - 55 vp", TextTypeEnum.OPTION),
+	RESOLVE_COMPLETED_TYPE("Resolve completed type", TextTypeEnum.OPTION),
 	
 	;
 

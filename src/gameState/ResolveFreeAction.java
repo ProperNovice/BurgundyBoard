@@ -1,6 +1,5 @@
 package gameState;
 
-import enums.GameStateEnum;
 import enums.TextEnum;
 import javafx.scene.input.KeyCode;
 import model.Dice;
@@ -60,7 +59,6 @@ public abstract class ResolveFreeAction extends GameState {
 		this.diceSelected.setSelected(false);
 		super.controller.diceManager().removeAllDiceCurrentlyShowingButThisAndRelocate(this.diceSelected);
 
-		super.controller.flowManager().addGameStateResolvingFirst(GameStateEnum.CHOOSE_AN_ACTION);
 		super.controller.flowManager().proceedToNextGameStatePhase();
 
 	}

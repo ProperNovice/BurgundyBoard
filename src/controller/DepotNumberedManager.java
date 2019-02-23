@@ -214,7 +214,6 @@ public class DepotNumberedManager {
 			if (depotNumbered.getDepotNumber() != depotNumberedValue)
 				continue;
 
-			System.out.println("a");
 			depotNumbered.removeFirstIfAble();
 			break;
 

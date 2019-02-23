@@ -43,7 +43,7 @@ public class DiceManager {
 
 		// set dice currently showing
 
-		this.diceCurrentlyShowing = this.diceRoundOriginal;
+		this.diceCurrentlyShowing = this.diceRoundAvailable;
 
 	}
 
@@ -70,7 +70,7 @@ public class DiceManager {
 
 		}
 
-		Logger.newLine();
+		printDiceCurrentlyShowing();
 
 	}
 
@@ -182,6 +182,18 @@ public class DiceManager {
 
 		relocateDiceCurrentlyShowing();
 		dice.setVisible(true);
+
+	}
+
+	public void printDiceCurrentlyShowing() {
+
+		Logger.log("dice currently showing");
+
+		for (Dice dice : this.diceCurrentlyShowing) {
+			Logger.log(dice.getDiceColor() + " - " + dice.getDiceValue());
+		}
+
+		Logger.newLine();
 
 	}
 

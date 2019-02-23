@@ -7,7 +7,7 @@ import utils.CoordinatesLinear;
 
 public class GoodsManager {
 
-	private ArrayList<Goods> goodsList = new ArrayList<>();
+	private ArrayList<Goods> goodsListAvailable = new ArrayList<>();
 	private ArrayList<Goods> goodsListOriginal = new ArrayList<>();
 	private ArrayList<Goods> phaseGoods = new ArrayList<>();
 	private ArrayList<Goods> playerGoods = new ArrayList<>();
@@ -25,9 +25,9 @@ public class GoodsManager {
 
 		for (int diceValue = 1; diceValue <= 6; diceValue++)
 			for (int counter = 1; counter <= 7; counter++)
-				this.goodsList.addLast(new Goods(diceValue));
+				this.goodsListAvailable.addLast(new Goods(diceValue));
 
-		this.goodsListOriginal.addAll(this.goodsList);
+		this.goodsListOriginal.addAll(this.goodsListAvailable);
 
 	}
 
@@ -51,7 +51,7 @@ public class GoodsManager {
 
 		for (int counter = 1; counter <= 5; counter++) {
 
-			goods = this.goodsList.removeRandom();
+			goods = this.goodsListAvailable.removeRandom();
 			this.phaseGoods.addLast(goods);
 			int goodsIndex = this.phaseGoods.indexOf(goods);
 
@@ -102,7 +102,7 @@ public class GoodsManager {
 	}
 
 	public Goods testRemoveRandomGoodsFromStack() {
-		return this.goodsList.removeRandom();
+		return this.goodsListAvailable.removeRandom();
 	}
 
 	private void addThreeRandomGoodsToPlayerGoodsAndRelocate() {
@@ -112,7 +112,7 @@ public class GoodsManager {
 
 		for (int counter = 1; counter <= 3; counter++) {
 
-			goodsTemp = this.goodsList.removeRandom();
+			goodsTemp = this.goodsListAvailable.removeRandom();
 			goodsTemp.setVisible(true);
 			goods.addLast(goodsTemp);
 
@@ -132,9 +132,11 @@ public class GoodsManager {
 			this.playerGoods.removeRandom().setVisible(false);
 
 		relocatePlayerGoods();
-		
-		System.out.println(this.playerGoods.size());
 
+	}
+
+	public boolean phaseGoodIsEmpty() {
+		return this.phaseGoods.isEmpty();
 	}
 
 }

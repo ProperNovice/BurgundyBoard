@@ -24,6 +24,8 @@ public class ChooseAnAction extends GameState {
 			actionsToShow.addLast(ActionEnum.BUY_TILE_FROM_THE_BLACK_DEPOT);
 
 		super.controller.actionManager().showActions(actionsToShow);
+		
+		super.controller.diceManager().printDiceCurrentlyShowing();
 
 	}
 

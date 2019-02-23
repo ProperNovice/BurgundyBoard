@@ -67,8 +67,6 @@ public class Dice implements EventHandlerAble {
 		this.imageView.setImage(this.sides.get(this.diceValue));
 		this.imageView.setVisible(true);
 
-		Logger.log(this.diceColor + " - " + this.diceValue);
-
 	}
 
 	public void setSelected(boolean value) {
@@ -95,6 +93,10 @@ public class Dice implements EventHandlerAble {
 		Executor.runLater(() -> Instances.getControllerInstance().gameStateManager().getCurrentGameState()
 				.handleDiceRedPressed(this, this.diceValue));
 
+	}
+
+	public DiceColor getDiceColor() {
+		return this.diceColor;
 	}
 
 }

@@ -19,11 +19,11 @@ public class StartGame extends GameState {
 	public void handleGameStateChange() {
 
 		addTilesToGameBoard();
-		setTextScore();
+//		setTextScore();
 //		addGoodsToDepotNumbers();
-		setDiceValuesRed();
-		addTilesToStorageSpaces();
-		addSilverlings(4);
+//		setDiceValuesRed();
+//		addTilesToStorageSpaces();
+//		addSilverlings(4);
 //		addWorkers(2);
 //		setDiceModifiers();
 //		removeDiceFromAction();
@@ -31,7 +31,7 @@ public class StartGame extends GameState {
 //		addGroupActions();
 //		addPlayerGoods();
 
-//		super.controller.flowManager().addGameStateResolvingFirst(GameStateEnum.END_OF_ROUND);
+//		super.controller.flowManager().addGameStateResolvingFirst(GameStateEnum.RESOLVE_GROUP_ACTIONS);
 //		super.controller.flowManager().addGameStateResolvingFirst(GameStateEnum.START_NEW_PHASE);
 		super.controller.flowManager().proceedToNextGameStatePhase();
 
@@ -124,7 +124,7 @@ public class StartGame extends GameState {
 
 	public void setTextScore() {
 
-		super.controller.victoryPointManager().addCurrentVictoryPoints(46);
+		super.controller.victoryPointManager().addCurrentVictoryPoints(0);
 		super.controller.victoryPointManager().setTargetVictoryPoints(50);
 
 	}
@@ -133,6 +133,7 @@ public class StartGame extends GameState {
 
 		super.controller.groupActionsManager().addGroupAction(GameStateEnum.RESOLVE_TILE_ADDED);
 		super.controller.groupActionsManager().addGroupAction(GameStateEnum.RESOLVE_VICTORY_POINTS_TARGET_REACHED);
+		super.controller.groupActionsManager().addGroupAction(GameStateEnum.RESOLVE_TILE_TYPE_IS_COMPLETED);
 
 	}
 
