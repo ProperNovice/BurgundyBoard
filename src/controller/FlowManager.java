@@ -12,7 +12,7 @@ public class FlowManager {
 
 	public FlowManager() {
 
-		createGameStateNormalTurn();
+//		createGameStateNormalTurn();
 
 //		this.gameStateResolving.addLast(GameStateEnum.CHOOSE_DIFFICULTY);
 //		this.gameStateResolving.addLast(GameStateEnum.CHOOSE_SPACE_TO_PLACE_THE_CASTLE);
@@ -33,15 +33,18 @@ public class FlowManager {
 	public void addGameStateResolvingFirst(GameStateEnum gameStateEnum) {
 		this.gameStateResolving.addFirst(gameStateEnum);
 	}
-	
-	private void createGameStateNormalTurn() {
 
-		this.gameStateNormalTurn.addLast(GameStateEnum.START_NEW_ROUND);
+	public void createGameStatesNewRound() {
+
 		this.gameStateNormalTurn.addLast(GameStateEnum.RESOLVE_GRAY_DICE);
 		this.gameStateNormalTurn.addLast(GameStateEnum.CHOOSE_AN_ACTION);
 		this.gameStateNormalTurn.addLast(GameStateEnum.CHOOSE_AN_ACTION);
 		this.gameStateNormalTurn.addLast(GameStateEnum.END_OF_ACTIONS);
 
 	}
+
+//	private void createGameStateNormalTurn() {
+//		ShutDown.execute("flow manager\ncreateGameStateNormalTurn()");
+//	}
 
 }

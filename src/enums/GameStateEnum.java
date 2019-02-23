@@ -34,7 +34,6 @@ public enum GameStateEnum {
 	RESOLVE_BUILDING_CITY_HALL(new ResolveBuildingCityHall()),
 	RESOLVE_TILE_TYPE_IS_COMPLETED(new ResolveTileTypeIsCompleted()),
 	END_OF_ACTIONS(new EndOfActions()),
-	END_OF_PHASE(new EndOfPhase()),
 	CHOOSE_DIFFICULTY(new ChooseDifficulty()),
 
 	;

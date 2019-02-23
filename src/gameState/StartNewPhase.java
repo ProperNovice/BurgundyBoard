@@ -1,5 +1,6 @@
 package gameState;
 
+import enums.GameStateEnum;
 import enums.TextEnum;
 import enums.TileTypeEnum;
 import javafx.scene.input.KeyCode;
@@ -41,6 +42,7 @@ public class StartNewPhase extends GameState {
 		createNewPhaseGoodsAndRelocate();
 		addTilesToDepotsNumbered();
 		addTilesToDepotsBlack();
+		createGameStatesNewRound();
 		proceedToNextGameState();
 
 	}
@@ -89,6 +91,10 @@ public class StartNewPhase extends GameState {
 
 	private void proceedToNextGameState() {
 		super.controller.flowManager().proceedToNextGameStatePhase();
+	}
+
+	private void createGameStatesNewRound() {
+		super.controller.flowManager().addGameStateResolvingFirst(GameStateEnum.START_NEW_ROUND);
 	}
 
 }

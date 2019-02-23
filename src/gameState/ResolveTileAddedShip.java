@@ -104,7 +104,7 @@ public class ResolveTileAddedShip extends GameState {
 		switch (this.resolvePhase) {
 
 		case CHOOSE_GOODS:
-			super.controller.textManager().showText(TextEnum.RESOLVE_ACTION);
+			super.controller.textManager().showText(TextEnum.CHOOSE_GOODS);
 			break;
 
 		case TAKE_BLACK_TILE_CHOICE:

@@ -29,6 +29,9 @@ public enum TextEnum {
 	MEDIUM("Medium - 50 vp", TextTypeEnum.OPTION),
 	HARD("Hard - 55 vp", TextTypeEnum.OPTION),
 	RESOLVE_COMPLETED_TYPE("Resolve completed type", TextTypeEnum.OPTION),
+	END_OF_ROUND("End of round", TextTypeEnum.OPTION),
+	END_OF_PHASE("End of phase", TextTypeEnum.OPTION),
+	CHOOSE_GOODS("Choose goods", TextTypeEnum.INDICATOR),
 	
 	;
 

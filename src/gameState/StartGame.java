@@ -19,7 +19,7 @@ public class StartGame extends GameState {
 	public void handleGameStateChange() {
 
 		addTilesToGameBoard();
-//		setTextScore();
+		setTextScore();
 //		addGoodsToDepotNumbers();
 //		setDiceValuesRed();
 //		addTilesToStorageSpaces();
@@ -78,7 +78,7 @@ public class StartGame extends GameState {
 	}
 
 	public void setDiceValuesRed() {
-		super.controller.diceManager().testSetRedDiceValuesAndRelocate(4, 6);
+		super.controller.diceManager().testSetRedDiceValuesAndRelocate(4, 3);
 	}
 
 	public void addTilesToStorageSpaces() {
