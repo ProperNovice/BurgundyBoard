@@ -35,6 +35,8 @@ public enum GameStateEnum {
 	RESOLVE_TILE_TYPE_IS_COMPLETED(new ResolveTileTypeIsCompleted()),
 	END_OF_ACTIONS(new EndOfActions()),
 	CHOOSE_DIFFICULTY(new ChooseDifficulty()),
+	END_OF_PHASE(new EndOfPhase()),
+	PROGRESSION_UPDATE(new ProgressionUpdate()),
 
 	;
 

@@ -229,4 +229,12 @@ public class DepotNumberedManager {
 
 	}
 
+	public void removeTilesFromNumberedDepots() {
+
+		for (DepotNumbered depotNumbered : this.depotNumbers) {
+			depotNumbered.removeTiles();
+		}
+
+	}
+
 }

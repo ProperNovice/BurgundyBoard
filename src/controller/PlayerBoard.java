@@ -533,4 +533,24 @@ public class PlayerBoard implements EventHandlerAble {
 
 	}
 
+	public int getNumberOfMines() {
+
+		int numberOfMines = 0;
+
+		for (BoardSpace boardSpace : this.boardSpaces) {
+
+			if (boardSpace.getTileTypeEnum() != TileTypeEnum.MINE)
+				continue;
+
+			if (!boardSpace.containsTile())
+				continue;
+
+			numberOfMines++;
+
+		}
+
+		return numberOfMines;
+
+	}
+
 }

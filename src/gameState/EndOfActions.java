@@ -36,6 +36,7 @@ public class EndOfActions extends GameState {
 			break;
 
 		case END_OF_PHASE:
+			gameStateEnum = GameStateEnum.END_OF_PHASE;
 			break;
 
 		default:

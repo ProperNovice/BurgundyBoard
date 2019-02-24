@@ -10,7 +10,10 @@ public class PhaseIndicatorManager {
 	private PhaseIndicator currentPhaseIndicator = null;
 
 	public PhaseIndicatorManager() {
+
 		createPhaseIndicators();
+		setNewPhaseIndicator();
+
 	}
 
 	private void createPhaseIndicators() {

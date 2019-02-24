@@ -139,4 +139,15 @@ public class DepotNumbered {
 
 	}
 
+	public void removeTiles() {
+
+		for (Tile tile : this.tiles.clone()) {
+
+			this.tiles.remove(tile);
+			tile.setVisible(false);
+
+		}
+
+	}
+
 }

@@ -10,6 +10,8 @@ public class ChooseAnAction extends GameState {
 	@Override
 	public void handleGameStateChange() {
 
+		super.controller.diceManager().setDiceCurrentlyShowingAvailableCurrentRound();
+
 		super.controller.textManager().showText(TextEnum.CHOOSE_AN_ACTION);
 
 		ArrayList<ActionEnum> actionsToShow = new ArrayList<>();
@@ -17,23 +19,23 @@ public class ChooseAnAction extends GameState {
 		actionsToShow.addLast(ActionEnum.TAKE_TILE_FROM_THE_GAME_BOARD);
 		actionsToShow.addLast(ActionEnum.TAKE_WORKERS_TILES);
 
-		if (addTileToYourEstate())
+		if (addTileToYourEstateAble())
 			actionsToShow.addLast(ActionEnum.ADD_TILE_TO_YOUR_ESTATE);
 
-		if (addBuyTileFromTheBlackDepot())
+		if (addBuyTileFromTheBlackDepotAble())
 			actionsToShow.addLast(ActionEnum.BUY_TILE_FROM_THE_BLACK_DEPOT);
 
 		super.controller.actionManager().showActions(actionsToShow);
-		
+
 		super.controller.diceManager().printDiceCurrentlyShowing();
 
 	}
 
-	private boolean addTileToYourEstate() {
+	private boolean addTileToYourEstateAble() {
 		return !super.controller.storageSpaceManager().isEmpty();
 	}
 
-	private boolean addBuyTileFromTheBlackDepot() {
+	private boolean addBuyTileFromTheBlackDepotAble() {
 
 		if (!super.controller.silverlingManager().hasAtLeastTwoSilverlings())
 			return false;

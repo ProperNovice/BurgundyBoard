@@ -38,17 +38,12 @@ public class StartNewPhase extends GameState {
 
 	private void executeStartNewPhase() {
 
-		setNewPhaseIndicator();
 		createNewPhaseGoodsAndRelocate();
 		addTilesToDepotsNumbered();
 		addTilesToDepotsBlack();
 		createGameStatesNewRound();
 		proceedToNextGameState();
 
-	}
-
-	private void setNewPhaseIndicator() {
-		super.controller.phaseIndicatorManager().setNewPhaseIndicator();
 	}
 
 	private void createNewPhaseGoodsAndRelocate() {

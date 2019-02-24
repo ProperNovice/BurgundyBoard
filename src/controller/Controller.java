@@ -23,6 +23,7 @@ public class Controller {
 	private GameModifiers gameModifiers = null;
 	private VictoryPointManager victoryPointManager = null;
 	private GroupActionsManager groupActionsManager = null;
+	private ProgressionManager progressionManager = null;
 
 	public Controller() {
 		createInstances();
@@ -51,6 +52,7 @@ public class Controller {
 		this.gameModifiers = new GameModifiers();
 		this.victoryPointManager = new VictoryPointManager();
 		this.groupActionsManager = new GroupActionsManager();
+		this.progressionManager = new ProgressionManager();
 
 	}
 
@@ -128,6 +130,10 @@ public class Controller {
 
 	public GroupActionsManager groupActionsManager() {
 		return this.groupActionsManager;
+	}
+
+	public ProgressionManager progressionManager() {
+		return this.progressionManager;
 	}
 
 }
