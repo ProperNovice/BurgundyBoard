@@ -15,7 +15,7 @@ public class ProgressionManager {
 		this.text = new Text();
 
 		this.text.setHeight(Credentials.textHeight);
-		this.text.relocate(10, 10);
+		this.text.relocate(20, 20);
 
 	}
 

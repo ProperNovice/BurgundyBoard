@@ -37,4 +37,8 @@ public class PhaseIndicatorManager {
 		return this.currentPhaseIndicator.getPhaseEnum().victoryPoints();
 	}
 
+	public int getPhaseIndicatorsSize() {
+		return this.phaseIndicators.size();
+	}
+
 }

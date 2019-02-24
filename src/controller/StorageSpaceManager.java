@@ -91,4 +91,8 @@ public class StorageSpaceManager {
 		return this.tiles.getFirst();
 	}
 
+	public int getNumberOfTiles() {
+		return (int) Math.min(this.tiles.size(), this.tiles.getMaxCapacity());
+	}
+
 }

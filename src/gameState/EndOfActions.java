@@ -14,7 +14,7 @@ public class EndOfActions extends GameState {
 
 		this.textEnumShowing = null;
 
-		if (!super.controller.goodsManager().phaseGoodIsEmpty())
+		if (!super.controller.goodsManager().phaseGoodsIsEmpty())
 			this.textEnumShowing = TextEnum.END_OF_ROUND;
 		else
 			this.textEnumShowing = TextEnum.END_OF_PHASE;

@@ -135,8 +135,12 @@ public class GoodsManager {
 
 	}
 
-	public boolean phaseGoodIsEmpty() {
+	public boolean phaseGoodsIsEmpty() {
 		return this.phaseGoods.isEmpty();
+	}
+
+	public int getPhaseGoodsSize() {
+		return this.phaseGoods.size();
 	}
 
 }

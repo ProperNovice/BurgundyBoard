@@ -553,4 +553,17 @@ public class PlayerBoard implements EventHandlerAble {
 
 	}
 
+	public int getNumberOfEmptyBoardSpaces() {
+
+		int numberOfEmptyBoardSpaces = 0;
+
+		for (BoardSpace boardSpace : this.boardSpaces) {
+			if (!boardSpace.containsTile())
+				numberOfEmptyBoardSpaces++;
+		}
+
+		return numberOfEmptyBoardSpaces;
+
+	}
+
 }

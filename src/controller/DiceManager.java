@@ -197,4 +197,8 @@ public class DiceManager {
 
 	}
 
+	public int getDiceRoundAvailableSize() {
+		return this.diceRoundAvailable.size();
+	}
+
 }
