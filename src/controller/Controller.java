@@ -24,6 +24,7 @@ public class Controller {
 	private VictoryPointManager victoryPointManager = null;
 	private GroupActionsManager groupActionsManager = null;
 	private ProgressionManager progressionManager = null;
+	private SaveLoadManager saveLoadManager = null;
 
 	public Controller() {
 		createInstances();
@@ -53,6 +54,7 @@ public class Controller {
 		this.victoryPointManager = new VictoryPointManager();
 		this.groupActionsManager = new GroupActionsManager();
 		this.progressionManager = new ProgressionManager();
+		this.saveLoadManager = new SaveLoadManager();
 
 	}
 
@@ -134,6 +136,10 @@ public class Controller {
 
 	public ProgressionManager progressionManager() {
 		return this.progressionManager;
+	}
+
+	public SaveLoadManager saveLoadManager() {
+		return this.saveLoadManager;
 	}
 
 }
