@@ -49,6 +49,11 @@ public abstract class ResolveFreeAction extends GameState {
 		if (keyCode != KeyCode.Q)
 			return;
 
+		if (!this.continueIsShowing)
+			return;
+
+		super.controller.textManager().concealText();
+
 		executeAction();
 
 	}

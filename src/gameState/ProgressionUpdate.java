@@ -16,8 +16,8 @@ public class ProgressionUpdate extends GameState {
 		int diceRoundAvailable = super.controller.diceManager().getDiceRoundAvailableSize();
 		Logger.log("dice round available - " + diceRoundAvailable);
 
-		int roundsRemainingForCurrentPhase = super.controller.goodsManager().getPhaseGoodsSize();
-		Logger.log("rounds remaining for current phase - " + roundsRemainingForCurrentPhase);
+		int roundsRemainingCurrentPhase = super.controller.goodsManager().getPhaseGoodsSize();
+		Logger.log("rounds remaining current phase - " + roundsRemainingCurrentPhase);
 
 		int phasesRemaining = super.controller.phaseIndicatorManager().getPhaseIndicatorsSize();
 		Logger.log("phases remaining - " + phasesRemaining);
@@ -25,7 +25,7 @@ public class ProgressionUpdate extends GameState {
 		int actionsNeed = emptyBoardSpaces * 2 - storageSpaceTiles;
 		Logger.log("actions need - " + actionsNeed);
 
-		int actionsRemaining = (phasesRemaining * 5 + roundsRemainingForCurrentPhase) * 2 + diceRoundAvailable;
+		int actionsRemaining = (phasesRemaining * 5 + roundsRemainingCurrentPhase) * 2 + diceRoundAvailable;
 		Logger.log("actions remaining - " + actionsRemaining);
 
 		int progression = actionsRemaining - actionsNeed;

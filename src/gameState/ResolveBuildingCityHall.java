@@ -4,6 +4,7 @@ import enums.BuildingTypeEnum;
 import enums.GameStateEnum;
 import enums.TextEnum;
 import enums.TileTypeEnum;
+import javafx.scene.input.KeyCode;
 import model.BoardSpace;
 import tiles.Building;
 import tiles.Tile;
@@ -64,6 +65,12 @@ public class ResolveBuildingCityHall extends GameState {
 
 	@Override
 	public void handleTextOptionPressed(TextEnum textEnum) {
+		executeAction();
+	}
+
+	@Override
+	public void handleKeyPressed(KeyCode keyCode) {
+		super.controller.textManager().concealText();
 		executeAction();
 	}
 
