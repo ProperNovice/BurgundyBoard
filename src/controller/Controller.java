@@ -1,6 +1,6 @@
 package controller;
 
-import instances.Instances;
+import utils.Instances;
 
 public class Controller {
 

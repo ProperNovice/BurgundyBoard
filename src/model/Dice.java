@@ -2,12 +2,12 @@ package model;
 
 import controller.Credentials;
 import enums.DiceColor;
-import instances.Instances;
 import utils.EventHandler.EventHandlerAble;
 import utils.Executor;
 import utils.HashMap;
 import utils.Image;
 import utils.ImageView;
+import utils.Instances;
 import utils.Logger;
 import utils.Random;
 

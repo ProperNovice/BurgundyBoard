@@ -4,12 +4,12 @@ import controller.Controller;
 import enums.ActionEnum;
 import enums.TextEnum;
 import enums.TileTypeEnum;
-import instances.Instances;
 import javafx.scene.input.KeyCode;
 import model.BoardSpace;
 import model.Dice;
 import model.Goods;
 import tiles.Tile;
+import utils.Instances;
 
 public abstract class GameState {
 

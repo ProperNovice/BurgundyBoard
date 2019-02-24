@@ -1,7 +1,6 @@
 package utils;
 
 import gui.PanelGame;
-import instances.Instances;
 import javafx.collections.ObservableList;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;

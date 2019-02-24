@@ -1,6 +1,6 @@
 package gui;
 
-import instances.Instances;
+import utils.Instances;
 import utils.Parent;
 import utils.PlatformFX;
 import controller.Controller;

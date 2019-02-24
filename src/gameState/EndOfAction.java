@@ -5,7 +5,7 @@ import enums.TextEnum;
 import javafx.scene.input.KeyCode;
 import utils.Logger;
 
-public class EndOfActions extends GameState {
+public class EndOfAction extends GameState {
 
 	private TextEnum textEnumShowing = null;
 
@@ -14,7 +14,13 @@ public class EndOfActions extends GameState {
 
 		this.textEnumShowing = null;
 
-		if (!super.controller.goodsManager().phaseGoodsIsEmpty())
+		if (super.controller.diceManager().getDiceRoundAvailableSize() > 0) {
+
+			super.controller.flowManager().addGameStateResolvingFirst(GameStateEnum.CHOOSE_AN_ACTION);
+			super.controller.flowManager().proceedToNextGameStatePhase();
+			return;
+
+		} else if (!super.controller.goodsManager().phaseGoodsIsEmpty())
 			this.textEnumShowing = TextEnum.END_OF_ROUND;
 		else
 			this.textEnumShowing = TextEnum.END_OF_PHASE;

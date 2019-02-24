@@ -1,13 +1,12 @@
 package controller;
 
 import enums.GameStateEnum;
-import instances.Instances;
 import utils.ArrayList;
+import utils.Instances;
 
 public class FlowManager {
 
 	private Controller controller = Instances.getControllerInstance();
-	private ArrayList<GameStateEnum> gameStateNormalTurn = new ArrayList<>();
 	private ArrayList<GameStateEnum> gameStateResolving = new ArrayList<>();
 	private ArrayList<GameStateEnum> notUpdatingProgression = new ArrayList<>();
 
@@ -26,7 +25,7 @@ public class FlowManager {
 	public void proceedToNextGameStatePhase() {
 
 		if (this.gameStateResolving.isEmpty())
-			this.gameStateResolving.addAll(this.gameStateNormalTurn);
+			this.gameStateResolving.addLast(GameStateEnum.END_OF_ACTION);
 
 		GameStateEnum gameStateEnum = this.gameStateResolving.removeFirst();
 		this.controller.gameStateManager().setGameState(gameStateEnum);
@@ -45,20 +44,11 @@ public class FlowManager {
 	}
 
 	public void createGameStatesForNewRound() {
-
-		this.gameStateNormalTurn.addLast(GameStateEnum.RESOLVE_GRAY_DICE);
-		this.gameStateNormalTurn.addLast(GameStateEnum.CHOOSE_AN_ACTION);
-		this.gameStateNormalTurn.addLast(GameStateEnum.CHOOSE_AN_ACTION);
-		this.gameStateNormalTurn.addLast(GameStateEnum.END_OF_ACTIONS);
-
+		addGameStateResolvingFirst(GameStateEnum.RESOLVE_GRAY_DICE);
 	}
 
 	private void createNotUpdatingProgression() {
 
 	}
-
-//	private void createGameStateNormalTurn() {
-//		ShutDown.execute("flow manager\ncreateGameStateNormalTurn()");
-//	}
 
 }

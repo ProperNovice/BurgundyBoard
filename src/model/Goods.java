@@ -1,9 +1,9 @@
 package model;
 
-import instances.Instances;
 import utils.EventHandler.EventHandlerAble;
 import utils.Executor;
 import utils.ImageView;
+import utils.Instances;
 import utils.Logger;
 
 public class Goods implements EventHandlerAble {

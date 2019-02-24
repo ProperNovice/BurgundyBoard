@@ -1,10 +1,10 @@
 package model;
 
 import enums.ActionEnum;
-import instances.Instances;
 import utils.EventHandler.EventHandlerAble;
 import utils.Executor;
 import utils.ImageView;
+import utils.Instances;
 
 public class Action implements EventHandlerAble {
 

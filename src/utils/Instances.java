@@ -1,4 +1,4 @@
-package instances;
+package utils;
 
 import gui.PanelGame;
 import controller.Controller;

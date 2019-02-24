@@ -1,7 +1,6 @@
 package utils;
 
 import gui.PanelGame;
-import instances.Instances;
 import javafx.scene.paint.Paint;
 
 public class Line implements Node {

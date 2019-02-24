@@ -2,12 +2,12 @@ package tiles;
 
 import controller.Credentials;
 import enums.TileTypeEnum;
-import instances.Instances;
 import utils.Animation;
 import utils.Animation.AnimationSynch;
 import utils.EventHandler.EventHandlerAble;
 import utils.Executor;
 import utils.ImageView;
+import utils.Instances;
 import utils.Logger;
 
 public abstract class Tile implements EventHandlerAble {

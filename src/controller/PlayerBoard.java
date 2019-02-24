@@ -3,7 +3,6 @@ package controller;
 import enums.AnimalTypeEnum;
 import enums.BuildingTypeEnum;
 import enums.TileTypeEnum;
-import instances.Instances;
 import model.BoardSpace;
 import tiles.Animal;
 import tiles.Building;
@@ -12,6 +11,7 @@ import utils.ArrayList;
 import utils.EventHandler.EventHandlerAble;
 import utils.Executor;
 import utils.ImageView;
+import utils.Instances;
 import utils.Logger;
 
 public class PlayerBoard implements EventHandlerAble {

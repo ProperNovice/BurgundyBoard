@@ -1,7 +1,6 @@
 package utils;
 
 import gui.PanelGame;
-import instances.Instances;
 import javafx.scene.paint.Paint;
 import javafx.scene.text.Font;
 import utils.EventHandler.EventHandlerAble;
