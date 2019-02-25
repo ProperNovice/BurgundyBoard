@@ -161,7 +161,7 @@ public class ArrayList<T> implements Iterable<T> {
 		Logger.log("/*");
 
 		for (T t : this.list)
-			System.out.println(t);
+			Logger.log(t);
 
 		Logger.logNewLine("*/");
 

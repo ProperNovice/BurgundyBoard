@@ -50,6 +50,9 @@ public class Burgundy extends Application {
 					Instances.getControllerInstance().gameStateManager().getCurrentGameState()
 							.handleKeyPressed(keyCode);
 
+					if (keyCode == KeyCode.R)
+						Instances.getControllerInstance().gameStateManager().getCurrentGameState().restartRound();
+
 				});
 
 			}

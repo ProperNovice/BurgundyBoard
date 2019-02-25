@@ -5,13 +5,16 @@ import enums.TileTypeEnum;
 import tiles.Tile;
 import utils.ArrayList;
 import utils.ImageView;
+import utils.SaveLoadAble;
 
-public class DepotNumbered {
+public class DepotNumbered implements SaveLoadAble {
 
 	private int depotNumber;
 	private ArrayList<TileTypeEnum> tilesTypeEnum = new ArrayList<>();
 	private ArrayList<Tile> tiles = new ArrayList<>();
+	private ArrayList<Tile> tilesSave = new ArrayList<>();
 	private ArrayList<Goods> goods = new ArrayList<>();
+	private ArrayList<Goods> goodsSave = new ArrayList<>();
 	private ImageView depotNumberIndicator = null;
 	private double xCoordinates, yCoordinates;
 
@@ -92,6 +95,11 @@ public class DepotNumbered {
 	public void addGoodsAndRelocate(Goods goods) {
 
 		this.goods.addLast(goods);
+		relocateGoods();
+
+	}
+
+	private void relocateGoods() {
 
 		double x = this.xCoordinates;
 		x += Credentials.DimensionsDice.x;
@@ -147,6 +155,38 @@ public class DepotNumbered {
 			tile.setVisible(false);
 
 		}
+
+	}
+
+	@Override
+	public void saveState() {
+
+		this.tilesSave = this.tiles.clone();
+		this.goodsSave = this.goods.clone();
+
+	}
+
+	@Override
+	public void loadState() {
+
+		this.tiles = this.tilesSave.clone();
+
+		for (Tile tile : this.tiles) {
+
+			tile.setVisible(true);
+			tile.setSelected(false);
+
+		}
+
+		relocateTiles();
+
+		this.goods = this.goodsSave.clone();
+
+		for (Goods goods : this.goods) {
+			goods.setVisible(true);
+		}
+
+		relocateGoods();
 
 	}
 

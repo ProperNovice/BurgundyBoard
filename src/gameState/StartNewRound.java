@@ -1,5 +1,6 @@
 package gameState;
 
+import enums.GameStateEnum;
 import enums.TextEnum;
 import javafx.scene.input.KeyCode;
 
@@ -31,8 +32,8 @@ public class StartNewRound extends GameState {
 	private void executeAction() {
 
 		super.controller.diceManager().rollDiceAndRelocate();
-		
-		super.controller.flowManager().createGameStatesForNewRound();
+
+		super.controller.flowManager().addGameStateResolvingFirst(GameStateEnum.RESOLVE_GRAY_DICE);
 		super.controller.flowManager().proceedToNextGameStatePhase();
 
 	}

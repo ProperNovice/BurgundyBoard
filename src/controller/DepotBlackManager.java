@@ -4,10 +4,12 @@ import tiles.Tile;
 import utils.ArrayList;
 import utils.Coordinates;
 import utils.CoordinatesBuilder;
+import utils.SaveLoadAble;
 
-public class DepotBlackManager {
+public class DepotBlackManager implements SaveLoadAble {
 
 	private ArrayList<Tile> tiles = new ArrayList<>();
+	private ArrayList<Tile> tilesSave = new ArrayList<>();
 	private Coordinates coordinates = null;
 
 	public DepotBlackManager() {
@@ -30,6 +32,11 @@ public class DepotBlackManager {
 	public void addTilesAndRelocate(ArrayList<Tile> tilesBlack) {
 
 		this.tiles.addAll(tilesBlack);
+		relocateTiles();
+
+	}
+
+	private void relocateTiles() {
 
 		for (Tile tile : this.tiles) {
 			tile.relocate(this.coordinates.getX(this.tiles.indexOf(tile)),
@@ -50,6 +57,27 @@ public class DepotBlackManager {
 			tile.setVisible(false);
 
 		}
+
+	}
+
+	@Override
+	public void saveState() {
+		this.tilesSave = this.tiles.clone();
+	}
+
+	@Override
+	public void loadState() {
+
+		this.tiles = this.tilesSave.clone();
+
+		for (Tile tile : this.tiles) {
+
+			tile.setVisible(true);
+			tile.setSelected(false);
+
+		}
+
+		relocateTiles();
 
 	}
 

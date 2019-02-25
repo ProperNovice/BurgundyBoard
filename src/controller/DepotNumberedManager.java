@@ -8,8 +8,9 @@ import utils.ArrayList;
 import utils.CoordinatesBuilder;
 import utils.CoordinatesLinear;
 import utils.Logger;
+import utils.SaveLoadAble;
 
-public class DepotNumberedManager {
+public class DepotNumberedManager implements SaveLoadAble {
 
 	private ArrayList<DepotNumbered> depotNumbers = new ArrayList<>();
 
@@ -233,6 +234,24 @@ public class DepotNumberedManager {
 
 		for (DepotNumbered depotNumbered : this.depotNumbers) {
 			depotNumbered.removeTiles();
+		}
+
+	}
+
+	@Override
+	public void saveState() {
+
+		for (DepotNumbered depotNumbered : this.depotNumbers) {
+			depotNumbered.saveState();
+		}
+
+	}
+
+	@Override
+	public void loadState() {
+
+		for (DepotNumbered depotNumbered : this.depotNumbers) {
+			depotNumbered.loadState();
 		}
 
 	}

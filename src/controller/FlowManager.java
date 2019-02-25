@@ -12,8 +12,6 @@ public class FlowManager {
 
 	public FlowManager() {
 
-//		createGameStateNormalTurn();
-
 		createNotUpdatingProgression();
 
 //		this.gameStateResolving.addLast(GameStateEnum.CHOOSE_DIFFICULTY);
@@ -43,12 +41,12 @@ public class FlowManager {
 
 	}
 
-	public void createGameStatesForNewRound() {
-		addGameStateResolvingFirst(GameStateEnum.RESOLVE_GRAY_DICE);
+	private void createNotUpdatingProgression() {
+		this.notUpdatingProgression.addLast(GameStateEnum.RESOLVE_GRAY_DICE);
 	}
 
-	private void createNotUpdatingProgression() {
-
+	public void clearFlow() {
+		this.gameStateResolving.clear();
 	}
 
 }

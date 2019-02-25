@@ -35,6 +35,8 @@ public class ResolveGrayDice extends GameState {
 		super.controller.depotNumberedManager().removeFirstGoodFromDepotNumberIfAble(diceGrayValue);
 		super.controller.diceManager().setDiceGrayInactive();
 
+		super.controller.saveLoadManager().saveState();
+
 		super.controller.flowManager().proceedToNextGameStatePhase();
 
 	}

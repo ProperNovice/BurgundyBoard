@@ -1,10 +1,12 @@
 package controller;
 
+import utils.SaveLoadAble;
 import utils.Text;
 
-public class VictoryPointManager {
+public class VictoryPointManager implements SaveLoadAble {
 
 	private int currentVictoryPoints = 0, targetVictoryPoints = -1;
+	private int currentVictoryPointsSave = 0, targetVictoryPointsSave = -1;
 	private String victoryPointIndicator = "VP: ", seperator = " / ";
 	private Text text = null;
 
@@ -64,6 +66,23 @@ public class VictoryPointManager {
 
 		this.currentVictoryPoints = 0;
 		this.targetVictoryPoints -= 5;
+		updateText();
+
+	}
+
+	@Override
+	public void saveState() {
+
+		this.currentVictoryPointsSave = currentVictoryPoints;
+		this.targetVictoryPointsSave = targetVictoryPoints;
+
+	}
+
+	@Override
+	public void loadState() {
+
+		this.currentVictoryPoints = this.currentVictoryPointsSave;
+		this.targetVictoryPoints = this.targetVictoryPointsSave;
 		updateText();
 
 	}

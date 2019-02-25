@@ -2,10 +2,13 @@ package controller;
 
 import tiles.Tile;
 import utils.ArrayList;
+import utils.SaveLoadAble;
 
-public class StorageSpaceManager {
+public class StorageSpaceManager implements SaveLoadAble {
 
-	private ArrayList<Tile> tiles = new ArrayList<>(3);
+	private ArrayList<Tile> tiles = new ArrayList<>();
+	private ArrayList<Tile> tilesSave = new ArrayList<>();
+	private final int tileCapacity = 3;
 
 	public StorageSpaceManager() {
 
@@ -60,7 +63,7 @@ public class StorageSpaceManager {
 	}
 
 	public boolean exceedsMaxedCapacity() {
-		return this.tiles.size() > this.tiles.getMaxCapacity();
+		return this.tiles.size() > this.tileCapacity;
 	}
 
 	public boolean containsPriorTile(Tile tile) {
@@ -68,7 +71,7 @@ public class StorageSpaceManager {
 		if (this.tiles.isEmpty())
 			return false;
 
-		int targetCounter = (Integer) Math.min(this.tiles.size(), this.tiles.getMaxCapacity());
+		int targetCounter = (Integer) Math.min(this.tiles.size(), this.tileCapacity);
 
 		for (int counter = 0; counter < targetCounter; counter++)
 			if (this.tiles.get(counter) == tile)
@@ -92,7 +95,31 @@ public class StorageSpaceManager {
 	}
 
 	public int getNumberOfTiles() {
-		return (int) Math.min(this.tiles.size(), this.tiles.getMaxCapacity());
+		return (int) Math.min(this.tiles.size(), this.tileCapacity);
+	}
+
+	@Override
+	public void saveState() {
+
+		this.tilesSave.clear();
+		this.tilesSave.addAll(this.tiles);
+
+	}
+
+	@Override
+	public void loadState() {
+
+		this.tiles = this.tilesSave.clone();
+
+		for (Tile tile : this.tiles) {
+
+			tile.setVisible(true);
+			tile.setSelected(false);
+
+		}
+
+		relocateTiles();
+
 	}
 
 }

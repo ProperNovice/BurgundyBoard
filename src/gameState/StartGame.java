@@ -1,13 +1,11 @@
 package gameState;
 
 import enums.AnimalTypeEnum;
-import enums.BuildingTypeEnum;
 import enums.GameStateEnum;
 import enums.TileTypeEnum;
 import model.BoardSpace;
 import model.Goods;
 import tiles.Animal;
-import tiles.Building;
 import tiles.Castle;
 import tiles.Knowledge;
 import tiles.Tile;
@@ -22,9 +20,9 @@ public class StartGame extends GameState {
 		setTextScore();
 //		addGoodsToDepotNumbers();
 //		setDiceValuesRed();
-//		addTilesToStorageSpaces();
-//		addSilverlings(4);
-//		addWorkers(2);
+		addTilesToStorageSpaces();
+		addSilverlings(4);
+		addWorkers(20);
 //		setDiceModifiers();
 //		removeDiceFromAction();
 //		setCanBePlacedIdenticalBuildingsTrue();
@@ -85,7 +83,7 @@ public class StartGame extends GameState {
 
 		addTileToStorageSpace(new Animal(AnimalTypeEnum.COW, 3));
 		addTileToStorageSpace(new Knowledge(1));
-		addTileToStorageSpace(new Building(BuildingTypeEnum.CARPENTERS_WORKSHOP));
+//		addTileToStorageSpace(new Building(BuildingTypeEnum.CARPENTERS_WORKSHOP));
 
 	}
 

@@ -75,4 +75,13 @@ public abstract class GameState {
 
 	}
 
+	public void restartRound() {
+
+		this.controller.flowManager().clearFlow();
+		this.controller.textManager().concealText();
+		this.controller.saveLoadManager().loadState();
+		this.controller.flowManager().proceedToNextGameStatePhase();
+
+	}
+
 }
