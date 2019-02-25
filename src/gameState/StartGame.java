@@ -30,8 +30,6 @@ public class StartGame extends GameState {
 //		addGroupActions();
 //		addPlayerGoods();
 
-//		super.controller.flowManager().addGameStateResolvingFirst(GameStateEnum.RESOLVE_GROUP_ACTIONS);
-//		super.controller.flowManager().addGameStateResolvingFirst(GameStateEnum.START_NEW_PHASE);
 		super.controller.flowManager().proceedToNextGameStatePhase();
 
 	}

@@ -73,4 +73,9 @@ public class ChooseDifficulty extends GameState {
 
 	}
 
+	@Override
+	public void restartRound() {
+
+	}
+
 }

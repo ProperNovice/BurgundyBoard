@@ -581,6 +581,7 @@ public class PlayerBoard implements EventHandlerAble, SaveLoadAble {
 
 		for (BoardSpace boardSpace : this.boardSpaces) {
 			boardSpace.loadState();
+			boardSpace.setSelected(false);
 		}
 
 	}
@@ -595,6 +596,19 @@ public class PlayerBoard implements EventHandlerAble, SaveLoadAble {
 		}
 
 		return true;
+
+	}
+
+	public void setSelectCastles(boolean value) {
+
+		for (BoardSpace boardSpace : this.boardSpaces) {
+
+			if (boardSpace.getTileTypeEnum() != TileTypeEnum.CASTLE)
+				continue;
+
+			boardSpace.setSelected(value);
+
+		}
 
 	}
 

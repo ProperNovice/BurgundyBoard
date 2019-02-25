@@ -86,4 +86,9 @@ public class StartNewPhase extends GameState {
 		super.controller.flowManager().addGameStateResolvingFirst(GameStateEnum.START_NEW_ROUND);
 	}
 
+	@Override
+	public void restartRound() {
+
+	}
+
 }
