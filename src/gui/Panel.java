@@ -41,8 +41,8 @@ public class Panel extends Parent implements EventHandlerAble {
 
 	public void startGame() {
 
-		Executor.runLater(() -> Instances.getControllerInstance()
-				.gameStateManager().setGameState(GameStateEnum.START_GAME));
+		Executor.runLater(
+				() -> Instances.getControllerInstance().gameStateManager().setGameState(GameStateEnum.START_GAME));
 
 	}
 
