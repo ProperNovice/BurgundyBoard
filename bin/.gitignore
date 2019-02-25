@@ -1,9 +1,8 @@
-/images/
 /controller/
 /enums/
 /gameState/
 /gui/
-/instances/
+/images/
 /model/
 /tiles/
 /utils/
