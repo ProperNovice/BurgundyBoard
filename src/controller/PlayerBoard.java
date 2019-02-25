@@ -423,6 +423,10 @@ public class PlayerBoard implements EventHandlerAble, SaveLoadAble {
 				continue;
 
 			Tile tile = boardSpaceTemp.getTileContaining();
+
+			if (tile.getTileTypeEnum() == TileTypeEnum.BLACK)
+				continue;
+
 			Animal tileAnimal = (Animal) tile;
 
 			if (animalTypeEnum != tileAnimal.getAnimalTypeEnum())
