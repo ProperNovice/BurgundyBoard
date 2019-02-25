@@ -53,7 +53,6 @@ public abstract class ResolveFreeAction extends GameState {
 			return;
 
 		super.controller.textManager().concealText();
-
 		executeAction();
 
 	}

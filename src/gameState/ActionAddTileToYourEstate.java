@@ -139,7 +139,7 @@ public class ActionAddTileToYourEstate extends ExecuteDiceActions {
 		this.boardSpaceSelected.addTileAndRelocate(super.tileSelected);
 
 		super.controller.workersManager().removeWorkersTemp();
-		super.controller.diceManager().removeDiceFromAction(super.diceSelected);
+		super.controller.diceManager().removeDiceCurrentlyShowingFromActionAndRelocate(super.diceSelected);
 
 		super.tileSelected.setSelected(false);
 		super.diceSelected.setSelected(false);

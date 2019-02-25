@@ -76,7 +76,7 @@ public class ActionTakeWorkersTiles extends GameState {
 		if (super.controller.gameModifiers().getTakeWorkersTileActionAddsOneSilverling())
 			super.controller.silverlingManager().addSilverlingsToPlayerBoardAndRelocate(1);
 
-		super.controller.diceManager().removeDiceFromAction(this.diceSelected);
+		super.controller.diceManager().removeDiceCurrentlyShowingFromActionAndRelocate(this.diceSelected);
 		this.diceSelected.setSelected(false);
 
 		super.controller.flowManager().proceedToNextGameStatePhase();

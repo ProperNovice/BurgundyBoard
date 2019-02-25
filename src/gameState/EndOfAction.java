@@ -14,8 +14,15 @@ public class EndOfAction extends GameState {
 
 		this.textEnumShowing = null;
 
-		if (super.controller.diceManager().getDiceRoundAvailableSize() > 0) {
+		if (super.controller.diceManager().diceCurrentlyShowingAmount() > 0) {
 
+			super.controller.flowManager().addGameStateResolvingFirst(GameStateEnum.CHOOSE_AN_ACTION);
+			super.controller.flowManager().proceedToNextGameStatePhase();
+			return;
+
+		} else if (super.controller.diceManager().getDiceRoundAvailableSize() > 0) {
+
+			super.controller.diceManager().setDiceCurrentlyShowingAvailableCurrentRound();
 			super.controller.flowManager().addGameStateResolvingFirst(GameStateEnum.CHOOSE_AN_ACTION);
 			super.controller.flowManager().proceedToNextGameStatePhase();
 			return;

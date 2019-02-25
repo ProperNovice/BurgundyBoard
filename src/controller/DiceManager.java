@@ -87,11 +87,11 @@ public class DiceManager implements SaveLoadAble {
 
 	}
 
-	public void removeDiceFromAction(Dice dice) {
+	public void removeDiceCurrentlyShowingFromActionAndRelocate(Dice dice) {
 
-		// TODO
 		this.diceCurrentlyShowing.remove(dice);
 		dice.setVisible(false);
+		relocateDiceCurrentlyShowing();
 
 	}
 
@@ -127,7 +127,7 @@ public class DiceManager implements SaveLoadAble {
 	public void testRemoveDiceFromAction(int index) {
 
 		Dice dice = this.diceRoundAvailable.get(index);
-		removeDiceFromAction(dice);
+		removeDiceCurrentlyShowingFromActionAndRelocate(dice);
 
 	}
 

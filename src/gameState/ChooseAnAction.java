@@ -10,11 +10,6 @@ public class ChooseAnAction extends GameState {
 	@Override
 	public void handleGameStateChange() {
 
-		if (super.controller.diceManager().diceCurrentlyShowingAmount() == 0)
-			super.controller.diceManager().setDiceCurrentlyShowingAvailableCurrentRound();
-
-		System.out.println(super.controller.diceManager().diceCurrentlyShowingAmount());
-
 		super.controller.textManager().showText(TextEnum.CHOOSE_AN_ACTION);
 
 		ArrayList<ActionEnum> actionsToShow = new ArrayList<>();

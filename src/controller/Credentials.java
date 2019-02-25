@@ -13,7 +13,7 @@ public class Credentials {
 			CoordinatesStorageSpaceFirst, CoordinatesStorageSpaceSecond, CoordinatesStorageSpaceThird,
 			CoordinatesStorageSpaceTemp, CoordinatesTileIndicators, CoordinatesRegionScoringIndicators, CoordinatesDice,
 			CoordinatesActions, CoordinatesWorkersDiceTemp, CoordinatesSilverlingsTemp, CoordinatesVictoryPointText,
-			CoordinatesPlayerGoods;
+			CoordinatesPlayerGoods, CoordinatesProgression;
 
 	public static double gapBetweenBorders, textHeight, boardScale;
 
@@ -145,6 +145,10 @@ public class Credentials {
 		x = CoordinatesBoard.x + 518 * boardScale;
 		y = CoordinatesBoard.y + 380 * boardScale;
 		CoordinatesPlayerGoods = new NumbersPair(x, y);
+
+		x = CoordinatesBoard.x;
+		y = CoordinatesBoard.y;
+		CoordinatesProgression = new NumbersPair(x, y);
 
 	}
 

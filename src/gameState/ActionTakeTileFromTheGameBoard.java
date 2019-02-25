@@ -70,7 +70,7 @@ public class ActionTakeTileFromTheGameBoard extends ExecuteDiceActions {
 		super.controller.storageSpaceManager().addTileAndRelocate(super.tileSelected);
 
 		super.controller.workersManager().removeWorkersTemp();
-		super.controller.diceManager().removeDiceFromAction(super.diceSelected);
+		super.controller.diceManager().removeDiceCurrentlyShowingFromActionAndRelocate(super.diceSelected);
 
 		super.tileSelected.setSelected(false);
 		super.diceSelected.setSelected(false);

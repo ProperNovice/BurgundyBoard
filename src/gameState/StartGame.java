@@ -21,9 +21,9 @@ public class StartGame extends GameState {
 		setTextScore();
 //		addGoodsToDepotNumbers();
 //		setDiceValuesRed();
-		addTilesToStorageSpaces();
+//		addTilesToStorageSpaces();
 //		addSilverlings(4);
-		addWorkers(11);
+//		addWorkers(11);
 //		setDiceModifiers();
 //		removeDiceFromAction();
 //		setCanBePlacedIdenticalBuildingsTrue();
@@ -123,7 +123,7 @@ public class StartGame extends GameState {
 
 	public void setTextScore() {
 
-		super.controller.victoryPointManager().addCurrentVictoryPoints(45);
+		super.controller.victoryPointManager().addCurrentVictoryPoints(0);
 		super.controller.victoryPointManager().setTargetVictoryPoints(50);
 
 	}
