@@ -66,7 +66,8 @@ public class Burgundy extends Application {
 
 		primaryStage.setTitle("The Castles of Burgundy");
 
-		primaryStage.setX(((Screen.getPrimary().getBounds().getWidth() - width) / 2) - 180);
+		primaryStage.setX(((Screen.getPrimary().getBounds().getWidth() - width) / 2));
+//		primaryStage.setX(((Screen.getPrimary().getBounds().getWidth() - width) / 2) - 180);
 		primaryStage.setY((Screen.getPrimary().getBounds().getHeight() - height) / 2);
 
 		primaryStage.setOnCloseRequest(new EventHandler<WindowEvent>() {
