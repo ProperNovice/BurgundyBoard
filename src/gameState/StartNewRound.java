@@ -32,6 +32,7 @@ public class StartNewRound extends GameState {
 	private void executeAction() {
 
 		super.controller.diceManager().rollDiceAndRelocate();
+		super.controller.gameModifiers().setCanBuyFromBlackMarketThisRound(true);
 
 		super.controller.flowManager().addGameStateResolvingFirst(GameStateEnum.RESOLVE_GRAY_DICE);
 		super.controller.flowManager().proceedToNextGameStatePhase();

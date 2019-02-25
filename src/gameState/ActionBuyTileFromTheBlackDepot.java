@@ -88,6 +88,8 @@ public class ActionBuyTileFromTheBlackDepot extends GameState {
 		super.controller.textManager().concealText();
 		super.controller.actionManager().concealActions();
 
+		super.controller.gameModifiers().setCanBuyFromBlackMarketThisRound(false);
+
 		switch (this.tileChoiceToBuyFrom) {
 
 		case BLACK:

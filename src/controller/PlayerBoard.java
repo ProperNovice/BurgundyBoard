@@ -13,8 +13,9 @@ import utils.Executor;
 import utils.ImageView;
 import utils.Instances;
 import utils.Logger;
+import utils.SaveLoadAble;
 
-public class PlayerBoard implements EventHandlerAble {
+public class PlayerBoard implements EventHandlerAble, SaveLoadAble {
 
 	private ImageView imageView = null;
 	private ArrayList<BoardSpace> boardSpaces = new ArrayList<>();
@@ -563,6 +564,24 @@ public class PlayerBoard implements EventHandlerAble {
 		}
 
 		return numberOfEmptyBoardSpaces;
+
+	}
+
+	@Override
+	public void saveState() {
+
+		for (BoardSpace boardSpace : this.boardSpaces) {
+			boardSpace.saveState();
+		}
+
+	}
+
+	@Override
+	public void loadState() {
+
+		for (BoardSpace boardSpace : this.boardSpaces) {
+			boardSpace.loadState();
+		}
 
 	}
 

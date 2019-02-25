@@ -4,8 +4,9 @@ import enums.TileTypeEnum;
 import model.BoardSpace;
 import tiles.Tile;
 import utils.HashMap;
+import utils.SaveLoadAble;
 
-public class GameModifiers {
+public class GameModifiers implements SaveLoadAble {
 
 	private int diceModifierTakeTileFromTheGameBoard = 0;
 	private HashMap<TileTypeEnum, Integer> diceModifierAddTileToYourEstate = new HashMap<>();
@@ -19,6 +20,7 @@ public class GameModifiers {
 	private int animalTypeExtraPoints = 0;
 	private boolean takeWorkersTileActionAddsOneSilverling = false;
 	private int takeWorkersTileActionAmountOfWorkers = 2;
+	private boolean canBuyFromBlackMarketThisRound = true;
 
 	public GameModifiers() {
 		createHashMaps();
@@ -138,6 +140,26 @@ public class GameModifiers {
 
 	public void setTakeWorkersTileActionAmountOfWorkersToFour() {
 		this.takeWorkersTileActionAmountOfWorkers = 4;
+	}
+
+	public boolean canBuyFromBlackMarketThisRound() {
+		return this.canBuyFromBlackMarketThisRound;
+	}
+
+	public void setCanBuyFromBlackMarketThisRound(boolean value) {
+		this.canBuyFromBlackMarketThisRound = value;
+	}
+
+	@Override
+	public void saveState() {
+
+	}
+
+	@Override
+	public void loadState() {
+
+		this.canBuyFromBlackMarketThisRound = true;
+
 	}
 
 }

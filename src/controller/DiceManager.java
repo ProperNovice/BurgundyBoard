@@ -6,11 +6,13 @@ import utils.ArrayList;
 import utils.CoordinatesBuilder;
 import utils.CoordinatesLinear;
 import utils.Logger;
+import utils.SaveLoadAble;
 
-public class DiceManager {
+public class DiceManager implements SaveLoadAble {
 
 	private ArrayList<Dice> diceRoundOriginal = new ArrayList<>();
 	private ArrayList<Dice> diceRoundAvailable = new ArrayList<>();
+	private ArrayList<Dice> diceRoundAvailableSave = new ArrayList<>();
 	private ArrayList<Dice> diceFreeActionOriginal = new ArrayList<>();
 	private ArrayList<Dice> diceFreeActionAvailable = new ArrayList<>();
 	private ArrayList<Dice> diceCurrentlyShowing = null;
@@ -87,7 +89,8 @@ public class DiceManager {
 
 	public void removeDiceFromAction(Dice dice) {
 
-		this.diceRoundAvailable.remove(dice);
+		// TODO
+		this.diceCurrentlyShowing.remove(dice);
 		dice.setVisible(false);
 
 	}
@@ -199,6 +202,28 @@ public class DiceManager {
 
 	public int getDiceRoundAvailableSize() {
 		return this.diceRoundAvailable.size();
+	}
+
+	@Override
+	public void saveState() {
+		this.diceRoundAvailableSave = this.diceRoundAvailable.clone();
+	}
+
+	@Override
+	public void loadState() {
+
+		for (Dice dice : this.diceCurrentlyShowing) {
+			dice.setSelected(false);
+		}
+
+		this.diceRoundAvailable = this.diceRoundAvailableSave.clone();
+
+		for (Dice dice : this.diceCurrentlyShowing) {
+			dice.setVisible(true);
+		}
+
+		setDiceCurrentlyShowingAvailableCurrentRound();
+
 	}
 
 }

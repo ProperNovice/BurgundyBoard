@@ -10,7 +10,10 @@ public class ChooseAnAction extends GameState {
 	@Override
 	public void handleGameStateChange() {
 
-		super.controller.diceManager().setDiceCurrentlyShowingAvailableCurrentRound();
+		if (super.controller.diceManager().diceCurrentlyShowingAmount() == 0)
+			super.controller.diceManager().setDiceCurrentlyShowingAvailableCurrentRound();
+
+		System.out.println(super.controller.diceManager().diceCurrentlyShowingAmount());
 
 		super.controller.textManager().showText(TextEnum.CHOOSE_AN_ACTION);
 
@@ -24,7 +27,7 @@ public class ChooseAnAction extends GameState {
 
 		if (addBuyTileFromTheBlackDepotAble())
 			actionsToShow.addLast(ActionEnum.BUY_TILE_FROM_THE_BLACK_DEPOT);
-		
+
 		super.controller.actionManager().showActions(actionsToShow);
 
 		super.controller.diceManager().printDiceCurrentlyShowing();
@@ -38,6 +41,9 @@ public class ChooseAnAction extends GameState {
 	private boolean addBuyTileFromTheBlackDepotAble() {
 
 		if (!super.controller.silverlingManager().hasAtLeastTwoSilverlings())
+			return false;
+
+		if (!super.controller.gameModifiers().canBuyFromBlackMarketThisRound())
 			return false;
 
 		if (super.controller.tileManager().tileBlackListIsEmpty())

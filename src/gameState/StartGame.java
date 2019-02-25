@@ -1,13 +1,14 @@
 package gameState;
 
 import enums.AnimalTypeEnum;
+import enums.BuildingTypeEnum;
 import enums.GameStateEnum;
 import enums.TileTypeEnum;
 import model.BoardSpace;
 import model.Goods;
 import tiles.Animal;
+import tiles.Building;
 import tiles.Castle;
-import tiles.Knowledge;
 import tiles.Tile;
 import utils.ArrayList;
 
@@ -21,7 +22,7 @@ public class StartGame extends GameState {
 //		addGoodsToDepotNumbers();
 //		setDiceValuesRed();
 		addTilesToStorageSpaces();
-		addSilverlings(4);
+//		addSilverlings(4);
 		addWorkers(11);
 //		setDiceModifiers();
 //		removeDiceFromAction();
@@ -82,7 +83,7 @@ public class StartGame extends GameState {
 	public void addTilesToStorageSpaces() {
 
 		addTileToStorageSpace(new Animal(AnimalTypeEnum.COW, 3));
-		addTileToStorageSpace(new Knowledge(1));
+		addTileToStorageSpace(new Building(BuildingTypeEnum.CHURCH));
 //		addTileToStorageSpace(new Building(BuildingTypeEnum.CARPENTERS_WORKSHOP));
 
 	}
@@ -122,7 +123,7 @@ public class StartGame extends GameState {
 
 	public void setTextScore() {
 
-		super.controller.victoryPointManager().addCurrentVictoryPoints(0);
+		super.controller.victoryPointManager().addCurrentVictoryPoints(45);
 		super.controller.victoryPointManager().setTargetVictoryPoints(50);
 
 	}

@@ -6,11 +6,13 @@ import tiles.Tile;
 import utils.ArrayList;
 import utils.ImageView;
 import utils.Logger;
+import utils.SaveLoadAble;
 
-public class BoardSpace {
+public class BoardSpace implements SaveLoadAble {
 
 	private TileTypeEnum tileTypeEnum = null;
 	private Tile tileContaining = null;
+	private Tile tileContainingSave = null;
 	private int diceValue;
 	private double centerX, centerY;
 	private ArrayList<BoardSpace> adjacencies = new ArrayList<>();
@@ -122,6 +124,16 @@ public class BoardSpace {
 
 	public Tile getTileContaining() {
 		return this.tileContaining;
+	}
+
+	@Override
+	public void saveState() {
+		this.tileContainingSave = this.tileContaining;
+	}
+
+	@Override
+	public void loadState() {
+		this.tileContaining = this.tileContainingSave;
 	}
 
 }

@@ -23,6 +23,9 @@ public class SaveLoadManager {
 		addSaveLoadAble(controller.workersManager());
 		addSaveLoadAble(controller.goodsManager());
 		addSaveLoadAble(controller.silverlingManager());
+		addSaveLoadAble(controller.playerBoard());
+		addSaveLoadAble(controller.diceManager());
+		addSaveLoadAble(controller.gameModifiers());
 
 	}
 

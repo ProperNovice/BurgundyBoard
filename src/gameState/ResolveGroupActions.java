@@ -18,6 +18,10 @@ public class ResolveGroupActions extends GameState {
 //		if (groupActionList.size() == 1)
 //			executeGameStateEnum(groupActionList.getFirst());
 //		else
+
+		if (groupActionList.size() == 0)
+			super.controller.flowManager().proceedToNextGameStatePhase();
+		else
 			handleGroupActionListTextEnums(groupActionList);
 
 	}
