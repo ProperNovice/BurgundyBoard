@@ -70,6 +70,10 @@ public class ResolveBuildingCityHall extends GameState {
 
 	@Override
 	public void handleKeyPressed(KeyCode keyCode) {
+
+		if (keyCode != KeyCode.Q)
+			return;
+
 		super.controller.textManager().concealText();
 		executeAction();
 	}
