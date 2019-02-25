@@ -22,7 +22,7 @@ public class StartGame extends GameState {
 //		setDiceValuesRed();
 		addTilesToStorageSpaces();
 		addSilverlings(4);
-		addWorkers(20);
+		addWorkers(11);
 //		setDiceModifiers();
 //		removeDiceFromAction();
 //		setCanBePlacedIdenticalBuildingsTrue();

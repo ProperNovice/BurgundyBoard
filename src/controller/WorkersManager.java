@@ -5,10 +5,12 @@ import utils.ArrayList;
 import utils.CoordinatesBuilder;
 import utils.CoordinatesLinear;
 import utils.CoordinatesPivot;
+import utils.SaveLoadAble;
 
-public class WorkersManager {
+public class WorkersManager implements SaveLoadAble {
 
 	private ArrayList<Worker> workersPlayerBoard = new ArrayList<>();
+	private ArrayList<Worker> workersPlayerBoardSave = new ArrayList<>();
 	private ArrayList<Worker> workersTemp = new ArrayList<>();
 	private CoordinatesPivot coordinatesPivotPlayerBoard = null;
 	private CoordinatesLinear coordinatesLinearDiceTemp = null;
@@ -134,6 +136,34 @@ public class WorkersManager {
 
 	public int workersSizeAvailable() {
 		return this.workersPlayerBoard.size() + this.workersTemp.size();
+	}
+
+	@Override
+	public void saveState() {
+
+		this.workersPlayerBoardSave = this.workersPlayerBoard.clone();
+
+	}
+
+	@Override
+	public void loadState() {
+
+		this.workersPlayerBoard.addAll(this.workersTemp);
+
+		for (Worker worker : this.workersPlayerBoard) {
+			worker.setVisible(false);
+		}
+
+		this.workersTemp.clear();
+
+		this.workersPlayerBoard = this.workersPlayerBoardSave.clone();
+
+		for (Worker worker : this.workersPlayerBoard) {
+			worker.setVisible(true);
+		}
+
+		relocateWorkers();
+
 	}
 
 }

@@ -4,13 +4,15 @@ import model.Goods;
 import utils.ArrayList;
 import utils.CoordinatesBuilder;
 import utils.CoordinatesLinear;
+import utils.SaveLoadAble;
 
-public class GoodsManager {
+public class GoodsManager implements SaveLoadAble {
 
 	private ArrayList<Goods> goodsListAvailable = new ArrayList<>();
 	private ArrayList<Goods> goodsListOriginal = new ArrayList<>();
 	private ArrayList<Goods> phaseGoods = new ArrayList<>();
 	private ArrayList<Goods> playerGoods = new ArrayList<>();
+	private ArrayList<Goods> playerGoodsSave = new ArrayList<>();
 	private CoordinatesLinear coordinatesLinearPhaseGoods = null, coordinatesLinearPlayerGoods = null;
 
 	public GoodsManager() {
@@ -141,6 +143,25 @@ public class GoodsManager {
 
 	public int getPhaseGoodsSize() {
 		return this.phaseGoods.size();
+	}
+
+	@Override
+	public void saveState() {
+		this.playerGoodsSave = this.playerGoods.clone();
+	}
+
+	@Override
+	public void loadState() {
+
+		this.playerGoods.clear();
+		this.playerGoods = this.playerGoodsSave.clone();
+
+		for (Goods goods : this.playerGoods) {
+			goods.setVisible(true);
+		}
+
+		relocatePlayerGoods();
+
 	}
 
 }

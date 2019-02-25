@@ -20,6 +20,9 @@ public class SaveLoadManager {
 		addSaveLoadAble(controller.depotBlackManager());
 		addSaveLoadAble(controller.victoryPointManager());
 		addSaveLoadAble(controller.storageSpaceManager());
+		addSaveLoadAble(controller.workersManager());
+		addSaveLoadAble(controller.goodsManager());
+		addSaveLoadAble(controller.silverlingManager());
 
 	}
 

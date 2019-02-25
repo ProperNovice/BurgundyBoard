@@ -5,10 +5,12 @@ import utils.ArrayList;
 import utils.CoordinatesBuilder;
 import utils.CoordinatesLinear;
 import utils.CoordinatesPivot;
+import utils.SaveLoadAble;
 
-public class SilverlingManager {
+public class SilverlingManager implements SaveLoadAble {
 
 	private ArrayList<Silverling> silverlingsPlayerBoard = new ArrayList<>();
+	private ArrayList<Silverling> silverlingsPlayerBoardSave = new ArrayList<>();
 	private ArrayList<Silverling> silverlingsTemp = new ArrayList<>();
 	private CoordinatesPivot coordinatesPivot = null;
 	private CoordinatesLinear coordinatesLinearSilverlingsTemp = null;
@@ -92,6 +94,7 @@ public class SilverlingManager {
 			double y = this.coordinatesPivot.getY(silverlingIndex);
 
 			silverling.relocate(x, y);
+			silverling.toFront();
 
 		}
 
@@ -120,6 +123,34 @@ public class SilverlingManager {
 
 	public boolean hasAtLeastTwoSilverlings() {
 		return this.silverlingsPlayerBoard.size() >= 2;
+	}
+
+	@Override
+	public void saveState() {
+		this.silverlingsPlayerBoardSave = this.silverlingsPlayerBoard.clone();
+	}
+
+	@Override
+	public void loadState() {
+
+		for (Silverling silverling : this.silverlingsPlayerBoard) {
+			silverling.setVisible(false);
+		}
+
+		for (Silverling silverling : this.silverlingsTemp) {
+			silverling.setVisible(false);
+		}
+
+		this.silverlingsTemp.clear();
+
+		this.silverlingsPlayerBoard = this.silverlingsPlayerBoardSave.clone();
+
+		for (Silverling silverling : this.silverlingsPlayerBoard) {
+			silverling.setVisible(true);
+		}
+
+		relocateSilverlings();
+
 	}
 
 }

@@ -163,14 +163,20 @@ public class ArrayList<T> implements Iterable<T> {
 		for (T t : this.list)
 			Logger.log(t);
 
-		Logger.logNewLine("*/");
+		Logger.log("*/");
+
+		Logger.newLine();
 
 	}
 
 	public ArrayList<T> clone() {
 
 		java.util.ArrayList<T> arrayList = new java.util.ArrayList<>(this.list);
-		return new ArrayList<T>(arrayList);
+
+		ArrayList<T> arrayListToReturn = new ArrayList<T>(arrayList);
+		arrayListToReturn.setMaxCapacity(this.maxCapacity);
+
+		return arrayListToReturn;
 	}
 
 }

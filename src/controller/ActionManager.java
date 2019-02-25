@@ -32,6 +32,8 @@ public class ActionManager {
 	}
 
 	public void showActions(ArrayList<ActionEnum> actionsToShow) {
+		
+		concealActions();
 
 		Logger.log("available actions");
 
@@ -51,7 +53,7 @@ public class ActionManager {
 
 		Logger.newLine();
 
-		relocateActionsAndSetVisibleTrue();
+		relocateActionsShowingAndSetVisibleTrue();
 
 	}
 
@@ -74,12 +76,12 @@ public class ActionManager {
 
 		}
 
-		relocateActionsAndSetVisibleTrue();
+		relocateActionsShowingAndSetVisibleTrue();
 
 	}
 
-	private void relocateActionsAndSetVisibleTrue() {
-
+	private void relocateActionsShowingAndSetVisibleTrue() {
+		
 		double x, y;
 
 		for (Action action : this.actionsShowing) {
