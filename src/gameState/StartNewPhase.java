@@ -11,13 +11,7 @@ public class StartNewPhase extends GameState {
 
 	@Override
 	public void handleGameStateChange() {
-
 		super.controller.textManager().showText(TextEnum.START_NEW_PHASE);
-
-		// to erase
-		super.controller.textManager().concealText();
-		executeStartNewPhase();
-
 	}
 
 	@Override

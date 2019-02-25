@@ -8,20 +8,30 @@ public class EndOfPhase extends GameState {
 	@Override
 	public void handleGameStateChange() {
 
-		Logger.log("removed tiles from numbered depots");
-		removeTilesFromNumberedDepots();
+		GameStateEnum gameStateEnumToResolve = null;
 
-		Logger.log("removed tiles from black depot");
-		removeTilesFromBlackDepots();
+		if (super.controller.phaseIndicatorManager().getPhaseIndicatorsSize() > 0) {
 
-		handleMinesIncome();
+			Logger.log("removed tiles from numbered depots");
+			removeTilesFromNumberedDepots();
 
-		Logger.log("set new phase indicator");
-		setNewPhaseIndicator();
+			Logger.log("removed tiles from black depot");
+			removeTilesFromBlackDepots();
 
-		Logger.newLine();
+			handleMinesIncome();
 
-		super.controller.flowManager().addGameStateResolvingFirst(GameStateEnum.START_NEW_PHASE);
+			Logger.log("set new phase indicator");
+			setNewPhaseIndicator();
+
+			Logger.newLine();
+
+			gameStateEnumToResolve = GameStateEnum.START_NEW_PHASE;
+
+		} else {
+			gameStateEnumToResolve = GameStateEnum.END_GAME;
+		}
+
+		super.controller.flowManager().addGameStateResolvingFirst(gameStateEnumToResolve);
 		super.controller.flowManager().proceedToNextGameStatePhase();
 
 	}

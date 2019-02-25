@@ -9,9 +9,7 @@ public class ChooseSpaceForStartingCastle extends GameState {
 
 	@Override
 	public void handleGameStateChange() {
-
 		super.controller.textManager().showText(TextEnum.CHOOSE_SPACE_FOR_STARTING_CASTLE);
-
 	}
 
 	@Override

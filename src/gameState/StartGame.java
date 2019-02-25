@@ -17,8 +17,8 @@ public class StartGame extends GameState {
 	@Override
 	public void handleGameStateChange() {
 
-		addTilesToGameBoard();
-		setTextScore();
+//		addTilesToGameBoard();
+//		setTextScore();
 //		addGoodsToDepotNumbers();
 //		setDiceValuesRed();
 //		addTilesToStorageSpaces();

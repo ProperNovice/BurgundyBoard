@@ -8,7 +8,6 @@ public class ChooseDifficulty extends GameState {
 	@Override
 	public void handleGameStateChange() {
 
-//		super.controller.textManager().showText(TextEnum.CHOOSE_DIFFICULTY);
 		super.controller.textManager().showText(TextEnum.EASY);
 		super.controller.textManager().showText(TextEnum.MEDIUM);
 		super.controller.textManager().showText(TextEnum.HARD);
@@ -45,7 +44,7 @@ public class ChooseDifficulty extends GameState {
 	}
 
 	private void executeAction(TextEnum textEnum) {
-		
+
 		super.controller.textManager().concealText();
 
 		int victoryPointsTarget = -1;

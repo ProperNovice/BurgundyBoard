@@ -585,4 +585,17 @@ public class PlayerBoard implements EventHandlerAble, SaveLoadAble {
 
 	}
 
+	public boolean playerBoardIsComplete() {
+
+		for (BoardSpace boardSpace : this.boardSpaces) {
+
+			if (!boardSpace.containsTile())
+				return false;
+
+		}
+
+		return true;
+
+	}
+
 }

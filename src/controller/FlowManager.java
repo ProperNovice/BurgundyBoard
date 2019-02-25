@@ -14,8 +14,8 @@ public class FlowManager {
 
 		createNotUpdatingProgression();
 
-//		this.gameStateResolving.addLast(GameStateEnum.CHOOSE_DIFFICULTY);
-//		this.gameStateResolving.addLast(GameStateEnum.CHOOSE_SPACE_TO_PLACE_THE_CASTLE);
+		this.gameStateResolving.addLast(GameStateEnum.CHOOSE_DIFFICULTY);
+		this.gameStateResolving.addLast(GameStateEnum.CHOOSE_SPACE_TO_PLACE_THE_CASTLE);
 		this.gameStateResolving.addLast(GameStateEnum.START_NEW_PHASE);
 
 	}

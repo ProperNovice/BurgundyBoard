@@ -32,6 +32,8 @@ public enum TextEnum {
 	END_OF_ROUND("End of round", TextTypeEnum.OPTION),
 	END_OF_PHASE("End of phase", TextTypeEnum.OPTION),
 	CHOOSE_GOODS("Choose goods", TextTypeEnum.INDICATOR),
+	YOU_WON("You won", TextTypeEnum.INDICATOR),
+	YOU_LOST("You lost", TextTypeEnum.INDICATOR),
 	
 	;
 
