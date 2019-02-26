@@ -19,7 +19,7 @@ public class StartGame extends GameState {
 //		setTextScore();
 //		addGoodsToDepotNumbers();
 //		setDiceValuesRed();
-		addTilesToStorageSpaces();
+//		addTilesToStorageSpaces();
 //		addSilverlings(4);
 //		addWorkers(11);
 //		setDiceModifiers();
