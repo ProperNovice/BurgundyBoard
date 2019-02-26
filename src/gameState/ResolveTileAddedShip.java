@@ -17,6 +17,13 @@ public class ResolveTileAddedShip extends GameState {
 	@Override
 	public void handleGameStateChange() {
 
+		if (!super.controller.depotNumberedManager().hasAtLeastOneGoods()) {
+
+			super.controller.flowManager().proceedToNextGameStatePhase();
+			return;
+
+		}
+
 		this.resolvePhase = ResolvePhase.CHOOSE_GOODS;
 		setUpText();
 		logResolvePhase();

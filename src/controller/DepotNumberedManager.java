@@ -238,6 +238,16 @@ public class DepotNumberedManager implements SaveLoadAble {
 
 	}
 
+	public boolean hasAtLeastOneGoods() {
+
+		for (DepotNumbered depotNumbered : this.depotNumbers)
+			if (depotNumbered.containsAtLeastOneGoods())
+				return true;
+
+		return false;
+
+	}
+
 	@Override
 	public void saveState() {
 

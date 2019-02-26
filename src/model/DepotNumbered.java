@@ -158,6 +158,10 @@ public class DepotNumbered implements SaveLoadAble {
 
 	}
 
+	public boolean containsAtLeastOneGoods() {
+		return this.goods.size() > 0;
+	}
+
 	@Override
 	public void saveState() {
 
