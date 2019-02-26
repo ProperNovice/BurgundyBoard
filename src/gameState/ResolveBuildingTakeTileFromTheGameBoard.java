@@ -13,7 +13,22 @@ public abstract class ResolveBuildingTakeTileFromTheGameBoard extends GameState 
 
 	public void handleGameStateChange() {
 
-		super.controller.textManager().showText(this.textEnumToShow);
+		boolean proceed = false;
+
+		for (TileTypeEnum tileTypeEnum : this.tileTypesToAdd) {
+
+			if (!super.controller.depotNumberedManager().containsTileType(tileTypeEnum))
+				continue;
+
+			proceed = true;
+			break;
+
+		}
+
+		if (proceed)
+			super.controller.textManager().showText(this.textEnumToShow);
+		else
+			super.controller.flowManager().proceedToNextGameStatePhase();
 
 	}
 

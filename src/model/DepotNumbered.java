@@ -162,6 +162,19 @@ public class DepotNumbered implements SaveLoadAble {
 		return this.goods.size() > 0;
 	}
 
+	public boolean containsTileType(TileTypeEnum tileTypeEnum) {
+
+		for (Tile tile : this.tiles) {
+
+			if (tile.getTileTypeEnum() == tileTypeEnum)
+				return true;
+
+		}
+
+		return false;
+
+	}
+
 	@Override
 	public void saveState() {
 

@@ -248,6 +248,19 @@ public class DepotNumberedManager implements SaveLoadAble {
 
 	}
 
+	public boolean containsTileType(TileTypeEnum tileTypeEnum) {
+
+		for (DepotNumbered depotNumbered : this.depotNumbers) {
+
+			if (depotNumbered.containsTileType(tileTypeEnum))
+				return true;
+
+		}
+
+		return false;
+
+	}
+
 	@Override
 	public void saveState() {
 

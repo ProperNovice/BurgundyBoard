@@ -22,6 +22,11 @@ public class ResolveBuildingCityHall extends GameState {
 		this.boardSpaceSelected = null;
 		this.actionCanBeExecuted = false;
 
+		if (super.controller.storageSpaceManager().isEmpty()) {
+			super.controller.flowManager().proceedToNextGameStatePhase();
+			return;
+		}
+
 		setUpText();
 
 		if (!super.controller.storageSpaceManager().containsExactlyOneTile())
