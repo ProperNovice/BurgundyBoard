@@ -3,6 +3,7 @@ package controller;
 import enums.GameStateEnum;
 import utils.ArrayList;
 import utils.Logger;
+import utils.ShutDown;
 
 public class GroupActionsManager {
 
@@ -17,6 +18,9 @@ public class GroupActionsManager {
 	}
 
 	public void addGroupAction(GameStateEnum gameStateEnum) {
+
+		if (gameStateEnum == GameStateEnum.RESOLVE_TILE_ADDED)
+			ShutDown.execute(gameStateEnum + " added in group actions");
 
 		if (this.groupActionsList.contains(gameStateEnum))
 			return;
