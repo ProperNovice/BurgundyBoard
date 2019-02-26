@@ -109,6 +109,11 @@ public class StorageSpaceManager implements SaveLoadAble {
 	@Override
 	public void loadState() {
 
+		for (Tile tile : this.tiles)
+			tile.setVisible(false);
+
+		this.tiles.clear();
+
 		this.tiles = this.tilesSave.clone();
 
 		for (Tile tile : this.tiles) {
