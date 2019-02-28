@@ -52,6 +52,11 @@ public class EndOfPhase extends GameState {
 
 		super.controller.silverlingManager().addSilverlingsToPlayerBoardAndRelocate(numberOfMines);
 
+		if (!super.controller.gameModifiers().getReceiveWorkersAtTheEndOfThePhase())
+			return;
+
+		super.controller.workersManager().addWorkersToPlayerBoardAndRelocate(numberOfMines);
+
 	}
 
 	private void setNewPhaseIndicator() {
