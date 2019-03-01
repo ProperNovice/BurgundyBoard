@@ -23,10 +23,10 @@ public class GameModifiers implements SaveLoadAble {
 	private boolean canBuyFromBlackMarketThisRound = true;
 
 	public GameModifiers() {
-		createHashMaps();
+		createHashMap();
 	}
 
-	private void createHashMaps() {
+	private void createHashMap() {
 
 		for (TileTypeEnum tileTypeEnum : TileTypeEnum.values()) {
 			this.diceModifierAddTileToYourEstate.put(tileTypeEnum, 0);

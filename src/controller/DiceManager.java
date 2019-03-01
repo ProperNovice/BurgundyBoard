@@ -212,7 +212,11 @@ public class DiceManager implements SaveLoadAble {
 	@Override
 	public void loadState() {
 
-		for (Dice dice : this.diceCurrentlyShowing) {
+		for (Dice dice : this.diceRoundOriginal) {
+			dice.setSelected(false);
+		}
+
+		for (Dice dice : this.diceFreeActionOriginal) {
 			dice.setSelected(false);
 		}
 
