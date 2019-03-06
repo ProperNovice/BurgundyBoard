@@ -58,13 +58,19 @@ public class ResolveTileTypeIsCompleted extends GameState {
 
 	@Override
 	public void handleTextOptionPressed(TextEnum textEnum) {
-		executeAction();
+
+		if (textEnum == TextEnum.CONTINUE)
+			executeAction();
+		else if (textEnum == TextEnum.CANCEL)
+			super.controller.flowManager().proceedToNextGameStatePhase();
+
 	}
 
 	private void setUpText() {
 
 		super.controller.textManager().concealText();
 		super.controller.textManager().showText(TextEnum.RESOLVE_ACTION);
+		super.controller.textManager().showText(TextEnum.CANCEL);
 
 		if (this.actionCanBeCompleted)
 			super.controller.textManager().showText(TextEnum.CONTINUE);
