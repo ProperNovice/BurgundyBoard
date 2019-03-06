@@ -34,7 +34,7 @@ public enum TextEnum {
 	CHOOSE_GOODS("Choose goods", TextTypeEnum.INDICATOR),
 	YOU_WON("You won", TextTypeEnum.INDICATOR),
 	YOU_LOST("You lost", TextTypeEnum.INDICATOR),
-	CANCEL("Cancel", TextTypeEnum.INDICATOR),
+	CANCEL("Cancel", TextTypeEnum.OPTION),
 	
 	;
 
