@@ -90,6 +90,9 @@ public class ResolveTileAddedShip extends GameState {
 		if (keyCode != KeyCode.Q)
 			return;
 
+		if (this.resolvePhase == ResolvePhase.CHOOSE_GOODS)
+			return;
+
 		super.controller.textManager().concealText();
 		super.controller.flowManager().proceedToNextGameStatePhase();
 
