@@ -16,10 +16,10 @@ public class SaveLoadManager {
 
 		Controller controller = Instances.getControllerInstance();
 
+		addSaveLoadAble(controller.storageSpaceManager());
 		addSaveLoadAble(controller.depotNumberedManager());
 		addSaveLoadAble(controller.depotBlackManager());
 		addSaveLoadAble(controller.victoryPointManager());
-		addSaveLoadAble(controller.storageSpaceManager());
 		addSaveLoadAble(controller.workersManager());
 		addSaveLoadAble(controller.goodsManager());
 		addSaveLoadAble(controller.silverlingManager());

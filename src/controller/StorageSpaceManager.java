@@ -1,6 +1,5 @@
 package controller;
 
-import enums.TileTypeEnum;
 import tiles.Tile;
 import utils.ArrayList;
 import utils.SaveLoadAble;
@@ -112,8 +111,8 @@ public class StorageSpaceManager implements SaveLoadAble {
 
 		for (Tile tile : this.tiles) {
 
-			if (tile.getTileTypeEnum() == TileTypeEnum.BLACK)
-				tile.setVisible(false);
+//			if (tile.getTileTypeEnum() == TileTypeEnum.BLACK)
+			tile.setVisible(false);
 
 			tile.setSelected(false);
 
