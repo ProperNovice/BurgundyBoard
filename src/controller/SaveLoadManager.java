@@ -43,9 +43,9 @@ public class SaveLoadManager {
 
 	public void loadState() {
 
-		for (SaveLoadAble saveLoadAble : this.list) {
-			saveLoadAble.loadState();
-		}
+		for (int counter = 1; counter <= 2; counter++)
+			for (SaveLoadAble saveLoadAble : this.list)
+				saveLoadAble.loadState();
 
 	}
 
