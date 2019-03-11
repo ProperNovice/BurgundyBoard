@@ -43,6 +43,7 @@ public class FlowManager {
 
 	private void createNotUpdatingProgression() {
 		this.notUpdatingProgression.addLast(GameStateEnum.RESOLVE_GRAY_DICE);
+		this.notUpdatingProgression.addLast(GameStateEnum.CHECK_FOR_WIN);
 	}
 
 	public void clearFlow() {

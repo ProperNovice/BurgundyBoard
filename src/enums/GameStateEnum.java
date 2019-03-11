@@ -1,40 +1,6 @@
 package enums;
 
-import gameState.ActionAddTileToYourEstate;
-import gameState.ActionBuyTileFromTheBlackDepot;
-import gameState.ActionTakeTileFromTheGameBoard;
-import gameState.ActionTakeWorkersTiles;
-import gameState.ChooseAnAction;
-import gameState.ChooseDifficulty;
-import gameState.ChooseSpaceForStartingCastle;
-import gameState.ChooseTileToDiscard;
-import gameState.EndGame;
-import gameState.EndOfAction;
-import gameState.EndOfPhase;
-import gameState.GameState;
-import gameState.ProgressionUpdate;
-import gameState.ResolveBuildingBank;
-import gameState.ResolveBuildingBoardingHouse;
-import gameState.ResolveBuildingCarpentersWorkshop;
-import gameState.ResolveBuildingChurch;
-import gameState.ResolveBuildingCityHall;
-import gameState.ResolveBuildingMarket;
-import gameState.ResolveBuildingWatchtower;
-import gameState.ResolveGrayDice;
-import gameState.ResolveGroupActions;
-import gameState.ResolveTileAdded;
-import gameState.ResolveTileAddedAnimal;
-import gameState.ResolveTileAddedBlack;
-import gameState.ResolveTileAddedBuilding;
-import gameState.ResolveTileAddedCastle;
-import gameState.ResolveTileAddedKnowledge;
-import gameState.ResolveTileAddedMine;
-import gameState.ResolveTileAddedShip;
-import gameState.ResolveTileTypeIsCompleted;
-import gameState.ResolveVictoryPointsTargetReached;
-import gameState.StartGame;
-import gameState.StartNewPhase;
-import gameState.StartNewRound;
+import gameState.*;
 
 public enum GameStateEnum {
 
@@ -72,6 +38,7 @@ public enum GameStateEnum {
 	END_OF_PHASE(new EndOfPhase()),
 	PROGRESSION_UPDATE(new ProgressionUpdate()),
 	END_GAME(new EndGame()),
+	CHECK_FOR_WIN(new CheckForWin()),
 
 	;
 
