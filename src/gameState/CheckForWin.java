@@ -7,11 +7,13 @@ public class CheckForWin extends GameState {
 	@Override
 	public void handleGameStateChange() {
 
-		if (!super.controller.playerBoard().playerBoardIsComplete())
-			return;
+		if (super.controller.playerBoard().playerBoardIsComplete()) {
 
-		super.controller.flowManager().clearFlow();
-		super.controller.flowManager().addGameStateResolvingFirst(GameStateEnum.END_GAME);
+			super.controller.flowManager().clearFlow();
+			super.controller.flowManager().addGameStateResolvingFirst(GameStateEnum.END_GAME);
+
+		}
+
 		super.controller.flowManager().proceedToNextGameStatePhase();
 
 	}

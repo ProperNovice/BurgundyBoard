@@ -8,7 +8,7 @@ public class FlowManager {
 
 	private Controller controller = Instances.getControllerInstance();
 	private ArrayList<GameStateEnum> gameStateResolving = new ArrayList<>();
-	private ArrayList<GameStateEnum> notUpdatingProgression = new ArrayList<>();
+	private ArrayList<GameStateEnum> notUpdatingProgressionWin = new ArrayList<>();
 
 	public FlowManager() {
 
@@ -34,16 +34,21 @@ public class FlowManager {
 
 		this.gameStateResolving.addFirst(gameStateEnum);
 
-		if (this.notUpdatingProgression.contains(gameStateEnum))
+		if (this.notUpdatingProgressionWin.contains(gameStateEnum))
 			return;
 
+		this.gameStateResolving.addFirst(GameStateEnum.CHECK_FOR_WIN);
 		this.gameStateResolving.addFirst(GameStateEnum.PROGRESSION_UPDATE);
 
 	}
 
 	private void createNotUpdatingProgression() {
-		this.notUpdatingProgression.addLast(GameStateEnum.RESOLVE_GRAY_DICE);
-		this.notUpdatingProgression.addLast(GameStateEnum.CHECK_FOR_WIN);
+
+		this.notUpdatingProgressionWin.addLast(GameStateEnum.RESOLVE_GRAY_DICE);
+		this.notUpdatingProgressionWin.addLast(GameStateEnum.PROGRESSION_UPDATE);
+		this.notUpdatingProgressionWin.addLast(GameStateEnum.CHECK_FOR_WIN);
+		this.notUpdatingProgressionWin.addLast(GameStateEnum.END_GAME);
+
 	}
 
 	public void clearFlow() {
