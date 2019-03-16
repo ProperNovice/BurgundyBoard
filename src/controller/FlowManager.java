@@ -48,6 +48,7 @@ public class FlowManager {
 		this.notUpdatingProgressionWin.addLast(GameStateEnum.PROGRESSION_UPDATE);
 		this.notUpdatingProgressionWin.addLast(GameStateEnum.CHECK_FOR_WIN);
 		this.notUpdatingProgressionWin.addLast(GameStateEnum.END_GAME);
+		this.notUpdatingProgressionWin.addLast(GameStateEnum.START_NEW_PHASE);
 
 	}
 

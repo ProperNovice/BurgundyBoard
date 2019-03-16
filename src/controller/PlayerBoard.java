@@ -550,6 +550,9 @@ public class PlayerBoard implements EventHandlerAble, SaveLoadAble {
 			if (!boardSpace.containsTile())
 				continue;
 
+			if (boardSpace.getTileContaining().getTileTypeEnum() == TileTypeEnum.BLACK)
+				continue;
+
 			numberOfMines++;
 
 		}
